@@ -3,6 +3,7 @@ import '../styles/header.css';
 import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 import { getUser } from '../services/userAPI';
 import LoadingHeader from './LoadingHeader';
 import SpotifyLogoHeader from '../images/spotifyLogoHeader.png';
@@ -20,6 +21,7 @@ class Header extends Component {
     };
 
     this.catchUser = this.catchUser.bind(this);
+    this.pathVerifier = this.pathVerifier.bind(this);
   }
 
   componentDidMount() {
@@ -51,6 +53,14 @@ class Header extends Component {
         name: user.name,
       };
     });
+  }
+
+  pathVerifier() {
+    const { match: { path } } = this.props;
+    const album = '/album/:id';
+    if (path === album) {
+      return window.location.reload();
+    }
   }
 
   render() {
@@ -135,7 +145,7 @@ class Header extends Component {
                     to={ `/album/${collectionId}` }
                     key={ trackId }
                     className="sideLinkStyle"
-                    onClick={ () => window.location.reload() }
+                    onClick={ () => this.pathVerifier() }
                   >
                     <p className="ellipsis">{trackName}</p>
                   </Link>
@@ -145,9 +155,12 @@ class Header extends Component {
           </div>
         </div>
       </header>
-    // )
     );
   }
 }
+
+Header.propTypes = {
+  path: PropTypes.string,
+}.isRequired;
 
 export default Header;

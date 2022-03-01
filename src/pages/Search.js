@@ -75,7 +75,7 @@ class Search extends Component {
 
     return (
       <div className="headerPattern">
-        <Header />
+        <Header { ...this.props } />
         {
           isLoading && <Loading />
         }

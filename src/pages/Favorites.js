@@ -89,7 +89,7 @@ class Favorites extends Component {
 
     return (
       <div data-testid="page-favorite" className="headerPattern">
-        <Header />
+        <Header { ...this.props } />
         {
           isLoading
             ? <Loading />

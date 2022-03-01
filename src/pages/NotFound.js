@@ -6,7 +6,7 @@ class NotFound extends Component {
     return (
       <div>
         <div className="headerPattern patternPages" data-testid="page-not-found">
-          <Header />
+          <Header { ...this.props } />
           <h1 className="titlePage">NotFound 404 page</h1>
         </div>
       </div>

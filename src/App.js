@@ -31,16 +31,34 @@ class App extends React.Component {
           </Route>
           <Route
             path="/search"
-            component={ Search }
+            // component={ Search }
+            component={ (props) => <Search { ...props } /> }
           />
           <Route
             path="/album/:id"
             component={ (props) => <Album { ...props } /> }
           />
-          <Route path="/favorites" component={ Favorites } />
-          <Route path="/profile/edit" component={ ProfileEdit } />
-          <Route path="/profile" component={ Profile } />
-          <Route exact path="*" component={ NotFound } />
+          <Route
+            path="/favorites"
+            // component={ Favorites }
+            component={ (props) => <Favorites { ...props } /> }
+          />
+          <Route
+            path="/profile/edit"
+            // component={ ProfileEdit }
+            component={ (props) => <ProfileEdit { ...props } /> }
+          />
+          <Route
+            path="/profile"
+            // component={ Profile }
+            component={ (props) => <Profile { ...props } /> }
+          />
+          <Route
+            exact
+            path="*"
+            // component={ NotFound }
+            component={ (props) => <NotFound { ...props } /> }
+          />
         </Switch>
       </BrowserRouter>
     );

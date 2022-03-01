@@ -68,7 +68,7 @@ class MusicCard extends Component {
                 <div className="musicAndArtist">
                   <div className="divToEllipsis">
                     <p className="ellipsis">{ trackName }</p>
-                    <p>{ artistName }</p>
+                    <p className="ellipsis">{ artistName }</p>
                   </div>
                 </div>
 
