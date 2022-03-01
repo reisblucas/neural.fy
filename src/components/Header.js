@@ -22,11 +22,13 @@ class Header extends Component {
 
     this.catchUser = this.catchUser.bind(this);
     this.pathVerifier = this.pathVerifier.bind(this);
+    this.saveUrl = this.saveUrl.bind(this);
   }
 
   componentDidMount() {
     this.catchUser();
     this.fetchFavoriteSongs();
+    this.saveUrl();
   }
 
   fetchFavoriteSongs = async () => {
@@ -55,16 +57,23 @@ class Header extends Component {
     });
   }
 
+  saveUrl() {
+    const { match: { url } } = this.props;
+    this.setState({ url }, () => this.pathVerifier());
+  }
+
   pathVerifier() {
-    const { match: { path } } = this.props;
-    const album = '/album/:id';
-    if (path === album) {
-      return window.location.reload();
+    const { match: { url: urlSideLink } } = this.props;
+    const { url: urlCurrentPage } = this.state;
+
+    if (urlCurrentPage !== urlSideLink) {
+      window.location.reload();
     }
   }
 
   render() {
     const { name, image, isLoading, favoriteSongs } = this.state;
+    console.log(this.props);
 
     return (
       <header className="header-hero" data-testid="header-component">
@@ -145,7 +154,7 @@ class Header extends Component {
                     to={ `/album/${collectionId}` }
                     key={ trackId }
                     className="sideLinkStyle"
-                    onClick={ () => this.pathVerifier() }
+                    onClick={ () => this.saveUrl() }
                   >
                     <p className="ellipsis">{trackName}</p>
                   </Link>
@@ -160,7 +169,7 @@ class Header extends Component {
 }
 
 Header.propTypes = {
-  path: PropTypes.string,
+  url: PropTypes.string,
 }.isRequired;
 
 export default Header;
