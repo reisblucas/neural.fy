@@ -95,7 +95,7 @@
 .divTrackNumber {
   padding: 15px;
   text-align: center;
-  width: 35px;
+  width: 58px;
 }
 
 .musicRow:hover .trackNumber {
@@ -107,7 +107,8 @@
 }
 
 .musicRow:hover .trackPlayIcon {
-  display: block;
+  display: flex;
+  width: 18px;
 }
 
 .musicAndArtist {
