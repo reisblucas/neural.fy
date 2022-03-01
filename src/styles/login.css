@@ -1,0 +1,62 @@
+.page-login {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 70%;
+  justify-content: center;
+  margin: 0 auto;
+  position: fixed;
+  width: 100%;
+}
+
+.login-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputLogin {
+  margin: 0;
+  margin-top: 20px;
+  width: 200px;
+}
+
+/* .loginSubmitButton {
+  width: 208px;
+} */
+
+.login-logo-title {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.login-logo-title img {
+  width: 350px;
+}
+
+.login-name {
+  margin: 0;
+}
+
+.loginSubmitButton {
+  align-self: center;
+  border-radius: 2px;
+  color: black;
+  margin-top: 15px;
+  width: 207.5px;
+}
+
+.loginSubmitButtonDisabled {
+  background-color: #004120;
+  border: 2px #004120 solid;
+}
+
+.loginSubmitButtonEnabled {
+  background-color: #00d96c;
+  border: 2px #00d96c solid;
+}
+
+.loginSubmitButton:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,33 @@
+.titlePage {
+  font-size: 50px;
+}
+
+.formContainer {
+  margin: 0 auto;
+  width: 500px;
+}
+
+.formEdit {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}
+
+.formEdit label {
+  margin: 15px 0;
+}
+
+.formEdit label > input {
+  width: 500px;
+}
+
+.buttonEditProfile {
+  align-self: center;
+  background-color: #00d96c;
+  border: 2px #00d96c solid;
+  border-radius: 2px;
+}
+
+.buttonEditProfile:hover {
+  cursor: pointer;
+}

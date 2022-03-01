@@ -1,0 +1,51 @@
+.blocksHeader {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.blockHeader {
+
+  --sz: 8vmin;
+
+  --tX: 0;
+
+  --animation: 700ms cubic-bezier(0.3, 0.5, 0.4, 0.9) infinite alternate-reverse;
+
+  --hm: 3.5vmin;
+  background-image: var(--bg);
+  border-radius: 50%;
+  height: 15px;
+  mix-blend-mode: lighten;
+  transform: translateX(var(--tX));
+  width: 15px;
+}
+
+.whiteHeader {
+
+  --bg: linear-gradient(-50deg, white 0%, #d1d1d1 100%);
+  animation: attract-whiteHeader var(--animation);
+  margin-right: var(--hm);
+}
+
+.greenHeader {
+
+  --bg: linear-gradient(50deg, #00ba5e 0%, #b9ffdc 100%);
+  animation: attract-greenHeader var(--animation);
+  margin-left: var(--hm);
+}
+
+@keyframes attract-whiteHeader {
+
+  to {
+    transform: translateX(calc(var(--sz) + calc(var(--hm) / 4)));
+  }
+}
+
+@keyframes attract-greenHeader {
+
+  to {
+    transform: translateX(calc(var(--sz) * -1 - calc(var(--hm) / 4)));
+  }
+}

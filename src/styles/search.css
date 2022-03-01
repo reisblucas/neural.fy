@@ -1,0 +1,45 @@
+.headerPattern {
+  display: flex;
+}
+
+/* .test {
+  width: 100%;
+} */
+
+.search-hero {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+}
+
+.search-hero label {
+  height: 35px;
+  margin: 0;
+}
+
+.inputSearch {
+  border: 2px solid white;
+  border-radius: 10px 0 0 10px;
+  border-right: 2px solid black;
+  height: 29px;
+  width: 25vw;
+}
+
+.inputSearch:focus {
+  outline: none;
+}
+
+.buttonSearch {
+  align-self: center;
+  background-color: #00d96c;
+  border: 2px #00d96c solid;
+  border-radius: 0 10px 10px 0;
+  color: black;
+  font-size: 15px;
+  height: 35px;
+}
+
+.buttonSearch:hover {
+  cursor: pointer;
+}

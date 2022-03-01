@@ -1,0 +1,13 @@
+/*
+  Tive de fazer isso no app para grudar a página no canto
+*/
+
+body {
+  background-color: #121212;
+  color: white;
+  font-weight: 400;
+  margin: 0;
+  margin-top: 0;
+  padding: 0;
+  top: 0;
+}
