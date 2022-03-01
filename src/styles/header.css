@@ -83,6 +83,7 @@
   color: #b3b3b3;
   padding: 10px;
   text-decoration: none;
+  transition: 500ms;
   width: 30%;
 }
 
@@ -115,6 +116,7 @@
 .sideLinkStyle {
   border-radius: 4px;
   color: #b3b3b3;
+  cursor: default;
   padding: 5px;
   text-decoration: none;
   width: 30%;

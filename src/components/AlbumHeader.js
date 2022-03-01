@@ -4,7 +4,7 @@ import AlbumHeaderDetails from './AlbumHeaderDetails';
 
 export default class AlbumHeader extends Component {
   render() {
-    const { album: { collectionName, artworkUrl100 } } = this.props;
+    const { album: { artistName, collectionName, artworkUrl100 } } = this.props;
 
     return (
       <section
@@ -15,7 +15,10 @@ export default class AlbumHeader extends Component {
         <div className="contentAlbum">
           <div className="albumTitle">
             <div className="albumImage">
-              <img src={ artworkUrl100 } alt="" />
+              <img
+                src={ artworkUrl100.replace('100x100bb.jpg', '600x600bb.jpg') }
+                alt={ `Album cover of ${artistName}` }
+              />
             </div>
             <div className="albumDetails">
               <h6 className="albumTitleFixed">ALBUM</h6>
