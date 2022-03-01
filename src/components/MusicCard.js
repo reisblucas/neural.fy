@@ -95,9 +95,6 @@ class MusicCard extends Component {
                           onChange={ () => {
                             handleCheck(artist, trackId);
                           } }
-                          // checked={
-                          //   checked.includes(trackId) || favoriteSongs.includes(trackId)
-                          // } // requisito 8 só passou dessa forma
                           checked={ checkedAndFavorite.includes(trackId) }
                           hidden
                         />
@@ -114,9 +111,6 @@ class MusicCard extends Component {
                           onChange={ () => {
                             handleCheck(artist, trackId);
                           } }
-                          // checked={
-                          //   checked.includes(trackId) || favoriteSongs.includes(trackId)
-                          // } // requisito 8 só passou dessa forma
                           checked={ checkedAndFavorite.includes(trackId) }
                           hidden
                         />

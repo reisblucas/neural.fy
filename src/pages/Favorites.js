@@ -40,7 +40,6 @@ class Favorites extends Component {
     if (checkedAndFavorite.includes(id)) {
       this.handleLoad();
       await removeSong(artist);
-      // this.handleLoad(); // estava crashando o meu código e rodando um loading a mais
 
       await this.getFavoriteAndRemoveFromList();
     }

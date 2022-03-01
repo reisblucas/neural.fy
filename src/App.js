@@ -14,17 +14,7 @@ class App extends React.Component {
     super();
 
     this.handleLoad = this.handleLoad.bind(this);
-
-    // this.state = {
-    //   isLoading: true,
-    // };
   }
-
-  // componentDidMount() {
-  //   this.setState({
-  //     isLoading: false,
-  //   });
-  // }
 
   handleLoad() {
     this.setState((prevState) => ({
