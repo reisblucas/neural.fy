@@ -93,7 +93,7 @@ class ProfileEdit extends Component {
     } = this.state;
 
     return (
-      <div data-testid="page-search" className="headerPattern">
+      <div className="headerPattern">
         <Header />
 
         {

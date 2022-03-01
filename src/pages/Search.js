@@ -74,12 +74,12 @@ class Search extends Component {
     } = this.state;
 
     return (
-      <div data-testid="page-search" className="headerPattern">
+      <div className="headerPattern">
         <Header />
         {
           isLoading && <Loading />
         }
-        <div className="patternPages">
+        <div data-testid="page-search" className="patternPages">
           <div className="search-hero">
             <Input
               type="text"

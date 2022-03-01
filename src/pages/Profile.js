@@ -39,7 +39,7 @@ class Profile extends Component {
     const { userLoad: { name, email, image, description }, isLoading } = this.state;
 
     return (
-      <div data-testid="page-search" className="headerPattern">
+      <div className="headerPattern">
         <Header />
 
         {

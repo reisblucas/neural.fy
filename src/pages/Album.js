@@ -95,13 +95,13 @@ class Album extends Component {
       album: { artistName }, isLoading } = this.state;
 
     return (
-      <div data-testid="page-album" className="headerPattern">
+      <div className="headerPattern">
         <Header />
         {
           isLoading
             ? <Loading />
             : (
-              <section className="album">
+              <section data-testid="page-album" className="album">
                 <AlbumHeader { ...this.state } />
 
                 <section className="patternPages albumContent gradContent">

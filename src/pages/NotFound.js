@@ -5,8 +5,8 @@ class NotFound extends Component {
   render() {
     return (
       <div>
-        <Header />
-        <div className="patternPages" data-testid="page-not-found">
+        <div className="headerPattern patternPages" data-testid="page-not-found">
+          <Header />
           <h1 className="titlePage">NotFound 404 page</h1>
         </div>
       </div>
