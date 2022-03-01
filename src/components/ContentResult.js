@@ -37,7 +37,7 @@ export default class ContentResult extends Component {
                       <div className="imageCard">
                         <img
                           className="imageInsideCard"
-                          src={ artworkUrl100 }
+                          src={ artworkUrl100.replace('100x100bb.jpg', '600x600bb.jpg') }
                           alt={ `Artwork of music ${collectionName}` }
                         />
                       </div>
