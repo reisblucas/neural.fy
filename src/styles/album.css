@@ -76,7 +76,8 @@
 .listMusic {
   display: flex;
   flex-direction: column;
-  width: 100%;
+
+  /* width: 100%; */
 }
 
 .musicRow {
@@ -84,21 +85,34 @@
   border-radius: 5px;
   display: flex;
   flex-direction: row;
+  height: 56px;
   justify-content: space-between;
   padding: 5px;
 }
 
-.musicRow:hover {
+.notFocusable {
+  pointer-events: none;
+}
+
+.focusable {
+  cursor: pointer;
+}
+
+.focusMusicRow:hover {
   background-color: #282828;
 }
 
 .divTrackNumber {
   padding: 15px;
   text-align: center;
-  width: 58px;
+  width: 2%;
 }
 
-.musicRow:hover .trackNumber {
+.selectedMusic .trackNumber {
+  display: none;
+}
+
+.focusMusicRow:hover .trackNumber {
   display: none;
 }
 
@@ -106,31 +120,50 @@
   display: none;
 }
 
-.musicRow:hover .trackPlayIcon {
-  display: flex;
-  width: 18px;
+
+.selectedMusic .trackPlayIcon {
+  display: block;
+  font-size: 15px;
+  margin: 0 auto;
+}
+
+.focusMusicRow:hover .trackPlayIcon {
+  display: block;
+  font-size: 15px;
+  margin: 0 auto;
+}
+
+.selectedMusic {
+  background-color: #5a5a5a;
+  border-radius: 5px;
+}
+
+.selectedMusic:hover {
+  background-color: #5a5a5a;
+}
+
+.miniAlbumImage {
+  height: 40px;
+  width: 40px;
 }
 
 .musicAndArtist {
-  width: 100%;
+  width: 50%;
 }
 
 .divToEllipsis {
   width: 70%;
 }
 
-.previewMusic {
-  width: 100%;
-}
-
 audio {
   color: black;
-  width: 180px;
+  width: 50%;
 }
 
 .previewFavorite {
+  pointer-events: auto;
   text-align: center;
-  width: 50%;
+  width: 10%;
 }
 
 .heartColor {
@@ -139,4 +172,5 @@ audio {
 
 .musicDuration {
   padding: 15px;
+  width: 10%;
 }

@@ -92,7 +92,6 @@ class Album extends Component {
 
   render() {
     const { album: { artistName }, isLoading } = this.state;
-    console.log(this.props);
 
     return (
       <div className="headerPattern">

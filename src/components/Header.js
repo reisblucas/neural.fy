@@ -73,7 +73,6 @@ class Header extends Component {
 
   render() {
     const { name, image, isLoading, favoriteSongs } = this.state;
-    console.log(this.props);
 
     return (
       <header className="header-hero" data-testid="header-component">

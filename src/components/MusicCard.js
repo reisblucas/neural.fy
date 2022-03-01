@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 class MusicCard extends Component {
-  convertMillsToMin(ms) {
+  convertMillsToMin = (ms) => {
     const THOUSAND = 1000;
     const SIXTY = 60;
 
@@ -13,7 +13,7 @@ class MusicCard extends Component {
     return minutesHouse;
   }
 
-  convertMillsToSeconds(ms) {
+  convertMillsToSeconds = (ms) => {
     const THOUSAND = 1000;
     const SIXTY = 60;
 
@@ -26,6 +26,29 @@ class MusicCard extends Component {
       return verifier.join('');
     }
     return secondsHouse;
+  }
+
+  playAudio = ({ currentTarget }) => {
+    const url = currentTarget.attributes.name.value;
+    const players = document.querySelectorAll('audio');
+
+    players.forEach((player) => {
+      player.pause();
+      player.volume = 0.2;
+      return player.id === url ? player.play() : null;
+    });
+  }
+
+  placeSelectedClass = ({ target }) => {
+    const classToFind = document.querySelector('.selectedMusic');
+
+    const addClass = target.classList.add('selectedMusic');
+
+    if (classToFind) {
+      const excClass = classToFind.classList.remove('selectedMusic');
+      return excClass && addClass;
+    }
+    return addClass;
   }
 
   render() {
@@ -43,7 +66,7 @@ class MusicCard extends Component {
               // artistId,
               artistName,
               // artworkUrl30,
-              // artworkUrl60,
+              artworkUrl60,
               // artworkUrl100,
               // collectionCensoredName,
               // collectionExplicitness,
@@ -59,67 +82,103 @@ class MusicCard extends Component {
 
             return (
 
-              <div key={ trackId } className="musicRow">
-                <div className="divTrackNumber">
-                  <p className="trackNumber">{ trackNumber }</p>
-                  <FontAwesomeIcon icon={ faPlay } className="trackPlayIcon" />
-                </div>
+              <div
+                className="focusMusicRow"
+                role="button"
+                key={ trackId }
+                // className="musicRow"
+                onClick={ (e) => this.placeSelectedClass(e) }
+              >
+                <div className="musicRow notFocusable">
+                  <div className="divTrackNumber">
+                    <p className="trackNumber">{ trackNumber }</p>
+                    <label htmlFor={ previewUrl }>
+                      <FontAwesomeIcon
+                        name={ previewUrl }
+                        icon={ faPlay }
+                        className="trackPlayIcon focusable"
+                        onClick={ (e) => {
+                          console.log('cliquei');
+                          this.playAudio(e);
+                        } }
+                      />
+                    </label>
 
-                <div className="musicAndArtist">
-                  <div className="divToEllipsis">
-                    <p className="ellipsis">{ trackName }</p>
-                    <p className="ellipsis">{ artistName }</p>
                   </div>
-                </div>
 
-                <div className="previewMusic">
-                  <audio data-testid="audio-component" src={ previewUrl } controls>
-                    <track kind="captions" />
-                    O seu navegador não suporta o elemento
-                    {' '}
-                    <code>audio</code>
-                    .
-                  </audio>
-                </div>
+                  <div className="miniAlbumImage">
+                    <img
+                      src={ artworkUrl60 }
+                      alt="mini album pic"
+                      className="miniAlbumImage"
+                    />
+                  </div>
 
-                {
-                  checkedAndFavorite.includes(trackId)
-                    ? (
-                      <label htmlFor={ trackId } className="previewFavorite">
-                        <FontAwesomeIcon icon={ faHeart } className="heartColor" />
-                        <input
-                          type="checkbox"
-                          name=""
-                          id={ trackId }
-                          data-testid={ `checkbox-music-${trackId}` }
-                          onChange={ () => {
-                            handleCheck(artist, trackId);
-                          } }
-                          checked={ checkedAndFavorite.includes(trackId) }
-                          hidden
-                        />
-                      </label>
-                    )
-                    : (
-                      <label htmlFor={ trackId } className="previewFavorite">
-                        <FontAwesomeIcon icon={ faHeart } />
-                        <input
-                          type="checkbox"
-                          name=""
-                          id={ trackId }
-                          data-testid={ `checkbox-music-${trackId}` }
-                          onChange={ () => {
-                            handleCheck(artist, trackId);
-                          } }
-                          checked={ checkedAndFavorite.includes(trackId) }
-                          hidden
-                        />
-                      </label>
-                    )
-                }
+                  <div className="musicAndArtist">
+                    <div className="divToEllipsis">
+                      <p className="ellipsis">{ trackName }</p>
+                      <p className="ellipsis">{ artistName }</p>
+                    </div>
+                  </div>
 
-                <div className="musicDuration">
-                  <p>{ `${minutes}:${seconds}` }</p>
+                  <div className="previewMusic">
+                    <audio
+                      id={ previewUrl }
+                      data-testid="audio-component"
+                      src={ previewUrl }
+                      controls
+                      hidden
+                    >
+                      <track kind="captions" />
+                      O seu navegador não suporta o elemento
+                      {' '}
+                      <code>audio</code>
+                      .
+                    </audio>
+                  </div>
+
+                  {
+                    checkedAndFavorite.includes(trackId)
+                      ? (
+                        <label htmlFor={ trackId } className="previewFavorite">
+                          <FontAwesomeIcon
+                            icon={ faHeart }
+                            className="focusable heartColor"
+                          />
+                          <input
+                            type="checkbox"
+                            name=""
+                            id={ trackId }
+                            data-testid={ `checkbox-music-${trackId}` }
+                            onChange={ () => {
+                              handleCheck(artist, trackId);
+                            } }
+                            checked={ checkedAndFavorite.includes(trackId) }
+                            hidden
+                          />
+                        </label>
+                      )
+                      : (
+                        <label htmlFor={ trackId } className="previewFavorite">
+                          <FontAwesomeIcon icon={ faHeart } className="focusable" />
+                          <input
+                            type="checkbox"
+                            name=""
+                            id={ trackId }
+                            data-testid={ `checkbox-music-${trackId}` }
+                            onChange={ () => {
+                              handleCheck(artist, trackId);
+                            } }
+                            checked={ checkedAndFavorite.includes(trackId) }
+                            hidden
+                          />
+                        </label>
+                      )
+                  }
+
+                  <div className="musicDuration">
+                    <p>{ `${minutes}:${seconds}` }</p>
+                  </div>
                 </div>
               </div>
             );
