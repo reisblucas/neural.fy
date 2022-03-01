@@ -36,17 +36,20 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/neur4l.fy/">
             <Login { ...this.state } handleLoad={ this.handleLoad } />
           </Route>
           <Route
             path="/search"
             component={ Search }
           />
-          <Route path="/album/:id" component={ (props) => <Album { ...props } /> } />
-          <Route path="/favorites" component={ Favorites } />
-          <Route path="/profile/edit" component={ ProfileEdit } />
-          <Route path="/profile" component={ Profile } />
+          <Route
+            path="/neur4l.fy/album/:id"
+            component={ (props) => <Album { ...props } /> }
+          />
+          <Route path="/neur4l.fy/favorites" component={ Favorites } />
+          <Route path="/neur4l.fy/profile/edit" component={ ProfileEdit } />
+          <Route path="/neur4l.fy/profile" component={ Profile } />
           <Route exact path="*" component={ NotFound } />
         </Switch>
       </BrowserRouter>
