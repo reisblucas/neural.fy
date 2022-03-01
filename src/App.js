@@ -44,12 +44,12 @@ class App extends React.Component {
             component={ Search }
           />
           <Route
-            path="/neur4l.fy/album/:id"
+            path="/album/:id"
             component={ (props) => <Album { ...props } /> }
           />
-          <Route path="/neur4l.fy/favorites" component={ Favorites } />
-          <Route path="/neur4l.fy/profile/edit" component={ ProfileEdit } />
-          <Route path="/neur4l.fy/profile" component={ Profile } />
+          <Route path="/favorites" component={ Favorites } />
+          <Route path="/profile/edit" component={ ProfileEdit } />
+          <Route path="/profile" component={ Profile } />
           <Route exact path="*" component={ NotFound } />
         </Switch>
       </BrowserRouter>
