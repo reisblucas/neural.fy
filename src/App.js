@@ -34,9 +34,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <BrowserRouter>
+      <BrowserRouter basename="/neur4l.fy">
         <Switch>
-          <Route exact path="/neur4l.fy/">
+          <Route exact path="/">
             <Login { ...this.state } handleLoad={ this.handleLoad } />
           </Route>
           <Route
