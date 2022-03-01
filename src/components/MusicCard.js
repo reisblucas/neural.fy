@@ -96,12 +96,28 @@ class MusicCard extends Component {
                       <FontAwesomeIcon
                         name={ previewUrl }
                         icon={ faPlay }
-                        className="trackPlayIcon focusable"
+                        tabIndex="1"
+                        className="focusable trackPlayIcon"
                         onClick={ (e) => {
                           console.log('cliquei');
                           this.playAudio(e);
                         } }
                       />
+                      <div className="previewMusic">
+                        <audio
+                          id={ previewUrl }
+                          data-testid="audio-component"
+                          src={ previewUrl }
+                          controls
+                          hidden
+                        >
+                          <track kind="captions" />
+                          O seu navegador não suporta o elemento
+                          {' '}
+                          <code>audio</code>
+                          .
+                        </audio>
+                      </div>
                     </label>
 
                   </div>
@@ -119,22 +135,6 @@ class MusicCard extends Component {
                       <p className="ellipsis">{ trackName }</p>
                       <p className="ellipsis">{ artistName }</p>
                     </div>
-                  </div>
-
-                  <div className="previewMusic">
-                    <audio
-                      id={ previewUrl }
-                      data-testid="audio-component"
-                      src={ previewUrl }
-                      controls
-                      hidden
-                    >
-                      <track kind="captions" />
-                      O seu navegador não suporta o elemento
-                      {' '}
-                      <code>audio</code>
-                      .
-                    </audio>
                   </div>
 
                   {
@@ -160,7 +160,7 @@ class MusicCard extends Component {
                       )
                       : (
                         <label htmlFor={ trackId } className="previewFavorite">
-                          <FontAwesomeIcon icon={ faHeart } className="focusable" />
+                          <FontAwesomeIcon icon={ faHeart } className="heartIcon" />
                           <input
                             type="checkbox"
                             name=""

@@ -94,9 +94,17 @@
   pointer-events: none;
 }
 
-.focusable {
+/* .focusable {
   cursor: pointer;
+} */
+
+.divTrackNumber label svg {
+  pointer-events: auto;
 }
+
+/* .focusMusicRow {
+  cursor: pointer;
+} */
 
 .focusMusicRow:hover {
   background-color: #282828;
@@ -132,6 +140,20 @@
   font-size: 15px;
   margin: 0 auto;
 }
+
+.heartIcon {
+  visibility: hidden;
+}
+
+.focusMusicRow:hover .heartIcon {
+  color: #b3b3b3;
+  visibility: visible;
+}
+
+.focusMusicRow .heartIcon:hover {
+  color: white;
+}
+
 
 .selectedMusic {
   background-color: #5a5a5a;
