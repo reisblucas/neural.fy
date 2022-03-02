@@ -19,10 +19,10 @@ export default class ButtonPlay extends Component {
         {
           path === favoritesPath
             ? (
-              <p className="trackNumber">{ i + 1 }</p>
+              <p className="trackNumber font-link">{ i + 1 }</p>
             )
             : (
-              <p className="trackNumber">{ trackNumber }</p>
+              <p className="trackNumber font-link">{ trackNumber }</p>
             )
         }
         <label htmlFor={ previewUrl }>

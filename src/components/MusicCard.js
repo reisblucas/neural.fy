@@ -195,7 +195,7 @@ class MusicCard extends Component {
                         )
                     }
                     <div className="musicDuration">
-                      <p>{ `${minutes}:${seconds}` }</p>
+                      <p className="artistName font-link">{ `${minutes}:${seconds}` }</p>
                     </div>
                   </div>
 

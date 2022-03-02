@@ -47,3 +47,7 @@ p:hover {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.font-link {
+  font-family: 'Montserrat', sans-serif;
+}
