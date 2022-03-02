@@ -141,7 +141,10 @@ class MusicCard extends Component {
                 className="focusMusicRow"
                 role="button"
                 key={ trackId }
+                tabIndex="-1"
                 onClick={ (e) => this.placeSelectedClass(e) }
+                onKeyPress={ () => {} }
+                aria-hidden="true"
               >
                 <div className="musicRow notFocusable">
                   <ButtonPlay
@@ -150,6 +153,7 @@ class MusicCard extends Component {
                     trackNumber={ trackNumber }
                     previewUrl={ previewUrl }
                     i={ i }
+                    playAudio={ this.playAudio }
                   />
 
                   <div className="miniAlbumImage">

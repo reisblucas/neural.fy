@@ -11,6 +11,7 @@ export default class ButtonPlay extends Component {
       trackNumber,
       previewUrl,
       i,
+      playAudio,
     } = this.props;
 
     return (
@@ -29,7 +30,7 @@ export default class ButtonPlay extends Component {
             name={ previewUrl }
             icon={ faPlay }
             className="focusable trackPlayIcon"
-            onClick={ (e) => this.playAudio(e) }
+            onClick={ (e) => playAudio(e) }
           />
           <div className="previewMusic">
             <audio
@@ -58,4 +59,5 @@ ButtonPlay.propTypes = {
   path: PropTypes.string,
   previewUrl: PropTypes.string,
   trackNumber: PropTypes.string,
+  playAudio: PropTypes.func,
 }.isRequired;
