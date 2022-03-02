@@ -56,6 +56,7 @@ class MusicCard extends Component {
     const {
       albumTracks,
       handleCheck,
+      handleReload,
       checkedAndFavorite,
       match: { path },
     } = this.props;
@@ -227,6 +228,7 @@ class MusicCard extends Component {
                               data-testid={ `checkbox-music-${trackId}` }
                               onChange={ () => {
                                 handleCheck(artist, trackId);
+                                handleReload();
                               } }
                               checked={ checkedAndFavorite.includes(trackId) }
                               hidden
@@ -243,6 +245,7 @@ class MusicCard extends Component {
                               data-testid={ `checkbox-music-${trackId}` }
                               onChange={ () => {
                                 handleCheck(artist, trackId);
+                                handleReload();
                               } }
                               checked={ checkedAndFavorite.includes(trackId) }
                               hidden

@@ -15,12 +15,14 @@ class Favorites extends Component {
     this.handleLoad = this.handleLoad.bind(this);
     this.filterChecked = this.filterChecked.bind(this);
     this.favoriteHeader = this.favoriteHeader.bind(this);
+    this.handleReload = this.handleReload.bind(this);
 
     this.state = ({
       isLoading: true,
       albumTracks: [],
       checkedAndFavorite: [],
       album: {},
+      forceReload: false,
     });
   }
 
@@ -32,6 +34,14 @@ class Favorites extends Component {
   handleLoad = () => {
     this.setState((prevState) => ({
       isLoading: !prevState.isLoading,
+    }));
+  }
+
+  handleReload() {
+    const { forceReload } = this.state;
+    console.log('ativei o handleReload // reload status', forceReload);
+    this.setState((prevState) => ({
+      forceReload: !prevState.forceReload,
     }));
   }
 
@@ -89,7 +99,11 @@ class Favorites extends Component {
 
     return (
       <div data-testid="page-favorite" className="headerPattern">
-        <Header { ...this.props } />
+        <Header
+          { ...this.props }
+          { ...this.state }
+          handleReload={ this.handleReload }
+        />
         {
           isLoading
             ? <Loading />
@@ -102,6 +116,7 @@ class Favorites extends Component {
                     { ...this.props }
                     { ...this.state }
                     handleCheck={ this.handleCheck }
+                    handleReload={ this.handleReload }
                   />
                 </section>
               </section>

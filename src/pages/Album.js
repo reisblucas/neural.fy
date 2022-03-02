@@ -16,6 +16,7 @@ class Album extends Component {
     this.handleLoad = this.handleLoad.bind(this);
     this.fetchMusic = this.fetchMusic.bind(this);
     this.fetchFavoriteSongs = this.fetchFavoriteSongs.bind(this);
+    this.handleReload = this.handleReload.bind(this);
 
     this.state = {
       isLoading: true,
@@ -25,6 +26,8 @@ class Album extends Component {
       favoriteSongs: [],
       checkedAndFavorite: [],
       albumTrackTime: [],
+      forceReload: false,
+      isHeaderLoading: false,
     };
   }
 
@@ -47,6 +50,22 @@ class Album extends Component {
     this.setState((prevState) => ({
       isLoading: !prevState.isLoading,
     }));
+  }
+
+  handleReload() {
+    const { forceReload } = this.state;
+    console.log('ativei o handleReload // reload status', forceReload);
+    this.setState((prevState) => ({
+      forceReload: !prevState.forceReload,
+    }));
+  }
+
+  handleHeaderLoadingStatus(status) {
+    const { isHeaderLoading } = this.state;
+    console.log('isHeaderLoading', isHeaderLoading);
+    this.setState({
+      isHeaderLoading: status,
+    });
   }
 
   async handleCheck(artist, id) {
@@ -91,11 +110,16 @@ class Album extends Component {
   }
 
   render() {
-    const { album: { artistName }, isLoading } = this.state;
+    const { album: { artistName }, isLoading, forceReload } = this.state;
+    console.log('force Reload status', forceReload);
 
     return (
       <div className="headerPattern">
-        <Header { ...this.props } />
+        <Header
+          { ...this.props }
+          { ...this.state }
+          handleReload={ this.handleReload }
+        />
         {
           isLoading
             ? <Loading />
@@ -110,6 +134,7 @@ class Album extends Component {
                     { ...this.props }
                     handleCheck={ this.handleCheck }
                     handleLoad={ this.handleLoad }
+                    handleReload={ this.handleReload }
                   />
                 </section>
               </section>

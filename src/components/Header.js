@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import '../styles/header.css';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getUser } from '../services/userAPI';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import SidebarHeaderTopside from './SidebarHeaderTopside';
+import FavSideList from './FavSideList';
 
 class Header extends Component {
   constructor() {
     super();
+
+    console.log('linee 1333333333333', this.props);
 
     this.state = {
       isLoading: true,
@@ -20,6 +22,7 @@ class Header extends Component {
     this.catchUser = this.catchUser.bind(this);
     this.pathVerifier = this.pathVerifier.bind(this);
     this.saveUrl = this.saveUrl.bind(this);
+    this.forceReloadVerifier = this.forceReloadVerifier.bind(this);
   }
 
   componentDidMount() {
@@ -68,8 +71,26 @@ class Header extends Component {
     }
   }
 
+  forceReloadVerifier() {
+    const { forceReload, handleReload } = this.props;
+    const ms500 = 500;
+
+    if (forceReload) {
+      this.setState((prevState) => ({
+        reload: !prevState.reload,
+        isLoading: true,
+      }), () => {
+        this.fetchFavoriteSongs();
+        setTimeout(() => this.setState({ isLoading: false }), ms500);
+      });
+      handleReload();
+    }
+  }
+
   render() {
-    const { favoriteSongs } = this.state;
+    const { favoriteSongs, isLoading } = this.state;
+    console.log('reloaded', this.props);
+    this.forceReloadVerifier();
 
     return (
       <header className="header-hero" data-testid="header-component">
@@ -78,23 +99,20 @@ class Header extends Component {
         <hr className="sideBarHorizontalRow" />
 
         <div className="sideFavSongsContainer">
-          <div className="favList">
-            {
-              favoriteSongs.map((song) => {
-                const { collectionId, trackId, trackName } = song;
-                return (
-                  <Link
-                    to={ `/album/${collectionId}` }
-                    key={ trackId }
-                    className="sideLinkStyle"
-                    onClick={ () => this.saveUrl() }
-                  >
-                    <p className="ellipsis">{trackName}</p>
-                  </Link>
-                );
-              })
-            }
-          </div>
+
+          {
+            isLoading
+              ? (
+                <FavSideList
+                  favoriteSongs={ favoriteSongs }
+                />
+              )
+              : (
+                <FavSideList
+                  favoriteSongs={ favoriteSongs }
+                />
+              )
+          }
         </div>
       </header>
     );
