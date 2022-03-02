@@ -67,6 +67,7 @@
 
 .albumContent {
   padding: 20px 40px;
+  /* width: 100%; */
 }
 
 .gradContent {
@@ -86,7 +87,7 @@
   display: flex;
   flex-direction: row;
   height: 56px;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 5px;
 }
 
@@ -187,7 +188,7 @@
 }
 
 .albumFilter {
-  width: 40%;
+  width: 20%;
 }
 
 .divToEllipsis {
@@ -202,7 +203,7 @@ audio {
 .previewFavorite {
   pointer-events: auto;
   text-align: center;
-  width: 10%;
+  width: 20%;
 }
 
 .heartColor {
@@ -211,5 +212,28 @@ audio {
 
 .musicDuration {
   padding: 15px;
+  width: 20%;
+}
+
+.titleFlex {
+  display: flex;
+}
+
+.timeFilter {
+  width: 25%;
+}
+
+.filterRigth {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
   width: 10%;
+}
+
+.filterRigthAlbum {
+  width: 30%;
+}
+
+.sizeContent {
+  /* width: 100%; */
 }

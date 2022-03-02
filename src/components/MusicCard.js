@@ -60,6 +60,7 @@ class MusicCard extends Component {
     } = this.props;
 
     console.log(this.props);
+    const favoritesPath = '/favorites';
 
     return (
       <div className="listMusic">
@@ -69,29 +70,58 @@ class MusicCard extends Component {
             <p className="withoutHover albumFilters">#</p>
           </div>
 
-          {/* <div className='miniAlbumImage'>
-          </div> */}
+          {
+            path === favoritesPath
+            && (
+              <div className="miniAlbumImage" />
+            )
+          }
 
-          <div className="musicAndArtist titleFilter">
+          <div className="musicAndArtist">
             <p className="albumFilters">TITLE</p>
           </div>
 
           {
-            path === '/favorites'
-            && (
-              <div className="albumFilter">
-                <p className="albumFilters">ALBUM</p>
-              </div>
-            )
+            path === favoritesPath
+              ? (
+                <div className="albumFilter">
+                  <p className="albumFilters">ALBUM</p>
+                </div>
+              )
+              : (
+                <div className="albumFilter" />
+              )
           }
 
-          <div className="previewFavorite" />
+          {
+            path === favoritesPath
+              ? (
+                <div className="filterRigth">
+                  <div className="previewFavorite" />
+                  <div className="timeFilter">
+                    <p className="albumFilters">
+                      <FontAwesomeIcon icon={ faClock } />
+                    </p>
+                  </div>
+                </div>
+              )
+              : (
+                <div className="filterRigthAlbum">
+                  <div className="previewFavorite" />
+                  <div className="musicDuration">
+                    <p className="albumFilters">
+                      <FontAwesomeIcon icon={ faClock } />
+                    </p>
+                  </div>
+                </div>
+              )
+          }
 
-          <div className="timeFilter musicDuration">
+          {/* <div className="musicDuration">
             <p className="albumFilters">
               <FontAwesomeIcon icon={ faClock } />
             </p>
-          </div>
+          </div> */}
 
         </div>
         <hr className="horizontalRow" />
@@ -127,7 +157,7 @@ class MusicCard extends Component {
                 <div className="musicRow notFocusable">
                   <div className="divTrackNumber">
                     {
-                      path === '/favorites'
+                      path === favoritesPath
                         ? (
                           <p className="trackNumber">{ i + 1 }</p>
                         )
@@ -179,55 +209,62 @@ class MusicCard extends Component {
                     </div>
                   </div>
 
-                  {/* <div className="albumFilter">
-                    <div className="divToEllipsis">
-
-                      <p className="ellipsis">{collectionName}</p>
-                    </div>
-                  </div> */}
-
                   {
-                    checkedAndFavorite.includes(trackId)
-                      ? (
-                        <label htmlFor={ trackId } className="previewFavorite">
-                          <FontAwesomeIcon
-                            icon={ faHeart }
-                            className="focusable heartColor"
-                          />
-                          <input
-                            type="checkbox"
-                            name=""
-                            id={ trackId }
-                            data-testid={ `checkbox-music-${trackId}` }
-                            onChange={ () => {
-                              handleCheck(artist, trackId);
-                            } }
-                            checked={ checkedAndFavorite.includes(trackId) }
-                            hidden
-                          />
-                        </label>
-                      )
-                      : (
-                        <label htmlFor={ trackId } className="previewFavorite">
-                          <FontAwesomeIcon icon={ faHeart } className="heartIcon" />
-                          <input
-                            type="checkbox"
-                            name=""
-                            id={ trackId }
-                            data-testid={ `checkbox-music-${trackId}` }
-                            onChange={ () => {
-                              handleCheck(artist, trackId);
-                            } }
-                            checked={ checkedAndFavorite.includes(trackId) }
-                            hidden
-                          />
-                        </label>
-                      )
+                    path === favoritesPath
+                    && (
+                      <div className="albumFilter">
+                        <div className="divToEllipsis">
+
+                          <p className="ellipsis">{collectionName}</p>
+                        </div>
+                      </div>
+                    )
                   }
 
-                  <div className="musicDuration">
-                    <p>{ `${minutes}:${seconds}` }</p>
+                  <div className="filterRigth">
+                    {
+                      checkedAndFavorite.includes(trackId)
+                        ? (
+                          <label htmlFor={ trackId } className="previewFavorite">
+                            <FontAwesomeIcon
+                              icon={ faHeart }
+                              className="focusable heartColor"
+                            />
+                            <input
+                              type="checkbox"
+                              name=""
+                              id={ trackId }
+                              data-testid={ `checkbox-music-${trackId}` }
+                              onChange={ () => {
+                                handleCheck(artist, trackId);
+                              } }
+                              checked={ checkedAndFavorite.includes(trackId) }
+                              hidden
+                            />
+                          </label>
+                        )
+                        : (
+                          <label htmlFor={ trackId } className="previewFavorite">
+                            <FontAwesomeIcon icon={ faHeart } className="heartIcon" />
+                            <input
+                              type="checkbox"
+                              name=""
+                              id={ trackId }
+                              data-testid={ `checkbox-music-${trackId}` }
+                              onChange={ () => {
+                                handleCheck(artist, trackId);
+                              } }
+                              checked={ checkedAndFavorite.includes(trackId) }
+                              hidden
+                            />
+                          </label>
+                        )
+                    }
+                    <div className="musicDuration">
+                      <p>{ `${minutes}:${seconds}` }</p>
+                    </div>
                   </div>
+
                 </div>
               </div>
             );

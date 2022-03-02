@@ -97,7 +97,7 @@ class Favorites extends Component {
               <section className="album">
                 <AlbumHeader { ...this.state } />
 
-                <section className="albumContent gradContent">
+                <section className="patternPages albumContent gradContent sizeContent">
                   <MusicCard
                     { ...this.props }
                     { ...this.state }
