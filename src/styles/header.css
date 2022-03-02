@@ -3,17 +3,20 @@
   color: white;
   display: flex;
   flex-direction: column;
-  height: 94.9vh;
+  height: 100vh;
   margin: 0;
-  padding: 24px;
   position: sticky;
   top: 0;
-  width: 150px;
+  width: 200px;
 }
 
 .header-link-style {
   color: white;
   text-decoration: none;
+}
+
+.headerTopside {
+  padding: 24px 12px 0;
 }
 
 .header-content {
@@ -95,10 +98,16 @@
   margin-right: 5px;
 }
 
+.sideBarHorizontalRow {
+  margin: 0 auto;
+  opacity: 0.2;
+  width: 80%;
+}
+
 .sideFavSongsContainer {
   height: 100%;
   overflow-y: scroll;
-  padding: 0 10px;
+  padding: 0 0 0 24px;
 }
 
 ::-webkit-scrollbar {

@@ -90,13 +90,21 @@
   padding: 5px;
 }
 
+.filterRow {
+  height: 10px;
+}
+
+.filterRow p {
+  font-size: 0.8em;
+}
+
+.horizontalRow {
+  opacity: 0.1;
+}
+
 .notFocusable {
   pointer-events: none;
 }
-
-/* .focusable {
-  cursor: pointer;
-} */
 
 .divTrackNumber label svg {
   pointer-events: auto;

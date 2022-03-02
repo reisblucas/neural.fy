@@ -1,4 +1,4 @@
-import { faHeart, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faHeart, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
@@ -61,7 +61,7 @@ class MusicCard extends Component {
     return (
       <div className="listMusic">
         {
-          albumTracks.map((artist) => {
+          albumTracks.map((artist, i) => {
             const {
               // artistId,
               artistName,
@@ -80,8 +80,35 @@ class MusicCard extends Component {
             const minutes = this.convertMillsToMin(trackTimeMillis);
             const seconds = this.convertMillsToSeconds(trackTimeMillis);
 
-            return (
+            if (i === 0) {
+              return (
+                <div>
+                  <div key={ -1 } className="musicRow filterRow">
+                    <div className="divTrackNumber">
+                      <p className="withoutHover albumFilters">#</p>
+                    </div>
 
+                    <div className="titleFilter">
+                      <p className="albumFilters">TITLE</p>
+                    </div>
+
+                    <div className="albumFilter">
+                      <p className="albumFilters">ALBUM</p>
+                    </div>
+
+                    <div className="timeFilter">
+                      <p className="albumFilters">
+                        <FontAwesomeIcon icon={ faClock } />
+                      </p>
+                    </div>
+
+                  </div>
+                  <hr className="horizontalRow" />
+                </div>
+              );
+            }
+
+            return (
               <div
                 className="focusMusicRow"
                 role="button"
@@ -96,7 +123,6 @@ class MusicCard extends Component {
                       <FontAwesomeIcon
                         name={ previewUrl }
                         icon={ faPlay }
-                        tabIndex="1"
                         className="focusable trackPlayIcon"
                         onClick={ (e) => {
                           console.log('cliquei');

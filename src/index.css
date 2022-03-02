@@ -12,6 +12,18 @@ code {
     monospace;
 }
 
+p {
+  color: #b3b3b3;
+}
+
+p:hover {
+  color: white;
+}
+
+.withoutHover:hover {
+  color: #b3b3b3;
+}
+
 .loading {
   align-items: center;
   display: flex;
