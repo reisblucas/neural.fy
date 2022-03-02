@@ -67,6 +67,7 @@
 
 .albumContent {
   padding: 20px 40px;
+
   /* width: 100%; */
 }
 
@@ -232,8 +233,4 @@ audio {
 
 .filterRigthAlbum {
   width: 30%;
-}
-
-.sizeContent {
-  /* width: 100%; */
 }

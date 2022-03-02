@@ -1,7 +1,8 @@
-import { faClock, faHeart, faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import ButtonPlay from './ButtonPlay';
 
 class MusicCard extends Component {
   convertMillsToMin = (ms) => {
@@ -117,27 +118,15 @@ class MusicCard extends Component {
               )
           }
 
-          {/* <div className="musicDuration">
-            <p className="albumFilters">
-              <FontAwesomeIcon icon={ faClock } />
-            </p>
-          </div> */}
-
         </div>
         <hr className="horizontalRow" />
 
         {
           albumTracks.map((artist, i) => {
             const {
-              // artistId,
               artistName,
-              // artworkUrl30,
               artworkUrl60,
-              // artworkUrl100,
               collectionName,
-              // collectionCensoredName,
-              // collectionExplicitness,
-              // collectionId,
               previewUrl,
               trackId,
               trackName,
@@ -155,44 +144,13 @@ class MusicCard extends Component {
                 onClick={ (e) => this.placeSelectedClass(e) }
               >
                 <div className="musicRow notFocusable">
-                  <div className="divTrackNumber">
-                    {
-                      path === favoritesPath
-                        ? (
-                          <p className="trackNumber">{ i + 1 }</p>
-                        )
-                        : (
-                          <p className="trackNumber">{ trackNumber }</p>
-                        )
-                    }
-                    <label htmlFor={ previewUrl }>
-                      <FontAwesomeIcon
-                        name={ previewUrl }
-                        icon={ faPlay }
-                        className="focusable trackPlayIcon"
-                        onClick={ (e) => {
-                          console.log('cliquei');
-                          this.playAudio(e);
-                        } }
-                      />
-                      <div className="previewMusic">
-                        <audio
-                          id={ previewUrl }
-                          data-testid="audio-component"
-                          src={ previewUrl }
-                          controls
-                          hidden
-                        >
-                          <track kind="captions" />
-                          O seu navegador não suporta o elemento
-                          {' '}
-                          <code>audio</code>
-                          .
-                        </audio>
-                      </div>
-                    </label>
-
-                  </div>
+                  <ButtonPlay
+                    path={ path }
+                    favoritesPath={ favoritesPath }
+                    trackNumber={ trackNumber }
+                    previewUrl={ previewUrl }
+                    i={ i }
+                  />
 
                   <div className="miniAlbumImage">
                     <img
@@ -276,11 +234,10 @@ class MusicCard extends Component {
 }
 
 MusicCard.propTypes = {
-  albumTracks: PropTypes.oneOfType([PropTypes.array]).isRequired,
-  checkedAndFavorite: PropTypes.oneOfType([
-    PropTypes.array,
-  ]).isRequired,
-  handleCheck: PropTypes.func.isRequired,
-};
+  albumTracks: PropTypes.oneOfType([PropTypes.array]),
+  checkedAndFavorite: PropTypes.oneOfType([PropTypes.array]),
+  handleCheck: PropTypes.func,
+  path: PropTypes.string,
+}.isRequired;
 
 export default MusicCard;
