@@ -18,15 +18,12 @@ class Header extends Component {
     };
 
     this.catchUser = this.catchUser.bind(this);
-    this.pathVerifier = this.pathVerifier.bind(this);
-    this.saveUrl = this.saveUrl.bind(this);
     this.forceReloadVerifier = this.forceReloadVerifier.bind(this);
   }
 
   componentDidMount() {
     this.catchUser();
     this.fetchFavoriteSongs();
-    this.saveUrl();
   }
 
   fetchFavoriteSongs = async () => {
@@ -53,20 +50,6 @@ class Header extends Component {
         name: user.name,
       };
     });
-  }
-
-  saveUrl() {
-    const { match: { url } } = this.props;
-    this.setState({ url }, () => this.pathVerifier());
-  }
-
-  pathVerifier() {
-    const { match: { url: urlSideLink } } = this.props;
-    const { url: urlCurrentPage } = this.state;
-
-    if (urlCurrentPage !== urlSideLink) {
-      window.location.reload();
-    }
   }
 
   forceReloadVerifier() {
@@ -102,11 +85,13 @@ class Header extends Component {
             isLoading
               ? (
                 <FavSideList
+                  { ...this.props }
                   favoriteSongs={ favoriteSongs }
                 />
               )
               : (
                 <FavSideList
+                  { ...this.props }
                   favoriteSongs={ favoriteSongs }
                 />
               )

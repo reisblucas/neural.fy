@@ -29,14 +29,26 @@ class MusicCard extends Component {
     return secondsHouse;
   }
 
+  playerStatus = (p) => {
+    console.log(!p.paused);
+    const { paused } = p;
+    // const paused = paused;
+    // p.pause();
+    if (paused === false) { return p.pause(); }
+    return p.play();
+  }
+
   playAudio = ({ currentTarget }) => {
     const url = currentTarget.attributes.name.value;
     const players = document.querySelectorAll('audio');
 
     players.forEach((player) => {
-      player.pause();
+      const { id, paused } = player;
       player.volume = 0.2;
-      return player.id === url ? player.play() : null;
+      if (paused === false) return player.pause();
+
+      const targetPlayer = id === url;
+      if (targetPlayer) return player.play();
     });
   }
 
