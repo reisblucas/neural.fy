@@ -78,20 +78,30 @@ class MusicCard extends Component {
             )
           }
 
-          <div className="musicAndArtist">
-            <p className="albumFilters">TITLE</p>
-          </div>
-
           {
             path === favoritesPath
               ? (
+                <div className="musicAndArtist">
+                  <p className="albumFilters">TITLE</p>
+                </div>
+              )
+              : (
+                <div className="musicAndArtistAlbum">
+                  <p className="albumFilters">TITLE</p>
+                </div>
+              )
+          }
+
+          {
+            path === favoritesPath
+              && (
                 <div className="albumFilter">
                   <p className="albumFilters">ALBUM</p>
                 </div>
               )
-              : (
-                <div className="albumFilter" />
-              )
+              // : (
+              //   <div className="albumFilter" />
+              // )
           }
 
           {
@@ -109,7 +119,7 @@ class MusicCard extends Component {
               : (
                 <div className="filterRigthAlbum">
                   <div className="previewFavorite" />
-                  <div className="musicDuration">
+                  <div className="musicDurationAlbum">
                     <p className="albumFilters">
                       <FontAwesomeIcon icon={ faClock } />
                     </p>
@@ -156,20 +166,38 @@ class MusicCard extends Component {
                     playAudio={ this.playAudio }
                   />
 
-                  <div className="miniAlbumImage">
-                    <img
-                      src={ artworkUrl60 }
-                      alt="mini album pic"
-                      className="miniAlbumImage"
-                    />
-                  </div>
+                  {
+                    path === favoritesPath
+                    && (
+                      <div className="miniAlbumImage">
+                        <img
+                          src={ artworkUrl60 }
+                          alt="mini album pic"
+                          className="miniAlbumImage"
+                        />
+                      </div>
+                    )
+                  }
 
-                  <div className="musicAndArtist">
-                    <div className="divToEllipsis">
-                      <p className="ellipsis">{ trackName }</p>
-                      <p className="ellipsis">{ artistName }</p>
-                    </div>
-                  </div>
+                  {
+                    path === favoritesPath
+                      ? (
+                        <div className="musicAndArtist">
+                          <div className="divToEllipsis">
+                            <p className="ellipsis">{ trackName }</p>
+                            <p className="ellipsis">{ artistName }</p>
+                          </div>
+                        </div>
+                      )
+                      : (
+                        <div className="musicAndArtistAlbum">
+                          <div className="divToEllipsis">
+                            <p className="ellipsis">{ trackName }</p>
+                            <p className="ellipsis">{ artistName }</p>
+                          </div>
+                        </div>
+                      )
+                  }
 
                   {
                     path === favoritesPath

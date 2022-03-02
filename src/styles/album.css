@@ -67,8 +67,6 @@
 
 .albumContent {
   padding: 20px 40px;
-
-  /* width: 100%; */
 }
 
 .gradContent {
@@ -78,8 +76,6 @@
 .listMusic {
   display: flex;
   flex-direction: column;
-
-  /* width: 100%; */
 }
 
 .musicRow {
@@ -188,6 +184,10 @@
   width: 50%;
 }
 
+.musicAndArtistAlbum {
+  width: 80%;
+}
+
 .albumFilter {
   width: 20%;
 }
@@ -213,7 +213,11 @@ audio {
 
 .musicDuration {
   padding: 15px;
-  width: 20%;
+  width: 30%;
+}
+
+.musicDurationAlbum {
+  width: 30%;
 }
 
 .titleFlex {
@@ -227,10 +231,12 @@ audio {
 .filterRigth {
   align-items: center;
   display: flex;
-  justify-content: flex-end;
-  width: 10%;
+  justify-content: center;
+  width: 5%;
 }
 
 .filterRigthAlbum {
-  width: 30%;
+  display: flex;
+  justify-content: center;
+  width: 6%;
 }
