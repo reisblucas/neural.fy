@@ -38,7 +38,7 @@ class Favorites extends Component {
   async handleCheck(artist, id) {
     const { checkedAndFavorite } = this.state;
     if (checkedAndFavorite.includes(id)) {
-      this.handleLoad();
+      // this.handleLoad();
       await removeSong(artist);
 
       await this.getFavoriteAndRemoveFromList();

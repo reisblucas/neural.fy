@@ -55,17 +55,17 @@ class Album extends Component {
       // bool
       const filter = this.filterChecked(checkedAndFavorite, id); // dentro do setState novo
 
-      this.handleLoad();
+      // this.handleLoad();
       await removeSong(artist);
-      this.handleLoad(); // poderei tirar esse loading daqui
+      // this.handleLoad(); // poderei tirar esse loading daqui
 
       this.setState({
         checkedAndFavorite: filter,
       });
     } else {
-      this.handleLoad();
+      // this.handleLoad();
       await addSong(artist);
-      this.handleLoad();
+      // this.handleLoad();
 
       this.setState((prevState) => ({
         checkedAndFavorite: [...prevState.checkedAndFavorite, id],
