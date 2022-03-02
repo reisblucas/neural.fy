@@ -56,10 +56,46 @@ class MusicCard extends Component {
       albumTracks,
       handleCheck,
       checkedAndFavorite,
+      match: { path },
     } = this.props;
+
+    console.log(this.props);
 
     return (
       <div className="listMusic">
+
+        <div className="musicRow filterRow">
+          <div className="divTrackNumber">
+            <p className="withoutHover albumFilters">#</p>
+          </div>
+
+          {/* <div className='miniAlbumImage'>
+          </div> */}
+
+          <div className="musicAndArtist titleFilter">
+            <p className="albumFilters">TITLE</p>
+          </div>
+
+          {
+            path === '/favorites'
+            && (
+              <div className="albumFilter">
+                <p className="albumFilters">ALBUM</p>
+              </div>
+            )
+          }
+
+          <div className="previewFavorite" />
+
+          <div className="timeFilter musicDuration">
+            <p className="albumFilters">
+              <FontAwesomeIcon icon={ faClock } />
+            </p>
+          </div>
+
+        </div>
+        <hr className="horizontalRow" />
+
         {
           albumTracks.map((artist, i) => {
             const {
@@ -68,6 +104,7 @@ class MusicCard extends Component {
               // artworkUrl30,
               artworkUrl60,
               // artworkUrl100,
+              collectionName,
               // collectionCensoredName,
               // collectionExplicitness,
               // collectionId,
@@ -80,45 +117,24 @@ class MusicCard extends Component {
             const minutes = this.convertMillsToMin(trackTimeMillis);
             const seconds = this.convertMillsToSeconds(trackTimeMillis);
 
-            if (i === 0) {
-              return (
-                <div>
-                  <div key={ -1 } className="musicRow filterRow">
-                    <div className="divTrackNumber">
-                      <p className="withoutHover albumFilters">#</p>
-                    </div>
-
-                    <div className="titleFilter">
-                      <p className="albumFilters">TITLE</p>
-                    </div>
-
-                    <div className="albumFilter">
-                      <p className="albumFilters">ALBUM</p>
-                    </div>
-
-                    <div className="timeFilter">
-                      <p className="albumFilters">
-                        <FontAwesomeIcon icon={ faClock } />
-                      </p>
-                    </div>
-
-                  </div>
-                  <hr className="horizontalRow" />
-                </div>
-              );
-            }
-
             return (
               <div
                 className="focusMusicRow"
                 role="button"
                 key={ trackId }
-                // className="musicRow"
                 onClick={ (e) => this.placeSelectedClass(e) }
               >
                 <div className="musicRow notFocusable">
                   <div className="divTrackNumber">
-                    <p className="trackNumber">{ trackNumber }</p>
+                    {
+                      path === '/favorites'
+                        ? (
+                          <p className="trackNumber">{ i + 1 }</p>
+                        )
+                        : (
+                          <p className="trackNumber">{ trackNumber }</p>
+                        )
+                    }
                     <label htmlFor={ previewUrl }>
                       <FontAwesomeIcon
                         name={ previewUrl }
@@ -162,6 +178,13 @@ class MusicCard extends Component {
                       <p className="ellipsis">{ artistName }</p>
                     </div>
                   </div>
+
+                  {/* <div className="albumFilter">
+                    <div className="divToEllipsis">
+
+                      <p className="ellipsis">{collectionName}</p>
+                    </div>
+                  </div> */}
 
                   {
                     checkedAndFavorite.includes(trackId)

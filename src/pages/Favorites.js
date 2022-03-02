@@ -99,6 +99,7 @@ class Favorites extends Component {
 
                 <section className="albumContent gradContent">
                   <MusicCard
+                    { ...this.props }
                     { ...this.state }
                     handleCheck={ this.handleCheck }
                   />

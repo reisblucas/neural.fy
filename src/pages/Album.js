@@ -107,6 +107,7 @@ class Album extends Component {
                   <p data-testid="artist-name" hidden>{ `Artist Name ${artistName}`}</p>
                   <MusicCard
                     { ...this.state }
+                    { ...this.props }
                     handleCheck={ this.handleCheck }
                     handleLoad={ this.handleLoad }
                   />

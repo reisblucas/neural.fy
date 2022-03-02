@@ -100,6 +100,7 @@
 
 .horizontalRow {
   opacity: 0.1;
+  width: 100%;
 }
 
 .notFocusable {
@@ -173,12 +174,20 @@
 }
 
 .miniAlbumImage {
+  width: 10%;
+}
+
+.miniAlbumImage img {
   height: 40px;
   width: 40px;
 }
 
 .musicAndArtist {
   width: 50%;
+}
+
+.albumFilter {
+  width: 40%;
 }
 
 .divToEllipsis {
