@@ -1,8 +1,9 @@
-import { faClock, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import ButtonPlay from './ButtonPlay';
+import FilterRow from './FilterRow';
 
 class MusicCard extends Component {
   convertMillsToMin = (ms) => {
@@ -27,15 +28,6 @@ class MusicCard extends Component {
       return verifier.join('');
     }
     return secondsHouse;
-  }
-
-  playerStatus = (p) => {
-    console.log(!p.paused);
-    const { paused } = p;
-    // const paused = paused;
-    // p.pause();
-    if (paused === false) { return p.pause(); }
-    return p.play();
   }
 
   playAudio = ({ currentTarget }) => {
@@ -77,70 +69,8 @@ class MusicCard extends Component {
 
     return (
       <div className="listMusic">
+        <FilterRow path={ path } />
 
-        <div className="musicRow filterRow">
-          <div className="divTrackNumber">
-            <p className="withoutHover albumFilters">#</p>
-          </div>
-
-          {
-            path === favoritesPath
-            && (
-              <div className="miniAlbumImage" />
-            )
-          }
-
-          {
-            path === favoritesPath
-              ? (
-                <div className="musicAndArtist">
-                  <p className="albumFilters">TITLE</p>
-                </div>
-              )
-              : (
-                <div className="musicAndArtistAlbum">
-                  <p className="albumFilters">TITLE</p>
-                </div>
-              )
-          }
-
-          {
-            path === favoritesPath
-              && (
-                <div className="albumFilter">
-                  <p className="albumFilters">ALBUM</p>
-                </div>
-              )
-              // : (
-              //   <div className="albumFilter" />
-              // )
-          }
-
-          {
-            path === favoritesPath
-              ? (
-                <div className="filterRigth">
-                  <div className="previewFavorite" />
-                  <div className="timeFilter">
-                    <p className="albumFilters">
-                      <FontAwesomeIcon icon={ faClock } />
-                    </p>
-                  </div>
-                </div>
-              )
-              : (
-                <div className="filterRigthAlbum">
-                  <div className="previewFavorite" />
-                  <div className="musicDurationAlbum">
-                    <p className="albumFilters">
-                      <FontAwesomeIcon icon={ faClock } />
-                    </p>
-                  </div>
-                </div>
-              )
-          }
-
-        </div>
         <hr className="horizontalRow" />
 
         {
