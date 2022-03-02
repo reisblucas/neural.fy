@@ -152,6 +152,11 @@
   visibility: hidden;
 }
 
+.artistName {
+  font-size: smaller;
+  margin-top: 5px;
+}
+
 .focusMusicRow:hover .artistName {
   color: white;
 }
@@ -194,11 +199,6 @@
 
 .musicName {
   color: white;
-}
-
-.artistName {
-  font-size: smaller;
-  margin-top: 5px;
 }
 
 .albumFilter {
