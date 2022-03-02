@@ -1,0 +1,15 @@
+.notFoundCentered {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.easterEggDiv {
+  width: 200px;
+}
+
+.easterEggImage {
+  border-radius: 100%;
+  width: 300px;
+}
