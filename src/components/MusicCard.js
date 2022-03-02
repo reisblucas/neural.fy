@@ -196,16 +196,16 @@ class MusicCard extends Component {
                       ? (
                         <div className="musicAndArtist">
                           <div className="divToEllipsis">
-                            <p className="ellipsis">{ trackName }</p>
-                            <p className="ellipsis">{ artistName }</p>
+                            <p className="musicName ellipsis">{ trackName }</p>
+                            <p className="artistName ellipsis">{ artistName }</p>
                           </div>
                         </div>
                       )
                       : (
                         <div className="musicAndArtistAlbum">
                           <div className="divToEllipsis">
-                            <p className="ellipsis">{ trackName }</p>
-                            <p className="ellipsis">{ artistName }</p>
+                            <p className="musicName ellipsis">{ trackName }</p>
+                            <p className="artistName ellipsis">{ artistName }</p>
                           </div>
                         </div>
                       )
@@ -217,7 +217,7 @@ class MusicCard extends Component {
                       <div className="albumFilter">
                         <div className="divToEllipsis">
 
-                          <p className="ellipsis">{collectionName}</p>
+                          <p className="artistName ellipsis">{collectionName}</p>
                         </div>
                       </div>
                     )

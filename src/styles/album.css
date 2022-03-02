@@ -152,6 +152,10 @@
   visibility: hidden;
 }
 
+.focusMusicRow:hover .artistName {
+  color: white;
+}
+
 .focusMusicRow:hover .heartIcon {
   color: #b3b3b3;
   visibility: visible;
@@ -186,6 +190,15 @@
 
 .musicAndArtistAlbum {
   width: 80%;
+}
+
+.musicName {
+  color: white;
+}
+
+.artistName {
+  font-size: smaller;
+  margin-top: 5px;
 }
 
 .albumFilter {
