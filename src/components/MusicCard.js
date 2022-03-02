@@ -61,7 +61,6 @@ class MusicCard extends Component {
       match: { path },
     } = this.props;
 
-    console.log(this.props);
     const favoritesPath = '/favorites';
 
     return (

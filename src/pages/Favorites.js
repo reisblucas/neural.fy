@@ -38,8 +38,6 @@ class Favorites extends Component {
   }
 
   handleReload() {
-    const { forceReload } = this.state;
-    console.log('ativei o handleReload // reload status', forceReload);
     this.setState((prevState) => ({
       forceReload: !prevState.forceReload,
     }));

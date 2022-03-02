@@ -10,8 +10,6 @@ class Header extends Component {
   constructor() {
     super();
 
-    console.log('linee 1333333333333', this.props);
-
     this.state = {
       isLoading: true,
       name: '',
@@ -89,7 +87,7 @@ class Header extends Component {
 
   render() {
     const { favoriteSongs, isLoading } = this.state;
-    console.log('reloaded', this.props);
+
     this.forceReloadVerifier();
 
     return (

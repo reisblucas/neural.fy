@@ -53,19 +53,9 @@ class Album extends Component {
   }
 
   handleReload() {
-    const { forceReload } = this.state;
-    console.log('ativei o handleReload // reload status', forceReload);
     this.setState((prevState) => ({
       forceReload: !prevState.forceReload,
     }));
-  }
-
-  handleHeaderLoadingStatus(status) {
-    const { isHeaderLoading } = this.state;
-    console.log('isHeaderLoading', isHeaderLoading);
-    this.setState({
-      isHeaderLoading: status,
-    });
   }
 
   async handleCheck(artist, id) {
@@ -110,8 +100,7 @@ class Album extends Component {
   }
 
   render() {
-    const { album: { artistName }, isLoading, forceReload } = this.state;
-    console.log('force Reload status', forceReload);
+    const { album: { artistName }, isLoading } = this.state;
 
     return (
       <div className="headerPattern">
