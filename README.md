@@ -15,19 +15,23 @@ src/services/\
 
 ## Principais funcionalidades de acordo com as rotas:
 
+#### Spotify® logo in Header:
+
+1. Ao clicar na logo, será redirecionado a Home(/search).
+
 #### Search:
 
 1. Buscar álbuns baseado no nome do artista;
 2. Renderizar resultados na tela;
 3. Play & Stop músicas;
-4. Favoritar & desfavoritar músicas;
+4. Favoritar & desfavoritar músicas.
 
 ___
 
 #### Favorites:
 
 1. Play & Stop músicas;
-2. Favoritar & desfavoritar músicas;
+2. Favoritar & desfavoritar músicas.
 
 ___
 
@@ -37,8 +41,8 @@ ___
 &nbsp;&nbsp; - Nome;\
 &nbsp;&nbsp; - E-mail;\
 &nbsp;&nbsp; - Imagem(baseado na URL da imagem);\
-&nbsp;&nbsp; - Descrição;\
-2. Ao editar a foto de perfil será atualizado em todo o projeto.
+&nbsp;&nbsp; - Descrição.\
+2. Ao editar a foto de perfil será atualizado em todo o projeto;
 3. Após editar a foto, ao acessar a rota "/favorites", será possível visualizar a foto de perfil do usuário. 
 
 ---
