@@ -45,6 +45,12 @@ ___
 
 ---
 
+#### Easter egg:
+
+1. Por enquanto, não está disponível no Github Pages;
+
+___
+
 #### 02/03/2020:
 
 - Pode ser que ocorra alguns erros de CORS, atualizarei assim que possível.
