@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
+import { playAudio } from '../helpers/player';
 
 export default class ButtonPlay extends Component {
   render() {
@@ -11,7 +12,6 @@ export default class ButtonPlay extends Component {
       trackNumber,
       previewUrl,
       i,
-      playAudio,
     } = this.props;
 
     return (

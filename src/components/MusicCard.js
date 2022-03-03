@@ -2,60 +2,12 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { placeSelectedClass } from '../helpers/player';
+import { convertMillsToMin, convertMillsToSeconds } from '../helpers/songTime';
 import ButtonPlay from './ButtonPlay';
 import FilterRow from './FilterRow';
 
 class MusicCard extends Component {
-  convertMillsToMin = (ms) => {
-    const THOUSAND = 1000;
-    const SIXTY = 60;
-
-    const minutes = ((ms / THOUSAND) / SIXTY);
-    const minutesHouse = Math.trunc(minutes);
-    return minutesHouse;
-  }
-
-  convertMillsToSeconds = (ms) => {
-    const THOUSAND = 1000;
-    const SIXTY = 60;
-
-    const seconds = ((ms / THOUSAND) % SIXTY);
-    const secondsHouse = Math.round(seconds);
-
-    const TEN = 10;
-    if (secondsHouse < TEN) {
-      const verifier = [0, secondsHouse];
-      return verifier.join('');
-    }
-    return secondsHouse;
-  }
-
-  playAudio = ({ currentTarget }) => {
-    const url = currentTarget.attributes.name.value;
-    const players = document.querySelectorAll('audio');
-
-    players.forEach((player) => {
-      const { id, paused } = player;
-      player.volume = 0.2;
-      if (paused === false) return player.pause();
-
-      const targetPlayer = id === url;
-      if (targetPlayer) return player.play();
-    });
-  }
-
-  placeSelectedClass = ({ target }) => {
-    const classToFind = document.querySelector('.selectedMusic');
-
-    const addClass = target.classList.add('selectedMusic');
-
-    if (classToFind) {
-      const excClass = classToFind.classList.remove('selectedMusic');
-      return excClass && addClass;
-    }
-    return addClass;
-  }
-
   render() {
     const {
       albumTracks,
@@ -85,8 +37,8 @@ class MusicCard extends Component {
               trackNumber,
               trackTimeMillis,
             } = artist;
-            const minutes = this.convertMillsToMin(trackTimeMillis);
-            const seconds = this.convertMillsToSeconds(trackTimeMillis);
+            const minutes = convertMillsToMin(trackTimeMillis);
+            const seconds = convertMillsToSeconds(trackTimeMillis);
 
             return (
               <div
@@ -94,7 +46,7 @@ class MusicCard extends Component {
                 role="button"
                 key={ trackId }
                 tabIndex="-1"
-                onClick={ (e) => this.placeSelectedClass(e) }
+                onClick={ (e) => placeSelectedClass(e) }
                 onKeyPress={ () => {} }
                 aria-hidden="true"
               >
@@ -105,7 +57,6 @@ class MusicCard extends Component {
                     trackNumber={ trackNumber }
                     previewUrl={ previewUrl }
                     i={ i }
-                    playAudio={ this.playAudio }
                   />
 
                   {

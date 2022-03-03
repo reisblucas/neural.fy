@@ -5,9 +5,10 @@
   flex-direction: column;
   height: 100vh;
   margin: 0;
-  min-width: 200px;
+  max-width: 200px;
   position: sticky;
   top: 0;
+  width: 100%;
 }
 
 .header-link-style {
@@ -21,7 +22,8 @@
 
 .header-content {
   align-items: center;
-  flex-direction: row;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
   text-align: center;
 }
@@ -107,7 +109,12 @@
 .sideFavSongsContainer {
   height: 100%;
   overflow-y: scroll;
-  padding: 0 0 0 24px;
+  /* padding: 0 0 0 24px; */
+  padding: 0 12px 0 24px;
+}
+
+.favList {
+  width: 100%;
 }
 
 ::-webkit-scrollbar {
