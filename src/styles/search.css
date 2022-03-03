@@ -39,3 +39,7 @@
 .buttonSearch:hover {
   cursor: pointer;
 }
+
+.test {
+  text-align: center;
+}

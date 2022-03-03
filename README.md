@@ -33,11 +33,11 @@ ___
 
 #### Profile:
 
-1. Editar:
-&nbsp;&nbsp; - Nome;
-&nbsp;&nbsp; - E-mail;
-&nbsp;&nbsp; - Imagem(baseado na URL da imagem);
-&nbsp;&nbsp; - Descrição;
+1. Editar:\
+&nbsp;&nbsp; - Nome;\
+&nbsp;&nbsp; - E-mail;\
+&nbsp;&nbsp; - Imagem(baseado na URL da imagem);\
+&nbsp;&nbsp; - Descrição;\
 2. Ao editar a foto de perfil será atualizado em todo o projeto.
 3. Após editar a foto, ao acessar a rota "/favorites", será possível visualizar a foto de perfil do usuário. 
 
@@ -46,3 +46,12 @@ ___
 #### 02/03/2020:
 
 - Pode ser que ocorra alguns erros de CORS, atualizarei assim que possível.
+
+___
+
+<div align="center">
+  <p>Projeto realizado no dia 14/02/2022 enquanto aluno da Trybe</p>
+  <p>💚</p>
+  <p>Estilizado do dia 26/02 ao dia 02/03/2022</p>
+  <p>neur4l ®</p>
+</div>
