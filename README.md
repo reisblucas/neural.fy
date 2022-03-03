@@ -1,10 +1,8 @@
 # neur4l.fy
 
-###### Projeto realizado enquanto aluno da Trybe em que foi utilizado a API do iTunes para busca das músicas e artistas.
+##### Projeto realizado enquanto aluno da Trybe em que foi utilizado a API do iTunes para busca das músicas e artistas.
 
 O projeto era apenas para reproduzir as funcionalidades e trabalhar com o React Lifecycle. A questão estética do projeto era totalmente livre para o aluno escolher e estilizar da maneira que preferisse.Dessa forma, decidi reproduzir o spotify para testar e aprimorar os meus conhecimentos com o CSS.
-
-> Estilizado em 28/02/2022.
 
 ## Arquivos os quais foram disponibilizados pela Trybe:
 src/services/\
