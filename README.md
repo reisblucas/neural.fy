@@ -34,10 +34,10 @@ ___
 #### Profile:
 
 1. Editar:
-  - Nome;
-  - E-mail;
-  - Imagem(baseado na URL da imagem);
-  - Descrição;
+&nbsp;&nbsp; - Nome;
+&nbsp;&nbsp; - E-mail;
+&nbsp;&nbsp; - Imagem(baseado na URL da imagem);
+&nbsp;&nbsp; - Descrição;
 2. Ao editar a foto de perfil será atualizado em todo o projeto.
 3. Após editar a foto, ao acessar a rota "/favorites", será possível visualizar a foto de perfil do usuário. 
 
