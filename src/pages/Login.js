@@ -12,13 +12,16 @@ class Login extends Component {
     super();
 
     this.handleChanges = this.handleChanges.bind(this);
+    this.handleEffects = this.handleEffects.bind(this);
 
     this.state = {
       inputLogin: '',
-      inputLength: 0,
+      inputPassword: '',
       isSubmitBttIsDisabled: true,
       isLoading: true,
       authorized: false,
+      lengthLogin: 0,
+      lengthPassword: 0,
     };
   }
 
@@ -29,23 +32,41 @@ class Login extends Component {
   }
 
   handleChanges({ target: { name, value } }) {
+    if (name === 'inputPassword') {
+      this.setState({
+
+        lengthPassword: value.length,
+        [name]: value,
+      }, () => this.handleEffects());
+    }
+
+    if (name === 'inputLogin') {
+      this.setState({
+
+        lengthLogin: value.length,
+        [name]: value,
+      }, () => this.handleEffects());
+    }
+  }
+
+  handleEffects() {
     const THREE = 3;
+    const { lengthLogin, lengthPassword } = this.state;
+    const newLoginVerification = lengthLogin >= THREE && lengthPassword >= THREE;
 
     this.setState({
-      inputLength: value.length,
-      [name]: value,
-    }, () => {
-      const { inputLength } = this.state;
-      const newLoginVerification = inputLength >= THREE;
-
-      this.setState({
-        isSubmitBttIsDisabled: !newLoginVerification,
-      });
+      isSubmitBttIsDisabled: !newLoginVerification,
     });
   }
 
   render() {
-    const { inputLogin, isSubmitBttIsDisabled, isLoading, authorized } = this.state;
+    const {
+      inputLogin,
+      inputPassword,
+      isSubmitBttIsDisabled,
+      isLoading,
+      authorized,
+    } = this.state;
 
     return (
       isLoading
@@ -73,6 +94,16 @@ class Login extends Component {
                   placeholder="Insira seu nome..."
                   type="text"
                   value={ inputLogin }
+                />
+
+                <Input
+                  id="inputPassword"
+                  className="inputLogin inputPassword"
+                  name="inputPassword"
+                  onChange={ this.handleChanges }
+                  placeholder="Password..."
+                  type="password"
+                  value={ inputPassword }
                 />
 
                 {
