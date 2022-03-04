@@ -8,7 +8,7 @@
   .header-hero {
     height: 150px ! important;
     max-width: 100% ! important;
-    position: auto ! important;
+    position: unset ! important;
     width: 100%;
   }
 
@@ -20,6 +20,10 @@
 
   .header-content {
     flex-direction: row ! important;
+  }
+
+  .navLinks-container {
+    flex-direction: column-reverse ! important;
   }
 
   .navLinks-container span {
