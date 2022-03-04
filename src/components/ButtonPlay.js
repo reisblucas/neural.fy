@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { playAudio } from '../helpers/player';
@@ -12,7 +12,12 @@ export default class ButtonPlay extends Component {
       trackNumber,
       previewUrl,
       i,
+      handlePlayIcon,
+      handlePauseIcon,
+      played: { name, status },
     } = this.props;
+
+    console.log(name, status);
 
     return (
       <div className="divTrackNumber">
@@ -26,12 +31,32 @@ export default class ButtonPlay extends Component {
             )
         }
         <label htmlFor={ previewUrl }>
-          <FontAwesomeIcon
-            name={ previewUrl }
-            icon={ faPlay }
-            className="focusable trackPlayIcon"
-            onClick={ (e) => playAudio(e) }
-          />
+          {
+            (name === previewUrl) && (status)
+              ? (
+                <FontAwesomeIcon
+                  name={ previewUrl }
+                  icon={ faPause }
+                  className="focusable trackPlayIcon trackPauseIcon"
+                  onClick={ (e) => {
+                    handlePauseIcon(e);
+                    playAudio(e);
+                  } }
+                />
+              )
+              : (
+                <FontAwesomeIcon
+                  name={ previewUrl }
+                  icon={ faPlay }
+                  className="focusable trackPlayIcon"
+                  onClick={ (e) => {
+                    handlePlayIcon(e);
+                    playAudio(e);
+                  } }
+                />
+              )
+          }
+
           <div className="previewMusic">
             <audio
               id={ previewUrl }

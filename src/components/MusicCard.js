@@ -8,6 +8,28 @@ import ButtonPlay from './ButtonPlay';
 import FilterRow from './FilterRow';
 
 class MusicCard extends Component {
+  state = {
+    played: false,
+  }
+
+  handlePlayIcon = ({ currentTarget }) => {
+    console.log(currentTarget.attributes.name.value);
+    this.setState(({
+      played: {
+        status: true,
+        name: currentTarget.attributes.name.value,
+      },
+    }));
+  }
+
+  handlePauseIcon = () => {
+    this.setState({
+      played: {
+        status: false,
+      },
+    });
+  }
+
   render() {
     const {
       albumTracks,
@@ -16,6 +38,8 @@ class MusicCard extends Component {
       checkedAndFavorite,
       match: { path },
     } = this.props;
+
+    const { played } = this.state;
 
     const favoritesPath = '/favorites';
 
@@ -57,6 +81,9 @@ class MusicCard extends Component {
                     trackNumber={ trackNumber }
                     previewUrl={ previewUrl }
                     i={ i }
+                    handlePlayIcon={ this.handlePlayIcon }
+                    handlePauseIcon={ this.handlePauseIcon }
+                    played={ played }
                   />
 
                   {

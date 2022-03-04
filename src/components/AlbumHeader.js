@@ -23,7 +23,7 @@ export default class AlbumHeader extends Component {
             <div className="albumDetails">
               <h6 className="albumTitleFixed">ALBUM</h6>
               <h1
-                className="albumName albumTitleFixed"
+                className="albumName albumTitleFixed ellipsis"
                 data-testid="album-name"
                 hidden
               >

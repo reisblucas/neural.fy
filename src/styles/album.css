@@ -1,3 +1,15 @@
+@media only screen and ( max-width : 600px ) {
+
+  .albumTitle {
+    max-height: 1000px ! important;
+  }
+
+  .albumDetails {
+    height: 150px ! important;
+    width: auto ! important;
+  }
+}
+
 .album {
   display: flex;
   flex-direction: column;
@@ -163,6 +175,10 @@
   margin: 0 auto;
 }
 
+.trackPauseIcon {
+  color: #00af59;
+}
+
 .heartIcon {
   visibility: hidden;
 }
@@ -236,7 +252,7 @@ audio {
 }
 
 .heartColor {
-  color: #00ba5e;
+  color: #00af59;
 }
 
 .musicDuration {
