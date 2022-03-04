@@ -37,14 +37,14 @@
 
 .whiteLogin {
 
-  --bg: linear-gradient(-50deg, white 0%, #d1d1d1 100%);
+  --bg: linear-gradient(-50deg, white 0%, #d1d1d1 50%);
   animation: attract-whiteLogin var(--animation);
   margin-right: var(--hm);
 }
 
 .greenLogin {
 
-  --bg: linear-gradient(50deg, #00ba5e 0%, #b9ffdc 100%);
+  --bg: linear-gradient(50deg, #00ba5e 0%, #b9ffdc 50%);
   animation: attract-greenLogin var(--animation);
   margin-left: var(--hm);
 }

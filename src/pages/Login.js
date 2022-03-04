@@ -68,6 +68,8 @@ class Login extends Component {
       authorized,
     } = this.state;
 
+    const defaultImg = 'https://i.pinimg.com/474x/86/0d/cd/860dcdf5cd536bfd86d8fc86efdbdd18.jpg';
+
     return (
       isLoading
         ? (
@@ -131,7 +133,7 @@ class Login extends Component {
                         onClick={ async (e) => {
                           e.preventDefault();
                           this.setState({ isLoading: true });
-                          await createUser({ name: inputLogin });
+                          await createUser({ name: inputLogin, image: defaultImg });
                           this.setState({ isLoading: false, authorized: true });
                         } }
                       />

@@ -7,13 +7,13 @@
 
 .blockHeader {
 
-  --sz: 8vmin;
+  --sz: 4vmin;
 
   --tX: 0;
 
   --animation: 700ms cubic-bezier(0.3, 0.5, 0.4, 0.9) infinite alternate-reverse;
 
-  --hm: 3.5vmin;
+  --hm: 4.5vmin;
   background-image: var(--bg);
   border-radius: 50%;
   height: 15px;
