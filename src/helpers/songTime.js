@@ -21,7 +21,10 @@ export const convertMillsToSeconds = (ms) => {
 
 export const totalAlbumTime = (tracks) => {
   const totalTime = tracks
-    .reduce((acc, { trackTimeMillis }) => acc += trackTimeMillis, 0);
+    .reduce((acc, { trackTimeMillis }) => {
+      const counter = acc + trackTimeMillis;
+      return counter;
+    }, 0);
 
   const hoursHouse = (((totalTime / THOUSAND) / SIXTY) / SIXTY); // ms / s / min / h
   const hours = Math.trunc(hoursHouse);
