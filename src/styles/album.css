@@ -41,6 +41,8 @@
 .artistDetails {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .artistDetails img {
@@ -57,8 +59,12 @@
 }
 
 .albumSideInfo h5 {
-  color: #b3b3b3;
+  color: white;
   font-weight: 400;
+}
+
+.timerHD {
+  color: #b3b3b3;
 }
 
 .headingListStyle {
