@@ -129,6 +129,16 @@ class Album extends Component {
               </section>
             )
         }
+
+        {/* Component de Friends Activity */}
+
+        <section className="header-hero">
+          <div>
+            <h5>Friends Activity</h5>
+
+          </div>
+        </section>
+
       </div>
     );
   }

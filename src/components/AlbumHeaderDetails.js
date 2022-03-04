@@ -28,9 +28,9 @@ export default class AlbumHeaderDetails extends Component {
             : (<img src={ userImage } alt="Profile pic" />)
         }
         <h5>{artistName}</h5>
+        <h5 className="headingListStyle">•</h5>
+        <h5>{this.albumYear(releaseDate)}</h5>
         <div className="albumSideInfo">
-          <h5 className="headingListStyle">•</h5>
-          <h5>{this.albumYear(releaseDate)}</h5>
           <h5 className="headingListStyle ">•</h5>
           <h5>
             {this.sideInfoTracks(albumTracks)}
