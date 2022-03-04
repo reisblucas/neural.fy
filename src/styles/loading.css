@@ -48,28 +48,28 @@
   width: var(--sz);
 }
 
-.orange {
+.white {
 
   --bg: linear-gradient(-50deg, white 0%, #d1d1d1 50%);
-  animation: attract-orange var(--animation);
+  animation: attract-white var(--animation);
   margin-right: var(--hm);
 }
 
-.blue {
+.green {
 
   --bg: linear-gradient(50deg, #00ba5e 0%, #b9ffdc 50%);
-  animation: attract-blue var(--animation);
+  animation: attract-green var(--animation);
   margin-left: var(--hm);
 }
 
-@keyframes attract-orange {
+@keyframes attract-white {
 
   to {
     transform: translateX(calc(var(--sz) + calc(var(--hm) / 4)));
   }
 }
 
-@keyframes attract-blue {
+@keyframes attract-green {
 
   to {
     transform: translateX(calc(var(--sz) * -1 - calc(var(--hm) / 4)));

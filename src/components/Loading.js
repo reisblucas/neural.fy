@@ -17,8 +17,8 @@ class Loading extends Component {
           https://codepen.io/meowwwls/pen/OJJPbGb
         */}
         <div className="blocks">
-          <div className="block orange" />
-          <div className="block blue" />
+          <div className="block green" />
+          <div className="block white" />
         </div>
       </div>
     );
