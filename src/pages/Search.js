@@ -81,25 +81,28 @@ class Search extends Component {
         }
         <div data-testid="page-search" className="patternPages">
           <div className="search-hero">
-            <Input
-              type="text"
-              id="buttonSearch"
-              name="inputSearch"
-              placeholder="Artists, songs or podcasts..."
-              className="inputSearch"
-              data-testid="search-artist-input"
-              value={ inputSearch }
-              onChange={ this.handleChange }
-            />
-            <button
-              className="buttonSearch"
-              type="submit"
-              data-testid="search-artist-button"
-              disabled={ isButtonDisabled }
-              onClick={ this.handleClick }
-            >
-              Pesquisar
-            </button>
+            {/*  Input form here as easay way to search on enter keypress */}
+            <form action="">
+              <Input
+                type="text"
+                id="buttonSearch"
+                name="inputSearch"
+                placeholder="Artists, songs or podcasts..."
+                className="inputSearch"
+                data-testid="search-artist-input"
+                value={ inputSearch }
+                onChange={ this.handleChange }
+              />
+              <button
+                className="buttonSearch"
+                type="submit"
+                data-testid="search-artist-button"
+                disabled={ isButtonDisabled }
+                onClick={ this.handleClick }
+              >
+                Pesquisar
+              </button>
+            </form>
           </div>
 
           {/* Aqui começa a seção do resultado da pesquisa e os cards do artista/música */}
