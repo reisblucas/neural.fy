@@ -50,7 +50,7 @@ export default class SidebarHeaderTopside extends Component {
               data-testid="link-to-search"
             >
               <FontAwesomeIcon icon={ faMagnifyingGlass } className="iconSet" />
-              Search
+              <span>Search</span>
             </NavLink>
           </div>
 
@@ -61,7 +61,7 @@ export default class SidebarHeaderTopside extends Component {
               data-testid="link-to-favorites"
             >
               <FontAwesomeIcon icon={ faHeart } className="iconSet" />
-              Favorites
+              <span>Favorites</span>
             </NavLink>
           </div>
 
@@ -72,7 +72,7 @@ export default class SidebarHeaderTopside extends Component {
               data-testid="link-to-profile"
             >
               <FontAwesomeIcon icon={ faUser } className="iconSet" />
-              Profile
+              <span>Profile</span>
             </NavLink>
           </div>
         </div>

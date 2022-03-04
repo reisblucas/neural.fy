@@ -1,3 +1,19 @@
+@media only screen and ( max-width : 600px ) {
+
+  .formContainer {
+    margin: 0 auto ! important;
+    width: 100% ! important;
+  }
+
+  .formEdit {
+    align-items: center ! important;
+  }
+
+  .formContainer label input {
+    width: 250px ! important;
+  }
+}
+
 .titlePage {
   font-size: 50px;
 }

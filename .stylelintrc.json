@@ -34,7 +34,9 @@
         "declaration-block-trailing-semicolon": "always",
         "declaration-colon-space-after": "always",
         "declaration-empty-line-before": "never",
-        "declaration-no-important": true,
+
+        "declaration-no-important": null,
+
         "font-family-name-quotes": "always-where-required",
         "font-family-no-duplicate-names": true,
         "font-family-no-missing-generic-family-keyword": true,

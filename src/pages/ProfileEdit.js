@@ -105,7 +105,7 @@ class ProfileEdit extends Component {
 
                   <form action="" className="formEdit">
                     <label htmlFor="inputName">
-                      Name:
+                      <div>Name:</div>
                       <input
                         type="text"
                         id="inputName"
@@ -118,7 +118,7 @@ class ProfileEdit extends Component {
                     </label>
 
                     <label htmlFor="inputEmail">
-                      E-mail:
+                      <div>E-mail:</div>
                       <input
                         type="email"
                         id="inputEmail"
@@ -131,7 +131,7 @@ class ProfileEdit extends Component {
                     </label>
 
                     <label htmlFor="inputImage">
-                      Image:
+                      <div>Image:</div>
                       <input
                         type="text"
                         name="image"
@@ -143,7 +143,7 @@ class ProfileEdit extends Component {
                     </label>
 
                     <label htmlFor="inputDescription">
-                      Description:
+                      <div>Description:</div>
                       <input
                         name="description"
                         id="inputDescription"

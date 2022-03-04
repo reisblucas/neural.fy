@@ -1,3 +1,54 @@
+@media only screen and ( max-width : 600px ) {
+
+  .headerPattern {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header-hero {
+    height: 150px ! important;
+    max-width: 100% ! important;
+    width: 100%;
+  }
+
+  .headerTopside {
+    display: flex ! important;
+    flex-direction: row ! important;
+    justify-content: center;
+  }
+
+  .header-content {
+    flex-direction: row ! important;
+  }
+
+  .navLinks-container span {
+    display: none;
+  }
+
+  div .sideFavSongsContainer {
+    display: none;
+  }
+
+  .albumHeader {
+    padding: 0 ! important;
+    width: 100% ! important;
+  }
+
+  .albumTitle {
+    align-items: center ! important;
+    flex-direction: column ! important;
+  }
+
+  .albumContent {
+    padding: 0 ! important;
+    width: 100% ! important;
+  }
+
+  .listMusic {
+    width: 90% ! important;
+  }
+}
+
 .header-hero {
   background-color: black;
   color: white;

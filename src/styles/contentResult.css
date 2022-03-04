@@ -1,3 +1,22 @@
+@media only screen and ( max-width : 600px ) {
+
+  .contentSpace {
+    width: 100% ! important;
+  }
+
+  .sectionCards {
+    justify-content: space-evenly ! important;
+  }
+
+  .cardMusic {
+    width: 100px ! important;
+  }
+
+  .textCard {
+    width: 100px ! important;
+  }
+}
+
 .sectionResult {
   display: flex;
   flex-direction: column;
@@ -5,6 +24,7 @@
 
 .contentSpace {
   padding: 10px;
+  width: 100%;
 }
 
 .sectionCards {
