@@ -15,6 +15,14 @@
   .textCard {
     width: 100px ! important;
   }
+
+  .listMusicMobile {
+    width: 100% ! important;
+  }
+
+  .musicAndArtistAlbum {
+    width: 70% ! important;
+  }
 }
 
 .sectionResult {

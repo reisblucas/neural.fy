@@ -57,7 +57,7 @@ export default class FilterRow extends Component {
               </div>
             )
             : (
-              <div className="filterRigthAlbum">
+              <div className="filterRigthAlbum filterRightAlbumMobile">
                 <div className="previewFavorite" />
                 <div className="musicDurationAlbum">
                   <p className="albumFilters">

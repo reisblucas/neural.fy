@@ -268,3 +268,9 @@ audio {
   justify-content: center;
   width: 6%;
 }
+
+.filterRigthAlbumMobile {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+}

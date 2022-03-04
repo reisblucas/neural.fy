@@ -20,7 +20,7 @@ class MusicCard extends Component {
     const favoritesPath = '/favorites';
 
     return (
-      <div className="listMusic">
+      <div className="listMusic listMusicMobile">
         <FilterRow path={ path } />
 
         <hr className="horizontalRow" />
