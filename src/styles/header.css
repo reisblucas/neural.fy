@@ -8,6 +8,7 @@
   .header-hero {
     height: 150px ! important;
     max-width: 100% ! important;
+    position: auto ! important;
     width: 100%;
   }
 
