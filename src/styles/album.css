@@ -268,9 +268,3 @@ audio {
   justify-content: center;
   width: 6%;
 }
-
-/* Friend Activity Bar */
-
-.friendActivityBar {
-  max-width: 200px;
-}
