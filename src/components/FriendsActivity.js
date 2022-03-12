@@ -26,12 +26,12 @@ export default class FriendsActivity extends Component {
   }
 }
 
-const musicData = [
-  {
-    image: '',
-    username: '',
-    musicName: '',
-    artistName: '',
-    playlist: '',
-  },
-];
+// const musicData = [
+//   {
+//     image: '',
+//     username: '',
+//     musicName: '',
+//     artistName: '',
+//     playlist: '',
+//   },
+// ];

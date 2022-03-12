@@ -5,7 +5,7 @@ import '../styles/search.css';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import ContentResult from '../components/ContentResult';
 import Input from '../components/Input';
-import FriendsActivity from '../components/FriendsActivity';
+// import FriendsActivity from '../components/FriendsActivity';
 
 class Search extends Component {
   constructor() {
