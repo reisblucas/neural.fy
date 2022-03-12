@@ -1,0 +1,7 @@
+.headerUserOrArtistName {
+  color: white;
+}
+
+.focusableLink:hover .headerUserOrArtistName {
+  text-decoration: underline;
+}

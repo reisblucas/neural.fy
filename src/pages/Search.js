@@ -81,7 +81,6 @@ class Search extends Component {
         }
         <div data-testid="page-search" className="patternPages">
           <div className="search-hero">
-            {/*  Input form here as easay way to search on enter keypress */}
             <form action="">
               <Input
                 type="text"
@@ -105,7 +104,6 @@ class Search extends Component {
             </form>
           </div>
 
-          {/* Aqui começa a seção do resultado da pesquisa e os cards do artista/música */}
           <ContentResult { ...this.state } />
         </div>
 

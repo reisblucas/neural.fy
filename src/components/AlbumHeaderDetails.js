@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { totalAlbumTime } from '../helpers/songTime';
+import '../styles/albumHeaderDetails.css';
 
 export default class AlbumHeaderDetails extends Component {
   albumYear = (year) => year.split('-')[0];
@@ -17,8 +19,10 @@ export default class AlbumHeaderDetails extends Component {
     const {
       album: { artistName, artworkUrl100, releaseDate, userImage },
       albumTracks,
+      location: { pathname },
     } = this.props;
     console.log(this.props);
+    const favoritesPath = '/favorites';
 
     return (
       <div className="artistDetails">
@@ -27,7 +31,17 @@ export default class AlbumHeaderDetails extends Component {
             ? (<img src={ artworkUrl100 } alt="" />)
             : (<img src={ userImage } alt="Profile pic" />)
         }
-        <h5>{artistName}</h5>
+        {
+          pathname === favoritesPath
+            ? (
+              <Link className="linkStyle focusableLink" to="/profile">
+                <h5 className="headerUserOrArtistName">{artistName}</h5>
+              </Link>
+            )
+            : (
+              <h5>{artistName}</h5>
+            )
+        }
         <h5 className="headingListStyle">•</h5>
         <h5>{this.albumYear(releaseDate)}</h5>
         <div className="albumSideInfo">
