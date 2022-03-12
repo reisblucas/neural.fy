@@ -1,0 +1,15 @@
+.friends-container-hero {
+  background-color: black;
+  padding: 12px 15px 0;
+  width: 20%;
+}
+
+.headerActFrnd {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-hero {
+  margin: 0;
+}
