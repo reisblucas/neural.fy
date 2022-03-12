@@ -2,6 +2,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { placeSelectedClass } from '../helpers/player';
 import { convertMillsToMin, convertMillsToSeconds } from '../helpers/songTime';
 import ButtonPlay from './ButtonPlay';
@@ -55,6 +56,7 @@ class MusicCard extends Component {
               artistName,
               artworkUrl60,
               collectionName,
+              collectionId,
               previewUrl,
               trackId,
               trackName,
@@ -105,7 +107,14 @@ class MusicCard extends Component {
                         <div className="musicAndArtist">
                           <div className="divToEllipsis">
                             <p className="musicName ellipsis">{ trackName }</p>
-                            <p className="artistName ellipsis">{ artistName }</p>
+                            <Link
+                              className="linkStyle focusableLink"
+                              key={ collectionId }
+                              to={ `/album/${collectionId}` }
+                            >
+                              <p className="artistName ellipsis">{ artistName }</p>
+                              {' '}
+                            </Link>
                           </div>
                         </div>
                       )
@@ -124,8 +133,13 @@ class MusicCard extends Component {
                     && (
                       <div className="albumFilter">
                         <div className="divToEllipsis">
-
-                          <p className="artistName ellipsis">{collectionName}</p>
+                          <Link
+                            className="linkStyle focusableLink"
+                            key={ collectionId }
+                            to={ `/album/${collectionId}` }
+                          >
+                            <p className="artistName ellipsis">{collectionName}</p>
+                          </Link>
                         </div>
                       </div>
                     )

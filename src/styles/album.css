@@ -188,6 +188,14 @@
   margin-top: 5px;
 }
 
+.focusableLink {
+  pointer-events: all;
+}
+
+.focusableLink:hover .artistName {
+  text-decoration: underline;
+}
+
 .focusMusicRow:hover .artistName {
   color: white;
 }
