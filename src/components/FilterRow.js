@@ -25,7 +25,12 @@ export default class FilterRow extends Component {
           path === favoritesPath
             ? (
               <div className="musicAndArtist">
-                <p className="albumFilters">TITLE</p>
+                <p
+                  className="albumFilters"
+                >
+                  TITLE
+
+                </p>
               </div>
             )
             : (

@@ -114,7 +114,7 @@ class Album extends Component {
             ? <Loading />
             : (
               <section data-testid="page-album" className="album">
-                <AlbumHeader { ...this.state } />
+                <AlbumHeader { ...this.state } { ...this.props } />
 
                 <section className="patternPages albumContent gradContent">
                   <p data-testid="artist-name" hidden>{ `Artist Name ${artistName}`}</p>
