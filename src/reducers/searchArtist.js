@@ -9,7 +9,6 @@ const searchArtist = (state = initialState, action) => {
   case SEARCH_ARTIST:
     return {
       ...state,
-
     };
 
   default:
