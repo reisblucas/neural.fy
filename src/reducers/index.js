@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import searchArtist from './searchArtist';
+import searchAlbum from './searchAlbum';
 
 const rootReducer = combineReducers({
-  searchArtist,
+  searchAlbum,
 });
 
 export default rootReducer;

@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
@@ -5,6 +7,8 @@ import '../styles/search.css';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import ContentResult from '../components/ContentResult';
 import Input from '../components/Input';
+import fetchAlbum from '../thunk/fetchAlbumInRedux';
+import { inputSearchAct } from '../actions';
 // import FriendsActivity from '../components/FriendsActivity';
 
 class Search extends Component {
@@ -40,6 +44,7 @@ class Search extends Component {
 
   async handleClick() {
     const { inputSearch } = this.state;
+    const { inputSearchGlobal, searchAlbumGlobal } = this.props;
 
     this.setState({
       isLoading: true,
@@ -51,6 +56,7 @@ class Search extends Component {
     const artist = await searchAlbumsAPI(inputSearch);
 
     if (artist.length === 0) {
+      inputSearchGlobal('Nenhum álbum foi encontrado.');
       return this.setState({
         inputSearch: '',
         isLoading: false,
@@ -58,6 +64,7 @@ class Search extends Component {
         searchedMain: 'Nenhum álbum foi encontrado.', // ponto para diferenciar do searchedTest
       });
     }
+
     this.setState((prevState) => ({
       inputSearch: '',
       searchResult: artist,
@@ -65,6 +72,7 @@ class Search extends Component {
       searchedTest: `Resultados de álbuns de: ${prevState.inputSearch}`,
       searchedMain: `Resultados de ${prevState.inputSearch}`,
     }));
+    searchAlbumGlobal(inputSearch);
   }
 
   render() {
@@ -116,4 +124,14 @@ class Search extends Component {
   }
 }
 
-export default Search;
+Search.propTypes = {
+  inputSearchGlobal: PropTypes.func,
+  searchAlbumGlobal: PropTypes.func,
+}.isRequired;
+
+const mapDispatchToProps = (dispatch) => ({
+  inputSearchGlobal: (inputValue) => dispatch(inputSearchAct(inputValue)),
+  searchAlbumGlobal: () => dispatch(fetchAlbum()),
+});
+
+export default connect(null, mapDispatchToProps)(Search);
