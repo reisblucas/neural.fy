@@ -42,7 +42,11 @@
   display: flex;
   height: fit-content;
   max-width: 150px;
-  min-width: 100px;
+  min-width: 70px;
+}
+
+.showUserBar h4 {
+  margin: 10px;
 }
 
 .image-icon {

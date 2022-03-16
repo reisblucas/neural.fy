@@ -1,3 +1,10 @@
+@media only screen and ( max-width : 400px ) {
+
+  .navLinks-container span {
+    display: none;
+  }
+}
+
 @media only screen and ( max-width : 950px ) {
 
   .headerPattern {
@@ -37,9 +44,9 @@
     flex-direction: column-reverse ! important;
   }
 
-  .navLinks-container span {
+  /* .navLinks-container span {
     display: none;
-  }
+  } */
 
   div .sideFavSongsContainer {
     display: none;
@@ -93,6 +100,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin: 0 auto;
   text-align: center;
 }
 
