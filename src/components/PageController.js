@@ -6,10 +6,10 @@ export default class PageController extends Component {
   render() {
     return (
       <div className="page-control">
-        <div className="control-left">
+        <div className="control">
           <FontAwesomeIcon icon={ faAngleLeft } />
         </div>
-        <div className="control-right">
+        <div className="control">
           <FontAwesomeIcon icon={ faAngleRight } />
         </div>
       </div>

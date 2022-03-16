@@ -34,14 +34,12 @@ export default class ProfileHeader extends Component {
 
     return (
       <div className="showUserBar">
-        <div className="div-profile-icon">
-          <img
-            src={ image }
-            alt="profile icon"
-            className="image-icon"
-          />
-        </div>
-        <h5 data-testid="header-user-name">{ name }</h5>
+        <img
+          src={ image }
+          alt="profile icon"
+          className="image-icon"
+        />
+        <h5 data-testid="header-user-name" className="ellipsis">{ name }</h5>
       </div>
     );
   }
