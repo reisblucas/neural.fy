@@ -129,6 +129,10 @@
   width: fit-content;
 }
 
+.trackNumberCenter {
+  margin: 0 auto;
+}
+
 .horizontalRow {
   opacity: 0.1;
   width: 100%;

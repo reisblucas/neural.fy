@@ -2,8 +2,15 @@ import PropTypes from 'prop-types';
 import { faClock } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { sortMusicAct } from '../actions';
 
-export default class FilterRow extends Component {
+class FilterRow extends Component {
+  sortMusicAlphOrderAndReverse = () => {
+    const { searchAlbum: { results } } = this.props;
+    console.log(results);
+  }
+
   render() {
     const { path } = this.props;
     const favoritesPath = '/favorites';
@@ -11,7 +18,7 @@ export default class FilterRow extends Component {
     return (
       <div className="musicRow filterRow">
         <div className="divTrackNumber">
-          <p className="withoutHover albumFilters">#</p>
+          <p className="withoutHover albumFilters trackNumberCenter">#</p>
         </div>
 
         {
@@ -29,7 +36,6 @@ export default class FilterRow extends Component {
                   className="albumFilters"
                 >
                   TITLE
-
                 </p>
               </div>
             )
@@ -81,3 +87,13 @@ export default class FilterRow extends Component {
 FilterRow.propTypes = {
   path: PropTypes.strings,
 }.isRequired;
+
+const mapStateToProps = (state) => ({
+  searchAlbum: state.searchAlbum,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  sortMusic: (sorted) => dispatch(sortMusicAct(sorted)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(FilterRow);

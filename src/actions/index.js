@@ -1,6 +1,7 @@
 export const SEARCH_ALBUM = 'SEARCH_ALBUM';
 export const INPUT_SEARCH = 'INPUT_SEARCH';
 export const ENABLE_RENDER_AFTER_CLICK_ON_LINK = 'ENABLE_RENDER_AFTER_CLICK_ON_LINK';
+export const SORT_MUSIC = 'SORT_MUSIC';
 
 export const inputSearchAct = (inputValue) => ({
   type: INPUT_SEARCH,
@@ -15,4 +16,9 @@ export const searchAlbumAct = (response) => ({
 export const enableRenderAlbumAct = (boolStringfied) => ({
   type: ENABLE_RENDER_AFTER_CLICK_ON_LINK,
   boolStringfied,
+});
+
+export const sortMusicAct = (sorted) => ({
+  type: SORT_MUSIC,
+  sorted,
 });
