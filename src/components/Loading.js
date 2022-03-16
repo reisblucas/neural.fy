@@ -6,7 +6,7 @@ class Loading extends Component {
     return (
       <div>
         <div className="titleModal">
-          <h1>Carregando...</h1>
+          <h1>Loading...</h1>
         </div>
 
         {/*

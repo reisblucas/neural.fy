@@ -6,7 +6,7 @@ export default class LoadingLogin extends Component {
     return (
       <div className="blocksLogin">
         <div className="titleModalLogin">
-          <h1>Carregando...</h1>
+          <h1>Loading...</h1>
         </div>
         {/*
           Spinner art by Melissa Em in October 7, 2019
