@@ -61,8 +61,7 @@ class Favorites extends Component {
 
     const favorites = await getFavoriteSongs();
     const idFavoriteSongs = favorites.map(({ trackId }) => trackId);
-    console.log(favorites);
-    console.log(idFavoriteSongs);
+
     saveFavoriteMusics(favorites);
     this.setState({
       albumTracks: favorites,
@@ -75,13 +74,6 @@ class Favorites extends Component {
     const filtered = arr.filter((musicId) => musicId !== id2);
     return filtered;
   }
-
-  // async fetchFavoriteSongs() {
-  //   const favorites = await getFavoriteSongs();
-  //   const idFavoriteSongs = favorites.map(({ trackId }) => trackId);
-  //   console.log(idFavoriteSongs);
-  //   return idFavoriteSongs;
-  // }
 
   async favoriteHeader() {
     const currentYear = new Date().getFullYear();
@@ -138,12 +130,9 @@ Favorites.propTypes = {
   saveFavoriteMusics: PropTypes.func,
 }.isRequired;
 
-const mapStateToProps = (state) => {
-  console.log(state);
-  return {
-    responseMusics: state.responseMusics,
-  };
-};
+const mapStateToProps = (state) => ({
+  responseMusics: state.responseMusics,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   saveResponseMusics: (response) => dispatch(responseMusicsAct(response)),

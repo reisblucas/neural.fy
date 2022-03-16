@@ -149,12 +149,9 @@ Album.propTypes = {
   saveResponseMusics: PropTypes.func,
 }.isRequired;
 
-const mapStateToProps = (state) => {
-  console.log(state);
-  return {
-    responseMusics: state.responseMusics,
-  };
-};
+const mapStateToProps = (state) => ({
+  responseMusics: state.responseMusics,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   saveResponseMusics: (response) => dispatch(responseMusicsAct(response)),

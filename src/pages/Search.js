@@ -83,8 +83,6 @@ class Search extends Component {
       isButtonDisabled,
     } = this.state;
 
-    console.log(this.props);
-
     return (
       <div className="headerPattern">
         <Header { ...this.props } />

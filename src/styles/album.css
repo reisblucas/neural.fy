@@ -130,8 +130,13 @@
 } */
 
 .albumFilters {
+  display: flex;
   font-size: 0.8em;
   width: fit-content;
+}
+
+.faCentralizerFilter {
+  margin-left: 5px;
 }
 
 .trackNumberCenter {

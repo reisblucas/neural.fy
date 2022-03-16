@@ -3,35 +3,99 @@ import { faClock } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { sortMusicAct } from '../actions';
+import { withRouter } from 'react-router-dom';
+import { sortFavoriteMusicsAct, sortMusicAct } from '../actions';
+import ConditionFilterTitle from './ConditionFilterTitle';
+import ConditionFilterTime from './ConditionFilterTime';
+
+const pathAlbumId = '/album/:id';
+const pathFavorites = '/favorites';
 
 class FilterRow extends Component {
-  // tracks: [],
-  // sortedTracks: [],
-  // favorites: [],
-  // favoritesSorted: [],
+  state = {
+    filterTitle: '',
+    filterTime: '',
+  }
 
   sortMusicAlphOrderAndReverse = () => {
-    const { responseMusics: { tracks, sortedTracks }, sortMusic } = this.props;
-    console.log(this.props);
+    const { responseMusics: { tracks, favorites }, sortMusic,
+      match: { path }, sortFavoriteMusic } = this.props;
+    const { filterTime } = this.state;
 
-    const sortTracksAlpha = [...tracks]
-      .sort((a, b) => (a.trackName).localeCompare(b.trackName));
-    console.log('sortedAlpha', sortTracksAlpha);
-    console.log('sortedInRedux', sortedTracks);
+    if (filterTime !== '') { this.setState({ filterTime: '' }); }
 
-    if (sortedTracks[0] === sortTracksAlpha[0]) {
-      const sortTracksDesc = [...tracks]
-        .sort((a, b) => (b.trackName).localeCompare(a.trackName));
-      console.log('sortedDescendent', sortTracksDesc);
-      return sortMusic(sortTracksDesc);
+    if (path === pathAlbumId) {
+      const sortTracksAlpha = [...tracks]
+        .sort((a, b) => (a.trackName).localeCompare(b.trackName));
+
+      if (tracks[0] === sortTracksAlpha[0]) {
+        const sortTracksDesc = [...tracks]
+          .sort((a, b) => (b.trackName).localeCompare(a.trackName));
+
+        this.setState({ filterTitle: 'z-a' });
+        return sortMusic(sortTracksDesc);
+      }
+      sortMusic(sortTracksAlpha);
+      this.setState({ filterTitle: 'a-z' });
     }
-    sortMusic(sortTracksAlpha);
+
+    if (path === pathFavorites) {
+      const sortTracksAlpha = [...favorites]
+        .sort((a, b) => (a.trackName).localeCompare(b.trackName));
+
+      if (favorites[0] === sortTracksAlpha[0]) {
+        const sortTracksDesc = [...favorites]
+          .sort((a, b) => (b.trackName).localeCompare(a.trackName));
+
+        this.setState({ filterTitle: 'z-a' });
+        return sortFavoriteMusic(sortTracksDesc);
+      }
+      sortFavoriteMusic(sortTracksAlpha);
+      this.setState({ filterTitle: 'a-z' });
+    }
+  }
+
+  sortMusicTimerAscendAndDescend = () => {
+    const { responseMusics: { tracks, favorites }, match: { path },
+      sortMusic, sortFavoriteMusic } = this.props;
+    const { filterTitle } = this.state;
+
+    if (filterTitle !== '') { this.setState({ filterTitle: '' }); }
+
+    if (path === pathAlbumId) {
+      const sortTracksAlpha = [...tracks]
+        .sort((a, b) => (a.trackTimeMillis) - (b.trackTimeMillis));
+
+      if (tracks[0] === sortTracksAlpha[0]) {
+        const sortTracksDesc = [...tracks]
+          .sort((a, b) => (b.trackTimeMillis) - (a.trackTimeMillis));
+        console.log('sortedDescendent', sortTracksDesc);
+        this.setState({ filterTime: 'z-a' });
+        return sortMusic(sortTracksDesc);
+      }
+      sortMusic(sortTracksAlpha);
+      this.setState({ filterTime: 'a-z' });
+    }
+
+    if (path === pathFavorites) {
+      const sortTracksAlpha = [...favorites]
+        .sort((a, b) => (a.trackTimeMillis) - (b.trackTimeMillis));
+
+      if (favorites[0] === sortTracksAlpha[0]) {
+        const sortTracksDesc = [...favorites]
+          .sort((a, b) => (b.trackTimeMillis) - (a.trackTimeMillis));
+        console.log('sortedDescendent', sortTracksDesc);
+        this.setState({ filterTime: 'z-a' });
+        return sortFavoriteMusic(sortTracksDesc);
+      }
+      sortFavoriteMusic(sortTracksAlpha);
+      this.setState({ filterTime: 'a-z' });
+    }
   }
 
   render() {
     const { path } = this.props;
-    const favoritesPath = '/favorites';
+    const { filterTitle, filterTime } = this.state;
 
     return (
       <div className="musicRow filterRow">
@@ -40,22 +104,26 @@ class FilterRow extends Component {
         </div>
 
         {
-          path === favoritesPath
+          path === pathFavorites
             && (
               <div className="miniAlbumImage" />
             )
         }
 
         {
-          path === favoritesPath
+          path === pathFavorites
             ? (
               <div className="musicAndArtist">
                 <p
                   className="albumFilters"
                   onClick={ this.sortMusicAlphOrderAndReverse }
+                  tabIndex="-1"
+                  aria-hidden="true"
                 >
                   TITLE
+                  <ConditionFilterTitle filterTitle={ filterTitle } />
                 </p>
+
               </div>
             )
             : (
@@ -63,16 +131,19 @@ class FilterRow extends Component {
                 <p
                   className="albumFilters"
                   onClick={ this.sortMusicAlphOrderAndReverse }
+                  tabIndex="-1"
+                  aria-hidden="true"
                 >
                   TITLE
-
+                  <ConditionFilterTitle filterTitle={ filterTitle } />
                 </p>
+
               </div>
             )
         }
 
         {
-          path === favoritesPath
+          path === pathFavorites
               && (
                 <div className="albumFilter">
                   <p className="albumFilters">ALBUM</p>
@@ -81,13 +152,19 @@ class FilterRow extends Component {
         }
 
         {
-          path === favoritesPath
+          path === pathFavorites
             ? (
               <div className="filterRigth">
                 <div className="previewFavorite" />
                 <div className="timeFilter">
-                  <p className="albumFilters">
+                  <p
+                    className="albumFilters"
+                    onClick={ this.sortMusicTimerAscendAndDescend }
+                    tabIndex="-1"
+                    aria-hidden="true"
+                  >
                     <FontAwesomeIcon icon={ faClock } />
+                    <ConditionFilterTime filterTime={ filterTime } />
                   </p>
                 </div>
               </div>
@@ -96,8 +173,14 @@ class FilterRow extends Component {
               <div className="filterRigthAlbum filterRightAlbumMobile">
                 <div className="previewFavorite" />
                 <div className="musicDurationAlbum">
-                  <p className="albumFilters">
+                  <p
+                    className="albumFilters"
+                    onClick={ this.sortMusicTimerAscendAndDescend }
+                    tabIndex="-1"
+                    aria-hidden="true"
+                  >
                     <FontAwesomeIcon icon={ faClock } />
+                    <ConditionFilterTime filterTime={ filterTime } />
                   </p>
                 </div>
               </div>
@@ -123,6 +206,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   sortMusic: (sorted) => dispatch(sortMusicAct(sorted)),
+  sortFavoriteMusic: (sorted) => dispatch(sortFavoriteMusicsAct(sorted)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FilterRow);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(FilterRow));

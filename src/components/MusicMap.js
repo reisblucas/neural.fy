@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import { placeSelectedClass } from '../helpers/player';
 import { convertMillsToMin, convertMillsToSeconds } from '../helpers/songTime';
 import ButtonPlay from './ButtonPlay';
+import { enableRenderAlbumAct } from '../actions';
 
 class MusicMap extends Component {
   state = {
@@ -46,8 +47,6 @@ class MusicMap extends Component {
       // tracks,
       tracks,
     } = this.props;
-
-    console.log(this.props);
 
     const { played } = this.state;
 
@@ -232,13 +231,10 @@ MusicMap.propTypes = {
   handleReload: PropTypes.func,
 }.isRequired;
 
-const mapStateToProps = (state) => {
-  console.log(state);
-  return {
-    searchAlbum: state.searchAlbum,
-    responseMusics: state.responseMusics,
-  };
-};
+const mapStateToProps = (state) => ({
+  searchAlbum: state.searchAlbum,
+  responseMusics: state.responseMusics,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   enableRender: (bool) => dispatch(enableRenderAlbumAct(bool)),

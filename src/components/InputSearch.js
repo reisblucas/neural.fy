@@ -11,7 +11,7 @@ import { inputSearchAct } from '../actions';
 class InputSearch extends Component {
   render() {
     const { match: { path } } = this.props;
-    console.log(this.props);
+
     const pathAlbum = '/album/:id';
     const pathFavorites = '/favorites';
 
