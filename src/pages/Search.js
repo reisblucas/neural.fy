@@ -7,7 +7,6 @@ import Loading from '../components/Loading';
 import '../styles/search.css';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import ContentResult from '../components/ContentResult';
-import Input from '../components/Input';
 import fetchAlbum from '../thunk/fetchAlbumInRedux';
 import { inputSearchAct } from '../actions';
 import TopsideBar from '../components/TopsideBar';
@@ -18,7 +17,6 @@ class Search extends Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
 
     this.state = {
       inputSearch: '',
@@ -44,7 +42,7 @@ class Search extends Component {
     });
   }
 
-  async handleClick() {
+  handleClick = async () => {
     const { inputSearch } = this.state;
     const { inputSearchGlobal, searchAlbumGlobal } = this.props;
 
@@ -94,31 +92,12 @@ class Search extends Component {
           isLoading && <Loading />
         }
         <div data-testid="page-search" className="patternPages">
-          <TopsideBar />
-
-          <div className="search-hero">
-            <form action="">
-              <Input
-                type="text"
-                id="buttonSearch"
-                name="inputSearch"
-                placeholder="Artists, songs or podcasts..."
-                className="inputSearch"
-                data-testid="search-artist-input"
-                value={ inputSearch }
-                onChange={ this.handleChange }
-              />
-              <button
-                className="buttonSearch"
-                type="submit"
-                data-testid="search-artist-button"
-                disabled={ isButtonDisabled }
-                onClick={ this.handleClick }
-              >
-                Search
-              </button>
-            </form>
-          </div>
+          <TopsideBar
+            handleClick={ this.handleClick }
+            handleChange={ this.handleChange }
+            inputSearch={ inputSearch }
+            isButtonDisabled={ isButtonDisabled }
+          />
 
           <ContentResult { ...this.state } />
         </div>
