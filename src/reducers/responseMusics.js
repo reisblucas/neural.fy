@@ -23,8 +23,7 @@ const responseMusics = (state = initialState, action) => {
   case SORT_MUSIC:
     return {
       ...state,
-      // sortedTracks: action.sorted,
-      tracks: action.sorted, // teste
+      tracks: action.sorted,
     };
 
   case SAVE_FAVORITE_MUSICS:

@@ -112,12 +112,12 @@ class MusicMap extends Component {
                           <div className="divToEllipsis">
                             <p className="musicName ellipsis">{ trackName }</p>
                             <Link
-                              className="linkStyle focusableLink"
+                              className="linkStyle focusableLink ellipsis"
                               key={ collectionId }
                               to={ `/album/${collectionId}` }
                             >
                               <p
-                                className="artistName ellipsis albumFilters"
+                                className="artistName ellipsis fitLinkContent"
                               >
                                 { artistName }
 
@@ -129,7 +129,8 @@ class MusicMap extends Component {
                       )
                       : (
                         <div className="musicAndArtistAlbum">
-                          <div className="divToEllipsis">
+                          {/* Ellipsis fix in Album */}
+                          <div className="">
                             <p className="musicName ellipsis">{ trackName }</p>
                             <Link
                               className="linkStyle focusableLink"
@@ -138,7 +139,7 @@ class MusicMap extends Component {
                               onClick={ this.handleArtistNameLink }
                             >
                               <p
-                                className="artistName ellipsis albumFilters"
+                                className="artistName ellipsis"
                               >
                                 { artistName }
 

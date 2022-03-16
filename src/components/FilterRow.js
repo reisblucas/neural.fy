@@ -16,6 +16,7 @@ class FilterRow extends Component {
     favoritesClone: [],
     tracksClone: [],
     filterTitle: '',
+    filterAlbum: '',
     filterTime: '',
   }
 
@@ -31,8 +32,12 @@ class FilterRow extends Component {
   resetFilter = () => {
     const { match: { path }, sortMusic, sortFavoriteMusic } = this.props;
     const { favoritesClone, tracksClone } = this.state;
+
+    this.setState({ filterTitle: '', filterTime: '', filterAlbum: '' });
+
     const pathConditionToReset = path === pathAlbumId;
-    pathConditionToReset ? sortMusic(tracksClone) : sortFavoriteMusic(favoritesClone);
+    if (pathConditionToReset) sortMusic(tracksClone);
+    else { sortFavoriteMusic(favoritesClone); }
   }
 
   sortMusicAlphOrderAndReverse = () => {
@@ -87,7 +92,7 @@ class FilterRow extends Component {
       if (tracks[0] === sortTracksAlpha[0]) {
         const sortTracksDesc = [...tracks]
           .sort((a, b) => (b.trackTimeMillis) - (a.trackTimeMillis));
-        console.log('sortedDescendent', sortTracksDesc);
+
         this.setState({ filterTime: 'z-a' });
         return sortMusic(sortTracksDesc);
       }
@@ -102,7 +107,7 @@ class FilterRow extends Component {
       if (favorites[0] === sortTracksAlpha[0]) {
         const sortTracksDesc = [...favorites]
           .sort((a, b) => (b.trackTimeMillis) - (a.trackTimeMillis));
-        console.log('sortedDescendent', sortTracksDesc);
+
         this.setState({ filterTime: 'z-a' });
         return sortFavoriteMusic(sortTracksDesc);
       }

@@ -9,7 +9,7 @@ export default class ButtonPlay extends Component {
     const {
       path,
       favoritesPath,
-      trackNumber,
+      // trackNumber,
       previewUrl,
       i,
       handlePlayIcon,
@@ -25,7 +25,7 @@ export default class ButtonPlay extends Component {
               <p className="trackNumber font-link">{ i + 1 }</p>
             )
             : (
-              <p className="trackNumber font-link">{ trackNumber }</p>
+              <p className="trackNumber font-link">{ i + 1 }</p>
             )
         }
         <label htmlFor={ previewUrl }>

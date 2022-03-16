@@ -13,6 +13,10 @@
   .artistDetails {
     justify-content: center ! important;
   }
+
+  .musicAndArtist {
+    width: 40% ! important;
+  }
 }
 
 .album {
@@ -130,8 +134,15 @@
 } */
 
 .albumFilters {
-  display: flex;
+
+  /* display: flex; */
   font-size: 0.8em;
+
+  /* width: fit-content; */
+}
+
+.fitLinkContent {
+  display: flex;
   width: fit-content;
 }
 
@@ -265,6 +276,7 @@
 }
 
 .divToEllipsis {
+  margin: 0 auto;
   width: 70%;
 }
 
