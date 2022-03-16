@@ -1,11 +1,26 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { enableRenderAlbumAct } from '../actions';
 import '../styles/contentResult.css';
 
-export default class ContentResult extends Component {
+class ContentResult extends Component {
+  async componentDidMount() {
+    const { enableRender } = this.props;
+    console.log('did montado');
+
+    await enableRender(true);
+  }
+
   render() {
-    const { searchedMain, searchResult, searchedTest } = this.props;
+    const {
+      searchedMain,
+      searchResult,
+      searchedTest,
+      searchAlbum: { render },
+    } = this.props;
+    console.log('isRenderEnabled', render);
 
     return (
       <div className="contentSpace">
@@ -65,3 +80,16 @@ ContentResult.propTypes = {
   searchedMain: PropTypes.string,
   searchedTest: PropTypes.string,
 }.isRequired;
+
+const mapStateToProps = (state) => {
+  console.log(state.searchAlbum);
+  return {
+    searchAlbum: state.searchAlbum,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  enableRender: () => dispatch(enableRenderAlbumAct()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContentResult);

@@ -1,8 +1,13 @@
-import { INPUT_SEARCH, SEARCH_ALBUM } from '../actions';
+import {
+  ENABLE_RENDER_AFTER_CLICK_ON_LINK,
+  INPUT_SEARCH,
+  SEARCH_ALBUM,
+} from '../actions';
 
 const initialState = {
   inputSearch: '',
   results: [],
+  render: false,
 };
 
 const searchAlbum = (state = initialState, action) => {
@@ -11,12 +16,21 @@ const searchAlbum = (state = initialState, action) => {
     return {
       ...state,
       results: action.response,
+      render: false,
     };
 
   case INPUT_SEARCH:
     return {
       ...state,
       inputSearch: action.inputValue,
+    };
+
+  case ENABLE_RENDER_AFTER_CLICK_ON_LINK:
+    console.log(action);
+    // console.log(JSON.parse(action.boolStringfied));
+    return {
+      ...state,
+      // render: JSON.parse(action.boolStringfied),
     };
 
   default:
