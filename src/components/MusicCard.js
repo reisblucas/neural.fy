@@ -2,7 +2,9 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { enableRenderAlbumAct } from '../actions';
 import { placeSelectedClass } from '../helpers/player';
 import { convertMillsToMin, convertMillsToSeconds } from '../helpers/songTime';
 import ButtonPlay from './ButtonPlay';
@@ -29,6 +31,11 @@ class MusicCard extends Component {
         status: false,
       },
     });
+  }
+
+  handleArtistNameLink = () => {
+    const { enableRender } = this.props;
+    enableRender(true);
   }
 
   render() {
@@ -122,7 +129,14 @@ class MusicCard extends Component {
                         <div className="musicAndArtistAlbum">
                           <div className="divToEllipsis">
                             <p className="musicName ellipsis">{ trackName }</p>
-                            <p className="artistName ellipsis">{ artistName }</p>
+                            <Link
+                              className="linkStyle focusableLink"
+                              key={ collectionId }
+                              to="/search"
+                              onClick={ this.handleArtistNameLink }
+                            >
+                              <p className="artistName ellipsis">{ artistName }</p>
+                            </Link>
                           </div>
                         </div>
                       )
@@ -208,4 +222,8 @@ MusicCard.propTypes = {
   path: PropTypes.string,
 }.isRequired;
 
-export default MusicCard;
+const mapDispatchToProps = (dispatch) => ({
+  enableRender: (bool) => dispatch(enableRenderAlbumAct(bool)),
+});
+
+export default connect(null, mapDispatchToProps)(MusicCard);

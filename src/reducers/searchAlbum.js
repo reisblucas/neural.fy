@@ -26,11 +26,10 @@ const searchAlbum = (state = initialState, action) => {
     };
 
   case ENABLE_RENDER_AFTER_CLICK_ON_LINK:
-    console.log(action);
-    // console.log(JSON.parse(action.boolStringfied));
+    console.log(action.boolStringfied);
     return {
       ...state,
-      // render: JSON.parse(action.boolStringfied),
+      render: action.boolStringfied,
     };
 
   default:

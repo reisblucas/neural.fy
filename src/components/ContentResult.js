@@ -4,13 +4,23 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { enableRenderAlbumAct } from '../actions';
 import '../styles/contentResult.css';
+import ContentMap from './ContentMap';
 
 class ContentResult extends Component {
-  async componentDidMount() {
-    const { enableRender } = this.props;
-    console.log('did montado');
+  state = {
+    isEnabledToRenderLinkContent: false,
+  }
 
-    await enableRender(true);
+  async componentDidMount() {
+    const { enableRender, searchAlbum: { render } } = this.props;
+    console.log('did montado', render);
+
+    if (render) {
+      await enableRender(false);
+      this.setState({
+        isEnabledToRenderLinkContent: true,
+      });
+    }
   }
 
   render() {
@@ -18,8 +28,10 @@ class ContentResult extends Component {
       searchedMain,
       searchResult,
       searchedTest,
-      searchAlbum: { render },
+      searchAlbum: { render, results },
     } = this.props;
+
+    const { isEnabledToRenderLinkContent } = this.state;
     console.log('isRenderEnabled', render);
 
     return (
@@ -30,6 +42,12 @@ class ContentResult extends Component {
             <h3>{searchedMain}</h3>
             <p hidden>{ searchedTest }</p>
           </div>
+
+          {
+            isEnabledToRenderLinkContent
+              ? <ContentMap { ...this.props } contentToMap={ results } />
+              : <ContentMap { ...this.props } contentToMap={ searchResult } />
+          }
 
           <section className="sectionCards">
             {
@@ -89,7 +107,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  enableRender: () => dispatch(enableRenderAlbumAct()),
+  enableRender: (bool) => dispatch(enableRenderAlbumAct(bool)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContentResult);

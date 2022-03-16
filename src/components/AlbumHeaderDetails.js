@@ -19,7 +19,7 @@ class AlbumHeaderDetails extends Component {
 
   handleArtistNameLink = () => {
     const { enableRender } = this.props;
-    enableRender();
+    enableRender(true);
   }
 
   render() {
@@ -83,7 +83,7 @@ AlbumHeaderDetails.propTypes = {
 }.isRequired;
 
 const mapDispatchToProps = (dispatch) => ({
-  enableRender: () => dispatch(enableRenderAlbumAct()),
+  enableRender: (bool) => dispatch(enableRenderAlbumAct(bool)),
 });
 
 export default connect(null, mapDispatchToProps)(AlbumHeaderDetails);

@@ -132,7 +132,7 @@ Search.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   inputSearchGlobal: (inputValue) => dispatch(inputSearchAct(inputValue)),
-  searchAlbumGlobal: () => dispatch(fetchAlbum()),
+  searchAlbumGlobal: (inputValue) => dispatch(fetchAlbum(inputValue)),
 });
 
 export default connect(null, mapDispatchToProps)(Search);
