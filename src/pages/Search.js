@@ -72,6 +72,7 @@ class Search extends Component {
       searchedTest: `Resultados de álbuns de: ${prevState.inputSearch}`,
       searchedMain: `Resultados de ${prevState.inputSearch}`,
     }));
+    inputSearchGlobal(inputSearch);
     searchAlbumGlobal(inputSearch);
   }
 

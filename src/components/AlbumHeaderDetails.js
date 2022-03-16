@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { totalAlbumTime } from '../helpers/songTime';
 import '../styles/albumHeaderDetails.css';
 
-export default class AlbumHeaderDetails extends Component {
+class AlbumHeaderDetails extends Component {
   albumYear = (year) => year.split('-')[0];
 
   sideInfoTracks = (tracks) => tracks.length;
@@ -13,6 +14,10 @@ export default class AlbumHeaderDetails extends Component {
     this.setState((prevState) => ({
       albumTrackTime: prevState.albumTrackTime + 1,
     }));
+  }
+
+  handleArtistNameLink = () => {
+    const { lastSearch } = this.props;
   }
 
   render() {
@@ -39,7 +44,9 @@ export default class AlbumHeaderDetails extends Component {
               </Link>
             )
             : (
-              <h5>{artistName}</h5>
+              <Link className="linkStyle focusableLink" to="/search">
+                <h5 className="headerUserOrArtistName">{artistName}</h5>
+              </Link>
             )
         }
         <h5 className="headingListStyle">•</h5>
@@ -68,3 +75,12 @@ AlbumHeaderDetails.propTypes = {
     PropTypes.array,
   ]),
 }.isRequired;
+
+const mapStateToProps = (state) => {
+  console.log(state.searchAlbum.inputSearch);
+  return {
+    lastSearch: state.searchAlbum.inputSearch,
+  };
+};
+
+export default connect(mapStateToProps)(AlbumHeaderDetails);
