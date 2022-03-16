@@ -100,7 +100,7 @@ class ProfileEdit extends Component {
           isLoading ? <Loading />
             : (
               <div className="patternPages" data-testid="page-profile-edit">
-                <h2 className="titlePage">Editar Perfil</h2>
+                <h2 className="titlePage">Edit Profile</h2>
                 <section className="formContainer">
 
                   <form action="" className="formEdit">
