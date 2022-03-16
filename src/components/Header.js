@@ -5,6 +5,7 @@ import { getUser } from '../services/userAPI';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import SidebarHeaderTopside from './SidebarHeaderTopside';
 import FavSideList from './FavSideList';
+import LoadingHeader from './LoadingHeader';
 
 class Header extends Component {
   constructor() {
@@ -84,10 +85,7 @@ class Header extends Component {
           {
             isLoading
               ? (
-                <FavSideList
-                  { ...this.props }
-                  favoriteSongs={ favoriteSongs }
-                />
+                <LoadingHeader />
               )
               : (
                 <FavSideList
