@@ -27,7 +27,13 @@ class PageController extends Component {
         >
           <FontAwesomeIcon icon={ faAngleLeft } className="faCentralizer" />
         </div>
-        <div className="control">
+        <div
+          role="button"
+          className="control"
+          onClick={ this.nextPageButton }
+          tabIndex="-1"
+          onKeyUp={ () => {} }
+        >
           <FontAwesomeIcon icon={ faAngleRight } className="faCentralizer" />
         </div>
       </div>
