@@ -140,20 +140,12 @@
 }
 
 .filterRow {
+  cursor: default;
   height: 10px;
 }
 
-/* .filterRow p {
-  font-size: 0.8em;
-  width: fit-content;
-} */
-
 .albumFilters {
-
-  /* display: flex; */
   font-size: 0.8em;
-
-  /* width: fit-content; */
 }
 
 .fitLinkContent {
@@ -326,21 +318,15 @@ audio {
   width: 25%;
 }
 
-.filterRigth {
+.filterRight {
   align-items: baseline;
   display: flex;
   justify-content: baseline;
   width: 5%;
 }
 
-.filterRigthAlbum {
+.filterRightAlbum {
   display: flex;
   justify-content: center;
   width: 6%;
-}
-
-.filterRigthAlbumMobile {
-  display: flex;
-  justify-content: center;
-  width: 30%;
 }

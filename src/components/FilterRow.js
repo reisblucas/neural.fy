@@ -222,7 +222,7 @@ class FilterRow extends Component {
         {
           path === pathFavorites
             ? (
-              <div className="filterRigth">
+              <div className="filterRight">
                 <div className="previewFavorite" />
                 <div className="timeFilter">
                   <p
@@ -238,7 +238,7 @@ class FilterRow extends Component {
               </div>
             )
             : (
-              <div className="filterRigthAlbum filterRightAlbumMobile">
+              <div className="filterRightAlbum">
                 <div className="previewFavorite" />
                 <div className="musicDurationAlbum">
                   <p

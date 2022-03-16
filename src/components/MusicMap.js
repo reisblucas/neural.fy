@@ -167,7 +167,7 @@ class MusicMap extends Component {
                     )
                   }
 
-                  <div className="filterRigth">
+                  <div className="filterRight">
                     {
                       checkedAndFavorite.includes(trackId)
                         ? (
