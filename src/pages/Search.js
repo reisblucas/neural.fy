@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
 import '../styles/search.css';
@@ -9,6 +10,7 @@ import ContentResult from '../components/ContentResult';
 import Input from '../components/Input';
 import fetchAlbum from '../thunk/fetchAlbumInRedux';
 import { inputSearchAct } from '../actions';
+import TopsideBar from '../components/TopsideBar';
 // import FriendsActivity from '../components/FriendsActivity';
 
 class Search extends Component {
@@ -83,6 +85,8 @@ class Search extends Component {
       isButtonDisabled,
     } = this.state;
 
+    console.log(this.props);
+
     return (
       <div className="headerPattern">
         <Header { ...this.props } />
@@ -90,6 +94,8 @@ class Search extends Component {
           isLoading && <Loading />
         }
         <div data-testid="page-search" className="patternPages">
+          <TopsideBar />
+
           <div className="search-hero">
             <form action="">
               <Input
@@ -135,4 +141,4 @@ const mapDispatchToProps = (dispatch) => ({
   searchAlbumGlobal: (inputValue) => dispatch(fetchAlbum(inputValue)),
 });
 
-export default connect(null, mapDispatchToProps)(Search);
+export default connect(null, mapDispatchToProps)(withRouter(Search));

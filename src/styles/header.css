@@ -105,6 +105,8 @@
 }
 
 .showUserBar {
+  display: flex;
+  flex-direction: row-reverse;
   width: 150px;
 }
 
