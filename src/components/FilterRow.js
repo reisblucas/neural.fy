@@ -173,7 +173,7 @@ class FilterRow extends Component {
         {
           path === pathFavorites
             ? (
-              <div className="musicAndArtist">
+              <div className="musicAndArtist titleFilter">
                 <p
                   className="albumFilters"
                   onClick={ this.sortMusicAlphOrderAndReverse }

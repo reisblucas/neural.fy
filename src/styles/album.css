@@ -11,6 +11,10 @@
   .musicRow {
     justify-content: flex-start ! important;
   }
+
+  .filterRightAlbum {
+    margin-left: 25px;
+  }
 }
 
 @media only screen and ( max-width : 950px ) {
