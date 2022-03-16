@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import AlbumHeaderDetails from './AlbumHeaderDetails';
+import TopsideBar from './TopsideBar';
 
 export default class AlbumHeader extends Component {
   render() {
@@ -11,6 +12,7 @@ export default class AlbumHeader extends Component {
         className="patternPages albumHeader gradHeader"
         data-testid="page-album"
       >
+        <TopsideBar />
         <h1 className="titlePage" hidden>Album page</h1>
         <div className="contentAlbum">
           <div className="albumTitle">

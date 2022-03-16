@@ -10,24 +10,36 @@ import { inputSearchAct } from '../actions';
 
 class InputSearch extends Component {
   render() {
+    const { match: { path } } = this.props;
+    console.log(this.props);
+    const pathAlbum = '/album/:id';
+    const pathFavorites = '/favorites';
+
     const { handleClick, handleChange, inputSearch, isButtonDisabled } = this.props;
 
     return (
       <div className="search-hero">
         <form action="">
-          <label htmlFor="buttonSearch">
-            <FontAwesomeIcon icon={ faMagnifyingGlass } className="glassInputSearch" />
-          </label>
-          <Input
-            type="text"
-            id="buttonSearch"
-            name="inputSearch"
-            placeholder="Artists, songs or podcasts..."
-            className="inputSearch"
-            data-testid="search-artist-input"
-            value={ inputSearch }
-            onChange={ handleChange }
-          />
+
+          {
+            path !== (pathAlbum || pathFavorites)
+          && (
+            <label htmlFor="buttonSearch">
+              <FontAwesomeIcon icon={ faMagnifyingGlass } className="glassInputSearch" />
+              <Input
+                type="text"
+                id="buttonSearch"
+                name="inputSearch"
+                placeholder="Artists, songs or podcasts..."
+                className="inputSearch"
+                data-testid="search-artist-input"
+                value={ inputSearch }
+                onChange={ handleChange }
+              />
+            </label>
+          )
+          }
+
           <button
             className="buttonSearch"
             type="submit"
