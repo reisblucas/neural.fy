@@ -98,7 +98,7 @@ class Profile extends Component {
                     to="/profile/edit"
                     className="linkStyle"
                   >
-                    Editar perfil
+                    Edit profile
 
                   </Link>
                 </button>

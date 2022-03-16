@@ -61,7 +61,7 @@ class Search extends Component {
         inputSearch: '',
         isLoading: false,
         searchedTest: 'Nenhum álbum foi encontrado',
-        searchedMain: 'Nenhum álbum foi encontrado.', // ponto para diferenciar do searchedTest
+        searchedMain: `No results found for "${inputSearch}".`, // ponto para diferenciar do searchedTest
       });
     }
 
@@ -70,7 +70,7 @@ class Search extends Component {
       searchResult: artist,
       isLoading: false,
       searchedTest: `Resultados de álbuns de: ${prevState.inputSearch}`,
-      searchedMain: `Resultados de ${prevState.inputSearch}`,
+      searchedMain: `Top results for ${prevState.inputSearch}`,
     }));
     inputSearchGlobal(inputSearch);
     searchAlbumGlobal(inputSearch);
