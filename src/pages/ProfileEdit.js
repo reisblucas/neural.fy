@@ -160,7 +160,7 @@ class ProfileEdit extends Component {
                       id="buttonSub"
                       className="buttonEditProfile"
                       type="submit"
-                      value="Editar perfil"
+                      value="Edit profile"
                       onClick={ (e) => this.handleClick(e) }
                       data-testid="edit-button-save"
                       disabled={ isButtonDisabled }
