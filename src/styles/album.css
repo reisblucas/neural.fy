@@ -15,6 +15,10 @@
   .filterRightAlbum {
     margin-left: 25px;
   }
+
+  /* .titleFilter {
+    width: 70%;
+  } */
 }
 
 @media only screen and ( max-width : 950px ) {
@@ -35,6 +39,10 @@
 
   .musicAndArtist {
     width: 40% ! important;
+  }
+
+  .titleFilter {
+    width: 55% ! important;
   }
 }
 
@@ -139,7 +147,8 @@
   display: flex;
   flex-direction: row;
   height: 56px;
-  justify-content: space-between;
+
+  /* justify-content: space-between; */
   padding: 5px;
 }
 
@@ -262,7 +271,8 @@
 }
 
 .miniAlbumImage {
-  width: 10%;
+  margin-right: 5px;
+  max-width: 100%;
 }
 
 .miniAlbumImage img {
@@ -271,7 +281,11 @@
 }
 
 .musicAndArtist {
-  width: 50%;
+  width: 65%;
+}
+
+.titleFilter {
+  width: 70%;
 }
 
 .musicAndArtistAlbum {
@@ -326,6 +340,7 @@ audio {
   align-items: baseline;
   display: flex;
   justify-content: baseline;
+  width: 5%;
 }
 
 .filterRightAlbum {

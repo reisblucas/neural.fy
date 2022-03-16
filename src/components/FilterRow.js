@@ -163,12 +163,12 @@ class FilterRow extends Component {
           </p>
         </div>
 
-        {
+        {/* {
           path === pathFavorites
             && (
               <div className="miniAlbumImage" />
             )
-        }
+        } */}
 
         {
           path === pathFavorites
