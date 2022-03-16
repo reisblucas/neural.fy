@@ -6,11 +6,27 @@ import { connect } from 'react-redux';
 import { sortMusicAct } from '../actions';
 
 class FilterRow extends Component {
+  // tracks: [],
+  // sortedTracks: [],
+  // favorites: [],
+  // favoritesSorted: [],
+
   sortMusicAlphOrderAndReverse = () => {
-    const { searchAlbum: { results } } = this.props;
+    const { responseMusics: { tracks, sortedTracks }, sortMusic } = this.props;
     console.log(this.props);
 
-    const sortResults = [...results].sort((a, b) => (a))
+    const sortTracksAlpha = [...tracks]
+      .sort((a, b) => (a.trackName).localeCompare(b.trackName));
+    console.log('sortedAlpha', sortTracksAlpha);
+    console.log('sortedInRedux', sortedTracks);
+
+    if (sortedTracks[0] === sortTracksAlpha[0]) {
+      const sortTracksDesc = [...tracks]
+        .sort((a, b) => (b.trackName).localeCompare(a.trackName));
+      console.log('sortedDescendent', sortTracksDesc);
+      return sortMusic(sortTracksDesc);
+    }
+    sortMusic(sortTracksAlpha);
   }
 
   render() {
@@ -101,6 +117,7 @@ const mapStateToProps = (state) => {
   console.log(state);
   return {
     searchAlbum: state.searchAlbum,
+    responseMusics: state.responseMusics,
   };
 };
 

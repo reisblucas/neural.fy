@@ -4,6 +4,7 @@ export const ENABLE_RENDER_AFTER_CLICK_ON_LINK = 'ENABLE_RENDER_AFTER_CLICK_ON_L
 export const SORT_MUSIC = 'SORT_MUSIC';
 export const RESPONSE_MUSICS = 'RESPONSE_MUSICS';
 export const SAVE_FAVORITE_MUSICS = 'SAVE_FAVORITE_MUSICS';
+export const SORT_FAV_MUSICS = 'SORT_FAV_MUSICS';
 
 export const inputSearchAct = (inputValue) => ({
   type: INPUT_SEARCH,
@@ -28,6 +29,11 @@ export const responseMusicsAct = (musics) => ({
 export const saveFavoriteMusicsAct = (favorites) => ({
   type: SAVE_FAVORITE_MUSICS,
   favorites,
+});
+
+export const sortFavoriteMusicsAct = (sortedFav) => ({
+  type: SORT_FAV_MUSICS,
+  sortedFav,
 });
 
 export const sortMusicAct = (sorted) => ({

@@ -1,9 +1,10 @@
-import { RESPONSE_MUSICS, SAVE_FAVORITE_MUSICS, SORT_MUSIC } from '../actions';
+import { RESPONSE_MUSICS, SAVE_FAVORITE_MUSICS, SORT_FAV_MUSICS, SORT_MUSIC } from '../actions';
 
 const initialState = {
   tracks: [],
   sortedTracks: [],
   favorites: [],
+  favoritesSorted: [],
 };
 
 const responseMusics = (state = initialState, action) => {
@@ -14,16 +15,22 @@ const responseMusics = (state = initialState, action) => {
       tracks: action.musics,
     };
 
+  case SORT_MUSIC:
+    return {
+      ...state,
+      sortedTracks: action.sorted,
+    };
+
   case SAVE_FAVORITE_MUSICS:
     return {
       ...state,
       favorites: action.favorites,
     };
 
-  case SORT_MUSIC:
+  case SORT_FAV_MUSICS:
     return {
       ...state,
-      sortedTracks: action.sorted,
+      favoritesSorted: action.sortedFav,
     };
 
   default:
