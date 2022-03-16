@@ -43,9 +43,11 @@ class FilterRow extends Component {
   sortMusicAlphOrderAndReverse = () => {
     const { responseMusics: { tracks, favorites }, sortMusic,
       match: { path }, sortFavoriteMusic } = this.props;
-    const { filterTime } = this.state;
+    const { filterTime, filterAlbum } = this.state;
 
-    if (filterTime !== '') { this.setState({ filterTime: '' }); }
+    if (filterTime !== '' || filterAlbum !== '') {
+      this.setState({ filterTime: '', filterAlbum: '' });
+    }
 
     if (path === pathAlbumId) {
       const sortTracksAlpha = [...tracks]
@@ -78,12 +80,14 @@ class FilterRow extends Component {
     }
   }
 
-  sortMusicTimerAscendAndDescend = () => {
+  sortMusicByTime = () => {
     const { responseMusics: { tracks, favorites }, match: { path },
       sortMusic, sortFavoriteMusic } = this.props;
-    const { filterTitle } = this.state;
+    const { filterTitle, filterAlbum } = this.state;
 
-    if (filterTitle !== '') { this.setState({ filterTitle: '' }); }
+    if (filterTitle !== '' || filterAlbum !== '') {
+      this.setState({ filterTitle: '', filterAlbum: '' });
+    }
 
     if (path === pathAlbumId) {
       const sortTracksAlpha = [...tracks]
@@ -113,6 +117,32 @@ class FilterRow extends Component {
       }
       sortFavoriteMusic(sortTracksAlpha);
       this.setState({ filterTime: 'a-z' });
+    }
+  }
+
+  sortMusicByAlbum = () => {
+    const { responseMusics: { favorites }, match: { path },
+      sortFavoriteMusic } = this.props;
+    const { filterTitle, filterTime } = this.state;
+
+    if (filterTitle !== '' || filterTime !== '') {
+      this.setState({ filterTitle: '', filterTime: '' });
+    }
+
+    if (path === pathFavorites) {
+      const sortTracksAlpha = [...favorites]
+        .sort((a, b) => (a.collectionName).localeCompare(b.collectionName));
+
+      if (favorites[0] === sortTracksAlpha[0]) {
+        const sortTracksDesc = [...favorites]
+          .sort((a, b) => (b.collectionName).localeCompare(a.collectionName));
+
+        this.setState({ filterAlbum: 'z-a' });
+        return sortFavoriteMusic(sortTracksDesc);
+      }
+
+      sortFavoriteMusic(sortTracksAlpha);
+      this.setState({ filterAlbum: 'a-z' });
     }
   }
 
@@ -176,7 +206,15 @@ class FilterRow extends Component {
           path === pathFavorites
               && (
                 <div className="albumFilter">
-                  <p className="albumFilters">ALBUM</p>
+                  <p
+                    className="albumFilters"
+                    onClick={ this.sortMusicByAlbum }
+                    tabIndex="-1"
+                    aria-hidden
+                  >
+                    ALBUM
+
+                  </p>
                 </div>
               )
         }
@@ -188,8 +226,8 @@ class FilterRow extends Component {
                 <div className="previewFavorite" />
                 <div className="timeFilter">
                   <p
-                    className="albumFilters"
-                    onClick={ this.sortMusicTimerAscendAndDescend }
+                    className="albumFilters fitLinkContent"
+                    onClick={ this.sortMusicByTime }
                     tabIndex="-1"
                     aria-hidden="true"
                   >
@@ -204,8 +242,8 @@ class FilterRow extends Component {
                 <div className="previewFavorite" />
                 <div className="musicDurationAlbum">
                   <p
-                    className="albumFilters"
-                    onClick={ this.sortMusicTimerAscendAndDescend }
+                    className="albumFilters fitLinkContent"
+                    onClick={ this.sortMusicByTime }
                     tabIndex="-1"
                     aria-hidden="true"
                   >

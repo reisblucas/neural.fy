@@ -156,7 +156,7 @@ class MusicMap extends Component {
                       <div className="albumFilter">
                         <div className="divToEllipsis">
                           <Link
-                            className="linkStyle focusableLink"
+                            className="linkStyle focusableLink ellipsis"
                             key={ collectionId }
                             to={ `/album/${collectionId}` }
                           >
