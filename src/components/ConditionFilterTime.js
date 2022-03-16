@@ -8,7 +8,7 @@ export default class ConditionFilterTime extends Component {
     const { filterTime } = this.props;
 
     return (
-      <div>
+      <>
         {
           filterTime === 'a-z'
           && (
@@ -25,7 +25,7 @@ export default class ConditionFilterTime extends Component {
             <FontAwesomeIcon icon={ faSortUp } className="faCentralizerFilter" />
           )
         }
-      </div>
+      </>
     );
   }
 }

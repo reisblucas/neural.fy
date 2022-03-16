@@ -13,8 +13,26 @@ const pathFavorites = '/favorites';
 
 class FilterRow extends Component {
   state = {
+    favoritesClone: [],
+    tracksClone: [],
     filterTitle: '',
     filterTime: '',
+  }
+
+  componentDidMount() {
+    this.saveTracksToReset();
+  }
+
+  saveTracksToReset = () => {
+    const { responseMusics: { favorites, tracks } } = this.props;
+    this.setState({ favoritesClone: [...favorites], tracksClone: [...tracks] });
+  }
+
+  resetFilter = () => {
+    const { match: { path }, sortMusic, sortFavoriteMusic } = this.props;
+    const { favoritesClone, tracksClone } = this.state;
+    const pathConditionToReset = path === pathAlbumId;
+    pathConditionToReset ? sortMusic(tracksClone) : sortFavoriteMusic(favoritesClone);
   }
 
   sortMusicAlphOrderAndReverse = () => {
@@ -100,7 +118,14 @@ class FilterRow extends Component {
     return (
       <div className="musicRow filterRow">
         <div className="divTrackNumber">
-          <p className="withoutHover albumFilters trackNumberCenter">#</p>
+          <p
+            className="withoutHover albumFilters trackNumberCenter"
+            onClick={ this.resetFilter }
+            tabIndex="-1"
+            aria-hidden="true"
+          >
+            #
+          </p>
         </div>
 
         {

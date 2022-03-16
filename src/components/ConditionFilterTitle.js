@@ -7,8 +7,7 @@ export default class ConditionFilterTitle extends Component {
   render() {
     const { filterTitle } = this.props;
     return (
-
-      <div>
+      <>
         {
           filterTitle === 'a-z'
           && (
@@ -25,7 +24,7 @@ export default class ConditionFilterTitle extends Component {
             <FontAwesomeIcon icon={ faSortUp } className="faCentralizerFilter" />
           )
         }
-      </div>
+      </>
     );
   }
 }
