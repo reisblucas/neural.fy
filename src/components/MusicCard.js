@@ -44,6 +44,7 @@ class MusicCard extends Component {
       handleReload,
       checkedAndFavorite,
       match: { path },
+      responseMusics: { tracks }, //
     } = this.props;
 
     const { played } = this.state;
@@ -231,8 +232,16 @@ MusicCard.propTypes = {
   path: PropTypes.string,
 }.isRequired;
 
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    searchAlbum: state.searchAlbum,
+    responseMusics: state.responseMusics,
+  };
+};
+
 const mapDispatchToProps = (dispatch) => ({
   enableRender: (bool) => dispatch(enableRenderAlbumAct(bool)),
 });
 
-export default connect(null, mapDispatchToProps)(MusicCard);
+export default connect(mapStateToProps, mapDispatchToProps)(MusicCard);
