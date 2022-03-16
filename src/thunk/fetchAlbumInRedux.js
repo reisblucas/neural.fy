@@ -2,7 +2,6 @@ import { searchAlbumAct } from '../actions';
 
 const fetchAlbum = (artistNameURL) => async (dispatch) => {
   const url = `https://itunes.apple.com/search?entity=album&term=${artistNameURL}&attribute=allArtistTerm`;
-  console.log(url);
 
   try {
     const request = await fetch(url);

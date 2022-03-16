@@ -17,8 +17,6 @@ export default class ButtonPlay extends Component {
       played: { name, status },
     } = this.props;
 
-    console.log(name, status);
-
     return (
       <div className="divTrackNumber">
         {

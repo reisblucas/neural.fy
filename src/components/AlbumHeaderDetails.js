@@ -28,7 +28,7 @@ class AlbumHeaderDetails extends Component {
       albumTracks,
       location: { pathname },
     } = this.props;
-    console.log(this.props);
+
     const favoritesPath = '/favorites';
 
     return (

@@ -26,7 +26,6 @@ const searchAlbum = (state = initialState, action) => {
     };
 
   case ENABLE_RENDER_AFTER_CLICK_ON_LINK:
-    console.log(action.boolStringfied);
     return {
       ...state,
       render: action.boolStringfied,

@@ -16,7 +16,6 @@ class MusicCard extends Component {
   }
 
   handlePlayIcon = ({ currentTarget }) => {
-    console.log(currentTarget.attributes.name.value);
     this.setState(({
       played: {
         status: true,

@@ -13,7 +13,6 @@ class ContentResult extends Component {
 
   async componentDidMount() {
     const { enableRender, searchAlbum: { render } } = this.props;
-    console.log('did montado', render);
 
     if (render) {
       await enableRender(false);
@@ -28,11 +27,10 @@ class ContentResult extends Component {
       searchedMain,
       searchResult,
       searchedTest,
-      searchAlbum: { render, results },
+      searchAlbum: { results },
     } = this.props;
 
     const { isEnabledToRenderLinkContent } = this.state;
-    console.log('isRenderEnabled', render);
 
     return (
       <div className="contentSpace">
@@ -99,12 +97,9 @@ ContentResult.propTypes = {
   searchedTest: PropTypes.string,
 }.isRequired;
 
-const mapStateToProps = (state) => {
-  console.log(state.searchAlbum);
-  return {
-    searchAlbum: state.searchAlbum,
-  };
-};
+const mapStateToProps = (state) => ({
+  searchAlbum: state.searchAlbum,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   enableRender: (bool) => dispatch(enableRenderAlbumAct(bool)),

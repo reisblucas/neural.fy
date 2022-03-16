@@ -109,7 +109,7 @@ class Search extends Component {
                 disabled={ isButtonDisabled }
                 onClick={ this.handleClick }
               >
-                Pesquisar
+                Search
               </button>
             </form>
           </div>
