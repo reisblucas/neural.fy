@@ -6,10 +6,12 @@ import { connect } from 'react-redux';
 import { sortMusicAct } from '../actions';
 
 class FilterRow extends Component {
-  sortMusicAlphOrderAndReverse = () => {
-    const { searchAlbum: { results } } = this.props;
-    console.log(results);
-  }
+  // sortMusicAlphOrderAndReverse = () => {
+  //   const { searchAlbum: { results } } = this.props;
+  //   console.log(this.props);
+
+  //   const sortResults = [...results].sort((a, b) => (a))
+  // }
 
   render() {
     const { path } = this.props;
@@ -34,6 +36,7 @@ class FilterRow extends Component {
               <div className="musicAndArtist">
                 <p
                   className="albumFilters"
+                  onClick={ this.sortMusicAlphOrderAndReverse }
                 >
                   TITLE
                 </p>
@@ -41,7 +44,13 @@ class FilterRow extends Component {
             )
             : (
               <div className="musicAndArtistAlbum">
-                <p className="albumFilters">TITLE</p>
+                <p
+                  className="albumFilters"
+                  onClick={ this.sortMusicAlphOrderAndReverse }
+                >
+                  TITLE
+
+                </p>
               </div>
             )
         }
@@ -88,9 +97,12 @@ FilterRow.propTypes = {
   path: PropTypes.strings,
 }.isRequired;
 
-const mapStateToProps = (state) => ({
-  searchAlbum: state.searchAlbum,
-});
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    searchAlbum: state.searchAlbum,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   sortMusic: (sorted) => dispatch(sortMusicAct(sorted)),

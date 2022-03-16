@@ -118,7 +118,7 @@ class Login extends Component {
                         disabled={ isSubmitBttIsDisabled }
                         name="loginSubmitButton"
                         type="submit"
-                        value="Search"
+                        value="Sign in"
                       />
                     )
                     : (
@@ -129,7 +129,7 @@ class Login extends Component {
                         disabled={ isSubmitBttIsDisabled }
                         name="loginSubmitButton"
                         type="submit"
-                        value="Search"
+                        value="Sign in"
                         onClick={ async (e) => {
                           e.preventDefault();
                           this.setState({ isLoading: true });

@@ -16,8 +16,10 @@
 
 .inputLogin {
   border-radius: 5px;
+  height: 25px;
   margin: 0;
   margin-top: 20px;
+  padding: 5px;
   width: 200px;
 }
 
@@ -44,8 +46,10 @@
   align-self: center;
   border-radius: 2px;
   color: black;
+  font-size: 15px;
+  height: 25px;
   margin-top: 15px;
-  width: 207.5px;
+  width: 100%;
 }
 
 .loginSubmitButtonDisabled {
