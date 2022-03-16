@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 
 export default class ProfileHeader extends Component {
@@ -33,14 +34,16 @@ export default class ProfileHeader extends Component {
     const { name, image } = this.state;
 
     return (
-      <div className="showUserBar">
-        <img
-          src={ image }
-          alt="profile icon"
-          className="image-icon"
-        />
-        <h5 data-testid="header-user-name" className="ellipsis">{ name }</h5>
-      </div>
+      <Link to="/profile" className="linkStyle linkToProfileTopsideBar">
+        <div className="showUserBar">
+          <img
+            src={ image }
+            alt="profile icon"
+            className="image-icon"
+          />
+          <h4 data-testid="header-user-name" className="ellipsis">{ name }</h4>
+        </div>
+      </Link>
     );
   }
 }

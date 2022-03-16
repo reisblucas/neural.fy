@@ -13,7 +13,7 @@ export default class SidebarHeaderTopside extends Component {
           <Link to="/search" className="header-link-style">
             <div className="header-title">
               <img src={ SpotifyLogoHeader } alt="Spotify Logo" />
-              <h2 className="header-collab">X</h2>
+              <h4 className="header-collab">X</h4>
               <h2>neur4l</h2>
             </div>
           </Link>

@@ -15,11 +15,22 @@
   .headerTopside {
     display: flex ! important;
     flex-direction: row ! important;
-    justify-content: space-evenly;
+    justify-content: space-between;
+  }
+
+  .header-title h2 {
+    margin-bottom: 0;
   }
 
   .header-content {
     flex-direction: row ! important;
+  }
+
+  .header-title {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0;
   }
 
   .navLinks-container {
@@ -91,7 +102,7 @@
 
 .header-collab {
   font-weight: 400;
-  margin: 0;
+  margin: 0 7px;
 }
 
 .header-content h2 {
