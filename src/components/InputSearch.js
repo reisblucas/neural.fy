@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import Input from './Input';
 import fetchAlbum from '../thunk/fetchAlbumInRedux';
 import { inputSearchAct } from '../actions';
@@ -13,6 +15,9 @@ class InputSearch extends Component {
     return (
       <div className="search-hero">
         <form action="">
+          <label htmlFor="buttonSearch">
+            <FontAwesomeIcon icon={ faMagnifyingGlass } className="glassInputSearch" />
+          </label>
           <Input
             type="text"
             id="buttonSearch"
@@ -29,6 +34,7 @@ class InputSearch extends Component {
             data-testid="search-artist-button"
             disabled={ isButtonDisabled }
             onClick={ handleClick }
+            hidden
           >
             Search
           </button>

@@ -21,11 +21,21 @@
   margin: 0;
 }
 
+.glassInputSearch {
+  background-color: white;
+  border-bottom-left-radius: 50px;
+  border-top-left-radius: 50px;
+  color: black;
+  height: 24px;
+  padding: 10px;
+  vertical-align: middle;
+}
+
 .inputSearch {
   border: 2px solid white;
-  border-radius: 10px 0 0 10px;
-  border-right: 2px solid black;
-  height: 29px;
+  border-bottom-right-radius: 50px;
+  border-top-right-radius: 50px;
+  height: 40px;
   padding: 0 10px;
   width: 25vw;
 }
