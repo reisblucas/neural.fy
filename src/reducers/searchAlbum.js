@@ -2,7 +2,6 @@ import {
   ENABLE_RENDER_AFTER_CLICK_ON_LINK,
   INPUT_SEARCH,
   SEARCH_ALBUM,
-  SORT_MUSIC,
 } from '../actions';
 
 const initialState = {
@@ -30,12 +29,6 @@ const searchAlbum = (state = initialState, action) => {
     return {
       ...state,
       render: action.boolStringfied,
-    };
-
-  case SORT_MUSIC:
-    return {
-      ...state,
-      results: action.sorted,
     };
 
   default:

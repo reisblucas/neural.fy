@@ -6,12 +6,12 @@ import { connect } from 'react-redux';
 import { sortMusicAct } from '../actions';
 
 class FilterRow extends Component {
-  // sortMusicAlphOrderAndReverse = () => {
-  //   const { searchAlbum: { results } } = this.props;
-  //   console.log(this.props);
+  sortMusicAlphOrderAndReverse = () => {
+    const { searchAlbum: { results } } = this.props;
+    console.log(this.props);
 
-  //   const sortResults = [...results].sort((a, b) => (a))
-  // }
+    const sortResults = [...results].sort((a, b) => (a))
+  }
 
   render() {
     const { path } = this.props;

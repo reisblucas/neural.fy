@@ -124,7 +124,12 @@
   height: 10px;
 }
 
-.filterRow p {
+/* .filterRow p {
+  font-size: 0.8em;
+  width: fit-content;
+} */
+
+.albumFilters {
   font-size: 0.8em;
   width: fit-content;
 }

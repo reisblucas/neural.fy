@@ -118,7 +118,12 @@ class MusicCard extends Component {
                               key={ collectionId }
                               to={ `/album/${collectionId}` }
                             >
-                              <p className="artistName ellipsis">{ artistName }</p>
+                              <p
+                                className="artistName ellipsis albumFilters"
+                              >
+                                { artistName }
+
+                              </p>
                               {' '}
                             </Link>
                           </div>
@@ -134,7 +139,12 @@ class MusicCard extends Component {
                               to="/search"
                               onClick={ this.handleArtistNameLink }
                             >
-                              <p className="artistName ellipsis">{ artistName }</p>
+                              <p
+                                className="artistName ellipsis albumFilters"
+                              >
+                                { artistName }
+
+                              </p>
                             </Link>
                           </div>
                         </div>

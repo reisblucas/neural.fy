@@ -1,4 +1,7 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { responseMusicsAct, saveFavoriteMusicsAct } from '../actions';
 import AlbumHeader from '../components/AlbumHeader';
 import Header from '../components/Header';
 import Loading from '../components/Loading';
@@ -54,8 +57,13 @@ class Favorites extends Component {
   }
 
   async getFavoriteAndRemoveFromList() {
+    const { saveFavoriteMusics } = this.props;
+
     const favorites = await getFavoriteSongs();
     const idFavoriteSongs = favorites.map(({ trackId }) => trackId);
+    console.log(favorites);
+    console.log(idFavoriteSongs);
+    saveFavoriteMusics(favorites);
     this.setState({
       albumTracks: favorites,
       checkedAndFavorite: [...idFavoriteSongs],
@@ -68,11 +76,12 @@ class Favorites extends Component {
     return filtered;
   }
 
-  async fetchFavoriteSongs() {
-    const favorites = await getFavoriteSongs();
-    const idFavoriteSongs = favorites.map(({ trackId }) => trackId);
-    return idFavoriteSongs;
-  }
+  // async fetchFavoriteSongs() {
+  //   const favorites = await getFavoriteSongs();
+  //   const idFavoriteSongs = favorites.map(({ trackId }) => trackId);
+  //   console.log(idFavoriteSongs);
+  //   return idFavoriteSongs;
+  // }
 
   async favoriteHeader() {
     const currentYear = new Date().getFullYear();
@@ -125,4 +134,20 @@ class Favorites extends Component {
   }
 }
 
-export default Favorites;
+Favorites.propTypes = {
+  saveFavoriteMusics: PropTypes.func,
+}.isRequired;
+
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    responseMusics: state.responseMusics,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  saveResponseMusics: (response) => dispatch(responseMusicsAct(response)),
+  saveFavoriteMusics: (favorites) => dispatch(saveFavoriteMusicsAct(favorites)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Favorites);

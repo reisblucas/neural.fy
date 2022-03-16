@@ -2,6 +2,8 @@ export const SEARCH_ALBUM = 'SEARCH_ALBUM';
 export const INPUT_SEARCH = 'INPUT_SEARCH';
 export const ENABLE_RENDER_AFTER_CLICK_ON_LINK = 'ENABLE_RENDER_AFTER_CLICK_ON_LINK';
 export const SORT_MUSIC = 'SORT_MUSIC';
+export const RESPONSE_MUSICS = 'RESPONSE_MUSICS';
+export const SAVE_FAVORITE_MUSICS = 'SAVE_FAVORITE_MUSICS';
 
 export const inputSearchAct = (inputValue) => ({
   type: INPUT_SEARCH,
@@ -16,6 +18,16 @@ export const searchAlbumAct = (response) => ({
 export const enableRenderAlbumAct = (boolStringfied) => ({
   type: ENABLE_RENDER_AFTER_CLICK_ON_LINK,
   boolStringfied,
+});
+
+export const responseMusicsAct = (musics) => ({
+  type: RESPONSE_MUSICS,
+  musics,
+});
+
+export const saveFavoriteMusicsAct = (favorites) => ({
+  type: SAVE_FAVORITE_MUSICS,
+  favorites,
 });
 
 export const sortMusicAct = (sorted) => ({
