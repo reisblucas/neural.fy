@@ -93,7 +93,7 @@ class Login extends Component {
                   data-testid="login-name-input"
                   name="inputLogin"
                   onChange={ this.handleChanges }
-                  placeholder="Insira seu nome..."
+                  placeholder="Insert your name..."
                   type="text"
                   value={ inputLogin }
                 />
@@ -118,7 +118,7 @@ class Login extends Component {
                         disabled={ isSubmitBttIsDisabled }
                         name="loginSubmitButton"
                         type="submit"
-                        value="Entrar"
+                        value="Search"
                       />
                     )
                     : (
@@ -129,7 +129,7 @@ class Login extends Component {
                         disabled={ isSubmitBttIsDisabled }
                         name="loginSubmitButton"
                         type="submit"
-                        value="Entrar"
+                        value="Search"
                         onClick={ async (e) => {
                           e.preventDefault();
                           this.setState({ isLoading: true });
