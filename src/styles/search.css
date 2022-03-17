@@ -25,22 +25,24 @@
   margin: 0;
 }
 
-.glassInputSearch {
+.labelInputSearch {
   background-color: white;
-  border-bottom-left-radius: 50px;
-  border-top-left-radius: 50px;
+  border-radius: 50px;
+  height: 24px;
+  padding: 13px;
+}
+
+.glassInputSearch {
   color: black;
   height: 24px;
-  padding: 10px;
   vertical-align: middle;
 }
 
 .inputSearch {
-  border: 2px solid white;
+  border: 1px solid white;
   border-bottom-right-radius: 50px;
   border-top-right-radius: 50px;
   height: 40px;
-  padding: 0 15px 0 0;
   text-align: center;
   width: 25vw;
 }
