@@ -119,7 +119,7 @@ ___
 - Agora é possível filtrar, em ordem crescente e decrescente, baseado no:\
 &nbsp;&nbsp; - Título;\
 &nbsp;&nbsp; - Álbum;\
-&nbsp;&nbsp; - Tempo de música;
+&nbsp;&nbsp; - Tempo de música;\
 &nbsp;&nbsp; - Filter reset(#).
 
 ___
