@@ -73,7 +73,6 @@ ___
 
 <div align="center">
   <p>Projeto realizado no dia 14/02/2022 enquanto aluno da Trybe</p>
-  <p>💚</p>
-  <p>Estilizado do dia 26/02 ao dia 02/03/2022</p>
+  <p>:rocket:</p>
   <p>neur4l ®</p>
 </div>
