@@ -71,7 +71,7 @@ ___
   <h4>Easter egg:</h4>
 </div>
 
-1. Por enquanto, ainda não consegui fazer ficar disponível no Github Pages.
+1. Por enquanto, não está disponível no Github Pages.
 
 ___
 
