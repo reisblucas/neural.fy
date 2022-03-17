@@ -16,7 +16,7 @@
     height: 150px ! important;
     max-width: 100% ! important;
     position: unset ! important;
-    width: 100%;
+    width: 100% ! important;
   }
 
   .headerTopside {

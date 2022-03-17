@@ -39,7 +39,8 @@ p:hover {
 }
 
 .patternPages{
-  width: 95.1%;
+  /* width: 95.1%; */
+  width: 100%;
   margin: 0 auto;
 }
 
