@@ -5,7 +5,7 @@ import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import SpotifyLogoHeader from '../images/spotifyLogoHeader.png';
 
-export default class SidebarHeaderTopside extends Component {
+export default class TopsideHeader extends Component {
   render() {
     return (
       <div className="headerTopside">
@@ -58,7 +58,7 @@ export default class SidebarHeaderTopside extends Component {
   }
 }
 
-SidebarHeaderTopside.propTypes = {
+TopsideHeader.propTypes = {
   image: PropTypes.string,
   isLoading: PropTypes.bool,
   name: PropTypes.string,

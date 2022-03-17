@@ -3,7 +3,7 @@ import '../styles/header.css';
 import PropTypes from 'prop-types';
 import { getUser } from '../services/userAPI';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
-import SidebarHeaderTopside from './SidebarHeaderTopside';
+import TopsideHeader from './TopsideHeader';
 import FavSideList from './FavSideList';
 import LoadingHeader from './LoadingHeader';
 
@@ -76,7 +76,7 @@ class Header extends Component {
 
     return (
       <header className="header-hero" data-testid="header-component">
-        <SidebarHeaderTopside { ...this.state } />
+        <TopsideHeader { ...this.state } />
 
         <hr className="sideBarHorizontalRow" />
 
