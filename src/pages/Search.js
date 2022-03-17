@@ -43,38 +43,41 @@ class Search extends Component {
     });
   }
 
-  handleClick = async () => {
-    const { inputSearch } = this.state;
-    const { inputSearchGlobal, searchAlbumGlobal } = this.props;
+  handleClick = async (e) => {
+    e.preventDefault();
+    if (e.key === 'Enter') {
+      const { inputSearch } = this.state;
+      const { inputSearchGlobal, searchAlbumGlobal } = this.props;
 
-    this.setState({
-      isLoading: true,
-      isButtonDisabled: true,
-      searchResult: [],
-      searchedMain: `Resultados de ${inputSearch}`,
-    });
-
-    const artist = await searchAlbumsAPI(inputSearch);
-
-    if (artist.length === 0) {
-      inputSearchGlobal('Nenhum álbum foi encontrado.');
-      return this.setState({
-        inputSearch: '',
-        isLoading: false,
-        searchedTest: 'Nenhum álbum foi encontrado',
-        searchedMain: `No results found for "${inputSearch}".`, // ponto para diferenciar do searchedTest
+      this.setState({
+        isLoading: true,
+        isButtonDisabled: true,
+        searchResult: [],
+        searchedMain: `Resultados de ${inputSearch}`,
       });
-    }
 
-    this.setState((prevState) => ({
-      inputSearch: '',
-      searchResult: artist,
-      isLoading: false,
-      searchedTest: `Resultados de álbuns de: ${prevState.inputSearch}`,
-      searchedMain: `Top results for ${prevState.inputSearch}`,
-    }));
-    inputSearchGlobal(inputSearch);
-    searchAlbumGlobal(inputSearch);
+      const artist = await searchAlbumsAPI(inputSearch);
+
+      if (artist.length === 0) {
+        inputSearchGlobal('Nenhum álbum foi encontrado.');
+        return this.setState({
+          inputSearch: '',
+          isLoading: false,
+          searchedTest: 'Nenhum álbum foi encontrado',
+          searchedMain: `No results found for "${inputSearch}".`, // ponto para diferenciar do searchedTest
+        });
+      }
+
+      this.setState((prevState) => ({
+        inputSearch: '',
+        searchResult: artist,
+        isLoading: false,
+        searchedTest: `Resultados de álbuns de: ${prevState.inputSearch}`,
+        searchedMain: `Top results for ${prevState.inputSearch}`,
+      }));
+      inputSearchGlobal(inputSearch);
+      searchAlbumGlobal(inputSearch);
+    }
   }
 
   render() {

@@ -15,7 +15,9 @@ class InputSearch extends Component {
     const pathAlbum = '/album/:id';
     const pathFavorites = '/favorites';
 
-    const { handleClick, handleChange, inputSearch, isButtonDisabled } = this.props;
+    const { handleClick, handleChange, inputSearch,
+      // isButtonDisabled,
+    } = this.props;
 
     return (
       <div className="search-hero">
@@ -35,12 +37,18 @@ class InputSearch extends Component {
                 data-testid="search-artist-input"
                 value={ inputSearch }
                 onChange={ handleChange }
+                onKeyPress={ (e) => {
+                  if (e.key === 'Enter') {
+                    handleClick(e);
+                    console.log('teste');
+                  }
+                } }
               />
             </div>
           )
           }
 
-          <button
+          {/* <button
             className="buttonSearch"
             type="submit"
             data-testid="search-artist-button"
@@ -49,7 +57,7 @@ class InputSearch extends Component {
             hidden
           >
             Search
-          </button>
+          </button> */}
         </form>
       </div>
     );
