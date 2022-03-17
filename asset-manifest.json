@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/neur4l.fy/static/css/main.22743152.chunk.css",
-    "main.js": "/neur4l.fy/static/js/main.3a5bb492.chunk.js",
-    "main.js.map": "/neur4l.fy/static/js/main.3a5bb492.chunk.js.map",
+    "main.js": "/neur4l.fy/static/js/main.72b1b26c.chunk.js",
+    "main.js.map": "/neur4l.fy/static/js/main.72b1b26c.chunk.js.map",
     "runtime-main.js": "/neur4l.fy/static/js/runtime-main.608a0f4d.js",
     "runtime-main.js.map": "/neur4l.fy/static/js/runtime-main.608a0f4d.js.map",
     "static/js/2.846da77a.chunk.js": "/neur4l.fy/static/js/2.846da77a.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.608a0f4d.js",
     "static/js/2.846da77a.chunk.js",
     "static/css/main.22743152.chunk.css",
-    "static/js/main.3a5bb492.chunk.js"
+    "static/js/main.72b1b26c.chunk.js"
   ]
 }
