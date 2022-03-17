@@ -27,11 +27,15 @@ src/services/\
 
 ## Principais funcionalidades de acordo com as rotas:
 
-#### Spotify® logo in Header:
+<div align="center">
+  <h4>Spotify® logo in Header:</h4>
+</div>
 
 1. Ao clicar na logo, será redirecionado a Home(/search).
 
-#### Search:
+<div align="center">
+  <h4>Search:</h4>
+</div>
 
 1. Buscar álbuns baseado no nome do artista;
 2. Renderizar resultados na tela;
@@ -40,26 +44,32 @@ src/services/\
 
 ___
 
-#### Favorites:
+<div align="center">
+  <h4>Favorites:</h4>
+</div>
 
 1. Play & Stop músicas;
 2. Favoritar & desfavoritar músicas.
 
 ___
 
-#### Profile:
+<div align="center">
+  <h4>Profile:</h4>
+</div>
 
 1. Editar:\
 &nbsp;&nbsp; - Nome;\
 &nbsp;&nbsp; - E-mail;\
 &nbsp;&nbsp; - Imagem(baseado na URL da imagem);\
-&nbsp;&nbsp; - Descrição.\
+&nbsp;&nbsp; - Descrição.
 2. Ao editar a foto de perfil será atualizado em todo o projeto;
 3. Após editar a foto, ao acessar a rota "/favorites", será possível visualizar a foto de perfil do usuário. 
 
----
+___
 
-#### Easter egg:
+<div align="center">
+  <h4>Easter egg:</h4>
+</div>
 
 1. Por enquanto, ainda não consegui fazer ficar disponível no Github Pages.
 
@@ -76,22 +86,25 @@ ___
 <div align="center">
   <h5>Fixed Bugs:</h5>
 </div>
+
 - CORS bug, resolvido;
 - Input Search agora ativa corretamente quando clica no enter pelo celular.
 
 <div align="center">
   <h5>Implementações visuais:</h5>
 </div>
+
 - Tempo total do álbum;
 - Implementações visuais para Desktop, Mobile e Tablet:\
 &nbsp;&nbsp; - Header condicional para Mobile/Tablet;\
 &nbsp;&nbsp; - Navigation Links condicionais para Mobile;\
 &nbsp;&nbsp; - Campo de busca dos álbuns do artista procurado;\
-&nbsp;&nbsp; - Profile Pattern na pesquisa, album e favoritos.\
+&nbsp;&nbsp; - Profile Pattern na pesquisa, album e favoritos.
 
 <div align="center">
   <h5>Implementações funcionais:</h5>
 </div>
+
 - Implementação do Redux para manipulação do Estado Global;
 - Links para buscar álbuns daquele artista;
 - Links para ir para o álbum de determinado artista;
@@ -99,7 +112,15 @@ ___
 - Adicionado um botão para Page Control, tanto para voltar a página anterior ou quanto para avançar à uma página;
 - Campo de busca dos álbuns do artista procurado;
 
-##### Filtros:
+<div align="center">
+  <h5>Filtros:</h5>
+</div>
+
+- Agora é possível filtrar, em ordem crescente e decrescente, baseado no:\
+&nbsp;&nbsp; - Título;\
+&nbsp;&nbsp; - Álbum;\
+&nbsp;&nbsp; - Tempo de música;
+&nbsp;&nbsp; - Filter reset(#).
 
 ___
 
