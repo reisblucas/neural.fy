@@ -40,24 +40,12 @@ class InputSearch extends Component {
                 onKeyPress={ (e) => {
                   if (e.key === 'Enter') {
                     handleClick(e);
-                    console.log('teste');
                   }
                 } }
               />
             </div>
           )
           }
-
-          {/* <button
-            className="buttonSearch"
-            type="submit"
-            data-testid="search-artist-button"
-            disabled={ isButtonDisabled }
-            onClick={ handleClick }
-            hidden
-          >
-            Search
-          </button> */}
         </form>
       </div>
     );
