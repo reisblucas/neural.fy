@@ -24,7 +24,7 @@ class InputSearch extends Component {
           {
             (path !== pathAlbum && path !== pathFavorites)
           && (
-            <label htmlFor="buttonSearch">
+            <div>
               <FontAwesomeIcon icon={ faMagnifyingGlass } className="glassInputSearch" />
               <Input
                 type="text"
@@ -36,7 +36,7 @@ class InputSearch extends Component {
                 value={ inputSearch }
                 onChange={ handleChange }
               />
-            </label>
+            </div>
           )
           }
 
