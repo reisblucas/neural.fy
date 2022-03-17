@@ -225,13 +225,10 @@ FilterRow.propTypes = {
   path: PropTypes.string,
 }.isRequired;
 
-const mapStateToProps = (state) => {
-  console.log(state);
-  return {
-    searchAlbum: state.searchAlbum,
-    responseMusics: state.responseMusics,
-  };
-};
+const mapStateToProps = (state) => ({
+  searchAlbum: state.searchAlbum,
+  responseMusics: state.responseMusics,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   sortMusic: (sorted) => dispatch(sortMusicAct(sorted)),
@@ -239,3 +236,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(FilterRow));
+
+//

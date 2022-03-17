@@ -39,7 +39,7 @@ class Album extends Component {
 
     const music = await this.fetchMusic();
     const idFavoriteSongs = await this.fetchFavoriteSongs();
-    console.log(music);
+
     saveResponseMusics(music.slice(1));
 
     this.setState({
