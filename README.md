@@ -61,13 +61,45 @@ ___
 
 #### Easter egg:
 
-1. Por enquanto, não está disponível no Github Pages;
+1. Por enquanto, ainda não consegui fazer ficar disponível no Github Pages.
 
 ___
 
 #### 02/03/2020:
 
 - Pode ser que ocorra alguns erros de CORS, atualizarei assim que possível.
+
+___
+
+#### 14/03 - 17/03:
+
+<div align="center">
+  <h5>Fixed Bugs:</h5>
+</div>
+- CORS bug, resolvido;
+- Input Search agora ativa corretamente quando clica no enter pelo celular.
+
+<div align="center">
+  <h5>Implementações visuais:</h5>
+</div>
+- Tempo total do álbum;
+- Implementações visuais para Desktop, Mobile e Tablet:\
+&nbsp;&nbsp; - Header condicional para Mobile/Tablet;\
+&nbsp;&nbsp; - Navigation Links condicionais para Mobile;\
+&nbsp;&nbsp; - Campo de busca dos álbuns do artista procurado;\
+&nbsp;&nbsp; - Profile Pattern na pesquisa, album e favoritos.\
+
+<div align="center">
+  <h5>Implementações funcionais:</h5>
+</div>
+- Implementação do Redux para manipulação do Estado Global;
+- Links para buscar álbuns daquele artista;
+- Links para ir para o álbum de determinado artista;
+- Link para ir ao perfil na página de músicas favoritas (/favorites);
+- Adicionado um botão para Page Control, tanto para voltar a página anterior ou quanto para avançar à uma página;
+- Campo de busca dos álbuns do artista procurado;
+
+##### Filtros:
 
 ___
 
