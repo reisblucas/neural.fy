@@ -90,9 +90,7 @@ class Search extends Component {
     return (
       <div className="headerPattern">
         <Header { ...this.props } />
-        {
-          isLoading && <Loading />
-        }
+
         <div data-testid="page-search" className="patternPages">
           <TopsideBar
             handleClick={ this.handleClick }
@@ -101,7 +99,10 @@ class Search extends Component {
             isButtonDisabled={ isButtonDisabled }
           />
 
-          <ContentResult { ...this.state } />
+          {
+            isLoading ? <Loading /> : <ContentResult { ...this.state } />
+          }
+
         </div>
 
         {/* FriendsActivity sidebar */}
