@@ -1,7 +1,13 @@
-@media only screen and ( max-width : 375px ) {
+@media only screen and ( max-width : 414px ) {
 
   .inputSearch {
+    border-left: 2px solid white;
+    margin-right: 8px ! important;
     width: auto ! important;
+  }
+
+  .glassInputSearch {
+    margin-left: 10px;
   }
 }
 
