@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import Input from './Input';
 import fetchAlbum from '../thunk/fetchAlbumInRedux';
 import { inputSearchAct } from '../actions';
 
@@ -26,9 +25,9 @@ class InputSearch extends Component {
           {
             (path !== pathAlbum && path !== pathFavorites)
           && (
-            <div>
+            <label htmlFor="buttonSearch">
               <FontAwesomeIcon icon={ faMagnifyingGlass } className="glassInputSearch" />
-              <Input
+              <input
                 type="text"
                 id="buttonSearch"
                 name="inputSearch"
@@ -43,7 +42,23 @@ class InputSearch extends Component {
                   }
                 } }
               />
-            </div>
+
+              {/* <Input
+                type="text"
+                id="buttonSearch"
+                name="inputSearch"
+                placeholder="Artists, songs or podcasts..."
+                className="inputSearch"
+                data-testid="search-artist-input"
+                value={ inputSearch }
+                onChange={ handleChange }
+                onKeyPress={ (e) => {
+                  if (e.key === 'Enter') {
+                    handleClick(e);
+                  }
+                } }
+              /> */}
+            </label>
           )
           }
         </form>
