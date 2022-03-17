@@ -1,12 +1,10 @@
 import PropTypes from 'prop-types';
-import { faClock } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { sortFavoriteMusicsAct, sortMusicAct } from '../actions';
 import ConditionFilterTitle from './ConditionFilterTitle';
-import ConditionFilterTime from './ConditionFilterTime';
+import ConditionClockRender from './ConditionClockRender';
 
 const pathAlbumId = '/album/:id';
 const pathFavorites = '/favorites';
@@ -163,13 +161,6 @@ class FilterRow extends Component {
           </p>
         </div>
 
-        {/* {
-          path === pathFavorites
-            && (
-              <div className="miniAlbumImage" />
-            )
-        } */}
-
         {
           path === pathFavorites
             ? (
@@ -219,41 +210,11 @@ class FilterRow extends Component {
               )
         }
 
-        {
-          path === pathFavorites
-            ? (
-              <div className="filterRight">
-                <div className="previewFavorite" />
-                <div className="timeFilter">
-                  <p
-                    className="albumFilters fitLinkContent"
-                    onClick={ this.sortMusicByTime }
-                    tabIndex="-1"
-                    aria-hidden="true"
-                  >
-                    <FontAwesomeIcon icon={ faClock } />
-                    <ConditionFilterTime filterTime={ filterTime } />
-                  </p>
-                </div>
-              </div>
-            )
-            : (
-              <div className="filterRightAlbum">
-                <div className="previewFavorite" />
-                <div className="musicDurationAlbum">
-                  <p
-                    className="albumFilters fitLinkContent"
-                    onClick={ this.sortMusicByTime }
-                    tabIndex="-1"
-                    aria-hidden="true"
-                  >
-                    <FontAwesomeIcon icon={ faClock } />
-                    <ConditionFilterTime filterTime={ filterTime } />
-                  </p>
-                </div>
-              </div>
-            )
-        }
+        <ConditionClockRender
+          filterTime={ filterTime }
+          path={ path }
+          sortMusicByTime={ this.sortMusicByTime }
+        />
 
       </div>
     );
@@ -261,7 +222,7 @@ class FilterRow extends Component {
 }
 
 FilterRow.propTypes = {
-  path: PropTypes.strings,
+  path: PropTypes.string,
 }.isRequired;
 
 const mapStateToProps = (state) => {

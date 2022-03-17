@@ -8,7 +8,7 @@ class MusicCard extends Component {
   render() {
     const {
       match: { path },
-      responseMusics: { tracks, favorites }, //
+      responseMusics: { tracks, favorites },
     } = this.props;
 
     return (
