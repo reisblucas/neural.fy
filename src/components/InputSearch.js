@@ -46,7 +46,7 @@ class InputSearch extends Component {
             data-testid="search-artist-button"
             disabled={ isButtonDisabled }
             onClick={ handleClick }
-            hidden
+            // hidden
           >
             Search
           </button>
