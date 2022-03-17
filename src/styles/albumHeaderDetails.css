@@ -1,3 +1,7 @@
+.contentAlbum {
+  cursor: default;
+}
+
 .headerUserOrArtistName {
   color: white;
 }
