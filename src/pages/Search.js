@@ -34,6 +34,7 @@ class Search extends Component {
     }, () => {
       const { inputSearch } = this.state;
       const TWO = 2;
+      console.log(inputSearch);
       if (inputSearch.length >= TWO) {
         this.setState({
           isButtonDisabled: false,
