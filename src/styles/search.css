@@ -42,7 +42,7 @@
   border: 1px solid white;
   border-bottom-right-radius: 50px;
   border-top-right-radius: 50px;
-  height: 40px;
+  /* height: 40px; */
   text-align: center;
   width: 25vw;
 }
