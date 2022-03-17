@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import fetchAlbum from '../thunk/fetchAlbumInRedux';
 
-export default class FavSideList extends Component {
+class FavSideList extends Component {
   componentDidMount() {
     this.saveUrl();
   }
@@ -22,19 +24,22 @@ export default class FavSideList extends Component {
   }
 
   render() {
-    const { favoriteSongs } = this.props;
+    const { favoriteSongs, fetchAlbumThunk } = this.props;
 
     return (
       <div className="favList">
         {
           favoriteSongs.map((song) => {
-            const { collectionId, trackId, trackName } = song;
+            const { artistName, collectionId, trackId, trackName } = song;
             return (
               <Link
                 to={ `/album/${collectionId}` }
                 key={ trackId }
                 className="sideLinkStyle"
-                onClick={ () => this.saveUrl() }
+                onClick={ () => {
+                  this.saveUrl();
+                  fetchAlbumThunk(artistName);
+                } }
               >
                 <p className="ellipsis">{trackName}</p>
               </Link>
@@ -50,4 +55,17 @@ FavSideList.propTypes = {
   favoriteSongs: PropTypes.oneOfType([
     PropTypes.array,
   ]),
+  fetchAlbum: PropTypes.func,
 }.isRequired;
+
+// FavSideList.propTypes = {
+//   favoriteSongs: PropTypes.oneOfType([
+//     PropTypes.array,
+//   ]),
+// }.isRequired;
+
+const mapDispatchToProps = (dispatch) => ({
+  fetchAlbumThunk: (artistName) => dispatch(fetchAlbum(artistName)),
+});
+
+export default connect(null, mapDispatchToProps)(FavSideList);
