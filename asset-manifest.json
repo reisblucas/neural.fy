@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/neur4l.fy/static/css/main.22743152.chunk.css",
-    "main.js": "/neur4l.fy/static/js/main.2e5f4bb8.chunk.js",
-    "main.js.map": "/neur4l.fy/static/js/main.2e5f4bb8.chunk.js.map",
+    "main.css": "/neur4l.fy/static/css/main.ab9e9bb9.chunk.css",
+    "main.js": "/neur4l.fy/static/js/main.71803741.chunk.js",
+    "main.js.map": "/neur4l.fy/static/js/main.71803741.chunk.js.map",
     "runtime-main.js": "/neur4l.fy/static/js/runtime-main.608a0f4d.js",
     "runtime-main.js.map": "/neur4l.fy/static/js/runtime-main.608a0f4d.js.map",
     "static/js/2.846da77a.chunk.js": "/neur4l.fy/static/js/2.846da77a.chunk.js",
     "static/js/2.846da77a.chunk.js.map": "/neur4l.fy/static/js/2.846da77a.chunk.js.map",
     "index.html": "/neur4l.fy/index.html",
-    "static/css/main.22743152.chunk.css.map": "/neur4l.fy/static/css/main.22743152.chunk.css.map",
+    "static/css/main.ab9e9bb9.chunk.css.map": "/neur4l.fy/static/css/main.ab9e9bb9.chunk.css.map",
     "static/js/2.846da77a.chunk.js.LICENSE.txt": "/neur4l.fy/static/js/2.846da77a.chunk.js.LICENSE.txt",
     "static/media/spotify-logo-login-color.4f8bc335.svg": "/neur4l.fy/static/media/spotify-logo-login-color.4f8bc335.svg",
     "static/media/spotifyLogoHeader.f48fb565.png": "/neur4l.fy/static/media/spotifyLogoHeader.f48fb565.png"
@@ -16,7 +16,7 @@
   "entrypoints": [
     "static/js/runtime-main.608a0f4d.js",
     "static/js/2.846da77a.chunk.js",
-    "static/css/main.22743152.chunk.css",
-    "static/js/main.2e5f4bb8.chunk.js"
+    "static/css/main.ab9e9bb9.chunk.css",
+    "static/js/main.71803741.chunk.js"
   ]
 }
