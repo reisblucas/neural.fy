@@ -31,7 +31,7 @@ class App extends React.Component {
           <Route
             exact
             path={ ['/search', '/album/:id', '/favorites',
-              '/profile/edit', '/profile', '*'] }
+              '/profile/edit', '/profile'] }
             component={ (props) => (
               <div className="renderHeaderInAllPages">
                 <Header { ...props } />
@@ -42,9 +42,9 @@ class App extends React.Component {
         </Switch>
 
         <Switch>
-          {/* <Route exact path="/">
+          <Route exact path="/">
             <Login { ...this.state } handleLoad={ this.handleLoad } />
-          </Route> */}
+          </Route>
           <Route
             path="/search"
             component={ (props) => <Search { ...props } /> }

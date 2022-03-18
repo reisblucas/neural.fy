@@ -102,7 +102,7 @@
 }
 
 .imageInsideCard {
-  border-radius: 100%;
+  border-radius: 3%;
   height: 100%;
   object-fit: contain;
   width: 100%;
