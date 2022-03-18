@@ -41,7 +41,7 @@ export default class ProfileHeader extends Component {
             alt="profile icon"
             className="image-icon"
           />
-          <h4 data-testid="header-user-name" className="ellipsis">{ name }</h4>
+          <p data-testid="header-user-name" className="ellipsis">{ name }</p>
         </div>
       </Link>
     );

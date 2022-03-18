@@ -26,12 +26,16 @@ export default class FriendsActivity extends Component {
   }
 }
 
-// const musicData = [
-//   {
-//     image: '',
-//     username: '',
-//     musicName: '',
-//     artistName: '',
-//     playlist: '',
-//   },
-// ];
+const idAlbumData = [
+  { 1440642493: 'Take Care (Deluxe Version)' },
+];
+
+const musicData = [
+  {
+    image: '../images/friendsActivityProfile/fortnite-superhero.webp',
+    username: 'Lucas',
+    musicName: 'Over My Dead Body',
+    artistName: 'Drake',
+    playlist: 'Take Care (Deluxe Version)',
+  },
+];

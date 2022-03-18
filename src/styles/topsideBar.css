@@ -45,8 +45,9 @@
   min-width: 70px;
 }
 
-.showUserBar h4 {
+.showUserBar p {
   color: white;
+  font-weight: 900;
   margin: 10px;
 }
 

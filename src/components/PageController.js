@@ -24,6 +24,7 @@ class PageController extends Component {
           onClick={ this.previousPageButton }
           tabIndex="-1"
           onKeyUp={ () => {} }
+          aria-label="controller-button-page-back"
         >
           <FontAwesomeIcon icon={ faAngleLeft } className="faCentralizer" />
         </div>
@@ -33,6 +34,7 @@ class PageController extends Component {
           onClick={ this.nextPageButton }
           tabIndex="-1"
           onKeyUp={ () => {} }
+          aria-label="controller-button-page-forward"
         >
           <FontAwesomeIcon icon={ faAngleRight } className="faCentralizer" />
         </div>
