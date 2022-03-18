@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser, updateUser } from '../services/userAPI';
 import '../styles/profileEdit.css';
@@ -94,8 +93,6 @@ class ProfileEdit extends Component {
 
     return (
       <div className="headerPattern">
-        {/* <Header { ...this.props } /> */}
-
         {
           isLoading ? <Loading />
             : (

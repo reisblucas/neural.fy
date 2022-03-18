@@ -4,7 +4,6 @@ import React, { Component } from 'react';
 import { idAlbumData, musicData } from '../data/friendsActivity/friendsData';
 import '../styles/friendsActivity.css';
 import FriendActivityDefault from './FriendActivityDefault';
-import Input from './Input';
 
 export default class FriendsActivity extends Component {
   state = {
@@ -73,7 +72,13 @@ export default class FriendsActivity extends Component {
                       <div key={ idAlbumData[i] } className="friend-activity">
                         <div className="friend-profile-picture">
                           <div className="friend-pp-hover">
-                            <img className="friend-pp" src={ image } alt="" width="50" height="50" />
+                            <img
+                              className="friend-pp"
+                              src={ image }
+                              alt=""
+                              width="50"
+                              height="50"
+                            />
                           </div>
                         </div>
                         <div>

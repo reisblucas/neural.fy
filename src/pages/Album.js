@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Header from '../components/Header';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
 import getMusics from '../services/musicsAPI';
@@ -114,11 +113,6 @@ class Album extends Component {
 
     return (
       <div className="headerPattern">
-        {/* <Header
-          { ...this.props }
-          { ...this.state }
-          handleReload={ this.handleReload }
-        /> */}
         {
           isLoading
             ? <Loading />

@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { responseMusicsAct, saveFavoriteMusicsAct } from '../actions';
 import AlbumHeader from '../components/AlbumHeader';
-import Header from '../components/Header';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
 import { getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';

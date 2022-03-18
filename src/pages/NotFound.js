@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Header from '../components/Header';
 import '../styles/notFound.css';
 
 class NotFound extends Component {
@@ -9,7 +8,6 @@ class NotFound extends Component {
     return (
       <div>
         <div className="headerPattern" data-testid="page-not-found">
-          {/* <Header { ...this.props } /> */}
           <div className="notFoundCentered">
             <h1 className="titlePage">{notFound}</h1>
             <div className="easterEggDiv">
