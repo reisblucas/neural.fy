@@ -1,5 +1,14 @@
+@media only screen and ( max-width : 500px ) {
+
+  .friends-container-hero {
+    display: none;
+  }
+}
+
 .friends-container-hero {
   background-color: black;
+  float: right;
+  height: 100vh;
   padding: 12px 15px 0;
   width: 20%;
 }

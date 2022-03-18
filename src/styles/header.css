@@ -78,6 +78,7 @@
   color: white;
   display: flex;
   flex-direction: column;
+  float: left;
   height: 100vh;
   margin: 0;
   max-width: 200px;

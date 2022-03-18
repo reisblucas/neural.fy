@@ -94,7 +94,7 @@ class ProfileEdit extends Component {
 
     return (
       <div className="headerPattern">
-        <Header { ...this.props } />
+        {/* <Header { ...this.props } /> */}
 
         {
           isLoading ? <Loading />

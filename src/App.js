@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './app.css';
+import FriendsActivity from './components/FriendsActivity';
+import Header from './components/Header';
 import Album from './pages/Album';
 import Favorites from './pages/Favorites';
 import Login from './pages/Login';
@@ -26,9 +28,23 @@ class App extends React.Component {
     return (
       <BrowserRouter basename="/neur4l.fy">
         <Switch>
-          <Route exact path="/">
+          <Route
+            exact
+            path={ ['/search', '/album/:id', '/favorites',
+              '/profile/edit', '/profile', '*'] }
+            component={ (props) => (
+              <div>
+                <Header { ...props } />
+                <FriendsActivity />
+              </div>
+            ) }
+          />
+        </Switch>
+
+        <Switch>
+          {/* <Route exact path="/">
             <Login { ...this.state } handleLoad={ this.handleLoad } />
-          </Route>
+          </Route> */}
           <Route
             path="/search"
             component={ (props) => <Search { ...props } /> }

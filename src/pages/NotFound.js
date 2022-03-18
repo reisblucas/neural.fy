@@ -9,7 +9,7 @@ class NotFound extends Component {
     return (
       <div>
         <div className="headerPattern patternPages" data-testid="page-not-found">
-          <Header { ...this.props } />
+          {/* <Header { ...this.props } /> */}
           <div className="patternPages notFoundCentered">
             <h1 className="titlePage">{notFound}</h1>
             <div className="easterEggDiv">

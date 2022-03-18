@@ -89,7 +89,7 @@ class Search extends Component {
 
     return (
       <div className="headerPattern">
-        <Header { ...this.props } />
+        {/* <Header { ...this.props } /> */}
 
         <div data-testid="page-search" className="patternPages">
           <TopsideBar
@@ -106,7 +106,7 @@ class Search extends Component {
         </div>
 
         {/* FriendsActivity sidebar */}
-        <FriendsActivity />
+        {/* <FriendsActivity /> */}
 
       </div>
     );

@@ -114,11 +114,11 @@ class Album extends Component {
 
     return (
       <div className="headerPattern">
-        <Header
+        {/* <Header
           { ...this.props }
           { ...this.state }
           handleReload={ this.handleReload }
-        />
+        /> */}
         {
           isLoading
             ? <Loading />
