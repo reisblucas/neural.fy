@@ -5,20 +5,103 @@
   }
 }
 
+.noHover {
+  pointer-events: none;
+}
+
 .friends-container-hero {
   background-color: black;
   float: right;
   height: 100vh;
   padding: 12px 15px 0;
-  width: 20%;
+  width: 250px;
 }
 
 .headerActFrnd {
   align-items: center;
+  color: #b3b3b3;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 30px;
 }
 
 .title-hero {
   margin: 0;
+}
+
+.subtitle {
+  color: white;
+  font-size: 0.9em;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.activities-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.friend-activity {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
+
+.friend-profile-picture {
+  align-items: center;
+  background-color: #333;
+  border-radius: 100%;
+  color: #b3b3b3;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  margin-right: 10px;
+  width: 50px;
+}
+
+.fa-profile-no-activity {
+}
+
+.friend-name {
+
+}
+
+.friend-no-activity-nm {
+  background-color: #333;
+  border-radius: 10px;
+  height: 10px;
+  margin-bottom: 2px;
+  width: 100px;
+}
+
+.friend-music-name {
+
+}
+
+.friend-artist-name {
+
+}
+
+.friend-no-activity-am {
+  background-color: #333;
+  border-radius: 10px;
+  height: 10px;
+  margin-bottom: 2px;
+  width: 80px;
+}
+
+.divButtonSettings {
+  display: flex;
+  justify-content: center;
+}
+
+.buttonSettings {
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 900;
+  padding: 15px;
+  width: 180px;
 }
