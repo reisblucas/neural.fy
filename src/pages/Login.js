@@ -96,6 +96,7 @@ class Login extends Component {
                   placeholder="Insert your name..."
                   type="text"
                   value={ inputLogin }
+                  autoComplete="off"
                 />
 
                 <Input

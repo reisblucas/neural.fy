@@ -41,6 +41,7 @@ class InputSearch extends Component {
                     handleClick(e);
                   }
                 } }
+                autoComplete="off"
               />
 
               {/* <Input

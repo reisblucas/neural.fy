@@ -114,6 +114,7 @@ class ProfileEdit extends Component {
                         onChange={ this.handleChange }
                         data-testid="edit-input-name"
                         required
+                        autoComplete="off"
                       />
                     </label>
 
@@ -139,6 +140,7 @@ class ProfileEdit extends Component {
                         defaultValue={ image }
                         onChange={ this.handleChange }
                         data-testid="edit-input-image"
+                        autoComplete="off"
                       />
                     </label>
 
@@ -153,6 +155,7 @@ class ProfileEdit extends Component {
                         data-testid="edit-input-description"
                         defaultValue={ description }
                         required
+                        autoComplete="off"
                       />
                     </label>
 
