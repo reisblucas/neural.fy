@@ -33,7 +33,7 @@ class App extends React.Component {
             path={ ['/search', '/album/:id', '/favorites',
               '/profile/edit', '/profile', '*'] }
             component={ (props) => (
-              <div>
+              <div className="renderHeaderInAllPages">
                 <Header { ...props } />
                 <FriendsActivity />
               </div>

@@ -1,5 +1,11 @@
 @media only screen and ( max-width : 400px ) {
 
+  .renderHeaderInAllPages {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
   .navLinks-container span {
     display: none;
   }
@@ -12,7 +18,14 @@
     flex-direction: column;
   }
 
+  .renderHeaderInAllPages {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
   .header-hero {
+    float: none;
     height: 150px ! important;
     max-width: 100% ! important;
     position: unset ! important;
