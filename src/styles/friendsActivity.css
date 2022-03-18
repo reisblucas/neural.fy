@@ -67,6 +67,10 @@
 
 }
 
+.info-friend-music {
+  display: flex;
+}
+
 .friend-no-activity-nm {
   background-color: #333;
   border-radius: 10px;

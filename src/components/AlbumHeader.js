@@ -9,7 +9,7 @@ export default class AlbumHeader extends Component {
 
     return (
       <section
-        className="patternPages albumHeader gradHeader"
+        className="albumHeader gradHeader"
         data-testid="page-album"
       >
         <TopsideBar />

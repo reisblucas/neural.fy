@@ -38,10 +38,10 @@ p:hover {
   text-align: center;
 }
 
-.patternPages{
+.patternPages {
   /* width: 95.1%; */
   width: 100%;
-  margin: 0 auto;
+  /* margin: 0 auto; */
 }
 
 .ellipsis {

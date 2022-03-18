@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './app.css';
-import FriendsActivity from './components/FriendsActivity';
+import FriendsActivity from './components/FriendsActivitySidebar';
 import Header from './components/Header';
 import Album from './pages/Album';
 import Favorites from './pages/Favorites';

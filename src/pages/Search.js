@@ -10,7 +10,7 @@ import ContentResult from '../components/ContentResult';
 import fetchAlbum from '../thunk/fetchAlbumInRedux';
 import { inputSearchAct } from '../actions';
 import TopsideBar from '../components/TopsideBar';
-import FriendsActivity from '../components/FriendsActivity';
+import FriendsActivity from '../components/FriendsActivitySidebar';
 
 class Search extends Component {
   constructor() {
