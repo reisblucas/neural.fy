@@ -9,6 +9,10 @@ class FavSideList extends Component {
     this.saveUrl();
   }
 
+  shouldComponentUpdate(nextProps) {
+    console.log(nextProps);
+  }
+
   saveUrl = () => {
     const { match: { url } } = this.props;
     this.setState({ url }, () => this.pathVerifier());
@@ -21,10 +25,6 @@ class FavSideList extends Component {
     if (urlCurrentPage !== urlSideLink) {
       window.location.reload();
     }
-  }
-
-  shouldComponentUpdate(nextProps) {
-    console.log(nextProps);
   }
 
   render() {
