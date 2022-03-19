@@ -1,4 +1,4 @@
-import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { idAlbumData, musicData } from '../data/friendsActivity/friendsData';
@@ -26,23 +26,28 @@ export default class FriendsActivity extends Component {
               <FriendActivityDefault />
             )
             : (
-              <div>
+              <div className="father-activity">
                 {
                   musicData.map((friend, i) => {
                     console.log('teste');
                     const { image, username, musicName, artistName } = friend;
                     return (
-                      <div key={ idAlbumData[i] } className="friend-activity">
+                      <div key={ i } className="friend-activity">
                         <div className="friend-profile-picture">
-                          <div className="friend-pp-hover">
-                            <img
-                              className="friend-pp"
-                              src={ image }
-                              alt=""
-                              width="50"
-                              height="50"
+                          <img
+                            className="friend-pp"
+                            src={ image }
+                            alt=""
+                            width="50"
+                            height="50"
+                          />
+                          <div className="friend-pp-icon-father">
+                            <FontAwesomeIcon
+                              icon={ faPlay }
+                              className="friend-pp-icon-play"
                             />
                           </div>
+
                         </div>
                         <div className="friend-detail-info">
                           <div className="friend-name-ellipsis">

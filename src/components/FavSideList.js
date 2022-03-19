@@ -23,6 +23,10 @@ class FavSideList extends Component {
     }
   }
 
+  shouldComponentUpdate(nextProps) {
+    console.log(nextProps);
+  }
+
   render() {
     const { favoriteSongs, fetchAlbumThunk } = this.props;
 
