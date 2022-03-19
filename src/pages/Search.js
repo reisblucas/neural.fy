@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import Header from '../components/Header';
 import Loading from '../components/Loading';
 import '../styles/search.css';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
@@ -10,7 +9,6 @@ import ContentResult from '../components/ContentResult';
 import fetchAlbum from '../thunk/fetchAlbumInRedux';
 import { inputSearchAct } from '../actions';
 import TopsideBar from '../components/TopsideBar';
-import FriendsActivity from '../components/FriendsActivitySidebar';
 
 class Search extends Component {
   constructor() {
@@ -89,7 +87,6 @@ class Search extends Component {
 
     return (
       <div className="headerPattern">
-        {/* <Header { ...this.props } /> */}
 
         <div data-testid="page-search" className="patternPages">
           <TopsideBar
@@ -104,9 +101,6 @@ class Search extends Component {
           }
 
         </div>
-
-        {/* FriendsActivity sidebar */}
-        {/* <FriendsActivity /> */}
 
       </div>
     );
