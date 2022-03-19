@@ -7,7 +7,7 @@ import FriendActivityDefault from './FriendActivityDefault';
 
 export default class FriendsActivity extends Component {
   state = {
-    hasFriendActivity: false,
+    hasFriendActivity: true,
   }
 
   render() {

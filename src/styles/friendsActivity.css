@@ -48,6 +48,16 @@
   position: relative;
 }
 
+/* Default */
+.friend-activity-default {
+  align-items: center;
+  cursor: default;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+  width: 240px;
+}
+
 .friend-activity {
   align-items: center;
   cursor: default;

@@ -13,7 +13,7 @@ export default class FriendActivityDefault extends Component {
         </div>
 
         <div className="activities-container">
-          <div className="friend-activity">
+          <div className="friend-activity-default">
             <div className="friend-profile-picture">
               <FontAwesomeIcon icon={ faUser } />
             </div>
@@ -25,7 +25,7 @@ export default class FriendActivityDefault extends Component {
 
           </div>
 
-          <div className="friend-activity">
+          <div className="friend-activity-default">
             <div className="friend-profile-picture">
               <FontAwesomeIcon icon={ faUser } />
             </div>
@@ -36,7 +36,7 @@ export default class FriendActivityDefault extends Component {
             </div>
           </div>
 
-          <div className="friend-activity">
+          <div className="friend-activity-default">
             <div className="friend-profile-picture">
               <FontAwesomeIcon
                 icon={ faUser }
