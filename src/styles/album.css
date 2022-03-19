@@ -1,5 +1,15 @@
 @media only screen and ( max-width : 414px ) {
 
+  .album {
+    height: auto ! important;
+  }
+
+  .albumContent {
+    height: auto ! important;
+    overflow-x: hidden;
+    overflow-y: hidden ! important;
+  }
+
   .fitLinkContent {
     width: auto ! important;
   }
@@ -50,6 +60,7 @@
   display: flex;
   flex: 1;
   flex-direction: column;
+  height: 100vh;
   width: 100%;
 }
 
@@ -297,7 +308,7 @@
 }
 
 .musicAndArtist {
-  width: 65%;
+  width: 50%;
 }
 
 .titleFilter {
