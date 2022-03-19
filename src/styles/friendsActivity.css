@@ -13,6 +13,8 @@
   background-color: black;
   float: right;
   height: 100vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
   padding: 12px 15px 0;
   width: 250px;
 }
@@ -47,6 +49,10 @@
   display: flex;
   flex-direction: row;
   margin-bottom: 15px;
+}
+
+.friend-activity:last-child {
+  margin-bottom: 0;
 }
 
 .friend-profile-picture {

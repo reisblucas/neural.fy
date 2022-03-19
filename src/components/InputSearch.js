@@ -43,22 +43,6 @@ class InputSearch extends Component {
                 } }
                 autoComplete="off"
               />
-
-              {/* <Input
-                type="text"
-                id="buttonSearch"
-                name="inputSearch"
-                placeholder="Artists, songs or podcasts..."
-                className="inputSearch"
-                data-testid="search-artist-input"
-                value={ inputSearch }
-                onChange={ handleChange }
-                onKeyPress={ (e) => {
-                  if (e.key === 'Enter') {
-                    handleClick(e);
-                  }
-                } }
-              /> */}
             </label>
           )
           }
