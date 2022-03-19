@@ -143,7 +143,9 @@
 }
 
 .albumContent {
-  padding: 20px 40px;
+  height: 60.6vh;
+  overflow-y: scroll;
+  padding: 20px 40px 0;
 }
 
 .gradContent {
