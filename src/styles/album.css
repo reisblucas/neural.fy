@@ -26,9 +26,9 @@
     margin-left: 25px;
   }
 
-  /* .titleFilter {
-    width: 70%;
-  } */
+  ::-webkit-scrollbar {
+    width: 0 ! important;
+  }
 }
 
 @media only screen and ( max-width : 950px ) {
@@ -61,6 +61,7 @@
   flex: 1;
   flex-direction: column;
   height: 100vh;
+  overflow-y: scroll;
   width: 100%;
 }
 
@@ -154,8 +155,10 @@
 }
 
 .albumContent {
-  height: 60.6vh;
-  overflow-y: scroll;
+
+  /* height: 60.6vh; */
+
+  /* overflow-y: scroll; */
   padding: 20px 40px 0;
 }
 
@@ -312,7 +315,7 @@
 }
 
 .titleFilter {
-  width: 70%;
+  width: 55%;
 }
 
 .musicAndArtistAlbum {

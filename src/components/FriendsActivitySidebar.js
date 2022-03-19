@@ -1,4 +1,4 @@
-import { faUser, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { idAlbumData, musicData } from '../data/friendsActivity/friendsData';
@@ -20,50 +20,13 @@ export default class FriendsActivity extends Component {
           <FontAwesomeIcon icon={ faUserPlus } />
         </div>
 
-        {/* Map da simulação dos amigos */}
-        {/*
-          - Div com foto
-          - Nome user
-          - Nome música
-          - Nome artista
-          - Nome da Playlist
-
-        */}
         {
           !hasFriendActivity
             ? (
               <FriendActivityDefault />
             )
             : (
-              <div className="activities-container">
-                <div className="friend-activity">
-                  <div className="friend-profile-picture">
-                    <FontAwesomeIcon icon={ faUser } />
-                  </div>
-                  <div>
-                    <p className="friend-name friend-no-activity-nm" />
-                    <div className="info-friend-music">
-                      <p className="friend-music-name friend-no-activity-am" />
-                      <p className="friend-artist-name friend-no-activity-am" />
-                    </div>
-                    <p className="friend-name friend-no-activity-nm" />
-                  </div>
-                </div>
-
-                <div className="friend-activity">
-                  <div className="friend-profile-picture">
-                    <FontAwesomeIcon icon={ faUser } />
-                  </div>
-                  <div>
-                    <p className="friend-name friend-no-activity-nm" />
-                    <div className="info-friend-music">
-                      <p className="friend-music-name friend-no-activity-am" />
-                      <p className="friend-artist-name friend-no-activity-am" />
-                    </div>
-                    <p className="friend-name friend-no-activity-nm" />
-                  </div>
-                </div>
-
+              <div>
                 {
                   musicData.map((friend, i) => {
                     console.log('teste');
@@ -81,7 +44,7 @@ export default class FriendsActivity extends Component {
                             />
                           </div>
                         </div>
-                        <div>
+                        <div className="friend-detail-info">
                           <div className="friend-name-ellipsis">
                             <p className="friend-name">{username}</p>
                             {/* FONT ICON // MUSIC TIMER */}
@@ -96,7 +59,14 @@ export default class FriendsActivity extends Component {
                             </div>
                           </div>
                           <div className="friend-playlist-ellipsis">
-                            <p className="friend-playlist-name">Playlist name</p>
+                            <p className="friend-icon-style">
+                              ☉
+                              <span
+                                className="friend-playlist-name ellipsis"
+                              >
+                                Playlist name
+                              </span>
+                            </p>
                           </div>
                         </div>
                       </div>
