@@ -1,11 +1,12 @@
 import { faPlay, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { idAlbumData, musicData } from '../data/friendsActivity/friendsData';
 import '../styles/friendsActivity.css';
 import FriendActivityDefault from './FriendActivityDefault';
 
-export default class FriendsActivity extends Component {
+class FriendsActivitySidebar extends Component {
   state = {
     hasFriendActivity: true,
     renderFriends: 0,
@@ -73,8 +74,6 @@ export default class FriendsActivity extends Component {
                               className="friend-pp"
                               src={ image }
                               alt=""
-                              width="50"
-                              height="50"
                             />
                             <div className="friend-pp-icon-father">
                               <FontAwesomeIcon
@@ -125,8 +124,6 @@ export default class FriendsActivity extends Component {
                             className="friend-pp"
                             src={ image }
                             alt=""
-                            width="50"
-                            height="50"
                           />
                           <div className="friend-pp-icon-father">
                             <FontAwesomeIcon
@@ -152,7 +149,7 @@ export default class FriendsActivity extends Component {
                           </div>
                           <div className="friend-playlist-ellipsis">
                             <p className="friend-icon-style">
-                              ☉
+                              ♬
                               <span
                                 className="friend-playlist-name ellipsis"
                               >
@@ -173,3 +170,10 @@ export default class FriendsActivity extends Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  inputSearchGlobal: (inputValue) => dispatch(inputSearchAct(inputValue)),
+  searchAlbumGlobal: (inputValue) => dispatch(fetchAlbum(inputValue)),
+});
+
+export default connect(null, mapDispatchToProps)(FriendsActivitySidebar);
