@@ -2,15 +2,20 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { saveFavoriteMusicsAct } from '../actions';
+import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import fetchAlbum from '../thunk/fetchAlbumInRedux';
 
 class FavSideList extends Component {
   componentDidMount() {
     this.saveUrl();
+    this.fetchFavoriteSongs();
   }
 
-  shouldComponentUpdate(nextProps) {
-    console.log(nextProps);
+  fetchFavoriteSongs = async () => {
+    const { saveFavoriteMusics } = this.props;
+    const favorites = await getFavoriteSongs();
+    saveFavoriteMusics(favorites);
   }
 
   saveUrl = () => {
@@ -28,12 +33,12 @@ class FavSideList extends Component {
   }
 
   render() {
-    const { favoriteSongs, fetchAlbumThunk } = this.props;
+    const { favoritesToSidebar, fetchAlbumThunk } = this.props;
 
     return (
       <div className="favList">
         {
-          favoriteSongs.map((song) => {
+          favoritesToSidebar.map((song) => {
             const { artistName, collectionId, trackId, trackName } = song;
             return (
               <Link
@@ -62,14 +67,15 @@ FavSideList.propTypes = {
   fetchAlbum: PropTypes.func,
 }.isRequired;
 
-// FavSideList.propTypes = {
-//   favoriteSongs: PropTypes.oneOfType([
-//     PropTypes.array,
-//   ]),
-// }.isRequired;
+// const mapStateToProps = (state) => console.log(state);
+
+const mapStateToProps = (state) => ({
+  favoritesToSidebar: state.responseMusics.favoritesToSidebar,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   fetchAlbumThunk: (artistName) => dispatch(fetchAlbum(artistName)),
+  saveFavoriteMusics: (favorites) => dispatch(saveFavoriteMusicsAct(favorites)),
 });
 
-export default connect(null, mapDispatchToProps)(FavSideList);
+export default connect(mapStateToProps, mapDispatchToProps)(FavSideList);

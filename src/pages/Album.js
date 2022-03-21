@@ -77,7 +77,8 @@ class Album extends Component {
         checkedAndFavorite: filter,
       });
 
-      saveFavoriteMusics(filter);
+      const favorites = await getFavoriteSongs();
+      saveFavoriteMusics(favorites);
     } else {
       // this.handleLoad();
       await addSong(artist);
@@ -87,7 +88,8 @@ class Album extends Component {
         checkedAndFavorite: [...prevState.checkedAndFavorite, id],
       }));
 
-      saveFavoriteMusics([...checkedAndFavorite, id]);
+      const favorites = await getFavoriteSongs();
+      saveFavoriteMusics(favorites);
     }
   }
 

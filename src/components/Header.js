@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import '../styles/header.css';
 import PropTypes from 'prop-types';
 import { getUser } from '../services/userAPI';
-import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import TopsideHeader from './TopsideHeader';
 import FavSideList from './FavSideList';
 import LoadingHeader from './LoadingHeader';
@@ -15,7 +14,6 @@ class Header extends Component {
       isLoading: true,
       name: '',
       image: 'https://i.pinimg.com/474x/86/0d/cd/860dcdf5cd536bfd86d8fc86efdbdd18.jpg',
-      favoriteSongs: [],
     };
 
     this.catchUser = this.catchUser.bind(this);
@@ -24,14 +22,6 @@ class Header extends Component {
 
   componentDidMount() {
     this.catchUser();
-    this.fetchFavoriteSongs();
-  }
-
-  fetchFavoriteSongs = async () => {
-    const favSongs = await getFavoriteSongs();
-    this.setState({
-      favoriteSongs: favSongs,
-    });
   }
 
   async catchUser() {
@@ -70,7 +60,7 @@ class Header extends Component {
   }
 
   render() {
-    const { favoriteSongs, isLoading } = this.state;
+    const { isLoading } = this.state;
 
     this.forceReloadVerifier();
 
@@ -90,7 +80,6 @@ class Header extends Component {
               : (
                 <FavSideList
                   { ...this.props }
-                  favoriteSongs={ favoriteSongs }
                 />
               )
           }

@@ -32,7 +32,7 @@ export default class FriendsActivity extends Component {
   // }
 
   // shouldComponentUpdate(nextProps, { renderFriends, friendsIntervalID }) {
-  //   const TWENTY = 3;
+  //   const TWENTY = 20;
   //   if (renderFriends === TWENTY) { clearInterval(friendsIntervalID); }
   //   return true;
   // }

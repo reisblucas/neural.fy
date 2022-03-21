@@ -9,7 +9,7 @@ const initialState = {
   tracks: [],
   sortedTracks: [],
   favorites: [],
-  favoritesSorted: [],
+  favoritesToSidebar: [],
 };
 
 const responseMusics = (state = initialState, action) => {
@@ -30,6 +30,7 @@ const responseMusics = (state = initialState, action) => {
     return {
       ...state,
       favorites: action.favorites,
+      favoritesToSidebar: action.favorites,
     };
 
   case SORT_FAV_MUSICS:
