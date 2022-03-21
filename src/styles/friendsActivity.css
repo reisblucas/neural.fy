@@ -179,15 +179,14 @@
   margin-left: 3px;
 }
 
-.friend-name:hover, .friend-music-name:hover {
+.friend-music-name:hover, .friend-artist-name:hover {
   color: #b3b3b3;
   cursor: pointer;
   text-decoration: underline;
 }
 
-.friend-artist-name:hover, .friend-playlist-name:hover {
+.friend-name:hover, .friend-playlist-name:hover {
   color: #b3b3b3;
-  cursor: pointer;
   text-decoration: underline;
 }
 
