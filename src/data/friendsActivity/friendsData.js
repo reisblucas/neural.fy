@@ -9,7 +9,7 @@ import chonkyOrangeCat from '../../images/friendsActivityProfile/fat-cat.webp';
 import fortSuperHero from '../../images/friendsActivityProfile/fortnite-superhero.webp';
 import eiffelTower from '../../images/friendsActivityProfile/french-eiffel-tower.jpg';
 import frenchVisa from '../../images/friendsActivityProfile/french-visa-1920x1080.jpg';
-import girlPic from '../../images/friendsActivityProfile/girl-picture.jpeg';
+import girlPic from '../../images/friendsActivityProfile/girl-picture.jpg';
 import logitechLogo from '../../images/friendsActivityProfile/logitech-logo.png';
 import nftBieber from '../../images/friendsActivityProfile/nft-bieber.jpg';
 import personInACarTrip from '../../images/friendsActivityProfile/person-in-trip.jpeg';

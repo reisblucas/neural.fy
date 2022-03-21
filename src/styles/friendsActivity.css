@@ -153,10 +153,7 @@
 .friend-name {
   font-size: 14px;
   font-weight: 900;
-}
-
-.friend-name:hover {
-  text-decoration: underline;
+  width: fit-content;
 }
 
 .info-friend-music {
@@ -172,16 +169,9 @@
   width: 100px;
 }
 
-.friend-music-name:hover {
-  text-decoration: underline;
-}
-
-.friend-artist-name:hover {
-  text-decoration: underline;
-}
-
 .friend-icon-style:hover {
   color: #b3b3b3;
+  width: fit-content;
 }
 
 .friend-playlist-name {
@@ -189,8 +179,15 @@
   margin-left: 3px;
 }
 
-.friend-playlist-name:hover {
+.friend-name:hover, .friend-music-name:hover {
   color: #b3b3b3;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.friend-artist-name:hover, .friend-playlist-name:hover {
+  color: #b3b3b3;
+  cursor: pointer;
   text-decoration: underline;
 }
 

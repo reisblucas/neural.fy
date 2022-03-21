@@ -7,7 +7,7 @@ import FriendActivityDefault from './FriendActivityDefault';
 
 export default class FriendsActivity extends Component {
   state = {
-    hasFriendActivity: false,
+    hasFriendActivity: true,
     renderFriends: 0,
     friendActivityAnimation: 'friend-activity friend-activity-opacity-start',
     friendsIntervalID: '',
@@ -62,9 +62,8 @@ export default class FriendsActivity extends Component {
             : (
               <div className="father-activity">
                 {
-                  musicDataSliced.map((friend, i) => {
+                  musicData.map((friend, i) => {
                     const { image, username, musicName, artistName } = friend;
-                    console.log(renderFriends);
 
                     if (i === (renderFriends - 1)) {
                       return (
