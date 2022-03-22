@@ -1,6 +1,6 @@
 @media only screen and ( max-width : 600px ) {
 
-  .titleModal {
+  /* .titleModal {
     height: 80% ! important;
     width: 100% ! important;
   }
@@ -8,32 +8,25 @@
   .blocks {
     height: 60% ! important;
     width: 100% ! important;
-  }
+  } */
 }
 
-.titleModal {
+.spinner {
   align-items: center;
   display: flex;
-  height: 90%;
+  /* flex: 1;
+  flex-shrink: 1; */
+  height: 80%;
   justify-content: center;
-  margin: 0 auto;
-  position: fixed;
-  width: 90%;
 }
 
 .blocks {
-  align-items: center;
   display: flex;
-  height: 70%;
-  justify-content: center;
-  margin: 0 auto;
-  position: fixed;
-  width: 90%;
 }
 
 .block {
 
-  --sz: 8vmin;
+  --sz: 4.5vmin;
 
   --tX: 0;
 

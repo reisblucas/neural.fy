@@ -4,11 +4,7 @@ import '../styles/loading.css';
 class Loading extends Component {
   render() {
     return (
-      <div>
-        <div className="titleModal">
-          <h1>Loading...</h1>
-        </div>
-
+      <div className="spinner">
         {/*
           Spinner art by Melissa Em in October 7, 2019
           https://freefrontend.com/css-spinners/

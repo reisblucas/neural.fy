@@ -42,6 +42,7 @@ p:hover {
   /* width: 95.1%; */
   width: 100%;
   /* margin: 0 auto; */
+  height: 100vh;
 }
 
 .ellipsis {
