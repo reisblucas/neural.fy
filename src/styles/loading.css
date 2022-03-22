@@ -1,21 +1,6 @@
-@media only screen and ( max-width : 600px ) {
-
-  /* .titleModal {
-    height: 80% ! important;
-    width: 100% ! important;
-  }
-
-  .blocks {
-    height: 60% ! important;
-    width: 100% ! important;
-  } */
-}
-
 .spinner {
   align-items: center;
   display: flex;
-  /* flex: 1;
-  flex-shrink: 1; */
   height: 80%;
   justify-content: center;
 }
