@@ -6,30 +6,13 @@ import '../styles/contentResult.css';
 import ContentMap from './ContentMap';
 
 class ContentResult extends Component {
-  state = {
-    isEnabledToRenderLinkContent: false,
-  }
-
-  async componentDidMount() {
-    const { enableRender, searchAlbum: { render } } = this.props;
-
-    if (render) {
-      await enableRender(false);
-      this.setState({
-        isEnabledToRenderLinkContent: true,
-      });
-    }
-  }
-
   render() {
     const {
       searchedMain,
       searchResult,
       searchedTest,
-      searchAlbum: { results },
+      searchAlbum: { results, render },
     } = this.props;
-
-    const { isEnabledToRenderLinkContent } = this.state;
 
     return (
       <div className="contentSpace">
@@ -41,7 +24,7 @@ class ContentResult extends Component {
           </div>
 
           {
-            isEnabledToRenderLinkContent
+            render
               ? <ContentMap { ...this.props } contentToMap={ results } />
               : <ContentMap { ...this.props } contentToMap={ searchResult } />
           }
@@ -60,9 +43,12 @@ ContentResult.propTypes = {
   searchedTest: PropTypes.string,
 }.isRequired;
 
-const mapStateToProps = (state) => ({
-  searchAlbum: state.searchAlbum,
-});
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    searchAlbum: state.searchAlbum,
+  }
+};
 
 const mapDispatchToProps = (dispatch) => ({
   enableRender: (bool) => dispatch(enableRenderAlbumAct(bool)),

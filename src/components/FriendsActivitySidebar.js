@@ -2,8 +2,11 @@ import { faPlay, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { enableRenderAlbumAct, inputSearchAct } from '../actions';
 import { idAlbumData, musicData } from '../data/friendsActivity/friendsData';
 import '../styles/friendsActivity.css';
+import fetchAlbum from '../thunk/fetchAlbumInRedux';
 import FriendActivityDefault from './FriendActivityDefault';
 
 class FriendsActivitySidebar extends Component {
@@ -41,6 +44,14 @@ class FriendsActivitySidebar extends Component {
   componentWillUnmount() {
     const { friendsIntervalID } = this.state;
     clearInterval(friendsIntervalID);
+  }
+
+  handleArtistNameClick = async ({ target: { innerText } }) => {
+    console.log('pai ta aqui', innerText);
+    const { inputSearchGlobal, searchAlbumGlobal, enableRender } = this.props;
+    inputSearchGlobal(innerText);
+    await searchAlbumGlobal(innerText);
+    enableRender(true);
   }
 
   render() {
@@ -144,7 +155,13 @@ class FriendsActivitySidebar extends Component {
                             </div>
                             <p> • </p>
                             <div className="friend-music-ellipsis">
-                              <p className="friend-artist-name ellipsis">{artistName}</p>
+                              <Link
+                                to="/search"
+                                onClick={ this.handleArtistNameClick }
+                                className="friend-artist-name ellipsis"
+                              >
+                                {artistName}
+                              </Link>
                             </div>
                           </div>
                           <div className="friend-playlist-ellipsis">
@@ -174,6 +191,7 @@ class FriendsActivitySidebar extends Component {
 const mapDispatchToProps = (dispatch) => ({
   inputSearchGlobal: (inputValue) => dispatch(inputSearchAct(inputValue)),
   searchAlbumGlobal: (inputValue) => dispatch(fetchAlbum(inputValue)),
+  enableRender: (bool) => dispatch(enableRenderAlbumAct(bool)),
 });
 
 export default connect(null, mapDispatchToProps)(FriendsActivitySidebar);

@@ -186,6 +186,11 @@
   margin-left: 3px;
 }
 
+.friend-artist-name {
+  color: #b3b3b3;
+  text-decoration: none;
+}
+
 .friend-music-name:hover, .friend-artist-name:hover {
   color: #b3b3b3;
   cursor: pointer;
