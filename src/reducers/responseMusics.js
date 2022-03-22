@@ -1,11 +1,13 @@
 import {
   RESPONSE_MUSICS,
+  SAVE_ALBUM_NAME,
   SAVE_FAVORITE_MUSICS,
   SORT_FAV_MUSICS,
   SORT_MUSIC,
 } from '../actions';
 
 const initialState = {
+  albumCollection: {},
   tracks: [],
   sortedTracks: [],
   favorites: [],
@@ -14,6 +16,12 @@ const initialState = {
 
 const responseMusics = (state = initialState, action) => {
   switch (action.type) {
+  case SAVE_ALBUM_NAME:
+    return {
+      ...state,
+      albumCollection: action.albumName,
+    };
+
   case RESPONSE_MUSICS:
     return {
       ...state,

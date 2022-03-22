@@ -1,13 +1,18 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
 import getMusics from '../services/musicsAPI';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import '../styles/album.css';
 import AlbumHeader from '../components/AlbumHeader';
-import { responseMusicsAct, saveFavoriteMusicsAct } from '../actions';
+import {
+  responseMusicsAct,
+  saveAlbumNameAct,
+  saveFavoriteMusicsAct,
+} from '../actions';
 
 class Album extends Component {
   constructor() {
@@ -29,16 +34,18 @@ class Album extends Component {
       albumTrackTime: [],
       forceReload: false,
       isHeaderLoading: false,
+      url: '',
     };
   }
 
   async componentDidMount() {
     const { checked } = this.state;
-    const { saveResponseMusics } = this.props;
+    const { saveResponseMusics, saveAlbumName } = this.props;
 
     const music = await this.fetchMusic();
     const idFavoriteSongs = await this.fetchFavoriteSongs();
 
+    saveAlbumName(music[0]);
     saveResponseMusics(music.slice(1));
 
     this.setState({
@@ -148,11 +155,13 @@ Album.propTypes = {
 
 const mapStateToProps = (state) => ({
   responseMusics: state.responseMusics,
+  url: state.url,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   saveResponseMusics: (response) => dispatch(responseMusicsAct(response)),
   saveFavoriteMusics: (favorites) => dispatch(saveFavoriteMusicsAct(favorites)),
+  saveAlbumName: (albumName) => dispatch(saveAlbumNameAct(albumName)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Album);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Album));

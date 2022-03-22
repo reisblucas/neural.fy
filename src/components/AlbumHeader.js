@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import AlbumHeaderDetails from './AlbumHeaderDetails';
 import TopsideBar from './TopsideBar';
 
-export default class AlbumHeader extends Component {
+class AlbumHeader extends Component {
   render() {
-    const { album: { artistName, collectionName, artworkUrl100 } } = this.props;
+    const { responseMusics:
+      { albumCollection:
+        { artistName, collectionName, artworkUrl100 },
+      },
+    } = this.props;
 
     return (
       <section
@@ -51,3 +56,9 @@ AlbumHeader.propTypes = {
     PropTypes.array,
   ]),
 }.isRequired;
+
+const mapStateToProps = (state) => ({
+  responseMusics: state.responseMusics,
+});
+
+export default connect(mapStateToProps)(AlbumHeader);

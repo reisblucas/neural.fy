@@ -47,7 +47,6 @@ class FriendsActivitySidebar extends Component {
   }
 
   handleArtistNameClick = async ({ target: { innerText } }) => {
-    console.log('pai ta aqui', innerText);
     const { inputSearchGlobal, searchAlbumGlobal, enableRender } = this.props;
     inputSearchGlobal(innerText);
     await searchAlbumGlobal(innerText);

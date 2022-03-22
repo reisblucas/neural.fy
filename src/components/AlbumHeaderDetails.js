@@ -5,8 +5,13 @@ import { Link } from 'react-router-dom';
 import { totalAlbumTime } from '../helpers/songTime';
 import '../styles/albumHeaderDetails.css';
 import { enableRenderAlbumAct } from '../actions';
+import { getUser } from '../services/userAPI';
 
 class AlbumHeaderDetails extends Component {
+  state = {
+    userImage: '',
+  }
+
   albumYear = (year) => year.split('-')[0];
 
   sideInfoTracks = (tracks) => tracks.length;
@@ -22,10 +27,22 @@ class AlbumHeaderDetails extends Component {
     enableRender(true);
   }
 
+  fetchUserImage = async () => {
+    const { image } = await getUser();
+    console.log(image);
+    this.setState({ userImage });
+    return image;
+  }
+
   render() {
+    const { userImage } = this.state;
+
     const {
-      album: { artistName, artworkUrl100, releaseDate, userImage },
-      albumTracks,
+      responseMusics:
+        { albumCollection:
+          { artistName, artworkUrl100, releaseDate },
+        tracks,
+        },
       location: { pathname },
     } = this.props;
 
@@ -60,14 +77,14 @@ class AlbumHeaderDetails extends Component {
         <div className="albumSideInfo">
           <h5 className="headingListStyle ">•</h5>
           <h5>
-            {this.sideInfoTracks(albumTracks)}
+            {this.sideInfoTracks(tracks)}
             {' '}
             songs,
           </h5>
           <h5
             className="headingListStyle timerHD font-link"
           >
-            {totalAlbumTime(albumTracks)}
+            {totalAlbumTime(tracks)}
 
           </h5>
         </div>

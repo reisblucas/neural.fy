@@ -2,13 +2,13 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { saveFavoriteMusicsAct } from '../actions';
+import { inputSearchAct, saveFavoriteMusicsAct, saveUrlAct } from '../actions';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import fetchAlbum from '../thunk/fetchAlbumInRedux';
+import fetchMusics from '../thunk/fetchMusicsInRedux';
 
 class FavSideList extends Component {
   componentDidMount() {
-    this.saveUrl();
     this.fetchFavoriteSongs();
   }
 
@@ -18,22 +18,13 @@ class FavSideList extends Component {
     saveFavoriteMusics(favorites);
   }
 
-  saveUrl = () => {
-    const { match: { url } } = this.props;
-    this.setState({ url }, () => this.pathVerifier());
-  }
-
-  pathVerifier = () => {
-    const { match: { url: urlSideLink } } = this.props;
-    const { url: urlCurrentPage } = this.state;
-
-    if (urlCurrentPage !== urlSideLink) {
-      window.location.reload();
-    }
-  }
-
   render() {
-    const { favoritesToSidebar, fetchAlbumThunk } = this.props;
+    const {
+      favoritesToSidebar,
+      fetchAlbumThunk,
+      fetchMusicsThunk,
+      inputSearchGlobal,
+    } = this.props;
 
     return (
       <div className="favList">
@@ -45,9 +36,10 @@ class FavSideList extends Component {
                 to={ `/album/${collectionId}` }
                 key={ trackId }
                 className="sideLinkStyle"
-                onClick={ () => {
-                  this.saveUrl();
+                onClick={ async () => {
                   fetchAlbumThunk(artistName);
+                  fetchMusicsThunk(collectionId);
+                  await inputSearchGlobal(artistName);
                 } }
               >
                 <p className="ellipsis">{trackName}</p>
@@ -75,7 +67,10 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   fetchAlbumThunk: (artistName) => dispatch(fetchAlbum(artistName)),
+  fetchMusicsThunk: (albumId) => dispatch(fetchMusics(albumId)),
+  inputSearchGlobal: (inputValue) => dispatch(inputSearchAct(inputValue)),
   saveFavoriteMusics: (favorites) => dispatch(saveFavoriteMusicsAct(favorites)),
+  saveUrl: (url) => dispatch(saveUrlAct(url)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(FavSideList);

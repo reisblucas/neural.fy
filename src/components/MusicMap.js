@@ -115,6 +115,7 @@ class MusicMap extends Component {
                               className="linkStyle focusableLink ellipsis"
                               key={ collectionId }
                               to={ `/album/${collectionId}` }
+                              onClick={ this.handleArtistNameLink }
                             >
                               <p
                                 className="artistName ellipsis fitLinkContent"
