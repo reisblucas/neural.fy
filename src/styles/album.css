@@ -37,6 +37,10 @@
     max-height: 1000px ! important;
   }
 
+  .album {
+    overflow-y: hidden ! important;
+  }
+
   .albumDetails {
     padding-left: 0 ! important;
     text-align: center;
@@ -155,9 +159,9 @@
 }
 
 .albumContent {
-  height: 100vh;
 
-  /* overflow-y: scroll; */
+  /* height: 100vh;
+  overflow-y: scroll; */
   padding: 20px 40px 0;
 }
 
