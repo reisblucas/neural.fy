@@ -42,9 +42,12 @@ class AlbumHeaderDetails extends Component {
         { albumCollection:
           { artistName, artworkUrl100, releaseDate },
         tracks,
+        favorites,
         },
       location: { pathname },
     } = this.props;
+
+    console.log(this.props);
 
     const favoritesPath = '/favorites';
 
@@ -74,20 +77,43 @@ class AlbumHeaderDetails extends Component {
         }
         <h5 className="headingListStyle">•</h5>
         <h5>{this.albumYear(releaseDate)}</h5>
-        <div className="albumSideInfo">
-          <h5 className="headingListStyle ">•</h5>
-          <h5>
-            {this.sideInfoTracks(tracks)}
-            {' '}
-            songs,
-          </h5>
-          <h5
-            className="headingListStyle timerHD font-link"
-          >
-            {totalAlbumTime(tracks)}
 
-          </h5>
-        </div>
+        {
+          pathname === favoritesPath
+            ? (
+              <div className="albumSideInfo">
+                <h5 className="headingListStyle ">•</h5>
+                <h5>
+                  {this.sideInfoTracks(favorites)}
+                  {' '}
+                  songs,
+                </h5>
+                <h5
+                  className="headingListStyle timerHD font-link"
+                >
+                  {totalAlbumTime(favorites)}
+
+                </h5>
+              </div>
+            )
+            : (
+              <div className="albumSideInfo">
+                <h5 className="headingListStyle ">•</h5>
+                <h5>
+                  {this.sideInfoTracks(tracks)}
+                  {' '}
+                  songs,
+                </h5>
+                <h5
+                  className="headingListStyle timerHD font-link"
+                >
+                  {totalAlbumTime(tracks)}
+
+                </h5>
+              </div>
+            )
+        }
+
       </div>
     );
   }
