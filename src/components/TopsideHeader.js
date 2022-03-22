@@ -3,9 +3,30 @@ import { faHeart, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
 import SpotifyLogoHeader from '../images/spotifyLogoHeader.png';
+import { getUser } from '../services/userAPI';
+import { saveAlbumNameAct } from '../actions';
 
-export default class TopsideHeader extends Component {
+class TopsideHeader extends Component {
+  favoriteHeader = async () => {
+    const { userToFavorites } = this.props;
+    const currentYear = new Date().getFullYear();
+    const user = await getUser();
+
+    const albumFake = {
+      artistName: user.name,
+      userImage: user.image,
+      favoriteTitle: 'PLAYLIST',
+      collectionName: 'Liked Songs',
+      artworkUrl100: 'https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png',
+      releaseDate: currentYear.toString(),
+    };
+
+    console.log(albumFake);
+    await userToFavorites(albumFake);
+  } // fazer isso no login
+
   render() {
     return (
       <div className="headerTopside">
@@ -36,6 +57,7 @@ export default class TopsideHeader extends Component {
               className="navLinks"
               to="/favorites"
               data-testid="link-to-favorites"
+              onClick={ this.favoriteHeader }
             >
               <FontAwesomeIcon icon={ faHeart } className="iconSet" />
               <span>Favorites</span>
@@ -63,3 +85,9 @@ TopsideHeader.propTypes = {
   isLoading: PropTypes.bool,
   name: PropTypes.string,
 }.isRequired;
+
+const mapDispatchToProps = (dispatch) => ({
+  userToFavorites: (albumFake) => dispatch(saveAlbumNameAct(albumFake)),
+});
+
+export default connect(null, mapDispatchToProps)(TopsideHeader);

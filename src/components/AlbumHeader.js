@@ -11,6 +11,7 @@ class AlbumHeader extends Component {
         { artistName, collectionName, artworkUrl100 },
       },
     } = this.props;
+    console.log('props no header', this.props);
 
     return (
       <section

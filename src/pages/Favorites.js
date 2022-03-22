@@ -97,11 +97,6 @@ class Favorites extends Component {
 
     return (
       <div data-testid="page-favorite" className="headerPattern">
-        {/* <Header
-          { ...this.props }
-          { ...this.state }
-          handleReload={ this.handleReload }
-        /> */}
         {
           isLoading
             ? <Loading />

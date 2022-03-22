@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
+import favHeader from './favHeader';
 import responseMusics from './responseMusics';
 import searchAlbum from './searchAlbum';
-import url from './url';
 
 const rootReducer = combineReducers({
   searchAlbum,
   responseMusics,
-  url,
+  favHeader,
 });
 
 export default rootReducer;
