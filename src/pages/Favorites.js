@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { responseMusicsAct, saveFavoriteMusicsAct } from '../actions';
+import { responseMusicsAct, saveAlbumNameAct, saveFavoriteMusicsAct } from '../actions';
 import AlbumHeader from '../components/AlbumHeader';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
@@ -75,6 +75,7 @@ class Favorites extends Component {
   }
 
   async favoriteHeader() {
+    const { saveAlbumName } = this.props;
     const currentYear = new Date().getFullYear();
     const user = await getUser();
 
@@ -90,6 +91,8 @@ class Favorites extends Component {
     this.setState({
       album: albumFake,
     });
+
+    saveAlbumName(albumFake);
   }
 
   render() {
@@ -131,6 +134,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   saveResponseMusics: (response) => dispatch(responseMusicsAct(response)),
   saveFavoriteMusics: (favorites) => dispatch(saveFavoriteMusicsAct(favorites)),
+  saveAlbumName: (albumName) => dispatch(saveAlbumNameAct(albumName)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Favorites);

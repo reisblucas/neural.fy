@@ -155,8 +155,7 @@
 }
 
 .albumContent {
-
-  /* height: 60.6vh; */
+  height: 100vh;
 
   /* overflow-y: scroll; */
   padding: 20px 40px 0;

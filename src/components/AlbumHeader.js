@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import AlbumHeaderDetails from './AlbumHeaderDetails';
 import TopsideBar from './TopsideBar';
+import { saveAlbumNameAct } from '../actions';
 
 class AlbumHeader extends Component {
   render() {
