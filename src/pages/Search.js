@@ -57,7 +57,7 @@ class Search extends Component {
       const artist = await searchAlbumsAPI(inputSearch);
 
       if (artist.length === 0) {
-        inputSearchGlobal('Nenhum álbum foi encontrado.');
+        inputSearchGlobal(`No results found for "${inputSearch}".`);
         return this.setState({
           inputSearch: '',
           isLoading: false,

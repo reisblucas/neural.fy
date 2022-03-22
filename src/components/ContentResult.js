@@ -10,17 +10,29 @@ class ContentResult extends Component {
     const {
       searchedMain,
       searchResult,
-      searchedTest,
-      searchAlbum: { results, render },
+      searchAlbum: { inputSearch, results, render },
     } = this.props;
+
+    console.log(!inputSearch.includes('No results'));
 
     return (
       <div className="contentSpace">
 
         <section className="sectionResult">
           <div className="contentSearched">
-            <h3>{searchedMain}</h3>
-            <p hidden>{ searchedTest }</p>
+            {
+              (inputSearch.length !== 0 && !inputSearch.includes('No results'))
+                ? (
+                  <h3>
+                    Top results for
+                    {' '}
+                    {inputSearch}
+                  </h3>
+                )
+                : (
+                  <h3>{searchedMain}</h3>
+                )
+            }
           </div>
 
           {
@@ -47,7 +59,7 @@ const mapStateToProps = (state) => {
   console.log(state);
   return {
     searchAlbum: state.searchAlbum,
-  }
+  };
 };
 
 const mapDispatchToProps = (dispatch) => ({
