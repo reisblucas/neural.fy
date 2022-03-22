@@ -4,9 +4,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { enableRenderAlbumAct, inputSearchAct } from '../actions';
-import { idAlbumData, musicData } from '../data/friendsActivity/friendsData';
+import { musicData } from '../data/friendsActivity/friendsData';
 import '../styles/friendsActivity.css';
 import fetchAlbum from '../thunk/fetchAlbumInRedux';
+import fetchMusics from '../thunk/fetchMusicsInRedux';
 import FriendActivityDefault from './FriendActivityDefault';
 
 class FriendsActivitySidebar extends Component {
@@ -17,33 +18,40 @@ class FriendsActivitySidebar extends Component {
     friendsIntervalID: '',
   }
 
-  // componentDidMount() {
-  //   const TWO_MIN_IN_MS = 120000;
+  componentDidMount() {
+    const TWO_MIN_IN_MS = 120000;
 
-  //   const friendsIntervalID = setInterval(() => {
-  //     this.setState(({ renderFriends }) => ({
-  //       renderFriends: renderFriends + 1,
-  //       hasFriendActivity: true,
-  //       friendActivityAnimation: 'friend-activity friend-activity-opacity-start',
-  //     }));
-  //     setTimeout(() => this.setState({
-  //       friendActivityAnimation: 'friend-activity friend-activity-opacity-end',
-  //     }), 100);
-  //   },
-  //   TWO_MIN_IN_MS);
+    const friendsIntervalID = setInterval(() => {
+      this.setState(({ renderFriends }) => ({
+        renderFriends: renderFriends + 1,
+        hasFriendActivity: true,
+        friendActivityAnimation: 'friend-activity friend-activity-opacity-start',
+      }));
+      setTimeout(() => this.setState({
+        friendActivityAnimation: 'friend-activity friend-activity-opacity-end',
+      }), 100);
+    },
+    TWO_MIN_IN_MS);
 
-  //   this.setState({ friendsIntervalID });
-  // }
+    this.setState({ friendsIntervalID });
+  }
 
-  // shouldComponentUpdate(nextProps, { renderFriends, friendsIntervalID }) {
-  //   const TWENTY = 20;
-  //   if (renderFriends === TWENTY) { clearInterval(friendsIntervalID); }
-  //   return true;
-  // }
+  shouldComponentUpdate(nextProps, { renderFriends, friendsIntervalID }) {
+    const TWENTY = 20;
+    if (renderFriends === TWENTY) { clearInterval(friendsIntervalID); }
+    return true;
+  }
 
   componentWillUnmount() {
     const { friendsIntervalID } = this.state;
     clearInterval(friendsIntervalID);
+  }
+
+  handleMusicNameClick = async (artistName, collectionId) => {
+    const { fetchAlbumThunk, fetchMusicsThunk, inputSearchGlobal } = this.props;
+    fetchAlbumThunk(artistName);
+    fetchMusicsThunk(collectionId);
+    await inputSearchGlobal(artistName);
   }
 
   handleArtistNameClick = async ({ target: { innerText } }) => {
@@ -74,7 +82,8 @@ class FriendsActivitySidebar extends Component {
               <div className="father-activity">
                 {
                   musicData.map((friend, i) => {
-                    const { image, username, musicName, artistName } = friend;
+                    const { image, username, musicName,
+                      artistName, collectionId } = friend;
 
                     if (i === (renderFriends - 1)) {
                       return (
@@ -100,21 +109,39 @@ class FriendsActivitySidebar extends Component {
                             </div>
                             <div className="info-friend-music">
                               <div className="friend-music-ellipsis">
-                                <p className="friend-music-name ellipsis">{musicName}</p>
+                                <Link
+                                  to={ `/album/${collectionId}` }
+                                  className="friend-music-name"
+                                  onClick={ () => this.handleMusicNameClick(artistName, collectionId) }
+                                >
+                                  <p
+                                    className="friend-music-name ellipsis"
+                                  >
+                                    {musicName}
+
+                                  </p>
+                                </Link>
+
                               </div>
                               <p> • </p>
                               <div className="friend-music-ellipsis">
-                                <p
-                                  className="friend-artist-name ellipsis"
+                                <Link
+                                  to="/search"
+                                  onClick={ this.handleArtistNameClick }
+                                  className="friend-artist-name"
                                 >
-                                  {artistName}
+                                  <p
+                                    className="friend-artist-name ellipsis"
+                                  >
+                                    {artistName}
 
-                                </p>
+                                  </p>
+                                </Link>
                               </div>
                             </div>
                             <div className="friend-playlist-ellipsis">
                               <p className="friend-icon-style">
-                                ☉
+                                ♬
                                 <span
                                   className="friend-playlist-name ellipsis"
                                 >
@@ -150,16 +177,33 @@ class FriendsActivitySidebar extends Component {
                           </div>
                           <div className="info-friend-music">
                             <div className="friend-music-ellipsis">
-                              <p className="friend-music-name ellipsis">{musicName}</p>
+                              <Link
+                                to={ `/album/${collectionId}` }
+                                className="friend-music-name"
+                                onClick={ () => this.handleMusicNameClick(artistName, collectionId) }
+                              >
+                                <p
+                                  className="friend-music-name ellipsis"
+                                >
+                                  {musicName}
+
+                                </p>
+                              </Link>
+
                             </div>
                             <p> • </p>
                             <div className="friend-music-ellipsis">
                               <Link
                                 to="/search"
                                 onClick={ this.handleArtistNameClick }
-                                className="friend-artist-name ellipsis"
+                                className="friend-artist-name"
                               >
-                                {artistName}
+                                <p
+                                  className="friend-artist-name ellipsis"
+                                >
+                                  {artistName}
+
+                                </p>
                               </Link>
                             </div>
                           </div>
@@ -188,6 +232,9 @@ class FriendsActivitySidebar extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
+  fetchAlbumThunk: (artistName) => dispatch(fetchAlbum(artistName)),
+  fetchMusicsThunk: (albumId) => dispatch(fetchMusics(albumId)),
+
   inputSearchGlobal: (inputValue) => dispatch(inputSearchAct(inputValue)),
   searchAlbumGlobal: (inputValue) => dispatch(fetchAlbum(inputValue)),
   enableRender: (bool) => dispatch(enableRenderAlbumAct(bool)),

@@ -186,7 +186,7 @@
   margin-left: 3px;
 }
 
-.friend-artist-name {
+.friend-music-name, .friend-artist-name {
   color: #b3b3b3;
   text-decoration: none;
 }
