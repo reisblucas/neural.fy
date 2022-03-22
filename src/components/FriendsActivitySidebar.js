@@ -12,7 +12,7 @@ import FriendActivityDefault from './FriendActivityDefault';
 
 class FriendsActivitySidebar extends Component {
   state = {
-    hasFriendActivity: true,
+    hasFriendActivity: false,
     renderFriends: 0,
     friendActivityAnimation: 'friend-activity friend-activity-opacity-start',
     friendsIntervalID: '',
@@ -81,7 +81,7 @@ class FriendsActivitySidebar extends Component {
             : (
               <div className="father-activity">
                 {
-                  musicData.map((friend, i) => {
+                  musicDataSliced.map((friend, i) => {
                     const { image, username, musicName,
                       artistName, collectionId } = friend;
 
