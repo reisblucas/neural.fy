@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { faPlay, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
@@ -230,6 +231,14 @@ class FriendsActivitySidebar extends Component {
     );
   }
 }
+
+FriendsActivitySidebar.propTypes = {
+  enableRender: PropTypes.func,
+  fetchAlbumThunk: PropTypes.func,
+  fetchMusicsThunk: PropTypes.func,
+  inputSearchGlobal: PropTypes.func,
+  searchAlbumGlobal: PropTypes.func,
+}.isRequired;
 
 const mapDispatchToProps = (dispatch) => ({
   fetchAlbumThunk: (artistName) => dispatch(fetchAlbum(artistName)),
