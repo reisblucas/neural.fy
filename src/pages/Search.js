@@ -44,37 +44,37 @@ class Search extends Component {
   handleClick = async (e) => {
     e.preventDefault();
     // if (e.key === 'Enter') {
-      const { inputSearch } = this.state;
-      const { inputSearchGlobal, searchAlbumGlobal } = this.props;
+    const { inputSearch } = this.state;
+    const { inputSearchGlobal, searchAlbumGlobal } = this.props;
 
-      this.setState({
-        isLoading: true,
-        isButtonDisabled: true,
-        searchResult: [],
-        searchedMain: `Resultados de ${inputSearch}`,
-      });
+    this.setState({
+      isLoading: true,
+      isButtonDisabled: true,
+      searchResult: [],
+      searchedMain: `Resultados de ${inputSearch}`,
+    });
 
-      const artist = await searchAlbumsAPI(inputSearch);
+    const artist = await searchAlbumsAPI(inputSearch);
 
-      if (artist.length === 0) {
-        inputSearchGlobal(`No results found for "${inputSearch}".`);
-        return this.setState({
-          inputSearch: '',
-          isLoading: false,
-          searchedTest: 'Nenhum álbum foi encontrado',
-          searchedMain: `No results found for "${inputSearch}".`, // ponto para diferenciar do searchedTest
-        });
-      }
-
-      this.setState((prevState) => ({
+    if (artist.length === 0) {
+      inputSearchGlobal(`No results found for "${inputSearch}".`);
+      return this.setState({
         inputSearch: '',
-        searchResult: artist,
         isLoading: false,
-        searchedTest: `Resultados de álbuns de: ${prevState.inputSearch}`,
-        searchedMain: `Top results for ${prevState.inputSearch}`,
-      }));
-      inputSearchGlobal(inputSearch);
-      searchAlbumGlobal(inputSearch);
+        searchedTest: 'Nenhum álbum foi encontrado',
+        searchedMain: `No results found for "${inputSearch}".`, // ponto para diferenciar do searchedTest
+      });
+    }
+
+    this.setState((prevState) => ({
+      inputSearch: '',
+      searchResult: artist,
+      isLoading: false,
+      searchedTest: `Resultados de álbuns de: ${prevState.inputSearch}`,
+      searchedMain: `Top results for ${prevState.inputSearch}`,
+    }));
+    inputSearchGlobal(inputSearch);
+    searchAlbumGlobal(inputSearch);
     // }
   }
 

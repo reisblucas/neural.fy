@@ -36,11 +36,11 @@ class InputSearch extends Component {
                 data-testid="search-artist-input"
                 value={ inputSearch }
                 onChange={ handleChange }
-                onKeyPress={ (e) => {
-                  // if (e.key === 'Enter') {
-                  //   handleClick(e);
-                  // }
-                } }
+                // onKeyPress={ (e) => {
+                // if (e.key === 'Enter') {
+                //   handleClick(e);
+                // }
+                // } }
                 autoComplete="off"
               />
             </label>

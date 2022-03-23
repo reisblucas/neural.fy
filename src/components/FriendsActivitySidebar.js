@@ -3,24 +3,25 @@ import { faPlay, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { enableRenderAlbumAct, inputSearchAct } from '../actions';
 import { musicData } from '../data/friendsActivity/friendsData';
 import '../styles/friendsActivity.css';
 import fetchAlbum from '../thunk/fetchAlbumInRedux';
 import fetchMusics from '../thunk/fetchMusicsInRedux';
 import FriendActivityDefault from './FriendActivityDefault';
+import LinkFriendActivity from './LinkFriendActivity';
+import LinkArtistName from './LinkArtistName';
 
 class FriendsActivitySidebar extends Component {
   state = {
-    hasFriendActivity: false,
+    hasFriendActivity: true,
     renderFriends: 0,
     friendActivityAnimation: 'friend-activity friend-activity-opacity-start',
     friendsIntervalID: '',
   }
 
   componentDidMount() {
-    const TWO_MIN_IN_MS = 120000;
+    const TWO_MIN_IN_MS = 2000;
 
     const friendsIntervalID = setInterval(() => {
       this.setState(({ renderFriends }) => ({
@@ -110,34 +111,21 @@ class FriendsActivitySidebar extends Component {
                             </div>
                             <div className="info-friend-music">
                               <div className="friend-music-ellipsis">
-                                <Link
-                                  to={ `/album/${collectionId}` }
-                                  className="friend-music-name"
-                                  onClick={ () => this.handleMusicNameClick(artistName, collectionId) }
-                                >
-                                  <p
-                                    className="friend-music-name ellipsis"
-                                  >
-                                    {musicName}
-
-                                  </p>
-                                </Link>
+                                <LinkFriendActivity
+                                  collectionId={ collectionId }
+                                  artistName={ artistName }
+                                  paragraph={ musicName }
+                                  handleMusicNameClick={ () => this
+                                    .handleMusicNameClick(artistName, collectionId) }
+                                />
 
                               </div>
                               <p> • </p>
                               <div className="friend-music-ellipsis">
-                                <Link
-                                  to="/search"
-                                  onClick={ this.handleArtistNameClick }
-                                  className="friend-artist-name"
-                                >
-                                  <p
-                                    className="friend-artist-name ellipsis"
-                                  >
-                                    {artistName}
-
-                                  </p>
-                                </Link>
+                                <LinkArtistName
+                                  handleArtistNameClick={ this.handleArtistNameClick }
+                                  paragraph={ artistName }
+                                />
                               </div>
                             </div>
                             <div className="friend-playlist-ellipsis">
@@ -178,34 +166,20 @@ class FriendsActivitySidebar extends Component {
                           </div>
                           <div className="info-friend-music">
                             <div className="friend-music-ellipsis">
-                              <Link
-                                to={ `/album/${collectionId}` }
-                                className="friend-music-name"
-                                onClick={ () => this.handleMusicNameClick(artistName, collectionId) }
-                              >
-                                <p
-                                  className="friend-music-name ellipsis"
-                                >
-                                  {musicName}
-
-                                </p>
-                              </Link>
-
+                              <LinkFriendActivity
+                                collectionId={ collectionId }
+                                artistName={ artistName }
+                                paragraph={ musicName }
+                                handleMusicNameClick={ () => this
+                                  .handleMusicNameClick(artistName, collectionId) }
+                              />
                             </div>
                             <p> • </p>
                             <div className="friend-music-ellipsis">
-                              <Link
-                                to="/search"
-                                onClick={ this.handleArtistNameClick }
-                                className="friend-artist-name"
-                              >
-                                <p
-                                  className="friend-artist-name ellipsis"
-                                >
-                                  {artistName}
-
-                                </p>
-                              </Link>
+                              <LinkArtistName
+                                handleArtistNameClick={ this.handleArtistNameClick }
+                                paragraph={ artistName }
+                              />
                             </div>
                           </div>
                           <div className="friend-playlist-ellipsis">
