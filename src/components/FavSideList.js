@@ -59,8 +59,6 @@ FavSideList.propTypes = {
   fetchAlbum: PropTypes.func,
 }.isRequired;
 
-// const mapStateToProps = (state) => console.log(state);
-
 const mapStateToProps = (state) => ({
   favoritesToSidebar: state.responseMusics.favoritesToSidebar,
 });

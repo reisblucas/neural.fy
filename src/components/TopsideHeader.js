@@ -23,7 +23,6 @@ class TopsideHeader extends Component {
       releaseDate: currentYear.toString(),
     };
 
-    console.log(albumFake);
     await userToFavorites(albumFake);
   } // fazer isso no login
 

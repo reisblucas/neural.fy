@@ -13,8 +13,6 @@ class ContentResult extends Component {
       searchAlbum: { inputSearch, results, render },
     } = this.props;
 
-    console.log(!inputSearch.includes('No results'));
-
     return (
       <div className="contentSpace">
 
@@ -55,12 +53,9 @@ ContentResult.propTypes = {
   searchedTest: PropTypes.string,
 }.isRequired;
 
-const mapStateToProps = (state) => {
-  console.log(state);
-  return {
-    searchAlbum: state.searchAlbum,
-  };
-};
+const mapStateToProps = (state) => ({
+  searchAlbum: state.searchAlbum,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   enableRender: (bool) => dispatch(enableRenderAlbumAct(bool)),
