@@ -43,7 +43,7 @@ class Search extends Component {
 
   handleClick = async (e) => {
     e.preventDefault();
-    // if (e.key === 'Enter') {
+
     const { inputSearch } = this.state;
     const { inputSearchGlobal, searchAlbumGlobal } = this.props;
 
@@ -75,7 +75,6 @@ class Search extends Component {
     }));
     inputSearchGlobal(inputSearch);
     searchAlbumGlobal(inputSearch);
-    // }
   }
 
   render() {
