@@ -20,7 +20,7 @@ class InputSearch extends Component {
 
     return (
       <div className="search-hero">
-        <form action="">
+        <form action="" onSubmit={ handleClick }>
 
           {
             (path !== pathAlbum && path !== pathFavorites)
@@ -37,9 +37,9 @@ class InputSearch extends Component {
                 value={ inputSearch }
                 onChange={ handleChange }
                 onKeyPress={ (e) => {
-                  if (e.key === 'Enter') {
-                    handleClick(e);
-                  }
+                  // if (e.key === 'Enter') {
+                  //   handleClick(e);
+                  // }
                 } }
                 autoComplete="off"
               />
