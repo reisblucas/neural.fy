@@ -14,14 +14,14 @@ import LinkArtistName from './LinkArtistName';
 
 class FriendsActivitySidebar extends Component {
   state = {
-    hasFriendActivity: true,
+    hasFriendActivity: false,
     renderFriends: 0,
     friendActivityAnimation: 'friend-activity friend-activity-opacity-start',
     friendsIntervalID: '',
   }
 
   componentDidMount() {
-    const TWO_MIN_IN_MS = 2000;
+    const TWO_MIN_IN_MS = 120000;
 
     const friendsIntervalID = setInterval(() => {
       this.setState(({ renderFriends }) => ({
