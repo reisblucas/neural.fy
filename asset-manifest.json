@@ -1,22 +1,42 @@
 {
   "files": {
-    "main.css": "/neur4l.fy/static/css/main.2c6311db.chunk.css",
-    "main.js": "/neur4l.fy/static/js/main.3762dbc6.chunk.js",
-    "main.js.map": "/neur4l.fy/static/js/main.3762dbc6.chunk.js.map",
+    "main.css": "/neur4l.fy/static/css/main.1602992f.chunk.css",
+    "main.js": "/neur4l.fy/static/js/main.bd974783.chunk.js",
+    "main.js.map": "/neur4l.fy/static/js/main.bd974783.chunk.js.map",
     "runtime-main.js": "/neur4l.fy/static/js/runtime-main.608a0f4d.js",
     "runtime-main.js.map": "/neur4l.fy/static/js/runtime-main.608a0f4d.js.map",
-    "static/js/2.846da77a.chunk.js": "/neur4l.fy/static/js/2.846da77a.chunk.js",
-    "static/js/2.846da77a.chunk.js.map": "/neur4l.fy/static/js/2.846da77a.chunk.js.map",
+    "static/js/2.1e18e2ba.chunk.js": "/neur4l.fy/static/js/2.1e18e2ba.chunk.js",
+    "static/js/2.1e18e2ba.chunk.js.map": "/neur4l.fy/static/js/2.1e18e2ba.chunk.js.map",
     "index.html": "/neur4l.fy/index.html",
-    "static/css/main.2c6311db.chunk.css.map": "/neur4l.fy/static/css/main.2c6311db.chunk.css.map",
-    "static/js/2.846da77a.chunk.js.LICENSE.txt": "/neur4l.fy/static/js/2.846da77a.chunk.js.LICENSE.txt",
+    "static/css/main.1602992f.chunk.css.map": "/neur4l.fy/static/css/main.1602992f.chunk.css.map",
+    "static/js/2.1e18e2ba.chunk.js.LICENSE.txt": "/neur4l.fy/static/js/2.1e18e2ba.chunk.js.LICENSE.txt",
+    "static/media/capuchin-monkey-1.e5e9c9f6.webp": "/neur4l.fy/static/media/capuchin-monkey-1.e5e9c9f6.webp",
+    "static/media/capuchin-monkey-2.cc86a2b1.webp": "/neur4l.fy/static/media/capuchin-monkey-2.cc86a2b1.webp",
+    "static/media/catto-fisherhat.a1f39509.jpg": "/neur4l.fy/static/media/catto-fisherhat.a1f39509.jpg",
+    "static/media/chonky-grey-cat.dd761a0e.png": "/neur4l.fy/static/media/chonky-grey-cat.dd761a0e.png",
+    "static/media/couple-photo.7a1f1594.jpeg": "/neur4l.fy/static/media/couple-photo.7a1f1594.jpeg",
+    "static/media/cryptopunk-blue.0ff578bf.jpg": "/neur4l.fy/static/media/cryptopunk-blue.0ff578bf.jpg",
+    "static/media/fat-cat.8fa38937.webp": "/neur4l.fy/static/media/fat-cat.8fa38937.webp",
+    "static/media/fortnite-superhero.d336a290.webp": "/neur4l.fy/static/media/fortnite-superhero.d336a290.webp",
+    "static/media/french-eiffel-tower.a3cb1783.jpg": "/neur4l.fy/static/media/french-eiffel-tower.a3cb1783.jpg",
+    "static/media/french-visa-1920x1080.4875525e.jpg": "/neur4l.fy/static/media/french-visa-1920x1080.4875525e.jpg",
+    "static/media/girl-picture.f0075871.jpg": "/neur4l.fy/static/media/girl-picture.f0075871.jpg",
+    "static/media/logitech-logo.7e626391.png": "/neur4l.fy/static/media/logitech-logo.7e626391.png",
+    "static/media/nft-bieber.368f2935.jpg": "/neur4l.fy/static/media/nft-bieber.368f2935.jpg",
+    "static/media/person-cartrip-2.7c143163.jpg": "/neur4l.fy/static/media/person-cartrip-2.7c143163.jpg",
+    "static/media/person-in-trip.ee7a9c2a.jpeg": "/neur4l.fy/static/media/person-in-trip.ee7a9c2a.jpeg",
+    "static/media/pug-happy-3.8d913bdf.webp": "/neur4l.fy/static/media/pug-happy-3.8d913bdf.webp",
+    "static/media/pug-happy.474a5ecc.jpg": "/neur4l.fy/static/media/pug-happy.474a5ecc.jpg",
+    "static/media/pug-profile-happy.0779a464.jpg": "/neur4l.fy/static/media/pug-profile-happy.0779a464.jpg",
     "static/media/spotify-logo-login-color.4f8bc335.svg": "/neur4l.fy/static/media/spotify-logo-login-color.4f8bc335.svg",
-    "static/media/spotifyLogoHeader.f48fb565.png": "/neur4l.fy/static/media/spotifyLogoHeader.f48fb565.png"
+    "static/media/spotifyLogoHeader.f48fb565.png": "/neur4l.fy/static/media/spotifyLogoHeader.f48fb565.png",
+    "static/media/sunshie.ca56502b.jpeg": "/neur4l.fy/static/media/sunshie.ca56502b.jpeg",
+    "static/media/vacation.4a9f0e75.png": "/neur4l.fy/static/media/vacation.4a9f0e75.png"
   },
   "entrypoints": [
     "static/js/runtime-main.608a0f4d.js",
-    "static/js/2.846da77a.chunk.js",
-    "static/css/main.2c6311db.chunk.css",
-    "static/js/main.3762dbc6.chunk.js"
+    "static/js/2.1e18e2ba.chunk.js",
+    "static/css/main.1602992f.chunk.css",
+    "static/js/main.bd974783.chunk.js"
   ]
 }
