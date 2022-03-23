@@ -75,13 +75,13 @@ ___
 
 ___
 
-#### 02/03/2020:
+#### 02/03/2022:
 
 - Pode ser que ocorra alguns erros de CORS, atualizarei assim que possível.
 
 ___
 
-#### 14/03 - 17/03:
+#### 14/03/2022 - 17/03/2022:
 
 <div align="center">
   <h5>Fixed Bugs:</h5>
@@ -122,6 +122,12 @@ ___
 &nbsp;&nbsp; - Tempo de música;\
 &nbsp;&nbsp; - Filter reset(#).
 
+___
+
+#### 18/03/2022 - até o momento:
+
+- Disponibilizei a barra lateral mostrando as atividades dos amigos de maneira simulada;
+- Possibilidade de clicar na música e no álbum, ambos redirecionam respectivamente para a página dos respectivos com os retornos desejados, assim como no Spotify.
 ___
 
 <div align="center">
