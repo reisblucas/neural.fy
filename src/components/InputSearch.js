@@ -9,7 +9,7 @@ import { inputSearchAct } from '../actions';
 
 class InputSearch extends Component {
   activateBlur = (e) => {
-    console.log(e);
+    e.preventDefault();
 
     const { key, keyCode } = e;
     const THIRTHEEN = 13;
@@ -45,7 +45,7 @@ class InputSearch extends Component {
                 data-testid="search-artist-input"
                 value={ inputSearch }
                 onChange={ handleChange }
-                // onBlur={ (e) => this.activateBlur(e) }
+                onBlur={ (e) => this.activateBlur(e) }
                 onKeyDown={ (e) => this.activateBlur(e) }
                 autoComplete="off"
               />
