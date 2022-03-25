@@ -101,6 +101,10 @@ class Album extends Component {
     }
   }
 
+  gradientColorHandler = (arr) => {
+    this.setState({ colors: arr });
+  }
+
   async fetchMusic() {
     const { match: { params: { id } } } = this.props;
     const search = await getMusics(id);
@@ -118,10 +122,6 @@ class Album extends Component {
     return filtered;
   }
 
-  gradientColorHandler = (arr) => {
-    this.setState({ colors: arr });
-  }
-
   render() {
     const { album: { artistName }, isLoading, colors } = this.state;
 
@@ -132,15 +132,23 @@ class Album extends Component {
             ? <Loading />
             : (
               <section data-testid="page-album" className="album">
-                <AlbumHeader { ...this.state } { ...this.props } gradientColorHandler={ this.gradientColorHandler } />
+                <AlbumHeader
+                  { ...this.state }
+                  { ...this.props }
+                  gradientColorHandler={ this.gradientColorHandler }
+                />
 
                 <section className="albumContent gradContent">
                   <p data-testid="artist-name" hidden>{ `Artist Name ${artistName}`}</p>
 
-                  <div className="bottom-grad"
-                    style={{
-                      backgroundImage: colors.length !== 0 && `linear-gradient( rgb(${colors[0][0]}, ${colors[0][1]}, ${colors[0][2]}, 0.4) 0, #121212)`,
-                    }}
+                  <div
+                    className="bottom-grad"
+                    style={ {
+                      backgroundImage: colors.length !== 0
+                        && `linear-gradient(
+                          rgb(${colors[0][0]}, ${colors[0][1]}, ${colors[0][2]}, 0.4) 0,
+                          #121212)`,
+                    } }
                   />
                   <MusicCard
                     { ...this.state }

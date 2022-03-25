@@ -3,18 +3,19 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import AlbumHeaderDetails from './AlbumHeaderDetails';
 import TopsideBar from './TopsideBar';
-import { ColorExtractor } from 'react-color-extractor';
+import ColorExtracted from './ColorExtracted';
 
 class AlbumHeader extends Component {
   state= { colors: [] };
-  
-  getColors = (colors) =>{
-    if(colors.length === 6) {
-      return this.setState({ colors: [] }, () => 
-        this.setState(state => ({ colors: [...state.colors, ...colors] }))
-      );
+
+  getColors = (colors) => {
+    const SIX = 6;
+    if (colors.length === SIX) {
+      return this
+        .setState({ colors: [] }, () => this
+          .setState((state) => ({ colors: [...state.colors, ...colors] })));
     }
-    this.setState(state => ({ colors: [...state.colors, ...colors] }));
+    this.setState((state) => ({ colors: [...state.colors, ...colors] }));
   }
 
   render() {
@@ -26,7 +27,7 @@ class AlbumHeader extends Component {
       gradientColorHandler,
     } = this.props;
 
-    const {colors} = this.state;
+    const { colors } = this.state;
     gradientColorHandler(colors);
 
     if (colors.length !== 0) {
@@ -37,9 +38,10 @@ class AlbumHeader extends Component {
       <section
         className="albumHeader gradHeader"
         data-testid="page-album"
-        style={{
-          backgroundColor: colors.length !== 0 && `rgb(${colors[0][0]}, ${colors[0][1]}, ${colors[0][2]}, 0.4)`,
-        }}
+        style={ {
+          backgroundColor: colors.length !== 0
+            && `rgb(${colors[0][0]}, ${colors[0][1]}, ${colors[0][2]}, 0.4)`,
+        } }
       >
         <TopsideBar />
         <h1 className="titlePage" hidden>Album page</h1>
@@ -47,13 +49,11 @@ class AlbumHeader extends Component {
           <div className="albumTitle">
 
             <div className="albumImage">
-              <ColorExtractor rgb getColors={ this.getColors }>
-              <img
-                src={ artworkUrl100.replace('100x100bb.jpg', '600x600bb.jpg') }
-                alt={ `Album cover of ${artistName}` }
-                className="imageBackground"
-                />
-              </ColorExtractor>
+              <ColorExtracted
+                getColors={ this.getColors }
+                artistName={ artistName }
+                artworkUrl100={ artworkUrl100 }
+              />
             </div>
 
             <div className="albumDetails">
