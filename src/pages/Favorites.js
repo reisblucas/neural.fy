@@ -25,6 +25,7 @@ class Favorites extends Component {
       checkedAndFavorite: [],
       album: {},
       forceReload: false,
+      colors: [],
     });
   }
 
@@ -69,6 +70,10 @@ class Favorites extends Component {
     });
   }
 
+  gradientColorHandler = (arr) => {
+    this.setState({ colors: arr });
+  }
+
   filterChecked(arr, id2) {
     const filtered = arr.filter((musicId) => musicId !== id2);
     return filtered;
@@ -96,7 +101,7 @@ class Favorites extends Component {
   }
 
   render() {
-    const { isLoading } = this.state;
+    const { isLoading, colors } = this.state;
 
     return (
       <div data-testid="page-favorite" className="headerPattern">
@@ -105,9 +110,23 @@ class Favorites extends Component {
             ? <Loading />
             : (
               <section className="album">
-                <AlbumHeader { ...this.state } { ...this.props } />
+                <AlbumHeader
+                  { ...this.state }
+                  { ...this.props }
+                  gradientColorHandler={ this.gradientColorHandler }
+                />
 
                 <section className="albumContent gradContent sizeContent">
+
+                  <div
+                    className="bottom-grad"
+                    style={ {
+                      backgroundImage: colors.length !== 0
+                        && `linear-gradient(
+                          rgb(${colors[0][0]}, ${colors[0][1]}, ${colors[0][2]}, 0.4) 0,
+                          #121212)`,
+                    } }
+                  />
                   <MusicCard
                     { ...this.props }
                     { ...this.state }
