@@ -46,7 +46,7 @@ class InputSearch extends Component {
                 value={ inputSearch }
                 onChange={ handleChange }
                 onBlur={ (e) => this.activateBlur(e) }
-                onKeyDown={ (e) => this.activateBlur(e) }
+                // onKeyDown={ (e) => this.activateBlur(e) }
                 autoComplete="off"
               />
             </label>
