@@ -124,11 +124,17 @@ ___
 
 ___
 
-### 18/03/2022 - até o momento:
+### 18/03/2022 - 23/03/2022:
 
-- Disponibilizei a barra lateral mostrando as atividades dos amigos de maneira simulada;
-- Possibilidade de clicar na música e no álbum, ambos redirecionam respectivamente para a página dos respectivos com os retornos desejados, assim como no Spotify.
+- Barra lateral de atividades de amigos;
+- Possível clicar na música e no álbum, ambos redirecionam respectivamente para a página dos respectivos com os retornos desejados, assim como no Spotify.
 ___
+
+### 25/03/2022:
+
+- Ao clicar no botão enter em smarthphones, especificamente no iOS, o keyboard desaparece.
+
+---
 
 <div align="center">
   <p>Projeto realizado no dia 14/02/2022 enquanto aluno da Trybe</p>
