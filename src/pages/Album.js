@@ -165,3 +165,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Album));
+
+// open pr to canvas-test
