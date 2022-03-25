@@ -132,7 +132,17 @@ ___
 
 ### 25/03/2022:
 
+<div align="center">
+  <h5>Fixed Bugs:</h5>
+</div>
+
 - Ao clicar no botão enter em smarthphones, especificamente no iOS, o keyboard desaparece.
+
+<div align="center">
+  <h5>Features:</h5>
+</div>
+
+- Agora na página do álbum as cores são renderizadas dinamicamente.
 
 ---
 
