@@ -86,10 +86,6 @@
   padding: 20px 40px;
 }
 
-.gradHeader {
-  background-image: linear-gradient(to bottom, #005f4e 20%, #002b22);
-}
-
 .albumTitle {
   align-items: flex-end;
   display: flex;
@@ -109,6 +105,10 @@
 .albumImage img {
   height: 200px;
   width: 200px;
+}
+
+.imageBackground {
+  box-shadow: -2px 8px 52px 25px rgba(0, 0, 0, 0.5);
 }
 
 .albumTitleFixed {
@@ -165,9 +165,20 @@
   padding: 20px 40px 0;
 }
 
+/* Gradients */
 .gradContent {
-  background-image: linear-gradient(to bottom, #00261f 8%, #191919 15%);
+  position: relative;
 }
+
+.bottom-grad {
+  height: 150px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
 
 .listMusic {
   display: flex;

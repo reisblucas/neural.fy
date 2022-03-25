@@ -35,6 +35,7 @@ class Album extends Component {
       forceReload: false,
       isHeaderLoading: false,
       url: '',
+      colors: [],
     };
   }
 
@@ -117,8 +118,11 @@ class Album extends Component {
     return filtered;
   }
 
+  getColors = (colors) =>
+    this.setState(state => ({ colors: [...state.colors, ...colors] }));
+
   render() {
-    const { album: { artistName }, isLoading } = this.state;
+    const { album: { artistName }, isLoading, colors } = this.state;
 
     return (
       <div className="headerPattern">
@@ -127,10 +131,16 @@ class Album extends Component {
             ? <Loading />
             : (
               <section data-testid="page-album" className="album">
-                <AlbumHeader { ...this.state } { ...this.props } />
+                <AlbumHeader { ...this.state } { ...this.props } getColors={ this.getColors } />
 
                 <section className="albumContent gradContent">
                   <p data-testid="artist-name" hidden>{ `Artist Name ${artistName}`}</p>
+
+                  <div className="bottom-grad"
+                    style={{
+                      backgroundImage: colors.length !== 0 && `linear-gradient( rgb(${colors[0][0]}, ${colors[0][1]}, ${colors[0][2]}, 0.4) 0, #121212)`,
+                    }}
+                  />
                   <MusicCard
                     { ...this.state }
                     { ...this.props }
