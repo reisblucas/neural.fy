@@ -6,7 +6,8 @@ import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import SpotifyLogoHeader from '../images/spotifyLogoHeader.png';
 import { getUser } from '../services/userAPI';
-import { saveAlbumNameAct } from '../actions';
+import { inputSearchAct, saveAlbumNameAct } from '../actions';
+import fetchAlbum from '../thunk/fetchAlbumInRedux';
 
 class TopsideHeader extends Component {
   favoriteHeader = async () => {
@@ -25,6 +26,12 @@ class TopsideHeader extends Component {
 
     await userToFavorites(albumFake);
   } // fazer isso no login
+
+  resetSearch = () => {
+    const { inputSearchGlobal, searchAlbumGlobal } = this.props;
+    inputSearchGlobal('');
+    searchAlbumGlobal([]);
+  }
 
   render() {
     return (
@@ -45,6 +52,7 @@ class TopsideHeader extends Component {
               className="navLinks"
               to="/search"
               data-testid="link-to-search"
+              // onClick={ () => this.resetSearch() }
             >
               <FontAwesomeIcon icon={ faMagnifyingGlass } className="iconSet" />
               <span>Search</span>
@@ -87,6 +95,8 @@ TopsideHeader.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   userToFavorites: (albumFake) => dispatch(saveAlbumNameAct(albumFake)),
+  inputSearchGlobal: (inputValue) => dispatch(inputSearchAct(inputValue)),
+  searchAlbumGlobal: (inputValue) => dispatch(fetchAlbum(inputValue)),
 });
 
 export default connect(null, mapDispatchToProps)(TopsideHeader);

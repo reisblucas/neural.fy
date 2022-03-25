@@ -8,6 +8,15 @@ import fetchAlbum from '../thunk/fetchAlbumInRedux';
 import { inputSearchAct } from '../actions';
 
 class InputSearch extends Component {
+  activateBlur = (e) => {
+    console.log(e);
+
+    const { key, keyCode } = e;
+    const THIRTHEEN = 13;
+    const enter = (keyCode === THIRTHEEN || key === 'Enter');
+    if (enter) { e.target.blur(); }
+  }
+
   render() {
     const { match: { path } } = this.props;
 
@@ -20,7 +29,7 @@ class InputSearch extends Component {
 
     return (
       <div className="search-hero">
-        <form action="" onSubmit={ handleClick }>
+        <form action="" onSubmit={ (e) => handleClick(e) }>
 
           {
             (path !== pathAlbum && path !== pathFavorites)
@@ -36,7 +45,8 @@ class InputSearch extends Component {
                 data-testid="search-artist-input"
                 value={ inputSearch }
                 onChange={ handleChange }
-                onBlur={ document.activeElement }
+                // onBlur={ (e) => this.activateBlur(e) }
+                onKeyDown={ (e) => this.activateBlur(e) }
                 autoComplete="off"
               />
             </label>
