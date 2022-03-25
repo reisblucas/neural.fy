@@ -235,6 +235,10 @@
   cursor: pointer;
 } */
 
+.focusMusicRow:first-child:hover {
+  background-color: #2828284d;
+}
+
 .focusMusicRow:hover {
   background-color: #282828;
 }
