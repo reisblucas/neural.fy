@@ -6,22 +6,16 @@ import TopsideBar from './TopsideBar';
 import { ColorExtractor } from 'react-color-extractor';
 
 class AlbumHeader extends Component {
-    renderSwatches = () => {
-      const { colors } = this.state
+  state= { colors: [] };
   
-      return colors.map((color, id) => {
-        return (
-          <div
-            key={id}
-            style={{
-              backgroundColor: color,
-              width: 100,
-              height: 100
-            }}
-          />
-        )
-      })
+  getColors = (colors) =>{
+    if(colors.length === 6) {
+      return this.setState({ colors: [] }, () => 
+        this.setState(state => ({ colors: [...state.colors, ...colors] }))
+      );
     }
+    this.setState(state => ({ colors: [...state.colors, ...colors] }));
+  }
 
   render() {
     const {
@@ -29,14 +23,15 @@ class AlbumHeader extends Component {
       { albumCollection:
         { artistName, collectionName, artworkUrl100 },
       },
-      getColors,
-      colors,
+      gradientColorHandler,
     } = this.props;
+
+    const {colors} = this.state;
+    gradientColorHandler(colors);
 
     if (colors.length !== 0) {
       console.log(colors[0][1], colors[0][1], colors[0][2]);
     }
-
 
     return (
       <section
@@ -50,24 +45,17 @@ class AlbumHeader extends Component {
         <h1 className="titlePage" hidden>Album page</h1>
         <div className="contentAlbum">
           <div className="albumTitle">
-            <div className="albumImage imageBackground">
-              <ColorExtractor rgb getColors={ getColors }>
+
+            <div className="albumImage">
+              <ColorExtractor rgb getColors={ this.getColors }>
               <img
                 src={ artworkUrl100.replace('100x100bb.jpg', '600x600bb.jpg') }
                 alt={ `Album cover of ${artistName}` }
+                className="imageBackground"
                 />
               </ColorExtractor>
-
-              {/* <div
-                style={{
-                  marginTop: 20,
-                  display: 'flex',
-                  justifyContent: 'center'
-                }}
-              >
-                {this.renderSwatches()}
-              </div> */}
             </div>
+
             <div className="albumDetails">
               <h6 className="albumTitleFixed">ALBUM</h6>
               <h1

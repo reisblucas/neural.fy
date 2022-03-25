@@ -118,8 +118,9 @@ class Album extends Component {
     return filtered;
   }
 
-  getColors = (colors) =>
-    this.setState(state => ({ colors: [...state.colors, ...colors] }));
+  gradientColorHandler = (arr) => {
+    this.setState({ colors: arr });
+  }
 
   render() {
     const { album: { artistName }, isLoading, colors } = this.state;
@@ -131,7 +132,7 @@ class Album extends Component {
             ? <Loading />
             : (
               <section data-testid="page-album" className="album">
-                <AlbumHeader { ...this.state } { ...this.props } getColors={ this.getColors } />
+                <AlbumHeader { ...this.state } { ...this.props } gradientColorHandler={ this.gradientColorHandler } />
 
                 <section className="albumContent gradContent">
                   <p data-testid="artist-name" hidden>{ `Artist Name ${artistName}`}</p>
