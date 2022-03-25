@@ -14,7 +14,8 @@ class InputSearch extends Component {
     const { key, keyCode } = e;
     const THIRTHEEN = 13;
     const enter = (keyCode === THIRTHEEN || key === 'Enter');
-    if (enter) { e.target.blur(); }
+    if (enter) { e.target.blur(); e.target.value = ''; return e.target.value; }
+    return e.target.value;
   }
 
   render() {
@@ -45,8 +46,8 @@ class InputSearch extends Component {
                 data-testid="search-artist-input"
                 value={ inputSearch }
                 onChange={ handleChange }
-                onBlur={ (e) => this.activateBlur(e) }
-                // onKeyDown={ (e) => this.activateBlur(e) }
+                // onBlur={ (e) => this.activateBlur(e) }
+                onKeyUp={ (e) => this.activateBlur(e) }
                 autoComplete="off"
               />
             </label>
