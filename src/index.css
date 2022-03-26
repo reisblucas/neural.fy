@@ -58,5 +58,5 @@ p:hover {
 /* iframe bug */
 
 iframe {
-  position: auto;
+  position: unset;
 }
