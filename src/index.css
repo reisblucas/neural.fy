@@ -32,6 +32,8 @@ p:hover {
 
 .headerPattern {
   display: flex;
+  height: 100vh;
+  justify-content: center;
 }
 
 .titlePage {
