@@ -11,10 +11,19 @@ class InputSearch extends Component {
   activateBlur = (e) => {
     e.preventDefault();
 
+    const { searchAlbumGlobal } = this.props;
+
     const { key, keyCode } = e;
     const THIRTHEEN = 13;
     const enter = (keyCode === THIRTHEEN || key === 'Enter');
-    if (enter) { e.target.blur(); e.target.value = ''; return e.target.value; }
+    // let inputValue = e.target.value;
+    if (enter) {
+      // inputSearchGlobal(inputValue);
+      // searchAlbumGlobal(inputValue);
+      e.target.blur();
+      e.target.value = '';
+      return e.target.value;
+    }
     return e.target.value;
   }
 

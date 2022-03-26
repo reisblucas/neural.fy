@@ -9,10 +9,12 @@ import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongs
 import '../styles/album.css';
 import AlbumHeader from '../components/AlbumHeader';
 import {
+  inputSearchAct,
   responseMusicsAct,
   saveAlbumNameAct,
   saveFavoriteMusicsAct,
 } from '../actions';
+import fetchAlbum from '../thunk/fetchAlbumInRedux';
 
 class Album extends Component {
   constructor() {
@@ -41,11 +43,18 @@ class Album extends Component {
 
   async componentDidMount() {
     const { checked } = this.state;
-    const { saveResponseMusics, saveAlbumName } = this.props;
+    const {
+      saveResponseMusics,
+      saveAlbumName,
+      inputSearchGlobal,
+      searchAlbumGlobal,
+    } = this.props;
 
     const music = await this.fetchMusic();
     const idFavoriteSongs = await this.fetchFavoriteSongs();
 
+    inputSearchGlobal(music[0].artistName);
+    searchAlbumGlobal(music[0].artistName);
     saveAlbumName(music[0]);
     saveResponseMusics(music.slice(1));
 
@@ -108,6 +117,7 @@ class Album extends Component {
   async fetchMusic() {
     const { match: { params: { id } } } = this.props;
     const search = await getMusics(id);
+    console.log(search);
     return search;
   }
 
@@ -181,6 +191,8 @@ const mapDispatchToProps = (dispatch) => ({
   saveResponseMusics: (response) => dispatch(responseMusicsAct(response)),
   saveFavoriteMusics: (favorites) => dispatch(saveFavoriteMusicsAct(favorites)),
   saveAlbumName: (albumName) => dispatch(saveAlbumNameAct(albumName)),
+  inputSearchGlobal: (inputValue) => dispatch(inputSearchAct(inputValue)),
+  searchAlbumGlobal: (inputValue) => dispatch(fetchAlbum(inputValue)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Album));
