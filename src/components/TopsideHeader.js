@@ -1,6 +1,4 @@
 import PropTypes from 'prop-types';
-import { faHeart, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -9,7 +7,7 @@ import { getUser } from '../services/userAPI';
 import { inputSearchAct, saveAlbumNameAct } from '../actions';
 import fetchAlbum from '../thunk/fetchAlbumInRedux';
 import magGlass from '../images/navLinks/magGlass.png';
-import user from '../images/navLinks/user.png';
+import userImg from '../images/navLinks/user.png';
 
 class TopsideHeader extends Component {
   favoriteHeader = async () => {
@@ -79,7 +77,7 @@ class TopsideHeader extends Component {
               to="/profile"
               data-testid="link-to-profile"
             >
-              <img src={ user } alt="" width="25" className="iconSet" />
+              <img src={ userImg } alt="" width="25" className="iconSet" />
               <span className="nav-side-text">Profile</span>
             </NavLink>
           </div>
