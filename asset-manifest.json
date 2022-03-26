@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/neur4l.fy/static/css/main.9f9b356a.chunk.css",
+    "main.css": "/neur4l.fy/static/css/main.70470f73.chunk.css",
     "main.js": "/neur4l.fy/static/js/main.1bb0932c.chunk.js",
     "main.js.map": "/neur4l.fy/static/js/main.1bb0932c.chunk.js.map",
     "runtime-main.js": "/neur4l.fy/static/js/runtime-main.787f4135.js",
@@ -8,7 +8,7 @@
     "static/js/2.7d9d08a1.chunk.js": "/neur4l.fy/static/js/2.7d9d08a1.chunk.js",
     "static/js/2.7d9d08a1.chunk.js.map": "/neur4l.fy/static/js/2.7d9d08a1.chunk.js.map",
     "index.html": "/neur4l.fy/index.html",
-    "static/css/main.9f9b356a.chunk.css.map": "/neur4l.fy/static/css/main.9f9b356a.chunk.css.map",
+    "static/css/main.70470f73.chunk.css.map": "/neur4l.fy/static/css/main.70470f73.chunk.css.map",
     "static/js/2.7d9d08a1.chunk.js.LICENSE.txt": "/neur4l.fy/static/js/2.7d9d08a1.chunk.js.LICENSE.txt",
     "static/media/capuchin-monkey-1.e5e9c9f6.webp": "/neur4l.fy/static/media/capuchin-monkey-1.e5e9c9f6.webp",
     "static/media/capuchin-monkey-2.cc86a2b1.webp": "/neur4l.fy/static/media/capuchin-monkey-2.cc86a2b1.webp",
@@ -38,7 +38,7 @@
   "entrypoints": [
     "static/js/runtime-main.787f4135.js",
     "static/js/2.7d9d08a1.chunk.js",
-    "static/css/main.9f9b356a.chunk.css",
+    "static/css/main.70470f73.chunk.css",
     "static/js/main.1bb0932c.chunk.js"
   ]
 }
