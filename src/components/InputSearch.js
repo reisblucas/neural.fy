@@ -11,8 +11,6 @@ class InputSearch extends Component {
   activateBlur = (e) => {
     e.preventDefault();
 
-    const { searchAlbumGlobal } = this.props;
-
     const { key, keyCode } = e;
     const THIRTHEEN = 13;
     const enter = (keyCode === THIRTHEEN || key === 'Enter');
