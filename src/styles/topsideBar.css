@@ -3,6 +3,10 @@
   .linkToProfileTopsideBar {
     display: none;
   }
+
+  .controller-hero {
+    margin-top: 35px ! important;
+  }
 }
 
 /* Page controller */

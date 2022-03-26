@@ -43,6 +43,8 @@ export const idAlbumData = [
   { 1440650816: 'A Night at the Opera (Deluxe Edition)' },
 ];
 
+const electro = 'how to feel better';
+
 export const musicData = [
   {
     image: fortSuperHero,
@@ -50,6 +52,7 @@ export const musicData = [
     musicName: 'Over My Dead Body',
     artistName: 'Drake',
     collectionId: 1440642493,
+    playlist: 'new day, new way',
   },
   {
     image: personInACarTrip,
@@ -57,6 +60,7 @@ export const musicData = [
     musicName: 'Stronger',
     artistName: 'Kanye West',
     collectionId: 1451901307,
+    playlist: 'Ascension to Heaven',
   },
   {
     image: nftBieber,
@@ -64,6 +68,7 @@ export const musicData = [
     musicName: 'Cold Heart',
     artistName: 'Elton John & Dua Lipa',
     collectionId: 1578986656,
+    playlist: electro,
   },
   {
     image: cattoFisherhat,
@@ -71,6 +76,7 @@ export const musicData = [
     musicName: 'Serenade No. 13 in G Major, K. 525, "Eine Kleine Nachtmusik": I. Allegro',
     artistName: 'Drottningholm Baroque Ensemble',
     collectionId: 395711243,
+    playlist: 'Classic Greatest Hits',
   },
   {
     image: capuchinMonkey1,
@@ -78,6 +84,7 @@ export const musicData = [
     musicName: 'Hotline Bling',
     artistName: 'Drake',
     collectionId: 1440841363,
+    playlist: 'Não olhe pra trás',
   },
   {
     image: capuchinMonkey2,
@@ -85,6 +92,7 @@ export const musicData = [
     musicName: 'Livin\' On a Prayer',
     artistName: 'Bon Jovi',
     collectionId: 1423284802,
+    playlist: 'Relax Station',
   },
   {
     image: chonkyGreyCat,
@@ -92,6 +100,7 @@ export const musicData = [
     musicName: 'Toxicity',
     artistName: 'System of A Down',
     collectionId: 273714443,
+    playlist: 'Best of Rock: 2002',
   },
   {
     image: couplePhoto,
@@ -99,6 +108,7 @@ export const musicData = [
     musicName: 'Smells Like Teen Spirit',
     artistName: 'Nirvana',
     collectionId: 1440783617,
+    playlist: 'Discover Weekly',
   },
   {
     image: cryptopunkBlue,
@@ -106,6 +116,7 @@ export const musicData = [
     musicName: 'Cotidiano',
     artistName: 'Chico Buarque',
     collectionId: 1442845496,
+    playlist: 'This Is Chico Buarque',
   },
   {
     image: frenchVisa,
@@ -113,6 +124,7 @@ export const musicData = [
     musicName: 'SICK MODE',
     artistName: 'Travis Scott',
     collectionId: 1421241217,
+    playlist: 'ASTROWORLD',
   },
   {
     image: eiffelTower,
@@ -120,6 +132,7 @@ export const musicData = [
     musicName: 'Wild Kidz',
     artistName: 'Vintage Culture & Ricci',
     collectionId: 1462912754,
+    playlist: electro,
   },
   {
     image: chonkyOrangeCat,
@@ -127,6 +140,7 @@ export const musicData = [
     musicName: 'My Girl',
     artistName: 'Vintage Culture & Fancy Inc',
     collectionId: 1346689058,
+    playlist: electro,
   },
   {
     image: logitechLogo,
@@ -134,6 +148,7 @@ export const musicData = [
     musicName: 'Hit \'Em Up (feat. Outlawz)',
     artistName: 'Tupac Shakur',
     collectionId: 1440763429,
+    playlist: 'back to Compton',
   },
   {
     image: girlPic,
@@ -141,6 +156,7 @@ export const musicData = [
     musicName: 'Enjoy the Silence',
     artistName: 'Depeche Mode',
     collectionId: 203880450,
+    playlist: 'new day, new way',
   },
   {
     image: personInACarTrip2,
@@ -148,6 +164,7 @@ export const musicData = [
     musicName: 'Goodbye (with Soap & Skin)',
     artistName: 'Apparat',
     collectionId: 824700396,
+    playlist: 'Dark(Theme Song) - Goobye - Netflix Original',
   },
   {
     image: pugHappy,
@@ -155,6 +172,7 @@ export const musicData = [
     musicName: 'I Ran (So Far Away)',
     artistName: 'A Flock of Seagulls',
     collectionId: 266222258,
+    playlist: 'Today\'s Top Hits',
   },
   {
     image: pugLyingDownHappy,
@@ -162,6 +180,7 @@ export const musicData = [
     musicName: 'Dancin (feat. Luvli)',
     artistName: 'Aaron Smith',
     collectionId: 933067562,
+    playlist: electro,
   },
   {
     image: pugSeatedHappy,
@@ -169,6 +188,7 @@ export const musicData = [
     musicName: 'Highway to Hell',
     artistName: 'AC/DC',
     collectionId: 574043989,
+    playlist: 'Ascension to Heaven',
   },
   {
     image: sunshine,
@@ -176,6 +196,7 @@ export const musicData = [
     musicName: 'Stairway to Heaven',
     artistName: 'Led Zeppelin',
     collectionId: 902620286,
+    playlist: 'This is Led Zeppelin',
   },
   {
     image: vacation,
@@ -183,5 +204,6 @@ export const musicData = [
     musicName: 'Bohemian Rhapsody',
     artistName: 'Queen',
     collectionId: 1440650816,
+    playlist: 'Queen\'s Greatest Hits 1970-2011',
   },
 ];

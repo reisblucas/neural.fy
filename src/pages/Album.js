@@ -9,10 +9,12 @@ import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongs
 import '../styles/album.css';
 import AlbumHeader from '../components/AlbumHeader';
 import {
+  inputSearchAct,
   responseMusicsAct,
   saveAlbumNameAct,
   saveFavoriteMusicsAct,
 } from '../actions';
+import fetchAlbum from '../thunk/fetchAlbumInRedux';
 
 class Album extends Component {
   constructor() {
@@ -35,16 +37,24 @@ class Album extends Component {
       forceReload: false,
       isHeaderLoading: false,
       url: '',
+      colors: [],
     };
   }
 
   async componentDidMount() {
     const { checked } = this.state;
-    const { saveResponseMusics, saveAlbumName } = this.props;
+    const {
+      saveResponseMusics,
+      saveAlbumName,
+      inputSearchGlobal,
+      searchAlbumGlobal,
+    } = this.props;
 
     const music = await this.fetchMusic();
     const idFavoriteSongs = await this.fetchFavoriteSongs();
 
+    inputSearchGlobal(music[0].artistName);
+    searchAlbumGlobal(music[0].artistName);
     saveAlbumName(music[0]);
     saveResponseMusics(music.slice(1));
 
@@ -100,9 +110,14 @@ class Album extends Component {
     }
   }
 
+  gradientColorHandler = (arr) => {
+    this.setState({ colors: arr });
+  }
+
   async fetchMusic() {
     const { match: { params: { id } } } = this.props;
     const search = await getMusics(id);
+    console.log(search);
     return search;
   }
 
@@ -118,7 +133,7 @@ class Album extends Component {
   }
 
   render() {
-    const { album: { artistName }, isLoading } = this.state;
+    const { album: { artistName }, isLoading, colors } = this.state;
 
     return (
       <div className="headerPattern">
@@ -127,10 +142,24 @@ class Album extends Component {
             ? <Loading />
             : (
               <section data-testid="page-album" className="album">
-                <AlbumHeader { ...this.state } { ...this.props } />
+                <AlbumHeader
+                  { ...this.state }
+                  { ...this.props }
+                  gradientColorHandler={ this.gradientColorHandler }
+                />
 
                 <section className="albumContent gradContent">
                   <p data-testid="artist-name" hidden>{ `Artist Name ${artistName}`}</p>
+
+                  <div
+                    className="bottom-grad"
+                    style={ {
+                      backgroundImage: colors.length !== 0
+                        && `linear-gradient(
+                          rgb(${colors[0][0]}, ${colors[0][1]}, ${colors[0][2]}, 0.4) 0,
+                          #121212)`,
+                    } }
+                  />
                   <MusicCard
                     { ...this.state }
                     { ...this.props }
@@ -162,6 +191,8 @@ const mapDispatchToProps = (dispatch) => ({
   saveResponseMusics: (response) => dispatch(responseMusicsAct(response)),
   saveFavoriteMusics: (favorites) => dispatch(saveFavoriteMusicsAct(favorites)),
   saveAlbumName: (albumName) => dispatch(saveAlbumNameAct(albumName)),
+  inputSearchGlobal: (inputValue) => dispatch(inputSearchAct(inputValue)),
+  searchAlbumGlobal: (inputValue) => dispatch(fetchAlbum(inputValue)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Album));

@@ -3,30 +3,59 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import AlbumHeaderDetails from './AlbumHeaderDetails';
 import TopsideBar from './TopsideBar';
+import ColorExtracted from './ColorExtracted';
 
 class AlbumHeader extends Component {
+  state= { colors: [] };
+
+  getColors = (colors) => {
+    const SIX = 6;
+    if (colors.length === SIX) {
+      return this
+        .setState({ colors: [] }, () => this
+          .setState((state) => ({ colors: [...state.colors, ...colors] })));
+    }
+    this.setState((state) => ({ colors: [...state.colors, ...colors] }));
+  }
+
   render() {
-    const { responseMusics:
+    const {
+      responseMusics:
       { albumCollection:
         { artistName, collectionName, artworkUrl100 },
       },
+      gradientColorHandler,
     } = this.props;
+
+    const { colors } = this.state;
+    gradientColorHandler(colors);
+
+    if (colors.length !== 0) {
+      console.log(colors[0][1], colors[0][1], colors[0][2]);
+    }
 
     return (
       <section
         className="albumHeader gradHeader"
         data-testid="page-album"
+        style={ {
+          backgroundColor: colors.length !== 0
+            && `rgb(${colors[0][0]}, ${colors[0][1]}, ${colors[0][2]}, 0.4)`,
+        } }
       >
         <TopsideBar />
         <h1 className="titlePage" hidden>Album page</h1>
         <div className="contentAlbum">
           <div className="albumTitle">
+
             <div className="albumImage">
-              <img
-                src={ artworkUrl100.replace('100x100bb.jpg', '600x600bb.jpg') }
-                alt={ `Album cover of ${artistName}` }
+              <ColorExtracted
+                getColors={ this.getColors }
+                artistName={ artistName }
+                artworkUrl100={ artworkUrl100 }
               />
             </div>
+
             <div className="albumDetails">
               <h6 className="albumTitleFixed">ALBUM</h6>
               <h1

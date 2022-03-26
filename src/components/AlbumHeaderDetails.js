@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { totalAlbumTime } from '../helpers/songTime';
 import '../styles/albumHeaderDetails.css';
-import { enableRenderAlbumAct } from '../actions';
+import { enableRenderAlbumAct, inputSearchAct } from '../actions';
 
 class AlbumHeaderDetails extends Component {
   albumYear = (year) => year.split('-')[0];
@@ -17,8 +17,9 @@ class AlbumHeaderDetails extends Component {
     }));
   }
 
-  handleArtistNameLink = () => {
-    const { enableRender } = this.props;
+  handleArtistNameLink = (artist) => {
+    const { enableRender, inputSearchGlobal } = this.props;
+    inputSearchGlobal(artist);
     enableRender(true);
   }
 
@@ -53,7 +54,7 @@ class AlbumHeaderDetails extends Component {
               <Link
                 className="linkStyle focusableLink"
                 to="/search"
-                onClick={ this.handleArtistNameLink }
+                onClick={ () => this.handleArtistNameLink(artistName) }
               >
                 <h5 className="headerUserOrArtistName">{artistName}</h5>
               </Link>
@@ -111,6 +112,7 @@ AlbumHeaderDetails.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   enableRender: (bool) => dispatch(enableRenderAlbumAct(bool)),
+  inputSearchGlobal: (inputValue) => dispatch(inputSearchAct(inputValue)),
 });
 
 export default connect(null, mapDispatchToProps)(AlbumHeaderDetails);

@@ -1,6 +1,4 @@
 import PropTypes from 'prop-types';
-import { faHeart, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -8,6 +6,8 @@ import SpotifyLogoHeader from '../images/spotifyLogoHeader.png';
 import { getUser } from '../services/userAPI';
 import { inputSearchAct, saveAlbumNameAct } from '../actions';
 import fetchAlbum from '../thunk/fetchAlbumInRedux';
+import magGlass from '../images/navLinks/magGlass.png';
+import userImg from '../images/navLinks/user.png';
 
 class TopsideHeader extends Component {
   favoriteHeader = async () => {
@@ -54,8 +54,8 @@ class TopsideHeader extends Component {
               data-testid="link-to-search"
               // onClick={ () => this.resetSearch() }
             >
-              <FontAwesomeIcon icon={ faMagnifyingGlass } className="iconSet" />
-              <span>Search</span>
+              <img src={ magGlass } alt="" width="25" className="iconSet" />
+              <span className="nav-side-text">Search</span>
             </NavLink>
           </div>
 
@@ -66,8 +66,8 @@ class TopsideHeader extends Component {
               data-testid="link-to-favorites"
               onClick={ this.favoriteHeader }
             >
-              <FontAwesomeIcon icon={ faHeart } className="iconSet" />
-              <span>Favorites</span>
+              <img src="https://t.scdn.co/images/3099b3803ad9496896c43f22fe9be8c4.png" alt="" width="25" className="iconSet" />
+              <span className="nav-side-text">Favorites</span>
             </NavLink>
           </div>
 
@@ -77,8 +77,14 @@ class TopsideHeader extends Component {
               to="/profile"
               data-testid="link-to-profile"
             >
-              <FontAwesomeIcon icon={ faUser } className="iconSet" />
-              <span>Profile</span>
+              <img
+                src={ userImg }
+                alt=""
+                width="25"
+                className="iconSet"
+                style={ { backgroundColor: '#006451' } }
+              />
+              <span className="nav-side-text">Profile</span>
             </NavLink>
           </div>
         </div>

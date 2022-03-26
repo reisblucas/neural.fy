@@ -85,7 +85,7 @@ class FriendsActivitySidebar extends Component {
                 {
                   musicDataSliced.map((friend, i) => {
                     const { image, username, musicName,
-                      artistName, collectionId } = friend;
+                      artistName, collectionId, playlist } = friend;
 
                     if (i === (renderFriends - 1)) {
                       return (
@@ -134,7 +134,7 @@ class FriendsActivitySidebar extends Component {
                                 <span
                                   className="friend-playlist-name ellipsis"
                                 >
-                                  Playlist name
+                                  {playlist}
                                 </span>
                               </p>
                             </div>
@@ -188,7 +188,7 @@ class FriendsActivitySidebar extends Component {
                               <span
                                 className="friend-playlist-name ellipsis"
                               >
-                                Playlist name
+                                {playlist}
                               </span>
                             </p>
                           </div>

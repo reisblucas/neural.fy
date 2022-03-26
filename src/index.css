@@ -54,3 +54,9 @@ p:hover {
 .font-link {
   font-family: 'Montserrat', sans-serif;
 }
+
+/* iframe bug */
+
+iframe {
+  position: auto;
+}

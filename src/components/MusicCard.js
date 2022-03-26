@@ -17,8 +17,6 @@ class MusicCard extends Component {
 
         <hr className="horizontalRow" />
 
-        {/* <MusicMap { ...this.props } /> */}
-
         {
           path === '/album/:id'
             ? (
