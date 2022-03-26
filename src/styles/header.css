@@ -161,7 +161,7 @@
 }
 
 .nav-side-text {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 900;
 }
 
@@ -217,4 +217,9 @@
 
 .sideLinkStyle:hover {
   color: white;
+}
+
+.side-fav-musics {
+  font-size: 13px;
+  font-weight: 500;
 }

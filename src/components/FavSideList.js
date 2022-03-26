@@ -42,7 +42,7 @@ class FavSideList extends Component {
                   await inputSearchGlobal(artistName);
                 } }
               >
-                <p className="ellipsis">{trackName}</p>
+                <p className="side-fav-musics ellipsis">{trackName}</p>
               </Link>
             );
           })
