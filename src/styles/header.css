@@ -16,6 +16,9 @@
   .headerPattern {
     display: flex;
     flex-direction: column;
+
+    /* fazer uma config para quando estiver carregando e no cel, o height ficar auto */
+    height: auto;
   }
 
   .renderHeaderInAllPages {
@@ -26,7 +29,7 @@
 
   .header-hero {
     float: none;
-    height: 150px ! important;
+    height: 170px ! important;
     max-width: 100% ! important;
     position: unset ! important;
     width: 100% ! important;
