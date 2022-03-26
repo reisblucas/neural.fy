@@ -77,7 +77,13 @@ class TopsideHeader extends Component {
               to="/profile"
               data-testid="link-to-profile"
             >
-              <img src={ userImg } alt="" width="25" className="iconSet" />
+              <img
+                src={ userImg }
+                alt=""
+                width="25"
+                className="iconSet"
+                style={ { backgroundColor: '#006451' } }
+              />
               <span className="nav-side-text">Profile</span>
             </NavLink>
           </div>
