@@ -224,3 +224,5 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(null, mapDispatchToProps)(FriendsActivitySidebar);
+
+// Tryna debug gh-pages
