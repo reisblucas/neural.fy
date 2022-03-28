@@ -28,11 +28,15 @@
 }
 
 .control {
+  align-items: center;
   background-color: #050505;
   border-radius: 100%;
+  display: flex;
   font-size: x-large;
   height: 30px;
-  text-align: center;
+  justify-content: center;
+
+  /* text-align: center; */
   width: 30px;
 }
 
