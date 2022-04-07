@@ -8,6 +8,12 @@ import ColorExtracted from './ColorExtracted';
 class AlbumHeader extends Component {
   state= { colors: [] };
 
+  componentDidUpdate() {
+    const { colors } = this.state;
+    const { gradientColorHandler } = this.props;
+    gradientColorHandler(colors); // apenas para jogar a cor gradiente para fora
+  }
+
   getColors = (colors) => {
     const SIX = 6;
     if (colors.length === SIX) {
@@ -28,11 +34,7 @@ class AlbumHeader extends Component {
     } = this.props;
 
     const { colors } = this.state;
-    gradientColorHandler(colors);
-
-    if (colors.length !== 0) {
-      console.log(colors[0][1], colors[0][1], colors[0][2]);
-    }
+    // gradientColorHandler(colors);
 
     return (
       <section

@@ -117,7 +117,6 @@ class Album extends Component {
   async fetchMusic() {
     const { match: { params: { id } } } = this.props;
     const search = await getMusics(id);
-    console.log(search);
     return search;
   }
 
