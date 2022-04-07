@@ -18,8 +18,9 @@ class AlbumHeader extends Component {
     const SIX = 6;
     if (colors.length === SIX) {
       return this
-        .setState({ colors: [] }, () => this
-          .setState((state) => ({ colors: [...state.colors, ...colors] })));
+        .setState({ colors: [] },
+          () => this
+            .setState((state) => ({ colors: [...state.colors, ...colors] })));
     }
     this.setState((state) => ({ colors: [...state.colors, ...colors] }));
   }
@@ -30,7 +31,7 @@ class AlbumHeader extends Component {
       { albumCollection:
         { artistName, collectionName, artworkUrl100 },
       },
-      gradientColorHandler,
+      // gradientColorHandler,
     } = this.props;
 
     const { colors } = this.state;
