@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import '../styles/playerBottomSide.css';
 
-export const PlayerBottomSide = (props) => (
+export const PlayerBottomSide = () => (
   <div className="player-container">
     <div className="music-player-info">
       <p className="music-name-player tdh tc">Music name</p>
@@ -20,8 +20,10 @@ export const PlayerBottomSide = (props) => (
   </div>
 );
 
-const mapStateToProps = (state) => ({});
+// const mapStateToProps = (state) => ({});
 
-const mapDispatchToProps = {};
+// const mapDispatchToProps = {}; //
 
-export default connect(mapStateToProps, mapDispatchToProps)(PlayerBottomSide);
+// export default connect(mapStateToProps, mapDispatchToProps)(PlayerBottomSide);
+
+export default connect()(PlayerBottomSide);
