@@ -27,6 +27,24 @@
   padding: 20px 15px;
 }
 
+.music-player-info {
+  flex-direction: row;
+}
+
+.artist-infos, .favorite-player-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.favorite-player-container {
+  margin-left: 20px;
+}
+
+/* .heartIcon-player {
+
+} */
+
 .music-name-player {
   color: white;
   font-size: 14px;
