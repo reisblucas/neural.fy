@@ -7,8 +7,7 @@ import { connect } from 'react-redux';
 import { placeSelectedClass } from '../helpers/player';
 import { convertMillsToMin, convertMillsToSeconds } from '../helpers/songTime';
 import ButtonPlay from './ButtonPlay';
-import { enableRenderAlbumAct } from '../actions';
-import musicsToPlayer from '../reducers/musicsToPlayer';
+import { enableRenderAlbumAct, setMusicsToPlayerAct } from '../actions';
 
 class MusicMap extends Component {
   state = {
@@ -16,8 +15,8 @@ class MusicMap extends Component {
   }
 
   handlePlayIcon = ({ currentTarget }) => {
-    console.log('teste');
     const { tracks, setMusicsGlobal } = this.props;
+    console.log(tracks);
     setMusicsGlobal(tracks);
 
     this.setState(({
@@ -82,8 +81,8 @@ class MusicMap extends Component {
                 key={ trackId }
                 tabIndex="-1"
                 onClick={ (e) => placeSelectedClass(e) }
-                onKeyPress={ () => {} }
-                aria-hidden="true"
+                // onKeyPress={ () => {} }
+                aria-hidden
               >
                 <div className="musicRow notFocusable">
                   <ButtonPlay
@@ -238,14 +237,17 @@ MusicMap.propTypes = {
   handleReload: PropTypes.func,
 }.isRequired;
 
-const mapStateToProps = (state) => ({
-  searchAlbum: state.searchAlbum,
-  responseMusics: state.responseMusics,
-});
-
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    searchAlbum: state.searchAlbum,
+    responseMusics: state.responseMusics,
+    musicsToPlayer: state.musicsToPlayer,
+  };
+};
 const mapDispatchToProps = (dispatch) => ({
   enableRender: (bool) => dispatch(enableRenderAlbumAct(bool)),
-  setMusicsGlobal: (arr) => dispatch(musicsToPlayer(arr)),
+  setMusicsGlobal: (arr) => dispatch(setMusicsToPlayerAct(arr)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(MusicMap));

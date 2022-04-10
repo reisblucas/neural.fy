@@ -60,7 +60,7 @@ export const getUserToFavoritesAct = (saveFav) => ({
   saveFav,
 });
 
-export const setMusicsToPlayer = (arrMusic) => ({
+export const setMusicsToPlayerAct = (arrMusics) => ({
   type: SET_MUSICS,
-  arrMusic,
+  arrMusics,
 });
