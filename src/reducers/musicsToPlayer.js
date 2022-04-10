@@ -4,14 +4,17 @@ const initialState = {
   musics: [],
 };
 
-const musics = (state = initialState, action) => {
+const musicsToPlayer = (state = initialState, action) => {
   switch (action.type) {
   case SET_MUSICS:
-    return console.log('lucao');
+    return {
+      ...state,
+      musics: action.arrMusics,
+    };
 
   default:
     return state;
   }
 };
 
-export default musics;
+export default musicsToPlayer;

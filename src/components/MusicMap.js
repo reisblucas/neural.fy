@@ -8,6 +8,7 @@ import { placeSelectedClass } from '../helpers/player';
 import { convertMillsToMin, convertMillsToSeconds } from '../helpers/songTime';
 import ButtonPlay from './ButtonPlay';
 import { enableRenderAlbumAct } from '../actions';
+import musicsToPlayer from '../reducers/musicsToPlayer';
 
 class MusicMap extends Component {
   state = {
@@ -16,6 +17,9 @@ class MusicMap extends Component {
 
   handlePlayIcon = ({ currentTarget }) => {
     console.log('teste');
+    const { tracks, setMusicsGlobal } = this.props;
+    setMusicsGlobal(tracks);
+
     this.setState(({
       played: {
         status: true,
@@ -241,6 +245,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   enableRender: (bool) => dispatch(enableRenderAlbumAct(bool)),
+  setMusicsGlobal: (arr) => dispatch(musicsToPlayer(arr)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(MusicMap));
