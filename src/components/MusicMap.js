@@ -15,6 +15,7 @@ class MusicMap extends Component {
   }
 
   handlePlayIcon = ({ currentTarget }) => {
+    console.log('teste');
     this.setState(({
       played: {
         status: true,
