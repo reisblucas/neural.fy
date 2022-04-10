@@ -15,9 +15,13 @@ class MusicMap extends Component {
   }
 
   handlePlayIcon = ({ currentTarget }) => {
-    const { tracks, setMusicsGlobal } = this.props;
+    const { tracks, setMusicsGlobal, musicsToPlayer: { musics } } = this.props;
     console.log(tracks);
-    setMusicsGlobal(tracks);
+    // setMusicsGlobal(tracks);
+
+    // tracks.every((item) => item )
+
+    // EXTERNALIZAR A FUNÇAO PARA FAZER O QUE DEVE SER FEITO
 
     this.setState(({
       played: {
