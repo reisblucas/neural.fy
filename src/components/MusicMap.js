@@ -8,6 +8,7 @@ import { placeSelectedClass } from '../helpers/player';
 import { convertMillsToMin, convertMillsToSeconds } from '../helpers/songTime';
 import ButtonPlay from './ButtonPlay';
 import { enableRenderAlbumAct, setMusicsToPlayerAct } from '../actions';
+import trackDataStructureToPlayer from '../helpers/trackDataStructureToPlayer';
 
 class MusicMap extends Component {
   state = {
@@ -16,12 +17,8 @@ class MusicMap extends Component {
 
   handlePlayIcon = ({ currentTarget }) => {
     const { tracks, setMusicsGlobal, musicsToPlayer: { musics } } = this.props;
-    console.log(tracks);
-    // setMusicsGlobal(tracks);
-
-    // tracks.every((item) => item )
-
-    // EXTERNALIZAR A FUNÇAO PARA FAZER O QUE DEVE SER FEITO
+    trackDataStructureToPlayer(tracks);
+    // console.log(musicTracksToGlobal);
 
     this.setState(({
       played: {
@@ -46,13 +43,10 @@ class MusicMap extends Component {
 
   render() {
     const {
-      // albumTracks,
       handleCheck,
       handleReload,
       checkedAndFavorite,
       match: { path },
-      // responseMusics: { tracks },
-      // tracks,
       tracks,
     } = this.props;
 
