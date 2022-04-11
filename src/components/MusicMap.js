@@ -11,14 +11,12 @@ import { enableRenderAlbumAct, setMusicsToPlayerAct } from '../actions';
 import trackDataStructureToPlayer from '../helpers/trackDataStructureToPlayer';
 
 class MusicMap extends Component {
-  state = {
-    played: false,
-  }
+  state = { played: false }
 
   handlePlayIcon = ({ currentTarget }) => {
     const { tracks, setMusicsGlobal, musicsToPlayer: { musics } } = this.props;
-    trackDataStructureToPlayer(tracks);
-    // console.log(musicTracksToGlobal);
+    trackDataStructureToPlayer(tracks, musics, setMusicsGlobal);
+    // setMusicsGlobal(data);
 
     this.setState(({
       played: {
