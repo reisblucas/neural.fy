@@ -8,7 +8,7 @@ export const SORT_FAV_MUSICS = 'SORT_FAV_MUSICS';
 export const SAVE_URL = 'SAVE_URL';
 export const SAVE_ALBUM_NAME = 'SAVE_ALBUM_NAME';
 export const FAVORITES_SAVE = 'FAVORITES_SAVE';
-export const SET_MUSICS = 'SET_MUSICS';
+export const SET_MUSIC_PLAYER = 'SET_MUSIC_PLAYER';
 
 export const inputSearchAct = (inputValue) => ({
   type: INPUT_SEARCH,
@@ -61,6 +61,6 @@ export const getUserToFavoritesAct = (saveFav) => ({
 });
 
 export const setMusicsToPlayerAct = (arrMusics) => ({
-  type: SET_MUSICS,
+  type: SET_MUSIC_PLAYER,
   arrMusics,
 });

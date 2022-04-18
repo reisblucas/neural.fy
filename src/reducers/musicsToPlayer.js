@@ -1,4 +1,4 @@
-import { SET_MUSICS } from '../actions';
+import { SET_MUSIC_PLAYER } from '../actions';
 
 const initialState = {
   musics: [],
@@ -6,7 +6,7 @@ const initialState = {
 
 const musicsToPlayer = (state = initialState, action) => {
   switch (action.type) {
-  case SET_MUSICS:
+  case SET_MUSIC_PLAYER:
     return {
       ...state,
       musics: action.arrMusics,
