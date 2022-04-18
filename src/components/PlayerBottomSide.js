@@ -1,6 +1,6 @@
 import {
   faBackwardStep, faForwardStep, faHeart,
-  faPause, faPlay, faRepeat,
+  faPause, faPlay, faRepeat, faShuffle,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
@@ -11,9 +11,7 @@ export const PlayerBottomSide = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   // const [isFavorite, setIsFavorite] = useState(false);
 
-  // const handlePlayButton = () => {
-
-  // }
+  const handlePlayButton = () => { setIsPlaying(!isPlaying); };
 
   return (
     <div className="player-container">
@@ -34,7 +32,9 @@ export const PlayerBottomSide = () => {
 
       <div className="central-player-buttons">
         <div>
-          <button type="button"> shuffle </button>
+          <button type="button">
+            <FontAwesomeIcon icon={ faShuffle } />
+          </button>
 
           <button type="button">
             <FontAwesomeIcon icon={ faBackwardStep } />
@@ -42,7 +42,7 @@ export const PlayerBottomSide = () => {
 
           <button
             type="button"
-            onClick={ () => setIsPlaying(!isPlaying) }
+            onClick={ handlePlayButton }
           >
             {
               isPlaying
