@@ -14,8 +14,8 @@ class MusicMap extends Component {
   state = { played: false }
 
   handlePlayIcon = ({ currentTarget }) => {
-    const { tracks, setMusicsGlobal, musicsToPlayer: { musics } } = this.props;
-    trackDataStructureToPlayer(tracks, musics, setMusicsGlobal);
+    const { tracks, setMusicPlayer, musicsToPlayer: { musics } } = this.props;
+    trackDataStructureToPlayer(tracks, musics, setMusicPlayer);
     // setMusicsGlobal(data);
 
     this.setState(({
@@ -243,7 +243,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => ({
   enableRender: (bool) => dispatch(enableRenderAlbumAct(bool)),
-  setMusicsGlobal: (arr) => dispatch(setMusicsToPlayerAct(arr)),
+  setMusicPlayer: (arr) => dispatch(setMusicsToPlayerAct(arr)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(MusicMap));
