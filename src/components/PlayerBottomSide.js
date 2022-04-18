@@ -1,11 +1,19 @@
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBackwardStep, faForwardStep, faHeart,
+  faPause, faPlay, faRepeat,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import '../styles/playerBottomSide.css';
 
 export const PlayerBottomSide = () => {
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  // const [isFavorite, setIsFavorite] = useState(false);
+
+  // const handlePlayButton = () => {
+
+  // }
 
   return (
     <div className="player-container">
@@ -25,7 +33,32 @@ export const PlayerBottomSide = () => {
       </div>
 
       <div className="central-player-buttons">
-        <div>player</div>
+        <div>
+          <button type="button"> shuffle </button>
+
+          <button type="button">
+            <FontAwesomeIcon icon={ faBackwardStep } />
+          </button>
+
+          <button
+            type="button"
+            onClick={ () => setIsPlaying(!isPlaying) }
+          >
+            {
+              isPlaying
+                ? <FontAwesomeIcon icon={ faPause } />
+                : <FontAwesomeIcon icon={ faPlay } />
+            }
+          </button>
+
+          <button type="button">
+            <FontAwesomeIcon icon={ faForwardStep } />
+          </button>
+
+          <button type="button">
+            <FontAwesomeIcon icon={ faRepeat } />
+          </button>
+        </div>
         <p>lagalagalgalalga</p>
       </div>
 
@@ -36,10 +69,12 @@ export const PlayerBottomSide = () => {
   );
 };
 
-// const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  musicsToPlayer: state.musicsToPlayer,
+});
 
 // const mapDispatchToProps = {}; //
 
 // export default connect(mapStateToProps, mapDispatchToProps)(PlayerBottomSide);
 
-export default connect()(PlayerBottomSide);
+export default connect(mapStateToProps)(PlayerBottomSide);
