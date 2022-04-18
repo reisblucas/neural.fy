@@ -54,3 +54,60 @@
 .artist-name-player {
   font-size: smaller;
 }
+
+.central-player-buttons {
+  width: 250px;
+}
+
+/* Buttons Central Player */
+/* top side player wrapper */
+.tsp-w {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* top side player */
+.tsp {
+  display: flex;
+  justify-content: space-evenly;
+  width: 200px;
+}
+
+/* Progress bar section */
+
+/* bottom side player */
+.bsp {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress-bar {
+  width: 180px;
+}
+
+/* duration font-size */
+.dfs {
+  color: #b3b3b3;
+  font-size: smaller;
+}
+
+/* Reset */
+.reset-player-buttons {
+  background: none;
+  border: none;
+}
+
+/* Play and Pause button */
+.pb {
+  background-color: white;
+  border-radius: 100%;
+  height: 35px;
+  width: 35px;
+}
+
+.pbcs {
+  color: black;
+  font-size: 18px;
+}

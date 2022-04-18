@@ -31,35 +31,64 @@ export const PlayerBottomSide = () => {
       </div>
 
       <div className="central-player-buttons">
-        <div>
-          <button type="button">
-            <FontAwesomeIcon icon={ faShuffle } />
-          </button>
+        <div className="tsp-w">
+          <div className="tsp">
+            <button
+              type="button"
+              className="reset-player-buttons"
+            >
+              <FontAwesomeIcon icon={ faShuffle } />
+            </button>
 
-          <button type="button">
-            <FontAwesomeIcon icon={ faBackwardStep } />
-          </button>
+            <button
+              type="button"
+              className="reset-player-buttons"
+            >
+              <FontAwesomeIcon icon={ faBackwardStep } />
+            </button>
 
-          <button
-            type="button"
-            onClick={ handlePlayButton }
-          >
-            {
-              isPlaying
-                ? <FontAwesomeIcon icon={ faPause } />
-                : <FontAwesomeIcon icon={ faPlay } />
-            }
-          </button>
+            <button
+              type="button"
+              className="reset-player-buttons pb"
+              onClick={ handlePlayButton }
+            >
+              {
+                isPlaying
+                  ? <FontAwesomeIcon className="pbcs" icon={ faPause } />
+                  : <FontAwesomeIcon className="pbcs" icon={ faPlay } />
+              }
+            </button>
 
-          <button type="button">
-            <FontAwesomeIcon icon={ faForwardStep } />
-          </button>
+            <button
+              type="button"
+              className="reset-player-buttons"
+            >
+              <FontAwesomeIcon icon={ faForwardStep } />
+            </button>
 
-          <button type="button">
-            <FontAwesomeIcon icon={ faRepeat } />
-          </button>
+            <button
+              type="button"
+              className="reset-player-buttons"
+            >
+              <FontAwesomeIcon icon={ faRepeat } />
+            </button>
+          </div>
         </div>
-        <p>lagalagalgalalga</p>
+
+        <div className="bsp">
+
+          {/* duration before */}
+          <div className="dfs">
+            0:00
+          </div>
+
+          <input type="range" className="progress-bar" id="" />
+
+          {/* duration total */}
+          <div className="dfs">
+            5:00
+          </div>
+        </div>
       </div>
 
       <div className="right-player-buttons">
