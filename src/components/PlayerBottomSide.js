@@ -31,25 +31,31 @@ export const PlayerBottomSide = () => {
       </div>
 
       <div className="central-player-buttons">
-        <div className="tsp-w">
+        <div className="tsp-w mb-5">
           <div className="tsp">
             <button
               type="button"
-              className="reset-player-buttons"
+              className="control-player-buttons"
             >
-              <FontAwesomeIcon icon={ faShuffle } />
+              <FontAwesomeIcon
+                icon={ faShuffle }
+                className="tsp-i"
+              />
             </button>
 
             <button
               type="button"
-              className="reset-player-buttons"
+              className="control-player-buttons"
             >
-              <FontAwesomeIcon icon={ faBackwardStep } />
+              <FontAwesomeIcon
+                icon={ faBackwardStep }
+                className="tsp-i"
+              />
             </button>
 
             <button
               type="button"
-              className="reset-player-buttons pb"
+              className="control-player-buttons pb"
               onClick={ handlePlayButton }
             >
               {
@@ -61,16 +67,22 @@ export const PlayerBottomSide = () => {
 
             <button
               type="button"
-              className="reset-player-buttons"
+              className="control-player-buttons"
             >
-              <FontAwesomeIcon icon={ faForwardStep } />
+              <FontAwesomeIcon
+                icon={ faForwardStep }
+                className="tsp-i"
+              />
             </button>
 
             <button
               type="button"
-              className="reset-player-buttons"
+              className="control-player-buttons"
             >
-              <FontAwesomeIcon icon={ faRepeat } />
+              <FontAwesomeIcon
+                icon={ faRepeat }
+                className="tsp-i"
+              />
             </button>
           </div>
         </div>
@@ -78,14 +90,14 @@ export const PlayerBottomSide = () => {
         <div className="bsp">
 
           {/* duration before */}
-          <div className="dfs">
+          <div className="dfs mr-5">
             0:00
           </div>
 
           <input type="range" className="progress-bar" id="" />
 
           {/* duration total */}
-          <div className="dfs">
+          <div className="dfs ml-5">
             5:00
           </div>
         </div>

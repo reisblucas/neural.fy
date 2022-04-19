@@ -7,6 +7,19 @@
   cursor: pointer;
 }
 
+/* margin bottom */
+.mb-5 {
+  margin-bottom: 5px;
+}
+
+.mr-5 {
+  margin-right: 5px;
+}
+
+.ml-5 {
+  margin-left: 5px;
+}
+
 /* Content */
 .player-container {
   background-color: #181818;
@@ -56,7 +69,8 @@
 }
 
 .central-player-buttons {
-  width: 250px;
+  min-width: 250px;
+  width: 38%;
 }
 
 /* Buttons Central Player */
@@ -71,7 +85,7 @@
 .tsp {
   display: flex;
   justify-content: space-evenly;
-  width: 200px;
+  width: 250px;
 }
 
 /* Progress bar section */
@@ -84,7 +98,7 @@
 }
 
 .progress-bar {
-  width: 180px;
+  width: 100%;
 }
 
 /* duration font-size */
@@ -94,9 +108,14 @@
 }
 
 /* Reset */
-.reset-player-buttons {
+.control-player-buttons {
   background: none;
   border: none;
+}
+
+.tsp-i {
+  color: #b3b3b3;
+  font-size: 20px;
 }
 
 /* Play and Pause button */
