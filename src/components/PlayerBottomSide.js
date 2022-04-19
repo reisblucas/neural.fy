@@ -3,7 +3,7 @@ import {
   faPause, faPlay, faRepeat, faShuffle,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { connect } from 'react-redux';
 import '../styles/playerBottomSide.css';
 
@@ -11,7 +11,14 @@ export const PlayerBottomSide = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   // const [isFavorite, setIsFavorite] = useState(false);
 
-  const handlePlayButton = () => { setIsPlaying(!isPlaying); };
+  // https://www.youtube.com/watch?v=sqpg1qzJCGQ - building some parts of this player with Amy's help
+  const audioPlayer = useRef(); // reference for our audio component
+
+  const handlePlayButton = () => {
+    setIsPlaying(!isPlaying);
+
+    return isPlaying ? audioPlayer.current.play() : audioPlayer.current.pause();
+  };
 
   return (
     <div className="player-container">
@@ -31,6 +38,7 @@ export const PlayerBottomSide = () => {
       </div>
 
       <div className="central-player-buttons">
+        <audio ref={ audioPlayer } src="" />
         <div className="tsp-w mb-5">
           <div className="tsp">
             <button
