@@ -5,9 +5,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  // setAudioPlayerRefAct,
-  setSongPlayedAct } from '../actions';
+import { setSongPlayedAct } from '../actions';
 import '../styles/playerBottomSide.css';
 
 const DEFAULT_PLAYER_VOLUME = 0.2;
