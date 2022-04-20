@@ -143,7 +143,11 @@ export const PlayerBottomSide = () => {
 
           {/* duration total */}
           <div className="dfs ml-5">
-            5:00
+            {
+              played.trackDuration === undefined
+                ? '0:00'
+                : played.trackDuration
+            }
           </div>
         </div>
       </div>
