@@ -4,7 +4,7 @@ const initialState = {
   songs: [],
   played: {
     status: false,
-    songName: '',
+    name: '',
   },
 };
 

@@ -3,7 +3,7 @@ import {
   faPause, faPlay, faRepeat, faShuffle,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSongPlayedAct } from '../actions';
 import '../styles/playerBottomSide.css';
@@ -16,9 +16,7 @@ export const PlayerBottomSide = () => {
     played: globalState.musicsToPlayer.played,
   }));
   const { musicsToPlayer: { songs: songsGlobal }, played } = state;
-  // const [songs, setSongs] = useState(songsGlobal);
 
-  console.log(state);
   const dispatch = useDispatch();
   const setPlayedSongs = (objInsidePlayed) => dispatch(setSongPlayedAct(objInsidePlayed));
 
@@ -35,12 +33,16 @@ export const PlayerBottomSide = () => {
     setPlayedSongs({ ...played, status: false });
   };
 
-  const handlePlayButton = () => {
-    // setIsPlaying(!isPlaying);
+  useEffect(() => {
+    // setSongs(songsGlobal);
+    // setStatus(played.status);
+    played.status && play();
+  }, [played.status]);
 
-    console.log(played.status);
-    return played.status ? pause() : play();
-  };
+  const handlePlayButton = () => (played.status ? pause() : play());
+
+  console.log(played.name);
+  console.log(played.status);
 
   return (
     <div className="player-container">
@@ -60,7 +62,7 @@ export const PlayerBottomSide = () => {
       </div>
 
       <div className="central-player-buttons">
-        <audio ref={ audioPlayer } src='' />
+        <audio ref={ audioPlayer } src={ played.name } />
         {/* <div className="previewMusic">
           <audio
             id={ previewUrl }
