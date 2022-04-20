@@ -4,7 +4,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useRef, useState } from 'react';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setSongPlayedAct } from '../actions';
 import '../styles/playerBottomSide.css';
 
@@ -15,9 +15,8 @@ export const PlayerBottomSide = () => {
     musicsToPlayer: globalState.musicsToPlayer,
     played: globalState.musicsToPlayer.played,
   }));
-  const { musicsToPlayer, played } = state;
-
-  // useEffect(() => {}, [played.status]);
+  const { musicsToPlayer: { songs: songsGlobal }, played } = state;
+  // const [songs, setSongs] = useState(songsGlobal);
 
   console.log(state);
   const dispatch = useDispatch();
@@ -61,7 +60,23 @@ export const PlayerBottomSide = () => {
       </div>
 
       <div className="central-player-buttons">
-        <audio ref={ audioPlayer } src="" />
+        <audio ref={ audioPlayer } src='' />
+        {/* <div className="previewMusic">
+          <audio
+            id={ previewUrl }
+            data-testid="audio-component"
+            src={ previewUrl }
+            controls
+            hidden
+          >
+            <track kind="captions" />
+            O seu navegador não suporta o elemento
+            {' '}
+            <code>audio</code>
+            .
+          </audio>
+        </div> */}
+
         <div className="tsp-w mb-5">
           <div className="tsp">
             <button

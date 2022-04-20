@@ -1,7 +1,7 @@
 import { SET_MUSIC_PLAYER, PLAYED_SONG } from '../actions';
 
 const initialState = {
-  musics: [],
+  songs: [],
   played: {
     status: false,
     songName: '',
@@ -13,7 +13,7 @@ const musicsToPlayer = (state = initialState, action) => {
   case SET_MUSIC_PLAYER:
     return {
       ...state,
-      musics: action.arrMusics,
+      songs: action.arrMusics,
     };
 
   case PLAYED_SONG:

@@ -15,10 +15,10 @@ class MusicMap extends Component {
 
   handlePlayIcon = ({ currentTarget }) => {
     const { tracks, setMusicPlayer,
-      musicsToPlayer: { musics }, setPlayedSongs } = this.props;
+      musicsToPlayer: { songs }, setPlayedSongs } = this.props;
     const songName = currentTarget.attributes.name.value;
     const played = { status: true, name: songName };
-    trackDataStructureToPlayer(tracks, musics, setMusicPlayer);
+    trackDataStructureToPlayer(tracks, songs, setMusicPlayer);
 
     setPlayedSongs(played);
     this.setState(({ played }));

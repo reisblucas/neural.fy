@@ -55,7 +55,7 @@ export default class ButtonPlay extends Component {
               )
           }
 
-          <div className="previewMusic">
+          {/* <div className="previewMusic">
             <audio
               id={ previewUrl }
               data-testid="audio-component"
@@ -69,7 +69,7 @@ export default class ButtonPlay extends Component {
               <code>audio</code>
               .
             </audio>
-          </div>
+          </div> */}
         </label>
       </div>
     );
