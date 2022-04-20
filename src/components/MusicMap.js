@@ -11,12 +11,7 @@ import { enableRenderAlbumAct, setMusicsToPlayerAct, setSongPlayedAct } from '..
 import trackDataStructureToPlayer from '../helpers/trackDataStructureToPlayer';
 
 class MusicMap extends Component {
-  state = {
-    played: {
-      status: false,
-      songName: '',
-    },
-  }
+  state = { played: { status: false, songName: '' } }
 
   handlePlayIcon = ({ currentTarget }) => {
     const { tracks, setMusicPlayer,
