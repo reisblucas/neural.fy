@@ -9,18 +9,18 @@ import { convertMillsToMin, convertMillsToSeconds } from '../helpers/songTime';
 import ButtonPlay from './ButtonPlay';
 import { enableRenderAlbumAct, setMusicsToPlayerAct, setSongPlayedAct } from '../actions';
 import trackDataStructureToPlayer from '../helpers/trackDataStructureToPlayer';
+import playedSongsStruct from '../helpers/playedSongsStruct';
 
 class MusicMap extends Component {
-  state = { played: { status: false, songName: '' } }
+  state = { played: { status: false, songUrl: '' } }
 
-  handlePlayIcon = ({ currentTarget }) => {
+  handlePlayIcon = async ({ currentTarget }) => {
     const { tracks, setMusicPlayer,
-      musicsToPlayer: { songs }, setPlayedSongs, audioRef } = this.props;
-    const songName = currentTarget.attributes.name.value;
-    const played = { status: true, name: songName };
-    trackDataStructureToPlayer(tracks, songs, setMusicPlayer);
+      musicsToPlayer: { songs }, setPlayedSongs } = this.props;
+    const songUrl = currentTarget.attributes.name.value;
+    const trackData = await trackDataStructureToPlayer(tracks, songs, setMusicPlayer);
 
-    setPlayedSongs(played);
+    const played = playedSongsStruct(trackData, songs, songUrl, setPlayedSongs);
     this.setState(({ played }));
   }
 

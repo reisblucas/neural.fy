@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setSongPlayedAct } from '../actions';
 import '../styles/playerBottomSide.css';
 
-const DEFAULT_PLAYER_VOLUME = 0.2;
+const DEFAULT_PLAYER_VOLUME = 0.1;
 
 export const PlayerBottomSide = () => {
   // const [isPlaying, setIsPlaying] = useState(false);

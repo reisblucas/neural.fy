@@ -38,12 +38,13 @@ const trackDataStructureToPlayer = (tracks, musicsGlobalState, setMusicPlayer) =
       trackName,
       trackNumber,
       previewUrl,
+      trackTimeMillis,
       trackDuration: `${minutes}:${seconds}`,
     };
   });
 
   setMusicPlayer(musicTracksToGlobal);
-  return 'Set act!';
+  return musicTracksToGlobal;
 };
 
 export default trackDataStructureToPlayer;
