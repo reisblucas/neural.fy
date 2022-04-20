@@ -5,17 +5,20 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useRef, useState } from 'react';
 import { connect, useDispatch, useSelector } from 'react-redux';
+import { setSongPlayedAct } from '../actions';
 import '../styles/playerBottomSide.css';
 
-export const PlayerBottomSide = (props) => {
-  const [isPlaying, setIsPlaying] = useState(false);
+export const PlayerBottomSide = () => {
+  // const [isPlaying, setIsPlaying] = useState(false);
   // const [isFavorite, setIsFavorite] = useState(false);
-
-  const state = useSelector((state) => ({
-    musicsToPlayer: state.musicsToPlayer,
-    played: state.musicsToPlayer.played,
+  const state = useSelector((globalState) => ({
+    musicsToPlayer: globalState.musicsToPlayer,
+    played: globalState.musicsToPlayer.played,
   }));
   const { musicsToPlayer, played } = state;
+
+  // useEffect(() => {}, [played.status]);
+
   console.log(state);
   const dispatch = useDispatch();
   const setPlayedSongs = (objInsidePlayed) => dispatch(setSongPlayedAct(objInsidePlayed));
@@ -34,9 +37,10 @@ export const PlayerBottomSide = (props) => {
   };
 
   const handlePlayButton = () => {
-    setIsPlaying(!isPlaying);
+    // setIsPlaying(!isPlaying);
 
-    return isPlaying ? pause() : play();
+    console.log(played.status);
+    return played.status ? pause() : play();
   };
 
   return (
@@ -86,8 +90,8 @@ export const PlayerBottomSide = (props) => {
               onClick={ handlePlayButton }
             >
               {
-                // played.status
-                isPlaying
+                played.status
+                // isPlaying
                   ? <FontAwesomeIcon className="pbcs" icon={ faPause } />
                   : <FontAwesomeIcon className="pbcs" icon={ faPlay } />
               }
