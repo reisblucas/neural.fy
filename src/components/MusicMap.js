@@ -15,7 +15,7 @@ class MusicMap extends Component {
 
   handlePlayIcon = ({ currentTarget }) => {
     const { tracks, setMusicPlayer,
-      musicsToPlayer: { songs }, setPlayedSongs } = this.props;
+      musicsToPlayer: { songs }, setPlayedSongs, audioRef } = this.props;
     const songName = currentTarget.attributes.name.value;
     const played = { status: true, name: songName };
     trackDataStructureToPlayer(tracks, songs, setMusicPlayer);
@@ -239,6 +239,7 @@ const mapStateToProps = (state) => {
     searchAlbum: state.searchAlbum,
     responseMusics: state.responseMusics,
     musicsToPlayer: state.musicsToPlayer,
+    // audioRef: state.musicsToPlayer.audioRef,
   };
 };
 const mapDispatchToProps = (dispatch) => ({

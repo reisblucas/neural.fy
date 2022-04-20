@@ -3,13 +3,16 @@ import {
   faPause, faPlay, faRepeat, faShuffle,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSongPlayedAct } from '../actions';
+import {
+  // setAudioPlayerRefAct,
+  setSongPlayedAct } from '../actions';
 import '../styles/playerBottomSide.css';
 
 export const PlayerBottomSide = () => {
   // const [isPlaying, setIsPlaying] = useState(false);
+  // const [songName, setSongName] = useState('');
   // const [isFavorite, setIsFavorite] = useState(false);
 
   const state = useSelector((globalState) => ({
@@ -20,6 +23,7 @@ export const PlayerBottomSide = () => {
 
   const dispatch = useDispatch();
   const setPlayedSongs = (objInsidePlayed) => dispatch(setSongPlayedAct(objInsidePlayed));
+  // const setPlayerRef = (func) => dispatch(setAudioPlayerRefAct(func));
 
   // https://www.youtube.com/watch?v=sqpg1qzJCGQ - building some parts of this player with Amy's help
   const audioPlayer = useRef(); // reference for our audio component
@@ -34,19 +38,13 @@ export const PlayerBottomSide = () => {
     setPlayedSongs({ ...played, status: false });
   };
 
-  useEffect(() => {
-    const playEffect = () => {
-      audioPlayer.current.play();
-      setPlayedSongs({ ...playedEffect, status: true });
-    };
-
-    return played.status && playEffect();
-  }, [played, played.status]);
-
   const handlePlayButton = () => (played.status ? pause() : play());
 
-  console.log(played.name);
-  console.log(played.status);
+  useEffect(() => {
+    if (played.status) {
+      audioPlayer.current.play();
+    }
+  }, [played.name, played.status]);
 
   return (
     <div className="player-container">
@@ -66,22 +64,11 @@ export const PlayerBottomSide = () => {
       </div>
 
       <div className="central-player-buttons">
-        <audio ref={ audioPlayer } src={ played.name } />
-        {/* <div className="previewMusic">
-          <audio
-            id={ previewUrl }
-            data-testid="audio-component"
-            src={ previewUrl }
-            controls
-            hidden
-          >
-            <track kind="captions" />
-            O seu navegador não suporta o elemento
-            {' '}
-            <code>audio</code>
-            .
-          </audio>
-        </div> */}
+        <audio ref={ audioPlayer } src={ played.name } autoPlay>
+          <track kind="captions" />
+          Your browser does not support this player.
+          <code>audio</code>
+        </audio>
 
         <div className="tsp-w mb-5">
           <div className="tsp">
