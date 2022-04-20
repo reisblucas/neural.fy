@@ -10,6 +10,8 @@ import {
   setSongPlayedAct } from '../actions';
 import '../styles/playerBottomSide.css';
 
+const DEFAULT_PLAYER_VOLUME = 0.2;
+
 export const PlayerBottomSide = () => {
   // const [isPlaying, setIsPlaying] = useState(false);
   // const [songName, setSongName] = useState('');
@@ -23,25 +25,30 @@ export const PlayerBottomSide = () => {
 
   const dispatch = useDispatch();
   const setPlayedSongs = (objInsidePlayed) => dispatch(setSongPlayedAct(objInsidePlayed));
-  // const setPlayerRef = (func) => dispatch(setAudioPlayerRefAct(func));
 
   // https://www.youtube.com/watch?v=sqpg1qzJCGQ - building some parts of this player with Amy's help
   const audioPlayer = useRef(); // reference for our audio component
 
   const play = () => {
+    audioPlayer.current.volume = DEFAULT_PLAYER_VOLUME;
     audioPlayer.current.play();
     setPlayedSongs({ ...played, status: true });
   };
 
   const pause = () => {
+    audioPlayer.current.volume = DEFAULT_PLAYER_VOLUME;
     audioPlayer.current.pause();
     setPlayedSongs({ ...played, status: false });
   };
 
-  const handlePlayButton = () => (played.status ? pause() : play());
+  const handlePlayButton = () => {
+    if (played.name === '') { return null; } // same as do nothing...
+    return played.status ? pause() : play();
+  };
 
   useEffect(() => {
     if (played.status) {
+      audioPlayer.current.volume = DEFAULT_PLAYER_VOLUME;
       audioPlayer.current.play();
     }
   }, [played.name, played.status]);

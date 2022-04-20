@@ -239,7 +239,6 @@ const mapStateToProps = (state) => {
     searchAlbum: state.searchAlbum,
     responseMusics: state.responseMusics,
     musicsToPlayer: state.musicsToPlayer,
-    // audioRef: state.musicsToPlayer.audioRef,
   };
 };
 const mapDispatchToProps = (dispatch) => ({

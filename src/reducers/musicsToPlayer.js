@@ -1,6 +1,4 @@
-import { SET_MUSIC_PLAYER, PLAYED_SONG,
-  // AUDIO_PLAYCER_REF,
-} from '../actions';
+import { SET_MUSIC_PLAYER, PLAYED_SONG } from '../actions';
 
 const initialState = {
   songs: [],
@@ -8,7 +6,6 @@ const initialState = {
     status: false,
     name: '',
   },
-  // audioRef: () => {},
 };
 
 const musicsToPlayer = (state = initialState, action) => {
@@ -24,12 +21,6 @@ const musicsToPlayer = (state = initialState, action) => {
       ...state,
       played: action.playedObj,
     };
-
-    // case AUDIO_PLAYCER_REF:
-    //   return {
-    //     ...state,
-    //     audioRef: action.audioRef,
-    //   };
 
   default:
     return state;
