@@ -127,6 +127,7 @@
   /* border-top-left-radius: ; */
   position: absolute;
   top: 0;
+
   /* width: #b3b3b3; */
   width: 100px;
   z-index: 2;
@@ -140,12 +141,12 @@
   appearance: none;
   border: none;
   border-radius: 100%;
+  box-sizing: border-box;
   cursor: default;
   height: 12px;
   position: relative;
   width: 12px;
   z-index: 3;
-  box-sizing: border-box;
 }
 
 .progress-bar:hover::-webkit-slider-thumb {
