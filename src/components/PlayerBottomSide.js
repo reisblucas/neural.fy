@@ -6,14 +6,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSongPlayedAct } from '../actions';
+import { convertMillsToMin, convertMillsToSeconds } from '../helpers/songTime';
 import '../styles/playerBottomSide.css';
 
 const DEFAULT_PLAYER_VOLUME = 0.1;
 
 export const PlayerBottomSide = () => {
-  // const [isPlaying, setIsPlaying] = useState(false);
-  // const [songName, setSongName] = useState('');
-  // const [isFavorite, setIsFavorite] = useState(false);
+  const [crrTime, setCrrTime] = useState('0:00');
 
   const state = useSelector((globalState) => ({
     musicsToPlayer: globalState.musicsToPlayer,
@@ -51,7 +50,22 @@ export const PlayerBottomSide = () => {
       audioPlayer.current.volume = DEFAULT_PLAYER_VOLUME;
       audioPlayer.current.play();
     }
-  }, [played.name, played.status]);
+
+    const seconds = convertMillsToSeconds(played.trackTimeMillis);
+    progressBar.current.max = seconds;
+  }, [played.name, played.status, played.trackTimeMillis]);
+
+  const changeRange = () => {
+    audioPlayer.current.crrTime = progressBar.current.value;
+    progressBar.current
+      .style.setProperty(
+        0, `${(progressBar.current.value / +played.trackTimeMillis) * 100}%`,
+      );
+
+    setCrrTime(progressBar.current.value);
+  };
+
+  console.log(crrTime);
 
   return (
     <div className="player-container">
@@ -138,7 +152,11 @@ export const PlayerBottomSide = () => {
 
           {/* duration before */}
           <div className="dfs mr-5">
-            0:00
+            {
+              crrTime === '0:00'
+                ? '0:00'
+                : `${convertMillsToMin(crrTime)}:${convertMillsToSeconds(crrTime)}`
+            }
           </div>
 
           <input
@@ -146,6 +164,7 @@ export const PlayerBottomSide = () => {
             className="progress-bar"
             defaultValue="0"
             ref={ progressBar }
+            onChange={ changeRange }
           />
 
           {/* duration total */}
