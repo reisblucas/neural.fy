@@ -28,7 +28,7 @@
 }
 
 /* Content */
-/* .player-container {
+.player-container {
   background-color: #181818;
   border-top: 1px solid #282828;
   bottom: 0;
@@ -38,7 +38,7 @@
   position: absolute;
   width: 100%;
   z-index: 1;
-} */
+}
 
 .music-player-info, .central-player-buttons, .right-player-buttons {
   display: flex;
