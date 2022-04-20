@@ -18,7 +18,7 @@ class MusicMap extends Component {
       musicsToPlayer: { musics }, setPlayedSongs } = this.props;
     const songName = currentTarget.attributes.name.value;
     const played = { status: true, name: songName };
-    trackDataStructureToPlayer(tracks, musics, setMusicPlayer, played);
+    trackDataStructureToPlayer(tracks, musics, setMusicPlayer);
 
     setPlayedSongs(played);
     this.setState(({ played }));
