@@ -24,8 +24,10 @@ export const PlayerBottomSide = () => {
   const dispatch = useDispatch();
   const setPlayedSongs = (objInsidePlayed) => dispatch(setSongPlayedAct(objInsidePlayed));
 
+  // references
   // https://www.youtube.com/watch?v=sqpg1qzJCGQ - building some parts of this player with Amy's help
   const audioPlayer = useRef(); // reference for our audio component
+  const progressBar = useRef(); // reference for our progress bar
 
   const play = () => {
     audioPlayer.current.volume = DEFAULT_PLAYER_VOLUME;
@@ -139,7 +141,12 @@ export const PlayerBottomSide = () => {
             0:00
           </div>
 
-          <input type="range" className="progress-bar" id="" />
+          <input
+            type="range"
+            className="progress-bar"
+            defaultValue="0"
+            ref={ progressBar }
+          />
 
           {/* duration total */}
           <div className="dfs ml-5">
