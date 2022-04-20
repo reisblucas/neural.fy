@@ -4,12 +4,16 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useRef, useState } from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 import '../styles/playerBottomSide.css';
 
-export const PlayerBottomSide = () => {
+export const PlayerBottomSide = (props) => {
   const [isPlaying, setIsPlaying] = useState(false);
   // const [isFavorite, setIsFavorite] = useState(false);
+
+  const teste = useSelector((state) => state);
+  const dispatch = useDispatch();
+  // const tum = () => dispatch(setSongPlayedAct(objInsidePlayed));
 
   // https://www.youtube.com/watch?v=sqpg1qzJCGQ - building some parts of this player with Amy's help
   const audioPlayer = useRef(); // reference for our audio component
@@ -67,6 +71,7 @@ export const PlayerBottomSide = () => {
               onClick={ handlePlayButton }
             >
               {
+                // played.status
                 isPlaying
                   ? <FontAwesomeIcon className="pbcs" icon={ faPause } />
                   : <FontAwesomeIcon className="pbcs" icon={ faPlay } />
@@ -120,10 +125,11 @@ export const PlayerBottomSide = () => {
 
 const mapStateToProps = (state) => ({
   musicsToPlayer: state.musicsToPlayer,
+  // played: state.played,
 });
 
-// const mapDispatchToProps = {}; //
+const mapDispatchToProps = {
+  setPlayedSongs: (objInsidePlayed) => dispatch(setSongPlayedAct(objInsidePlayed)),
+};
 
-// export default connect(mapStateToProps, mapDispatchToProps)(PlayerBottomSide);
-
-export default connect(mapStateToProps)(PlayerBottomSide);
+export default connect(mapStateToProps, mapDispatchToProps)(PlayerBottomSide);
