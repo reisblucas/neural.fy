@@ -3,7 +3,7 @@ import {
   faPause, faPlay, faRepeat, faShuffle,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSongPlayedAct } from '../actions';
 import '../styles/playerBottomSide.css';
@@ -11,6 +11,7 @@ import '../styles/playerBottomSide.css';
 export const PlayerBottomSide = () => {
   // const [isPlaying, setIsPlaying] = useState(false);
   // const [isFavorite, setIsFavorite] = useState(false);
+
   const state = useSelector((globalState) => ({
     musicsToPlayer: globalState.musicsToPlayer,
     played: globalState.musicsToPlayer.played,
@@ -34,10 +35,13 @@ export const PlayerBottomSide = () => {
   };
 
   useEffect(() => {
-    // setSongs(songsGlobal);
-    // setStatus(played.status);
-    played.status && play();
-  }, [played.status]);
+    const playEffect = () => {
+      audioPlayer.current.play();
+      setPlayedSongs({ ...playedEffect, status: true });
+    };
+
+    return played.status && playEffect();
+  }, [played, played.status]);
 
   const handlePlayButton = () => (played.status ? pause() : play());
 
