@@ -11,21 +11,33 @@ import { enableRenderAlbumAct, setMusicsToPlayerAct, setSongPlayedAct } from '..
 import trackDataStructureToPlayer from '../helpers/trackDataStructureToPlayer';
 
 class MusicMap extends Component {
-  state = { played: false }
+  state = {
+    played: {
+      status: false,
+      songName: '',
+    },
+  }
 
   handlePlayIcon = ({ currentTarget }) => {
     const { tracks, setMusicPlayer,
       musicsToPlayer: { musics }, setPlayedSongs } = this.props;
     const songName = currentTarget.attributes.name.value;
-    trackDataStructureToPlayer(tracks, musics, setMusicPlayer, songName);
-
     const played = { status: true, name: songName };
-    setPlayedSongs(played);
+    trackDataStructureToPlayer(tracks, musics, setMusicPlayer, played);
 
+    setPlayedSongs(played);
     this.setState(({ played }));
   }
 
-  handlePauseIcon = () => this.setState({ played: { status: false } });
+  handlePauseIcon = () => {
+    const { setPlayedSongs } = this.props;
+    const { played } = this.state;
+
+    this.setState(({ played: prevPlayed }) => (
+      { played: { ...prevPlayed, status: false } }
+    ));
+    setPlayedSongs({ ...played, status: false });
+  };
 
   handleArtistNameLink = () => {
     const { enableRender } = this.props;

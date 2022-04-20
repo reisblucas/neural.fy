@@ -5,7 +5,9 @@
 
 // // Yes: Data is not sent, global store maintain unchanged.
 
-const trackDataStructureToPlayer = (tracks, musicsGlobalState, setMusicPlayer) => {
+const trackDataStructureToPlayer = (
+  tracks, musicsGlobalState, setMusicPlayer, played,
+) => {
   // When musicsGlobalState has some data, we need to verify the content;
   if (musicsGlobalState.length > 0) {
     // musicStateVerifier is a boolean, so, in the musicStateVerifier:
