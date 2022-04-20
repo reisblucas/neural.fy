@@ -7,23 +7,22 @@ import { connect } from 'react-redux';
 import { placeSelectedClass } from '../helpers/player';
 import { convertMillsToMin, convertMillsToSeconds } from '../helpers/songTime';
 import ButtonPlay from './ButtonPlay';
-import { enableRenderAlbumAct, setMusicsToPlayerAct } from '../actions';
+import { enableRenderAlbumAct, setMusicsToPlayerAct, setSongPlayedAct } from '../actions';
 import trackDataStructureToPlayer from '../helpers/trackDataStructureToPlayer';
 
 class MusicMap extends Component {
   state = { played: false }
 
   handlePlayIcon = ({ currentTarget }) => {
-    const { tracks, setMusicPlayer, musicsToPlayer: { musics } } = this.props;
+    const { tracks, setMusicPlayer,
+      musicsToPlayer: { musics }, setPlayedSongs } = this.props;
     const songName = currentTarget.attributes.name.value;
     trackDataStructureToPlayer(tracks, musics, setMusicPlayer, songName);
 
-    this.setState(({
-      played: {
-        status: true,
-        name: songName,
-      },
-    }));
+    const played = { status: true, name: songName };
+    setPlayedSongs(played);
+
+    this.setState(({ played }));
   }
 
   handlePauseIcon = () => this.setState({ played: { status: false } });
@@ -238,6 +237,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   enableRender: (bool) => dispatch(enableRenderAlbumAct(bool)),
   setMusicPlayer: (arr) => dispatch(setMusicsToPlayerAct(arr)),
+  setPlayedSongs: (objInsidePlayed) => dispatch(setSongPlayedAct(objInsidePlayed)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(MusicMap));
