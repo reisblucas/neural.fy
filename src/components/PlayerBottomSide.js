@@ -11,17 +11,32 @@ export const PlayerBottomSide = (props) => {
   const [isPlaying, setIsPlaying] = useState(false);
   // const [isFavorite, setIsFavorite] = useState(false);
 
-  const teste = useSelector((state) => state);
+  const state = useSelector((state) => ({
+    musicsToPlayer: state.musicsToPlayer,
+    played: state.musicsToPlayer.played,
+  }));
+  const { musicsToPlayer, played } = state;
+  console.log(state);
   const dispatch = useDispatch();
-  // const tum = () => dispatch(setSongPlayedAct(objInsidePlayed));
+  const setPlayedSongs = (objInsidePlayed) => dispatch(setSongPlayedAct(objInsidePlayed));
 
   // https://www.youtube.com/watch?v=sqpg1qzJCGQ - building some parts of this player with Amy's help
   const audioPlayer = useRef(); // reference for our audio component
 
+  const play = () => {
+    audioPlayer.current.play();
+    setPlayedSongs({ ...played, status: true });
+  };
+
+  const pause = () => {
+    audioPlayer.current.pause();
+    setPlayedSongs({ ...played, status: false });
+  };
+
   const handlePlayButton = () => {
     setIsPlaying(!isPlaying);
 
-    return isPlaying ? audioPlayer.current.play() : audioPlayer.current.pause();
+    return isPlaying ? pause() : play();
   };
 
   return (
@@ -123,13 +138,4 @@ export const PlayerBottomSide = (props) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  musicsToPlayer: state.musicsToPlayer,
-  // played: state.played,
-});
-
-const mapDispatchToProps = {
-  setPlayedSongs: (objInsidePlayed) => dispatch(setSongPlayedAct(objInsidePlayed)),
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(PlayerBottomSide);
+export default PlayerBottomSide;
