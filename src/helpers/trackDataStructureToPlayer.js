@@ -1,3 +1,4 @@
+import { convertMillsToMin, convertMillsToSeconds } from './songTime';
 // This function controls verifies when global state for Music Player need to change, following the cases below:
 
 // Global Storage data match with actual sent data?
@@ -26,17 +27,20 @@ const trackDataStructureToPlayer = (tracks, musicsGlobalState, setMusicPlayer) =
   const musicTracksToGlobal = tracks.map(({
     artworkUrl100, collectionName, trackId, trackName,
     trackNumber, trackTimeMillis, previewUrl,
-  }) => (
-    {
+  }) => {
+    const minutes = convertMillsToMin(trackTimeMillis);
+    const seconds = convertMillsToSeconds(trackTimeMillis);
+
+    return {
       artworkUrl100,
       collectionName,
       trackId,
       trackName,
       trackNumber,
-      trackTimeMillis,
       previewUrl,
-    }
-  ));
+      trackDuration: `${minutes}:${seconds}`,
+    };
+  });
 
   setMusicPlayer(musicTracksToGlobal);
   return 'Set act!';
