@@ -14,6 +14,10 @@
     width: auto ! important;
   }
 
+  .artistName {
+    width: auto ! important;
+  }
+
   .divToEllipsis {
     margin: 0 auto;
   }
@@ -286,6 +290,7 @@
 .artistName {
   font-size: smaller;
   margin-top: 5px;
+  width: min-content;
 }
 
 .focusableLink {

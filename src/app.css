@@ -11,3 +11,19 @@ body {
   padding: 0;
   top: 0;
 }
+
+/* Fix responsability of my app after put player */
+
+@media only screen and ( max-width : 414px ) {
+
+  .player-relative-to-header-fa {
+    margin-top: -170px;
+    position: absolute;
+    width: 100%;
+  }
+
+  .headerPattern {
+    margin-top: 170px;
+  }
+}
+
