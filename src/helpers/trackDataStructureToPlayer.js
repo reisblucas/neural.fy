@@ -26,15 +26,16 @@ const trackDataStructureToPlayer = (tracks, musicsGlobalState, setMusicPlayer) =
   const musicTracksToGlobal = tracks.map(({
     artworkUrl100, collectionName, trackId, trackName,
     trackNumber, trackTimeMillis, previewUrl,
-  }) => ({
-    artworkUrl100,
-    collectionName,
-    trackId,
-    trackName,
-    trackNumber,
-    trackTimeMillis,
-    previewUrl,
-  }
+  }) => (
+    {
+      artworkUrl100,
+      collectionName,
+      trackId,
+      trackName,
+      trackNumber,
+      trackTimeMillis,
+      previewUrl,
+    }
   ));
 
   setMusicPlayer(musicTracksToGlobal);

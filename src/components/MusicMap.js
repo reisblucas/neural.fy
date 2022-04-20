@@ -15,24 +15,18 @@ class MusicMap extends Component {
 
   handlePlayIcon = ({ currentTarget }) => {
     const { tracks, setMusicPlayer, musicsToPlayer: { musics } } = this.props;
-    trackDataStructureToPlayer(tracks, musics, setMusicPlayer);
-    // setMusicsGlobal(data);
+    const songName = currentTarget.attributes.name.value;
+    trackDataStructureToPlayer(tracks, musics, setMusicPlayer, songName);
 
     this.setState(({
       played: {
         status: true,
-        name: currentTarget.attributes.name.value,
+        name: songName,
       },
     }));
   }
 
-  handlePauseIcon = () => {
-    this.setState({
-      played: {
-        status: false,
-      },
-    });
-  }
+  handlePauseIcon = () => this.setState({ played: { status: false } });
 
   handleArtistNameLink = () => {
     const { enableRender } = this.props;
