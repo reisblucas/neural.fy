@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { RiSearchLine } from 'react-icons/ri';
 import fetchAlbum from '../thunk/fetchAlbumInRedux';
 import { inputSearchAct } from '../actions';
 
@@ -43,7 +42,7 @@ class InputSearch extends Component {
             (path !== pathAlbum && path !== pathFavorites)
           && (
             <label htmlFor="buttonSearch" className="labelInputSearch">
-              <FontAwesomeIcon icon={ faMagnifyingGlass } className="glassInputSearch" />
+              <RiSearchLine className="glassInputSearch" />
               <input
                 type="text"
                 id="buttonSearch"
