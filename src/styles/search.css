@@ -34,6 +34,7 @@
 
 .glassInputSearch {
   color: black;
+  font-size: 2rem;
   height: 24px;
   vertical-align: middle;
 }
@@ -42,7 +43,7 @@
   border: 1px solid white;
   border-bottom-right-radius: 50px;
   border-top-right-radius: 50px;
-  text-align: center;
+  text-align: left;
   width: 25vw;
 }
 
