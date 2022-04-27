@@ -14,13 +14,13 @@ import playedSongsStruct from '../helpers/playedSongsStruct';
 class MusicMap extends Component {
   state = { played: { status: false, songUrl: '' } }
 
-  handlePlayIcon = async ({ currentTarget }) => {
+  handlePlayIcon = ({ currentTarget }) => {
     const { tracks, setMusicPlayer,
       musicsToPlayer: { songs }, setPlayedSongs } = this.props;
     const songUrl = currentTarget.attributes.name.value;
-    const trackData = await trackDataStructureToPlayer(tracks, songs, setMusicPlayer);
-
+    const trackData = trackDataStructureToPlayer(tracks, songs, setMusicPlayer);
     const played = playedSongsStruct(trackData, songs, songUrl, setPlayedSongs);
+
     this.setState(({ played }));
   }
 
