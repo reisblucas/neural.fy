@@ -51,7 +51,9 @@ export const PlayerBottomSide = () => {
       audioPlayer.current.play();
     }
 
-    const seconds = convertMillsToSeconds(played.trackTimeMillis);
+    // itunes api always return 30s in preview, so max seconds need to be 30s
+    // const seconds = convertMillsToSeconds(played.trackTimeMillis);
+    const seconds = 30;
     progressBar.current.max = seconds;
   }, [played.name, played.status, played.trackTimeMillis]);
 
@@ -62,6 +64,7 @@ export const PlayerBottomSide = () => {
         0, `${(progressBar.current.value / +played.trackTimeMillis) * 100}%`,
       );
 
+    console.log(progressBar.current.value);
     setCrrTime(progressBar.current.value);
   };
 
@@ -77,7 +80,7 @@ export const PlayerBottomSide = () => {
         <div className="favorite-player-container">
           {/* <label htmlFor="fav-button-player"> */}
           <label htmlFor="fbp">
-            <input type="checkbox" id="fbp" name="" id="" />
+            <input type="checkbox" id="fbp" name="" />
             <FontAwesomeIcon icon={ faHeart } className="heartIcon-player" />
           </label>
           {/* </label> */}
