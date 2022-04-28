@@ -49,7 +49,8 @@ export const PlayerBottomSide = () => {
 
   const volumeChange = () => {
     console.log(played.volume);
-    setPlayerVolume(2);
+    // Need to create another ref to use dynamically input range?
+    // setPlayerVolume(2);
   }
 
   useEffect(() => {
@@ -193,7 +194,7 @@ export const PlayerBottomSide = () => {
           type="range"
           name="volume-player"
           id=""
-          value={ volume }
+          defaultValue="1"
           onChange={ volumeChange }
           max={ volume }
         />
