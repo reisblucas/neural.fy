@@ -64,6 +64,10 @@ export const PlayerBottomSide = () => {
       animationRef.current = requestAnimationFrame(whilePlaying);
     }
 
+    const trackTimeNow = Math.round(audioPlayer?.current?.currentTime);
+    const whenTheSongEnds = trackTimeNow === DEFAULT_PREVIEW_DURATION;
+    if (whenTheSongEnds) { setPlayedSongs({ ...played, status: false }); }
+
     // const seconds = convertMillsToSeconds(played.trackTimeMillis);
     // itunes api always return 30s in preview, so max seconds need to be 30s
     const seconds = 30;
