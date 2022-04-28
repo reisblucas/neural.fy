@@ -44,17 +44,18 @@ export const PlayerBottomSide = () => {
     if (played.status) {
       audioPlayer.current.volume = DEFAULT_PLAYER_VOLUME;
       audioPlayer.current.play();
+      animationRef.current = requestAnimationFrame(whilePlaying);
     }
 
     // itunes api always return 30s in preview, so max seconds need to be 30s
     // const seconds = convertMillsToSeconds(played.trackTimeMillis);
     const seconds = 30;
     progressBar.current.max = seconds;
-    console.log(progressBar);
   }, [played.name, played.status, played.trackTimeMillis,
     loadedmetadata, readyState,
   ]);
 
+  console.log(Math.round(audioPlayer?.current?.currentTime));
   const play = () => {
     audioPlayer.current.play();
     animationRef.current = requestAnimationFrame(whilePlaying);

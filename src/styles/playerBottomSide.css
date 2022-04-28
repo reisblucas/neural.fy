@@ -128,7 +128,7 @@
   position: absolute;
   top: 0;
   width: var(--seek-before-width);
-  z-index: 2;
+  z-index: 1;
 }
 
 .progress-bar:hover:before {
@@ -148,7 +148,7 @@
 }
 
 .progress-bar:hover::-webkit-slider-thumb {
-  background-color: white;
+  background-color: red;
 }
 
 /* duration font-size */
