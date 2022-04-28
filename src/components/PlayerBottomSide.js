@@ -34,29 +34,8 @@ export const PlayerBottomSide = () => {
   // https://www.youtube.com/watch?v=sqpg1qzJCGQ - building some parts of this player with Amy's help
   const audioPlayer = useRef(); // reference for audio component
   const progressBar = useRef(); // reference for progress bar
+  const animationRef = useRef();
   const volumeBar = useRef(); // reference for volumeBar
-
-  const play = () => {
-    audioPlayer.current.play();
-    setPlayedSongs({ ...played, status: true });
-  };
-
-  const pause = () => {
-    audioPlayer.current.pause();
-    setPlayedSongs({ ...played, status: false });
-  };
-
-  const handlePlayButton = () => {
-    if (played.name === '') { return null; } // same as do nothing...
-    return played.status ? pause() : play();
-  };
-
-  const volumeChange = () => {
-    console.log(volume);
-    // Need to create another ref to use dynamically input range?
-    // volumeBar.current.volume =
-    // setPlayerVolume(2);
-  };
 
   const loadedmetadata = audioPlayer?.current?.loadedmetadata;
   const readyState = audioPlayer?.current?.readyState;
@@ -76,18 +55,48 @@ export const PlayerBottomSide = () => {
     loadedmetadata, readyState,
   ]);
 
-  const changeRange = () => {
-    audioPlayer.current.currentTime = progressBar.current.value;
+  const play = () => {
+    audioPlayer.current.play();
+    animationRef.current = requestAnimationFrame(whilePlaying);
+    setPlayedSongs({ ...played, status: true });
+  };
+
+  const pause = () => {
+    audioPlayer.current.pause();
+    cancelAnimationFrame(animationRef.current);
+    setPlayedSongs({ ...played, status: false });
+  };
+
+  const handlePlayButton = () => {
+    if (played.name === '') { return null; } // same as do nothing...
+    return played.status ? pause() : play();
+  };
+
+  const changePlayerCurrentTime = () => {
     progressBar.current
       .style.setProperty(
         '--seek-before-width',
-        // for complete musics
-        // `${(progressBar.current.value / +played.trackTimeMillis) * 100}%`,
         `${(progressBar.current.value / played.trackTimeMillis) * 100}%`,
       );
-
-    console.log(audioPlayer.current.currentTime);
     setCrrTime(progressBar.current.value);
+  };
+
+  const whilePlaying = () => {
+    progressBar.current.value = audioPlayer.current.currentTime;
+    changePlayerCurrentTime();
+    animationRef.current = requestAnimationFrame(whilePlaying);
+  };
+
+  const volumeChange = () => {
+    console.log(volume);
+    // Need to create another ref to use dynamically input range?
+    // volumeBar.current.volume =
+    // setPlayerVolume(2);
+  };
+
+  const changeRange = () => {
+    audioPlayer.current.currentTime = progressBar.current.value;
+    changePlayerCurrentTime();
   };
 
   return (
