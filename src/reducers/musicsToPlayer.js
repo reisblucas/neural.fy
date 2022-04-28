@@ -23,6 +23,12 @@ const musicsToPlayer = (state = initialState, action) => {
       played: action.playedObj,
     };
 
+  case VOLUME_SONG:
+    return {
+      ...state,
+      volume: action.volumeChanged,
+    };
+
   default:
     return state;
   }

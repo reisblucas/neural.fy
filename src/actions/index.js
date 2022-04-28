@@ -72,7 +72,7 @@ export const setSongPlayedAct = (playedObj) => ({
   playedObj,
 });
 
-export const setVolumePlayerAct = (changeVolume) => ({
+export const setVolumePlayerAct = (volumeChanged) => ({
   type: VOLUME_SONG,
-  changeVolume,
+  volumeChanged,
 });
