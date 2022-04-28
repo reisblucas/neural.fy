@@ -127,7 +127,7 @@
   left: 0;
   position: absolute;
   top: 0;
-  width: 100; /* colocar o seek aqui */
+  width: var(--seek-before-width);
   z-index: 2;
 }
 

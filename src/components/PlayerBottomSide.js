@@ -58,6 +58,9 @@ export const PlayerBottomSide = () => {
     // setPlayerVolume(2);
   };
 
+  const loadedmetadata = audioPlayer?.current?.loadedmetadata;
+  const readyState = audioPlayer?.current?.readyState;
+
   useEffect(() => {
     if (played.status) {
       audioPlayer.current.volume = DEFAULT_PLAYER_VOLUME;
@@ -69,7 +72,9 @@ export const PlayerBottomSide = () => {
     const seconds = 30;
     progressBar.current.max = seconds;
     console.log(progressBar);
-  }, [played.name, played.status, played.trackTimeMillis, crrTime]);
+  }, [played.name, played.status, played.trackTimeMillis,
+    loadedmetadata, readyState,
+  ]);
 
   const changeRange = () => {
     audioPlayer.current.currentTime = progressBar.current.value;
