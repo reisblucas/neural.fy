@@ -53,6 +53,7 @@ export const PlayerBottomSide = () => {
   const volumeChange = () => {
     console.log(volume);
     // Need to create another ref to use dynamically input range?
+    // volumeBar.current.volume = 
     // setPlayerVolume(2);
   };
 
@@ -70,7 +71,7 @@ export const PlayerBottomSide = () => {
   }, [played.name, played.status, played.trackTimeMillis]);
 
   const changeRange = () => {
-    audioPlayer.current.crrTime = progressBar.current.value;
+    audioPlayer.current.currentTime = progressBar.current.value;
     progressBar.current
       .style.setProperty(
         0, `${(progressBar.current.value / +played.trackTimeMillis) * 100}%`,
