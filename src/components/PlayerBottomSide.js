@@ -12,19 +12,22 @@ import '../styles/playerBottomSide.css';
 const DEFAULT_PLAYER_VOLUME = 0.1;
 
 export const PlayerBottomSide = () => {
-  const [crrTime, setCrrTime] = useState('0:00');
-
   const state = useSelector((globalState) => ({
     musicsToPlayer: globalState.musicsToPlayer,
     played: globalState.musicsToPlayer.played,
     volume: globalState.musicsToPlayer.volume,
   }));
+
+  // Songs global to go to the next and previous song
   const { musicsToPlayer: { songs: songsGlobal }, played, volume } = state;
   console.log('estadao global', volume);
 
   const dispatch = useDispatch();
   const setPlayedSongs = (objInsidePlayed) => dispatch(setSongPlayedAct(objInsidePlayed));
   const setPlayerVolume = (volChanged) => dispatch(setVolumePlayerAct(volChanged));
+
+  const [crrTime, setCrrTime] = useState('0:00');
+  const [crrVolume, setCrrVolume] = useState(volume);
 
   // references
   // https://www.youtube.com/watch?v=sqpg1qzJCGQ - building some parts of this player with Amy's help
@@ -48,10 +51,10 @@ export const PlayerBottomSide = () => {
   };
 
   const volumeChange = () => {
-    console.log(played.volume);
+    console.log(volume);
     // Need to create another ref to use dynamically input range?
     // setPlayerVolume(2);
-  }
+  };
 
   useEffect(() => {
     if (played.status) {
