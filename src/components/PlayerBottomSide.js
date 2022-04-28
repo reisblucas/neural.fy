@@ -31,8 +31,9 @@ export const PlayerBottomSide = () => {
 
   // references
   // https://www.youtube.com/watch?v=sqpg1qzJCGQ - building some parts of this player with Amy's help
-  const audioPlayer = useRef(); // reference for our audio component
-  const progressBar = useRef(); // reference for our progress bar
+  const audioPlayer = useRef(); // reference for audio component
+  const progressBar = useRef(); // reference for progress bar
+  const volumeBar = useRef(); // reference for volumeBar
 
   const play = () => {
     audioPlayer.current.play();
@@ -46,7 +47,6 @@ export const PlayerBottomSide = () => {
 
   const handlePlayButton = () => {
     if (played.name === '') { return null; } // same as do nothing...
-    audioPlayer.current.volume = DEFAULT_PLAYER_VOLUME;
     return played.status ? pause() : play();
   };
 
@@ -199,7 +199,8 @@ export const PlayerBottomSide = () => {
           id=""
           defaultValue="1"
           onChange={ volumeChange }
-          max={ volume }
+          max={ crrVolume }
+          ref={ volumeBar }
         />
       </div>
     </div>
