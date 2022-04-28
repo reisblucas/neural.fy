@@ -17,8 +17,10 @@ export const PlayerBottomSide = () => {
   const state = useSelector((globalState) => ({
     musicsToPlayer: globalState.musicsToPlayer,
     played: globalState.musicsToPlayer.played,
+    volume: globalState.musicsToPlayer.volume,
   }));
-  const { musicsToPlayer: { songs: songsGlobal }, played } = state;
+  const { musicsToPlayer: { songs: songsGlobal }, played, volume } = state;
+  console.log('estadao global', volume);
 
   const dispatch = useDispatch();
   const setPlayedSongs = (objInsidePlayed) => dispatch(setSongPlayedAct(objInsidePlayed));
@@ -44,6 +46,10 @@ export const PlayerBottomSide = () => {
     return played.status ? pause() : play();
   };
 
+  const volumeChange = () => {
+    console.log(played.volume);
+  }
+
   useEffect(() => {
     if (played.status) {
       audioPlayer.current.volume = DEFAULT_PLAYER_VOLUME;
@@ -67,8 +73,6 @@ export const PlayerBottomSide = () => {
     console.log(progressBar.current.value);
     setCrrTime(progressBar.current.value);
   };
-
-  console.log(crrTime);
 
   return (
     <div className="player-container">
@@ -182,7 +186,15 @@ export const PlayerBottomSide = () => {
       </div>
 
       <div className="right-player-buttons">
-        <div>buttons / volume</div>
+        buttons
+        <input
+          type="range"
+          name="volume-player"
+          id=""
+          value={ volume }
+          onChange={ volumeChange }
+          max={ volume }
+        />
       </div>
     </div>
   );

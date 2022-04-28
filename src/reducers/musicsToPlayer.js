@@ -6,6 +6,7 @@ const initialState = {
     status: false,
     name: '',
   },
+  volume: 1.0,
 };
 
 const musicsToPlayer = (state = initialState, action) => {
