@@ -29,19 +29,18 @@ export const PlayerBottomSide = () => {
   const progressBar = useRef(); // reference for our progress bar
 
   const play = () => {
-    audioPlayer.current.volume = DEFAULT_PLAYER_VOLUME;
     audioPlayer.current.play();
     setPlayedSongs({ ...played, status: true });
   };
 
   const pause = () => {
-    audioPlayer.current.volume = DEFAULT_PLAYER_VOLUME;
     audioPlayer.current.pause();
     setPlayedSongs({ ...played, status: false });
   };
 
   const handlePlayButton = () => {
     if (played.name === '') { return null; } // same as do nothing...
+    audioPlayer.current.volume = DEFAULT_PLAYER_VOLUME;
     return played.status ? pause() : play();
   };
 
@@ -55,6 +54,7 @@ export const PlayerBottomSide = () => {
     // const seconds = convertMillsToSeconds(played.trackTimeMillis);
     const seconds = 30;
     progressBar.current.max = seconds;
+    console.log(progressBar);
   }, [played.name, played.status, played.trackTimeMillis]);
 
   const changeRange = () => {
