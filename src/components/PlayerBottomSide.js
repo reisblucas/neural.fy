@@ -10,6 +10,7 @@ import { convertMillsToMin, convertMillsToSeconds } from '../helpers/songTime';
 import '../styles/playerBottomSide.css';
 
 const DEFAULT_PLAYER_VOLUME = 0.1;
+const DEFAULT_PREVIEW_DURATION = 30;
 
 export const PlayerBottomSide = () => {
   const state = useSelector((globalState) => ({
@@ -53,7 +54,7 @@ export const PlayerBottomSide = () => {
   const volumeChange = () => {
     console.log(volume);
     // Need to create another ref to use dynamically input range?
-    // volumeBar.current.volume = 
+    // volumeBar.current.volume =
     // setPlayerVolume(2);
   };
 
@@ -68,16 +69,19 @@ export const PlayerBottomSide = () => {
     const seconds = 30;
     progressBar.current.max = seconds;
     console.log(progressBar);
-  }, [played.name, played.status, played.trackTimeMillis]);
+  }, [played.name, played.status, played.trackTimeMillis, crrTime]);
 
   const changeRange = () => {
     audioPlayer.current.currentTime = progressBar.current.value;
     progressBar.current
       .style.setProperty(
-        0, `${(progressBar.current.value / +played.trackTimeMillis) * 100}%`,
+        '--seek-before-width',
+        // for complete musics
+        // `${(progressBar.current.value / +played.trackTimeMillis) * 100}%`,
+        `${(progressBar.current.value / played.trackTimeMillis) * 100}%`,
       );
 
-    console.log(progressBar.current.value);
+    console.log(audioPlayer.current.currentTime);
     setCrrTime(progressBar.current.value);
   };
 
@@ -169,7 +173,7 @@ export const PlayerBottomSide = () => {
             {
               crrTime === '0:00'
                 ? '0:00'
-                : `${convertMillsToMin(crrTime)}:${convertMillsToSeconds(crrTime)}`
+                : `0:${convertMillsToSeconds(crrTime * 1000)}`
             }
           </div>
 
@@ -186,7 +190,8 @@ export const PlayerBottomSide = () => {
             {
               played.trackDuration === undefined
                 ? '0:00'
-                : played.trackDuration
+                : `0:${DEFAULT_PREVIEW_DURATION}`
+                // : played.trackDuration
             }
           </div>
         </div>

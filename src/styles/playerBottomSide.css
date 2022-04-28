@@ -106,6 +106,8 @@
 }
 
 .progress-bar {
+
+  --seek-before-width: 0;
   appearance: none;
   background: #535353;
   border-radius: 10px;
@@ -123,13 +125,9 @@
   content: '';
   height: 5px;
   left: 0;
-
-  /* border-top-left-radius: ; */
   position: absolute;
   top: 0;
-
-  /* width: #b3b3b3; */
-  width: 0;
+  width: 100; /* colocar o seek aqui */
   z-index: 2;
 }
 
