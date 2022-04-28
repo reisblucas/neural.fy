@@ -2,9 +2,10 @@ import PropTypes from 'prop-types';
 import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { playAudio } from '../helpers/player';
 
-export default class ButtonPlay extends Component {
+class ButtonPlay extends Component {
   render() {
     const {
       path,
@@ -14,7 +15,8 @@ export default class ButtonPlay extends Component {
       i,
       handlePlayIcon,
       handlePauseIcon,
-      played: { name, status },
+      played: { name },
+      musicsToPlayer: { played: { status: songGlobStatus } },
     } = this.props;
 
     return (
@@ -30,7 +32,7 @@ export default class ButtonPlay extends Component {
         }
         <label htmlFor={ previewUrl }>
           {
-            (name === previewUrl) && (status)
+            (name === previewUrl) && (songGlobStatus)
               ? (
                 <FontAwesomeIcon
                   name={ previewUrl }
@@ -84,3 +86,7 @@ ButtonPlay.propTypes = {
   trackNumber: PropTypes.string,
   playAudio: PropTypes.func,
 }.isRequired;
+
+const mapStateToProps = (state) => ({ musicsToPlayer: state.musicsToPlayer });
+
+export default connect(mapStateToProps)(ButtonPlay);

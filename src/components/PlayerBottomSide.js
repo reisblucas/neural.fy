@@ -21,7 +21,6 @@ export const PlayerBottomSide = () => {
 
   // Songs global to go to the next and previous song
   const { musicsToPlayer: { songs: songsGlobal }, played, volume } = state;
-  console.log('estadao global', volume);
 
   const dispatch = useDispatch();
   const setPlayedSongs = (objInsidePlayed) => dispatch(setSongPlayedAct(objInsidePlayed));
@@ -36,9 +35,6 @@ export const PlayerBottomSide = () => {
   const progressBar = useRef(); // reference for progress bar
   const animationRef = useRef();
   const volumeBar = useRef(); // reference for volumeBar
-
-  const loadedmetadata = audioPlayer?.current?.loadedmetadata;
-  const readyState = audioPlayer?.current?.readyState;
 
   // const changePlayerCurrentTime = () => {
   //   // performatic bug?
@@ -64,19 +60,21 @@ export const PlayerBottomSide = () => {
       animationRef.current = requestAnimationFrame(whilePlaying);
     }
 
-    const trackTimeNow = Math.round(audioPlayer?.current?.currentTime);
-    const whenTheSongEnds = trackTimeNow === DEFAULT_PREVIEW_DURATION;
-    if (whenTheSongEnds) { setPlayedSongs({ ...played, status: false }); }
+    console.log('out', played.status);
+    // console.log(+crrTime === DEFAULT_PREVIEW_DURATION);
+    if (+crrTime === DEFAULT_PREVIEW_DURATION && played.status) {
+      console.log('inside', played.status);
+      setPlayedSongs({ ...played, status: false });
+      setCrrTime(0);
+      // AND GO TO THE NEXT MUSIC
+    }
 
     // const seconds = convertMillsToSeconds(played.trackTimeMillis);
     // itunes api always return 30s in preview, so max seconds need to be 30s
     const seconds = 30;
     progressBar.current.max = seconds;
-  }, [played.name, played.status, played.trackTimeMillis,
-    loadedmetadata, readyState,
-  ]);
+  }, [played?.name, played?.status, played.trackTimeMillis, crrTime]);
 
-  console.log(Math.round(audioPlayer?.current?.currentTime));
   const play = () => {
     audioPlayer.current.play();
     animationRef.current = requestAnimationFrame(whilePlaying);
@@ -112,7 +110,7 @@ export const PlayerBottomSide = () => {
   };
 
   const volumeChange = () => {
-    console.log(volume);
+    // console.log(volume);
     // Need to create another ref to use dynamically input range?
     // volumeBar.current.volume =
     // setPlayerVolume(2);
