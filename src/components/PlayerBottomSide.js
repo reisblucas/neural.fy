@@ -5,7 +5,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setSongPlayedAct } from '../actions';
+import { setSongPlayedAct, setVolumePlayerAct } from '../actions';
 import { convertMillsToMin, convertMillsToSeconds } from '../helpers/songTime';
 import '../styles/playerBottomSide.css';
 
@@ -24,6 +24,7 @@ export const PlayerBottomSide = () => {
 
   const dispatch = useDispatch();
   const setPlayedSongs = (objInsidePlayed) => dispatch(setSongPlayedAct(objInsidePlayed));
+  const setPlayerVolume = (volChanged) => dispatch(setVolumePlayerAct(volChanged));
 
   // references
   // https://www.youtube.com/watch?v=sqpg1qzJCGQ - building some parts of this player with Amy's help
@@ -48,6 +49,7 @@ export const PlayerBottomSide = () => {
 
   const volumeChange = () => {
     console.log(played.volume);
+    setPlayerVolume(2);
   }
 
   useEffect(() => {
