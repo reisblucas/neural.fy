@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { IoIosSkipBackward, IoIosSkipForward } from 'react-icons/io';
 
-function BackAndForwardButton({ type }) {
+function BackAndForwardButton({ type, songsGlobal }) {
   const backward = (
     <button
       type="button"

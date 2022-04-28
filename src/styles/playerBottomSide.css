@@ -91,6 +91,7 @@
 
 /* top side player */
 .tsp {
+  align-items: center;
   display: flex;
   justify-content: space-evenly;
   width: 250px;
@@ -167,7 +168,24 @@
 
 .tsp-i {
   color: #b3b3b3;
+  font-size: 24px;
+}
+
+.tsp-rs {
+  color: #b3b3b3;
   font-size: 20px;
+}
+
+.tsp-i:hover, .tsp-rs:hover {
+  color: white;
+}
+
+.tsp-r {
+  transform: rotate(180deg);
+}
+
+.tsp-s {
+  transform: scaleY(-1);
 }
 
 /* Play and Pause button */
@@ -176,6 +194,10 @@
   border-radius: 100%;
   height: 35px;
   width: 35px;
+}
+
+.pb:hover {
+  transform: scale(1.05);
 }
 
 .pbcs {

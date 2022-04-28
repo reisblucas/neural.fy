@@ -9,6 +9,7 @@ import { setSongPlayedAct, setVolumePlayerAct } from '../actions';
 import { convertMillsToSeconds } from '../helpers/songTime';
 import '../styles/playerBottomSide.css';
 import BackAndForwardButton from './player/BackAndForwardButton';
+import ShuffleAndRepeatButton from './player/ShuffleAndRepeat';
 
 const DEFAULT_PLAYER_VOLUME = 0.1;
 const DEFAULT_PREVIEW_DURATION = 30;
@@ -148,16 +149,7 @@ export const PlayerBottomSide = () => {
 
         <div className="tsp-w mb-5">
           <div className="tsp">
-            <button
-              type="button"
-              className="control-player-buttons"
-            >
-              <FontAwesomeIcon
-                icon={ faShuffle }
-                className="tsp-i"
-              />
-            </button>
-
+            <ShuffleAndRepeatButton type="shuffle" />
             <BackAndForwardButton type="backward" />
 
             <button
@@ -174,16 +166,7 @@ export const PlayerBottomSide = () => {
             </button>
 
             <BackAndForwardButton type="forward" />
-
-            <button
-              type="button"
-              className="control-player-buttons"
-            >
-              <FontAwesomeIcon
-                icon={ faRepeat }
-                className="tsp-i"
-              />
-            </button>
+            <ShuffleAndRepeatButton type="repeat" />
           </div>
         </div>
 
