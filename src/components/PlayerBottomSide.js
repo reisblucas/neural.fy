@@ -6,8 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSongPlayedAct, setVolumePlayerAct } from '../actions';
-import { convertMillsToMin, convertMillsToSeconds } from '../helpers/songTime';
+import { convertMillsToSeconds } from '../helpers/songTime';
 import '../styles/playerBottomSide.css';
+import BackAndForwardButton from './player/BackAndForwardButton';
 
 const DEFAULT_PLAYER_VOLUME = 0.1;
 const DEFAULT_PREVIEW_DURATION = 30;
@@ -157,15 +158,7 @@ export const PlayerBottomSide = () => {
               />
             </button>
 
-            <button
-              type="button"
-              className="control-player-buttons"
-            >
-              <FontAwesomeIcon
-                icon={ faBackwardStep }
-                className="tsp-i"
-              />
-            </button>
+            <BackAndForwardButton type="backward" />
 
             <button
               type="button"
@@ -180,15 +173,7 @@ export const PlayerBottomSide = () => {
               }
             </button>
 
-            <button
-              type="button"
-              className="control-player-buttons"
-            >
-              <FontAwesomeIcon
-                icon={ faForwardStep }
-                className="tsp-i"
-              />
-            </button>
+            <BackAndForwardButton type="forward" />
 
             <button
               type="button"
