@@ -40,6 +40,23 @@ export const PlayerBottomSide = () => {
   const loadedmetadata = audioPlayer?.current?.loadedmetadata;
   const readyState = audioPlayer?.current?.readyState;
 
+  // const changePlayerCurrentTime = () => {
+  //   // performatic bug?
+  //   // console.log(Math.floor((progressBar.current.value / DEFAULT_PREVIEW_DURATION) * 100));
+  //   progressBar.current
+  //     .style.setProperty(
+  //       '--seek-before-width',
+  //       `${(progressBar.current.value / DEFAULT_PREVIEW_DURATION) * 100}%`,
+  //     );
+  //   setCrrTime(progressBar.current.value);
+  // };
+
+  // const whilePlaying = () => {
+  //   progressBar.current.value = audioPlayer.current.currentTime;
+  //   changePlayerCurrentTime();
+  //   animationRef.current = requestAnimationFrame(whilePlaying);
+  // };
+
   useEffect(() => {
     if (played.status) {
       audioPlayer.current.volume = DEFAULT_PLAYER_VOLUME;
@@ -47,8 +64,8 @@ export const PlayerBottomSide = () => {
       animationRef.current = requestAnimationFrame(whilePlaying);
     }
 
-    // itunes api always return 30s in preview, so max seconds need to be 30s
     // const seconds = convertMillsToSeconds(played.trackTimeMillis);
+    // itunes api always return 30s in preview, so max seconds need to be 30s
     const seconds = 30;
     progressBar.current.max = seconds;
   }, [played.name, played.status, played.trackTimeMillis,
@@ -74,10 +91,12 @@ export const PlayerBottomSide = () => {
   };
 
   const changePlayerCurrentTime = () => {
+    // performatic bug?
+    // console.log(Math.floor((progressBar.current.value / DEFAULT_PREVIEW_DURATION) * 100));
     progressBar.current
       .style.setProperty(
         '--seek-before-width',
-        `${(progressBar.current.value / played.trackTimeMillis) * 100}%`,
+        `${(progressBar.current.value / DEFAULT_PREVIEW_DURATION) * 100}%`,
       );
     setCrrTime(progressBar.current.value);
   };

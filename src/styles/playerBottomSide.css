@@ -108,6 +108,8 @@
 .progress-bar {
 
   --seek-before-width: 0;
+
+  --seek-after-bgc: #00b65c;
   appearance: none;
   background: #535353;
   border-radius: 10px;
@@ -120,7 +122,7 @@
 
 /* progressive bar - chrome and safari */
 .progress-bar:before {
-  background-color: #b3b3b3;
+  background-color: white;
   border-radius: 10px;
   content: '';
   height: 5px;
@@ -132,7 +134,7 @@
 }
 
 .progress-bar:hover:before {
-  background-color: #00b65c;
+  background-color: var(--seek-after-bgc);
 }
 
 .progress-bar::-webkit-slider-thumb {
@@ -148,7 +150,7 @@
 }
 
 .progress-bar:hover::-webkit-slider-thumb {
-  background-color: red;
+  background-color: white;
 }
 
 /* duration font-size */
