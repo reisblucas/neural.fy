@@ -51,7 +51,7 @@ export const PlayerBottomSide = () => {
 
     console.log('out', played.status);
     // console.log(+crrTime === DEFAULT_PREVIEW_DURATION);
-    if (+crrTime === DEFAULT_PREVIEW_DURATION && played.status) {
+    if (+crrTime === DEFAULT_PREVIEW_DURATION) {
       console.log('inside', played.status);
       setPlayedSongs({ ...played, status: false });
       setCrrTime(0);
