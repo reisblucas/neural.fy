@@ -6,7 +6,7 @@ import { convertMillsToMin, convertMillsToSeconds } from '../songTime';
 
 // // Yes: Data is not sent, global store maintain unchanged.
 
-const trackDataStructureToPlayer = (tracks, musicsGlobalState, setMusicPlayer) => {
+const newTrackStructure = (tracks, musicsGlobalState, setMusicPlayer) => {
   // When musicsGlobalState has some data, we need to verify the content;
   if (musicsGlobalState.length > 0) {
     // musicStateVerifier is a boolean, so, in the musicStateVerifier:
@@ -49,4 +49,4 @@ const trackDataStructureToPlayer = (tracks, musicsGlobalState, setMusicPlayer) =
   return musicTracksToGlobal;
 };
 
-export default trackDataStructureToPlayer;
+export default newTrackStructure;

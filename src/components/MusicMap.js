@@ -8,7 +8,7 @@ import { placeSelectedClass } from '../helpers/play-pause-inside-album-or-fav/pl
 import { convertMillsToMin, convertMillsToSeconds } from '../helpers/songTime';
 import ButtonPlay from './ButtonPlay';
 import { enableRenderAlbumAct, setMusicsToPlayerAct, setSongPlayedAct } from '../actions';
-import trackDataStructureToPlayer from '../helpers/dataStructure/trackDataStructureToPlayer';
+import newTrackStructure from '../helpers/dataStructure/newTrackStructure';
 import playedSongsStruct from '../helpers/dataStructure/playedSongsStruct';
 
 class MusicMap extends Component {
@@ -18,7 +18,7 @@ class MusicMap extends Component {
     const { tracks, setMusicPlayer,
       musicsToPlayer: { songs }, setPlayedSongs } = this.props;
     const songUrl = currentTarget.attributes.name.value;
-    const trackData = trackDataStructureToPlayer(tracks, songs, setMusicPlayer);
+    const trackData = newTrackStructure(tracks, songs, setMusicPlayer);
     const played = playedSongsStruct(trackData, songs, songUrl, setPlayedSongs);
 
     this.setState(({ played }));
