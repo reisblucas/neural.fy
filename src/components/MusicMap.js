@@ -8,8 +8,8 @@ import { placeSelectedClass } from '../helpers/player';
 import { convertMillsToMin, convertMillsToSeconds } from '../helpers/songTime';
 import ButtonPlay from './ButtonPlay';
 import { enableRenderAlbumAct, setMusicsToPlayerAct, setSongPlayedAct } from '../actions';
-import trackDataStructureToPlayer from '../helpers/trackDataStructureToPlayer';
-import playedSongsStruct from '../helpers/playedSongsStruct';
+import trackDataStructureToPlayer from '../helpers/dataStructure/trackDataStructureToPlayer';
+import playedSongsStruct from '../helpers/dataStructure/playedSongsStruct';
 
 class MusicMap extends Component {
   state = { played: { status: false, songUrl: '' } }

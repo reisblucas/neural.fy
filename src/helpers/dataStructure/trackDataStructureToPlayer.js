@@ -1,4 +1,4 @@
-import { convertMillsToMin, convertMillsToSeconds } from './songTime';
+import { convertMillsToMin, convertMillsToSeconds } from '../songTime';
 // This function controls verifies when global state for Music Player need to change, following the cases below:
 
 // Global Storage data match with actual sent data?
