@@ -127,7 +127,7 @@ export const PlayerBottomSide = () => {
     <div className="player-container">
       <div className="music-player-info">
         <div className="artist-infos">
-          <p className="music-name-player tdh tc">Music name</p>
+          <p className="music-name-player tdh tc">{played.trackName}</p>
           <p className="artist-name-player tdh tc">Artist</p>
         </div>
         <div className="favorite-player-container">
