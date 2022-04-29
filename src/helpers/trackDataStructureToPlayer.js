@@ -22,7 +22,6 @@ const trackDataStructureToPlayer = (tracks, musicsGlobalState, setMusicPlayer) =
     // all verification results are True: the function should do nothing and the globalState should be unchanged;
     if (musicStateVerifier) { return 'Do nothing!'; }
   }
-  console.log(tracks);
 
   // some verification results are False: the function remodel the data structure and set MusicsPlayer to global store.
   const musicTracksToGlobal = tracks.map(({

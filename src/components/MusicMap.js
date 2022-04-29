@@ -28,10 +28,10 @@ class MusicMap extends Component {
     const { setPlayedSongs } = this.props;
     const { played } = this.state;
 
+    setPlayedSongs({ ...played, status: false });
     this.setState(({ played: prevPlayed }) => (
       { played: { ...prevPlayed, status: false } }
     ));
-    setPlayedSongs({ ...played, status: false });
   };
 
   handleArtistNameLink = () => {

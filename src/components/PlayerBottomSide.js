@@ -30,6 +30,10 @@ export const PlayerBottomSide = () => {
 
   const [crrTime, setCrrTime] = useState('0:00');
   const [crrVolume, setCrrVolume] = useState(volume);
+  const [actualSong, setActualSong] = useState({}); // this is to double check my actual song played
+
+  console.log(played);
+  console.log(played.trackId !== actualSong?.trackId);
 
   // references
   // https://www.youtube.com/watch?v=sqpg1qzJCGQ - building some parts of this player with Amy's help
@@ -37,23 +41,6 @@ export const PlayerBottomSide = () => {
   const progressBar = useRef(); // reference for progress bar
   const animationRef = useRef();
   const volumeBar = useRef(); // reference for volumeBar
-
-  // const changePlayerCurrentTime = () => {
-  //   // performatic bug?
-  //   // console.log(Math.floor((progressBar.current.value / DEFAULT_PREVIEW_DURATION) * 100));
-  //   progressBar.current
-  //     .style.setProperty(
-  //       '--seek-before-width',
-  //       `${(progressBar.current.value / DEFAULT_PREVIEW_DURATION) * 100}%`,
-  //     );
-  //   setCrrTime(progressBar.current.value);
-  // };
-
-  // const whilePlaying = () => {
-  //   progressBar.current.value = audioPlayer.current.currentTime;
-  //   changePlayerCurrentTime();
-  //   animationRef.current = requestAnimationFrame(whilePlaying);
-  // };
 
   useEffect(() => {
     if (played.status) {
@@ -70,6 +57,8 @@ export const PlayerBottomSide = () => {
       setCrrTime(0);
       // AND GO TO THE NEXT MUSIC
     }
+
+    // if (played.trackId !== actualSong?.trackId)
 
     // const seconds = convertMillsToSeconds(played.trackTimeMillis);
     // itunes api always return 30s in preview, so max seconds need to be 30s
