@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { placeSelectedClass } from '../helpers/player';
+import { placeSelectedClass } from '../helpers/play-pause-inside-album-or-fav/player';
 import { convertMillsToMin, convertMillsToSeconds } from '../helpers/songTime';
 import ButtonPlay from './ButtonPlay';
 import { enableRenderAlbumAct, setMusicsToPlayerAct, setSongPlayedAct } from '../actions';

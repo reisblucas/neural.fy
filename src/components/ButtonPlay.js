@@ -3,7 +3,7 @@ import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { playAudio } from '../helpers/player';
+import { playAudio } from '../helpers/play-pause-inside-album-or-fav/player';
 
 class ButtonPlay extends Component {
   render() {
