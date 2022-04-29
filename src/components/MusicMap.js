@@ -140,7 +140,7 @@ class MusicMap extends Component {
                               onClick={ this.handleArtistNameLink }
                             >
                               <p
-                                className="artistName ellipsis"
+                                className="artistName ellipsis widthRestriction"
                               >
                                 { artistName }
 
@@ -161,7 +161,12 @@ class MusicMap extends Component {
                             key={ collectionId }
                             to={ `/album/${collectionId}` }
                           >
-                            <p className="artistName ellipsis">{collectionName}</p>
+                            <p
+                              className="artistName ellipsis"
+                            >
+                              {collectionName}
+
+                            </p>
                           </Link>
                         </div>
                       </div>

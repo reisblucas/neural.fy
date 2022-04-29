@@ -290,6 +290,9 @@
 .artistName {
   font-size: smaller;
   margin-top: 5px;
+}
+
+.widthRestriction {
   width: min-content;
 }
 
