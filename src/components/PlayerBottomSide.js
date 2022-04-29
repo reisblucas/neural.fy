@@ -150,7 +150,12 @@ export const PlayerBottomSide = () => {
         <div className="tsp-w mb-5">
           <div className="tsp">
             <ShuffleAndRepeatButton type="shuffle" />
-            <BackAndForwardButton type="backward" />
+            <BackAndForwardButton
+              type="backward"
+              songsGlobal={ songsGlobal }
+              played={ played }
+              setPlayedSongs={ setPlayedSongs }
+            />
 
             <button
               type="button"
@@ -165,7 +170,12 @@ export const PlayerBottomSide = () => {
               }
             </button>
 
-            <BackAndForwardButton type="forward" />
+            <BackAndForwardButton
+              type="forward"
+              songsGlobal={ songsGlobal }
+              played={ played }
+              setPlayedSongs={ setPlayedSongs }
+            />
             <ShuffleAndRepeatButton type="repeat" />
           </div>
         </div>
