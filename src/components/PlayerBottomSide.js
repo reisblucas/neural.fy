@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSongPlayedAct, setVolumePlayerAct } from '../actions';
+import bckOrForwardSong from '../helpers/backward-forward-player/bckOrForwardSong';
 import { convertMillsToSeconds } from '../helpers/songTime';
 import '../styles/playerBottomSide.css';
 import BackAndForwardButton from './player/BackAndForwardButton';
@@ -38,27 +39,51 @@ export const PlayerBottomSide = () => {
   const animationRef = useRef();
   const volumeBar = useRef(); // reference for volumeBar
 
+  const audioPlayerEnded = audioPlayer?.current?.ended;
+
   useEffect(() => {
+    // setPlayedSongs({ ...played, status: true });
     if (played.status) {
       audioPlayer.current.volume = DEFAULT_PLAYER_VOLUME;
       audioPlayer.current.play();
       animationRef.current = requestAnimationFrame(whilePlaying);
+      console.log('entrei aqui no ultimo crrtime e resetei pra 30');
     }
-
+    console.log(crrTime);
     console.log('out', played.status);
 
-    if (+crrTime === DEFAULT_PREVIEW_DURATION) {
-      console.log('inside', played.status);
+    console.log('musica terminou', crrTime === '30' && !audioPlayer.current.ended);
+
+    if (crrTime === '30' && !audioPlayer.current.ended && played.status) {
+      console.log('audio terminou');
       setPlayedSongs({ ...played, status: false });
-      setCrrTime(0);
-      // AND GO TO THE NEXT MUSIC
+      const dtbfwCrrTime = { songsGlobal, played, setPlayedSongs, crrTime };
+      return bckOrForwardSong(false, dtbfwCrrTime);
     }
+
+    if (!played.status && crrTime === '0') {
+      setPlayedSongs({ ...played, status: true });
+    }
+
+    // const whenSongEnd = async () => {
+    //   if (crrTime === `${DEFAULT_PREVIEW_DURATION}`) {
+    //     console.log('inside', played.status);
+    //     setPlayedSongs({ ...played, status: false });
+
+    //     // AND GO TO THE NEXT MUSIC
+    //     const dtbfwCrrTime = { songsGlobal, played, setPlayedSongs, crrTime };
+    //     await bckOrForwardSong(false, dtbfwCrrTime);
+    //     setRefresh(1);
+    //   }
+    // };
+    // whenSongEnd();
 
     // const seconds = convertMillsToSeconds(played.trackTimeMillis);
     // itunes api always return 30s in preview, so max seconds need to be 30s
     const seconds = 30;
     progressBar.current.max = seconds;
-  }, [played, played.name, played.status, played.trackTimeMillis, crrTime]);
+  }, [played, played.name, played.status,
+    played.trackTimeMillis, crrTime, audioPlayerEnded]);
 
   const play = () => {
     audioPlayer.current.play();
