@@ -20,7 +20,6 @@ class MusicMap extends Component {
     const songUrl = currentTarget.attributes.name.value;
     const trackData = newTrackStructure(tracks, songs, setMusicPlayer);
     const played = playedSongsStruct(trackData, songs, songUrl, setPlayedSongs);
-
     this.setState(({ played }));
   }
 
@@ -47,9 +46,7 @@ class MusicMap extends Component {
       match: { path },
       tracks,
     } = this.props;
-
     const { played } = this.state;
-
     const favoritesPath = '/favorites';
 
     return (
@@ -77,7 +74,6 @@ class MusicMap extends Component {
                 key={ trackId }
                 tabIndex="-1"
                 onClick={ (e) => placeSelectedClass(e) }
-                // onKeyPress={ () => {} }
                 aria-hidden
               >
                 <div className="musicRow notFocusable">
@@ -218,7 +214,6 @@ class MusicMap extends Component {
                       <p className="artistName font-link">{ `${minutes}:${seconds}` }</p>
                     </div>
                   </div>
-
                 </div>
               </div>
             );
