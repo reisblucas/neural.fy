@@ -12,7 +12,23 @@ import newTrackStructure from '../helpers/dataStructure/newTrackStructure';
 import playedSongsStruct from '../helpers/dataStructure/playedSongsStruct';
 
 class MusicMap extends Component {
-  state = { played: { status: false, songUrl: '' } }
+  state = { played: { status: false, name: '' } }
+
+  // componentDidMount() {
+  //   const { played: { name } } = this.state;
+  //   const { musicsToPlayer: { played: playedGlobal } } = this.props;
+  //   console.log('meu playedglobal no component didmount', playedGlobal);
+  //   if (name !== playedGlobal) {
+  //     this.setState({ played: { ...playedGlobal } });
+  //   }
+  // }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { played: { trackId } } = prevState;
+    const { musicsToPlayer: { played: playedGlobal } } = this.props;
+
+    if (trackId !== playedGlobal.trackId) { this.setState({ played: playedGlobal }); }
+  }
 
   handlePlayIcon = ({ currentTarget }) => {
     const { tracks, setMusicPlayer,
@@ -117,7 +133,6 @@ class MusicMap extends Component {
                                 className="artistName ellipsis fitLinkContent"
                               >
                                 { artistName }
-
                               </p>
                               {' '}
                             </Link>
@@ -126,7 +141,6 @@ class MusicMap extends Component {
                       )
                       : (
                         <div className="musicAndArtistAlbum">
-                          {/* Ellipsis fix in Album */}
                           <div className="">
                             <p className="musicName ellipsis">{ trackName }</p>
                             <Link
@@ -139,7 +153,6 @@ class MusicMap extends Component {
                                 className="artistName ellipsis widthRestriction"
                               >
                                 { artistName }
-
                               </p>
                             </Link>
                           </div>
@@ -161,7 +174,6 @@ class MusicMap extends Component {
                               className="artistName ellipsis"
                             >
                               {collectionName}
-
                             </p>
                           </Link>
                         </div>
