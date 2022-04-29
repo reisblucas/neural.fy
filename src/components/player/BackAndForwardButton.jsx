@@ -2,7 +2,9 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { IoIosSkipBackward, IoIosSkipForward } from 'react-icons/io';
 
-function BackAndForwardButton({ type, songsGlobal, played, setPlayedSongs }) {
+function BackAndForwardButton({
+  type, songsGlobal, played, setPlayedSongs, audioPlayer, animationRef,
+}) {
   const handlePreviousSong = (isBackwardButton) => {
     const FIRST = 0;
     const LAST = songsGlobal.length - 1;
@@ -16,7 +18,6 @@ function BackAndForwardButton({ type, songsGlobal, played, setPlayedSongs }) {
     if (songsGlobal.length > 1) {
       const firstSongCondition = firstSong.trackId === played.trackId;
       if (isBackwardButton && firstSongCondition) {
-      // return
         console.log('to na primeira musica');
         setPlayedSongs({ ...lastSong });
       }

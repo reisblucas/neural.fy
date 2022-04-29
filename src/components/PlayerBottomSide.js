@@ -127,8 +127,8 @@ export const PlayerBottomSide = () => {
     <div className="player-container">
       <div className="music-player-info">
         <div className="artist-infos">
-          <p className="music-name-player tdh tc">{played.trackName}</p>
-          <p className="artist-name-player tdh tc">Artist</p>
+          <p className="music-name-player tdh tc ellipsis">{played.trackName}</p>
+          <p className="artist-name-player tdh tc ellipsis">{played.artistName}</p>
         </div>
         <div className="favorite-player-container">
           {/* <label htmlFor="fav-button-player"> */}
@@ -155,6 +155,8 @@ export const PlayerBottomSide = () => {
               songsGlobal={ songsGlobal }
               played={ played }
               setPlayedSongs={ setPlayedSongs }
+              audioPlayer={ audioPlayer }
+              animationRef={ animationRef }
             />
 
             <button
@@ -175,6 +177,8 @@ export const PlayerBottomSide = () => {
               songsGlobal={ songsGlobal }
               played={ played }
               setPlayedSongs={ setPlayedSongs }
+              audioPlayer={ audioPlayer }
+              animationRef={ animationRef }
             />
             <ShuffleAndRepeatButton type="repeat" />
           </div>
@@ -212,7 +216,9 @@ export const PlayerBottomSide = () => {
       </div>
 
       <div className="right-player-buttons">
-        buttons
+        <button>?</button>
+        <button>?</button>
+        <button>?</button>
         <input
           type="range"
           name="volume-player"

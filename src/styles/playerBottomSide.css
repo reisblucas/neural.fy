@@ -42,13 +42,22 @@
 
 .music-player-info, .central-player-buttons, .right-player-buttons {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   padding: 20px 15px;
 }
 
+.central-player-buttons {
+  flex-direction: column;
+}
+
 .music-player-info {
   flex-direction: row;
+}
+
+.artist-infos {
+  max-width: 200px;
+  width: 10vw;
 }
 
 .artist-infos, .favorite-player-container {
