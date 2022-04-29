@@ -1,38 +1,18 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { IoIosSkipBackward, IoIosSkipForward } from 'react-icons/io';
+import bckOrForwardSong from '../../helpers/backward-forward-player/bckOrForwardSong';
 
 function BackAndForwardButton({
   type, songsGlobal, played, setPlayedSongs,
 }) {
-  const handlePreviousSong = (isBackwardButton) => {
-    const FIRST = 0;
-    const LAST = songsGlobal.length - 1;
-    const firstSong = songsGlobal[FIRST];
-    const lastSong = songsGlobal[LAST];
-
-    const songPosition = songsGlobal.findIndex((song) => song.trackId === played.trackId);
-
-    if (songsGlobal.length > 1) {
-      const firstSongCondition = firstSong.trackId === played.trackId;
-      if (isBackwardButton && firstSongCondition) {
-        console.log('to na primeira musica');
-        setPlayedSongs({ ...lastSong, status: true, name: lastSong.previewUrl });
-      }
-
-      const lastSongCondition = lastSong.trackId === played.trackId;
-      if (!isBackwardButton && lastSongCondition) {
-        console.log('to na ultima musica');
-        setPlayedSongs({ ...firstSong, status: true, name: firstSong.previewUrl });
-      }
-    }
-  };
+  const dataToBackOrForward = { songsGlobal, played, setPlayedSongs };
 
   const backward = (
     <button
       type="button"
       className="control-player-buttons"
-      onClick={ () => handlePreviousSong(true) }
+      onClick={ () => bckOrForwardSong(true, dataToBackOrForward) }
     >
       <IoIosSkipBackward className="tsp-i" />
     </button>
@@ -42,7 +22,7 @@ function BackAndForwardButton({
     <button
       type="button"
       className="control-player-buttons"
-      onClick={ () => handlePreviousSong(false) }
+      onClick={ () => bckOrForwardSong(false, dataToBackOrForward) }
     >
       <IoIosSkipForward className="tsp-i" />
     </button>
@@ -61,12 +41,5 @@ BackAndForwardButton.propTypes = {
   ]),
   type: PropTypes.string,
 }.isRequired;
-
-// BackAndForwardButton.propTypes = {
-//   songsGlobal: PropTypes.oneOfType([
-//     PropTypes.array,
-//   ]),
-//   type: PropTypes.string,
-// }.isRequried;
 
 export default BackAndForwardButton;
