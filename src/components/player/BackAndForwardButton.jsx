@@ -5,6 +5,23 @@ import { IoIosSkipBackward, IoIosSkipForward } from 'react-icons/io';
 function BackAndForwardButton({
   type, songsGlobal, played, setPlayedSongs, audioPlayer, animationRef,
 }) {
+  const play = () => {
+    audioPlayer.current.play();
+    animationRef.current = requestAnimationFrame(whilePlaying);
+    setPlayedSongs({ ...played, status: true });
+  };
+
+  const pause = () => {
+    audioPlayer.current.pause();
+    cancelAnimationFrame(animationRef.current);
+    setPlayedSongs({ ...played, status: false });
+  };
+
+  // const handlePlayButton = () => {
+  //   if (played.name === '') { return null; } // same as do nothing...
+  //   return played.status ? pause() : play();
+  // };
+
   const handlePreviousSong = (isBackwardButton) => {
     const FIRST = 0;
     const LAST = songsGlobal.length - 1;
@@ -13,13 +30,17 @@ function BackAndForwardButton({
 
     const songPosition = songsGlobal.findIndex((song) => song.trackId === played.trackId);
     console.log(songPosition);
-    console.log(firstSong);
+    // console.log(firstSong);
 
     if (songsGlobal.length > 1) {
       const firstSongCondition = firstSong.trackId === played.trackId;
       if (isBackwardButton && firstSongCondition) {
         console.log('to na primeira musica');
         setPlayedSongs({ ...lastSong });
+        console.log(audioPlayer.current.src);
+        // audioPlayer.current.src = firstSong.previewUrl;
+        // pause();
+        // play();
       }
 
       const lastSongCondition = lastSong.trackId === played.trackId;

@@ -1,6 +1,3 @@
-// const played = { status: true, name: songUrl };
-// setPlayedSongs(played);
-
 const playedSongsStruct = (trackData, songs, songUrl, setPlayedSongs) => {
   if (trackData === 'Do nothing!') {
     const trackFilter = songs.filter(({ previewUrl }) => previewUrl === songUrl)[0];
@@ -14,3 +11,5 @@ const playedSongsStruct = (trackData, songs, songUrl, setPlayedSongs) => {
 };
 
 export default playedSongsStruct;
+
+// NEED TO REFACTOR PLAYEDSONGSSTRUCT
