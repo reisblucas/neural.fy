@@ -14,15 +14,6 @@ import playedSongsStruct from '../helpers/dataStructure/playedSongsStruct';
 class MusicMap extends Component {
   state = { played: { status: false, name: '' } }
 
-  // componentDidMount() {
-  //   const { played: { name } } = this.state;
-  //   const { musicsToPlayer: { played: playedGlobal } } = this.props;
-  //   console.log('meu playedglobal no component didmount', playedGlobal);
-  //   if (name !== playedGlobal) {
-  //     this.setState({ played: { ...playedGlobal } });
-  //   }
-  // }
-
   componentDidUpdate(prevProps, prevState) {
     const { played: { trackId } } = prevState;
     const { musicsToPlayer: { played: playedGlobal } } = this.props;
@@ -245,14 +236,11 @@ MusicMap.propTypes = {
   handleReload: PropTypes.func,
 }.isRequired;
 
-const mapStateToProps = (state) => {
-  console.log(state);
-  return {
-    searchAlbum: state.searchAlbum,
-    responseMusics: state.responseMusics,
-    musicsToPlayer: state.musicsToPlayer,
-  };
-};
+const mapStateToProps = (state) => ({
+  searchAlbum: state.searchAlbum,
+  responseMusics: state.responseMusics,
+  musicsToPlayer: state.musicsToPlayer,
+});
 const mapDispatchToProps = (dispatch) => ({
   enableRender: (bool) => dispatch(enableRenderAlbumAct(bool)),
   setMusicPlayer: (arr) => dispatch(setMusicsToPlayerAct(arr)),
