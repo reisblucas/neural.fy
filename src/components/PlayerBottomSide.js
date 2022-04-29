@@ -30,10 +30,6 @@ export const PlayerBottomSide = () => {
 
   const [crrTime, setCrrTime] = useState('0:00');
   const [crrVolume, setCrrVolume] = useState(volume);
-  const [actualSong, setActualSong] = useState({}); // this is to double check my actual song played
-
-  console.log(played);
-  console.log(played.trackId !== actualSong?.trackId);
 
   // references
   // https://www.youtube.com/watch?v=sqpg1qzJCGQ - building some parts of this player with Amy's help
@@ -50,15 +46,13 @@ export const PlayerBottomSide = () => {
     }
 
     console.log('out', played.status);
-    // console.log(+crrTime === DEFAULT_PREVIEW_DURATION);
+
     if (+crrTime === DEFAULT_PREVIEW_DURATION) {
       console.log('inside', played.status);
       setPlayedSongs({ ...played, status: false });
       setCrrTime(0);
       // AND GO TO THE NEXT MUSIC
     }
-
-    // if (played.trackId !== actualSong?.trackId)
 
     // const seconds = convertMillsToSeconds(played.trackTimeMillis);
     // itunes api always return 30s in preview, so max seconds need to be 30s
@@ -144,8 +138,6 @@ export const PlayerBottomSide = () => {
               songsGlobal={ songsGlobal }
               played={ played }
               setPlayedSongs={ setPlayedSongs }
-              audioPlayer={ audioPlayer }
-              animationRef={ animationRef }
             />
 
             <button
@@ -166,8 +158,6 @@ export const PlayerBottomSide = () => {
               songsGlobal={ songsGlobal }
               played={ played }
               setPlayedSongs={ setPlayedSongs }
-              audioPlayer={ audioPlayer }
-              animationRef={ animationRef }
             />
             <ShuffleAndRepeatButton type="repeat" />
           </div>

@@ -3,7 +3,7 @@ import React from 'react';
 import { IoIosSkipBackward, IoIosSkipForward } from 'react-icons/io';
 
 function BackAndForwardButton({
-  type, songsGlobal, played, setPlayedSongs, audioPlayer, animationRef,
+  type, songsGlobal, played, setPlayedSongs,
 }) {
   const handlePreviousSong = (isBackwardButton) => {
     const FIRST = 0;
