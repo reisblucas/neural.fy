@@ -11,19 +11,20 @@ function BackAndForwardButton({ type, songsGlobal, played, setPlayedSongs }) {
 
     const songPosition = songsGlobal.findIndex((song) => song.trackId === played.trackId);
     console.log(songPosition);
+    console.log(firstSong);
 
     if (songsGlobal.length > 1) {
       const firstSongCondition = firstSong.trackId === played.trackId;
       if (isBackwardButton && firstSongCondition) {
       // return
         console.log('to na primeira musica');
-        setPlayedSongs({ lastSong });
+        setPlayedSongs({ ...lastSong });
       }
 
       const lastSongCondition = lastSong.trackId === played.trackId;
       if (!isBackwardButton && lastSongCondition) {
         console.log('to na ultima musica');
-        setPlayedSongs({ firstSong });
+        setPlayedSongs({ ...firstSong });
       }
     }
   };
@@ -52,10 +53,21 @@ function BackAndForwardButton({ type, songsGlobal, played, setPlayedSongs }) {
 }
 
 BackAndForwardButton.propTypes = {
+  played: PropTypes.oneOfType([
+    PropTypes.object,
+  ]),
+  setPlayedSongs: PropTypes.func,
   songsGlobal: PropTypes.oneOfType([
     PropTypes.array,
   ]),
   type: PropTypes.string,
-}.isRequried;
+}.isRequired;
+
+// BackAndForwardButton.propTypes = {
+//   songsGlobal: PropTypes.oneOfType([
+//     PropTypes.array,
+//   ]),
+//   type: PropTypes.string,
+// }.isRequried;
 
 export default BackAndForwardButton;

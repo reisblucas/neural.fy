@@ -75,7 +75,7 @@ export const PlayerBottomSide = () => {
     // itunes api always return 30s in preview, so max seconds need to be 30s
     const seconds = 30;
     progressBar.current.max = seconds;
-  }, [played?.name, played?.status, played.trackTimeMillis, crrTime]);
+  }, [played, played.name, played.status, played.trackTimeMillis, crrTime]);
 
   const play = () => {
     audioPlayer.current.play();
