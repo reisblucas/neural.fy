@@ -10,7 +10,6 @@ class ButtonPlay extends Component {
     const {
       path,
       favoritesPath,
-      // trackNumber,
       previewUrl,
       i,
       handlePlayIcon,
@@ -56,22 +55,6 @@ class ButtonPlay extends Component {
                 />
               )
           }
-
-          {/* <div className="previewMusic">
-            <audio
-              id={ previewUrl }
-              data-testid="audio-component"
-              src={ previewUrl }
-              controls
-              hidden
-            >
-              <track kind="captions" />
-              O seu navegador não suporta o elemento
-              {' '}
-              <code>audio</code>
-              .
-            </audio>
-          </div> */}
         </label>
       </div>
     );
