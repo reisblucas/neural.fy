@@ -2,7 +2,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { FaHeart } from 'react-icons/fa';
+import { FaRegHeart } from 'react-icons/fa';
 import { GiPauseButton } from 'react-icons/gi';
 import { IoPlaySharp } from 'react-icons/io5';
 import { saveFavoriteMusicsAct, setSongPlayedAct, setVolumePlayerAct } from '../actions';
@@ -134,25 +134,29 @@ export const PlayerBottomSide = () => {
           <p className="artist-name-player tdh tc ellipsis">{played.artistName}</p>
         </div>
         <div className="favorite-player-container">
-          <label htmlFor="fbp">
-            <input type="checkbox" id="fbp" name="" hidden />
-            {
-              isFavoriteSong(favoritesToSidebar, played)
-                ? (
-                  <FontAwesomeIcon
-                    icon={ faHeart }
-                    className="heartIcon-player"
-                    onClick={ () => toggleFavorite(toToggle) }
-                  />
-                )
-                : (
-                  <FaHeart
-                    className="hip-unfav"
-                    onClick={ () => toggleFavorite(toToggle) }
-                  />
-                )
-            }
-          </label>
+          {
+            played?.previewUrl && (
+              <label htmlFor="fbp">
+                <input type="checkbox" id="fbp" name="" hidden />
+                {
+                  isFavoriteSong(favoritesToSidebar, played)
+                    ? (
+                      <FontAwesomeIcon
+                        icon={ faHeart }
+                        className="heartIcon-player"
+                        onClick={ () => toggleFavorite(toToggle) }
+                      />
+                    )
+                    : (
+                      <FaRegHeart
+                        className="hip-unfav"
+                        onClick={ () => toggleFavorite(toToggle) }
+                      />
+                    )
+                }
+              </label>
+            )
+          }
         </div>
       </div>
 
