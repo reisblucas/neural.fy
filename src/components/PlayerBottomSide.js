@@ -5,12 +5,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { FaHeart } from 'react-icons/fa';
 import { GiPauseButton } from 'react-icons/gi';
 import { IoPlaySharp } from 'react-icons/io5';
-import { setSongPlayedAct, setVolumePlayerAct } from '../actions';
+import { saveFavoriteMusicsAct, setSongPlayedAct, setVolumePlayerAct } from '../actions';
 import bckOrForwardSong from '../helpers/backward-forward-player/bckOrForwardSong';
 import { convertMillsToSeconds } from '../helpers/songTime';
 import '../styles/playerBottomSide.css';
 import BackAndForwardButton from './player/BackAndForwardButton';
 import ShuffleAndRepeatButton from './player/ShuffleAndRepeat';
+import isFavoriteSong from '../helpers/favorites/isFavoriteSong';
+import toggleFavorite from '../helpers/favorites/toggleFavorite';
 
 const DEFAULT_PLAYER_VOLUME = 0.1;
 const DEFAULT_PREVIEW_DURATION = 30;
@@ -18,20 +20,21 @@ const ONE_THOUSAND = 1000;
 
 export const PlayerBottomSide = () => {
   const state = useSelector((globalState) => {
-    console.log('estado global', globalState);
+    // console.log('estado global', globalState);
     return {
     musicsToPlayer: globalState.musicsToPlayer,
     played: globalState.musicsToPlayer.played,
     volume: globalState.musicsToPlayer.volume,
-    responseMusics: globalState.responseMusics,
+    favoritesToSidebar: globalState.responseMusics.favoritesToSidebar,
   }});
 
   // Songs global to go to the next and previous song
   const { musicsToPlayer: { songs: songsGlobal },
-    played, volume, responseMusics } = state;
+    played, volume, favoritesToSidebar } = state;
 
   const dispatch = useDispatch();
   const setPlayedSongs = (objInsidePlayed) => dispatch(setSongPlayedAct(objInsidePlayed));
+  const setFavorite = (favArray) => dispatch(saveFavoriteMusicsAct(favArray));
   const setPlayerVolume = (volChanged) => dispatch(setVolumePlayerAct(volChanged));
 
   const [crrTime, setCrrTime] = useState('0:00');
@@ -51,7 +54,6 @@ export const PlayerBottomSide = () => {
       audioPlayer.current.volume = DEFAULT_PLAYER_VOLUME;
       audioPlayer.current.play();
       animationRef.current = requestAnimationFrame(whilePlaying);
-      console.log('entrei aqui no ultimo crrtime e resetei pra 30');
     }
 
     if (crrTime === '30' && !audioPlayer.current.ended && played.status) {
@@ -69,7 +71,7 @@ export const PlayerBottomSide = () => {
     const seconds = 30;
     progressBar.current.max = seconds;
   }, [played, played.name, played.status,
-    played.trackTimeMillis, crrTime, audioPlayerEnded]);
+    played.trackTimeMillis, crrTime, audioPlayerEnded, favoritesToSidebar]);
 
   const play = () => {
     audioPlayer.current.play();
@@ -112,15 +114,17 @@ export const PlayerBottomSide = () => {
     // setPlayerVolume(2);
   };
 
-  const isFavoriteSong = () => {
-    const { favoritesToSidebar } = responseMusics;
-    return favoritesToSidebar.some((sng) => sng.trackId === played.trackId);
-  }
+  // const isFavoriteSong = () => {
+  //   return favoritesToSidebar.some((sng) => sng.trackId === played.trackId);
+  // };
 
   const changeRange = () => {
     audioPlayer.current.currentTime = progressBar.current.value;
     changePlayerCurrentTime();
   };
+
+  const toToggle = { favoritesToSidebar, played, setFavorite };
+  console.log(favoritesToSidebar);
 
   return (
     <div className="player-container">
@@ -133,9 +137,20 @@ export const PlayerBottomSide = () => {
           <label htmlFor="fbp">
             <input type="checkbox" id="fbp" name="" hidden />
             {
-              isFavoriteSong()
-                ? <FontAwesomeIcon icon={ faHeart } className="heartIcon-player" />
-                : <FaHeart className="hip-unfav" />
+              isFavoriteSong(favoritesToSidebar, played)
+                ? (
+                  <FontAwesomeIcon
+                    icon={ faHeart }
+                    className="heartIcon-player"
+                    onClick={ () => toggleFavorite(toToggle) }
+                  />
+                )
+                : (
+                  <FaHeart
+                    className="hip-unfav"
+                    onClick={ () => toggleFavorite(toToggle) }
+                  />
+                )
             }
           </label>
         </div>

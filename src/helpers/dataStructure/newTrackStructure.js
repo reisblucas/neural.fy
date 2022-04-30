@@ -24,23 +24,13 @@ const newTrackStructure = (tracks, musicsGlobalState, setMusicPlayer) => {
   }
 
   // some verification results are False: the function remodel the data structure and set MusicsPlayer to global store.
-  const musicTracksToGlobal = tracks.map(({
-    artistId, artistName, artworkUrl100, collectionName, trackId,
-    trackName, trackNumber, trackTimeMillis, previewUrl,
-  }) => {
+  const musicTracksToGlobal = tracks.map((trk) => {
+    const { trackTimeMillis } = trk;
     const minutes = convertMillsToMin(trackTimeMillis);
     const seconds = convertMillsToSeconds(trackTimeMillis);
 
     return {
-      artistId,
-      artistName,
-      artworkUrl100,
-      collectionName,
-      trackId,
-      trackName,
-      trackNumber,
-      previewUrl,
-      trackTimeMillis,
+      ...trk,
       trackDuration: `${minutes}:${seconds}`,
     };
   });
