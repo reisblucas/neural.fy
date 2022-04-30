@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { GiPauseButton } from 'react-icons/gi';
+import { IoPlaySharp } from 'react-icons/io5';
 import { playAudio } from '../helpers/play-pause-inside-album-or-fav/player';
 
 class ButtonPlay extends Component {
@@ -44,9 +43,8 @@ class ButtonPlay extends Component {
                 />
               )
               : (
-                <FontAwesomeIcon
+                <IoPlaySharp
                   name={ previewUrl }
-                  icon={ faPlay }
                   className="focusable trackPlayIcon"
                   onClick={ (e) => {
                     handlePlayIcon(e);
