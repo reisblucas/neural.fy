@@ -112,6 +112,8 @@ class FriendsActivitySidebar extends Component {
                             <div className="info-friend-music">
                               <div className="friend-music-ellipsis">
                                 <LinkMusicName
+                                  linkClassName="friend-music-name"
+                                  paragraphClassName="friend-music-name ellipsis"
                                   collectionId={ collectionId }
                                   artistName={ artistName }
                                   paragraph={ musicName }
@@ -167,6 +169,8 @@ class FriendsActivitySidebar extends Component {
                           <div className="info-friend-music">
                             <div className="friend-music-ellipsis">
                               <LinkMusicName
+                                linkClassName="friend-music-name"
+                                paragraphClassName="friend-music-name ellipsis"
                                 collectionId={ collectionId }
                                 artistName={ artistName }
                                 paragraph={ musicName }

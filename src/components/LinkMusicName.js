@@ -4,16 +4,17 @@ import { Link } from 'react-router-dom';
 
 class LinkMusicName extends Component {
   render() {
-    const { collectionId, artistName, paragraph, handleMusicNameClick } = this.props;
+    const { linkClassName, paragraphClassName, collectionId, artistName,
+      paragraph, handleMusicNameClick } = this.props;
 
     return (
       <Link
         to={ `/album/${collectionId}` }
-        className="friend-music-name"
+        className={ linkClassName }
         onClick={ () => handleMusicNameClick(artistName, collectionId) }
       >
         <p
-          className="friend-music-name ellipsis"
+          className={ paragraphClassName }
         >
           {paragraph}
 
