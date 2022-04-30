@@ -122,7 +122,7 @@ export const PlayerBottomSide = () => {
   };
 
   const toToggle = { favoritesToSidebar, played, setFavorite };
-  console.log(favoritesToSidebar);
+  console.log('no playerbottom', played.status);
 
   return (
     <div className="player-container">
