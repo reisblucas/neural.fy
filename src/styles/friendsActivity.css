@@ -253,3 +253,8 @@
 .friend-music-ellipsis {
   max-width: 90px;
 }
+
+/* friend playlist ellipsis */
+.fpe {
+  max-width: 200px;
+}

@@ -128,8 +128,8 @@ class FriendsActivitySidebar extends Component {
                                 />
                               </div>
                             </div>
-                            <div className="friend-playlist-ellipsis">
-                              <p className="friend-icon-style">
+                            <div className="fpe ellipsis">
+                              <p className="friend-icon-style ellipsis">
                                 ♬
                                 <span
                                   className="friend-playlist-name ellipsis"
@@ -182,8 +182,8 @@ class FriendsActivitySidebar extends Component {
                               />
                             </div>
                           </div>
-                          <div className="friend-playlist-ellipsis">
-                            <p className="friend-icon-style">
+                          <div className="fpe ellipsis">
+                            <p className="friend-icon-style ellipsis">
                               ♬
                               <span
                                 className="friend-playlist-name ellipsis"
