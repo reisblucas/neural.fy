@@ -8,8 +8,6 @@ import { playAudio } from '../helpers/play-pause-inside-album-or-fav/player';
 class ButtonPlay extends Component {
   render() {
     const {
-      path,
-      favoritesPath,
       previewUrl,
       i,
       handlePlayIcon,

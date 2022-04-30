@@ -84,8 +84,6 @@ class MusicMap extends Component {
               >
                 <div className="musicRow notFocusable">
                   <ButtonPlay
-                    path={ path }
-                    favoritesPath={ favoritesPath }
                     trackNumber={ trackNumber }
                     previewUrl={ previewUrl }
                     i={ i }
