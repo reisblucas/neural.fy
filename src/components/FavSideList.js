@@ -41,10 +41,7 @@ class FavSideList extends Component {
       fetchMusicsThunk,
       inputSearchGlobal,
       played,
-      refs,
     } = this.props;
-
-    console.log('played status after click', refs);
 
     return (
       <div className="favList">
@@ -96,7 +93,6 @@ FavSideList.propTypes = {
 const mapStateToProps = (state) => ({
   favoritesToSidebar: state.responseMusics.favoritesToSidebar,
   played: state.musicsToPlayer.played,
-  refs: state.musicsToPlayer.refs,
 });
 
 const mapDispatchToProps = (dispatch) => ({

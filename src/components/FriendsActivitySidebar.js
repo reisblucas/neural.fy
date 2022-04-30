@@ -117,8 +117,7 @@ class FriendsActivitySidebar extends Component {
                                   collectionId={ collectionId }
                                   artistName={ artistName }
                                   paragraph={ musicName }
-                                  handleMusicNameClick={ () => this
-                                    .handleMusicNameClick(artistName, collectionId) }
+                                  handleMusicNameClick={ this.handleMusicNameClick }
                                 />
 
                               </div>
