@@ -7,7 +7,7 @@ import { GiPauseButton } from 'react-icons/gi';
 import { IoPlaySharp } from 'react-icons/io5';
 import { BsVolumeMute } from 'react-icons/bs';
 import { VscGithub, VscLayers } from 'react-icons/vsc';
-import { saveFavoriteMusicsAct, setSongPlayedAct  } from '../actions';
+import { saveFavoriteMusicsAct, setReferenceAct, setSongPlayedAct  } from '../actions';
 import bckOrForwardSong from '../helpers/backward-forward-player/bckOrForwardSong';
 import { convertMillsToSeconds } from '../helpers/songTime';
 import '../styles/playerBottomSide.css';
