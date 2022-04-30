@@ -65,9 +65,8 @@ class FavSideList extends Component {
                 >
                   <p className="side-fav-musics ellipsis">{trackName}</p>
                 </Link>
-                <div className="fs-pattern">
-                  {
-                    (played.status && played?.trackId === trackId)
+                {
+                  (played.status && played?.trackId === trackId)
                     && (
                       <button
                         className="fs-p"
@@ -78,8 +77,7 @@ class FavSideList extends Component {
                         <GiPauseButton className="sb-pi" />
                       </button>
                     )
-                  }
-                </div>
+                }
               </div>
             );
           })

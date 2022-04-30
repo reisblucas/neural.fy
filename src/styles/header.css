@@ -109,7 +109,7 @@
 }
 
 .headerTopside {
-  padding: 24px 12px 0;
+  padding: 24px 24px 0;
 }
 
 .header-content {
@@ -158,7 +158,7 @@
   border-radius: 4px;
   color: #b3b3b3;
   display: flex;
-  padding: 10px;
+  margin: 8px 0;
   text-decoration: none;
   width: 30%;
 }
@@ -169,8 +169,13 @@
 }
 
 .iconSet {
+  border-radius: 2px;
   margin-right: 15px;
   opacity: 0.5;
+}
+
+.alignNavSideBar:last-child .iconSet {
+  border-radius: 5px;
 }
 
 .alignNavSideBar:hover .iconSet, .alignNavSideBar:hover .nav-side-text {
@@ -229,7 +234,6 @@
   cursor: default;
   display: flex;
   height: 25px;
-  /* padding: 5px; */
   text-decoration: none;
   width: 80%;
 }
@@ -241,12 +245,7 @@
 .side-fav-musics {
   font-size: 13px;
   font-weight: 500;
-  /* width: 80%; */
 }
-
-/* .fs-pattern {
-  width: %;
-} */
 
 /* fav side icon playing */
 .fs-p {
