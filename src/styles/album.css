@@ -1,3 +1,8 @@
+/* aliases */
+.fs-15 {
+  font-size: 15px;
+}
+
 @media only screen and ( max-width : 414px ) {
 
   .album {
@@ -63,6 +68,32 @@
     width: 55% ! important;
   }
 }
+
+@media only screen and ( min-width : 950px ) and ( max-width : 1100px ) {
+
+  .titleFilter {
+    width: 63% ! important;
+  }
+
+  .musicAndArtistAlbum {
+    width: 70% ! important;
+  }
+}
+
+@media only screen and ( min-width : 1100px ) and ( max-width : 1350px ) {
+
+  .titleFilter {
+    width: 60% ! important;
+  }
+}
+
+@media only screen and ( min-width : 1350px ) and ( max-width : 1550px ) {
+
+  .titleFilter {
+    width: 58% ! important;
+  }
+}
+
 
 .album {
   display: flex;
@@ -251,7 +282,7 @@
 .divTrackNumber {
   padding: 15px;
   text-align: center;
-  width: 2%;
+  width: 4%;
 }
 
 .selectedMusic .trackNumber {
@@ -265,7 +296,6 @@
 .trackPlayIcon {
   display: none;
 }
-
 
 .selectedMusic .trackPlayIcon {
   display: block;
@@ -281,6 +311,7 @@
 
 .trackPauseIcon {
   color: #00af59;
+  margin-right: 5px;
 }
 
 .heartIcon {
