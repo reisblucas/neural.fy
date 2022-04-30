@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { RiSearchLine } from 'react-icons/ri';
-import fetchAlbum from '../thunk/fetchAlbumInRedux';
+import fetchAlbumInRedux from '../thunk/fetchAlbumInRedux';
 import { inputSearchAct } from '../actions';
 
 class InputSearch extends Component {
@@ -72,7 +72,7 @@ InputSearch.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   inputSearchGlobal: (inputValue) => dispatch(inputSearchAct(inputValue)),
-  searchAlbumGlobal: (inputValue) => dispatch(fetchAlbum(inputValue)),
+  searchAlbumGlobal: (inputValue) => dispatch(fetchAlbumInRedux(inputValue)),
 });
 
 export default connect(null, mapDispatchToProps)(withRouter(InputSearch));

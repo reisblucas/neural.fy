@@ -6,11 +6,11 @@ import { connect } from 'react-redux';
 import { enableRenderAlbumAct, inputSearchAct } from '../actions';
 import { musicData } from '../data/friendsActivity/friendsData';
 import '../styles/friendsActivity.css';
-import fetchAlbum from '../thunk/fetchAlbumInRedux';
 import fetchMusics from '../thunk/fetchMusicsInRedux';
 import FriendActivityDefault from './FriendActivityDefault';
 import LinkFriendActivity from './LinkFriendActivity';
 import LinkArtistName from './LinkArtistName';
+import fetchAlbumInRedux from '../thunk/fetchAlbumInRedux';
 
 class FriendsActivitySidebar extends Component {
   state = {
@@ -21,7 +21,7 @@ class FriendsActivitySidebar extends Component {
   }
 
   componentDidMount() {
-    const TWO_MIN_IN_MS = 120000;
+    const TWO_MIN_IN_MS = 1000;
 
     const friendsIntervalID = setInterval(() => {
       this.setState(({ renderFriends }) => ({
@@ -57,9 +57,9 @@ class FriendsActivitySidebar extends Component {
   }
 
   handleArtistNameClick = async ({ target: { innerText } }) => {
-    const { inputSearchGlobal, searchAlbumGlobal, enableRender } = this.props;
+    const { inputSearchGlobal, fetchAlbumThunk, enableRender } = this.props;
     inputSearchGlobal(innerText);
-    await searchAlbumGlobal(innerText);
+    await fetchAlbumThunk(innerText);
     enableRender(true);
   }
 
@@ -211,15 +211,13 @@ FriendsActivitySidebar.propTypes = {
   fetchAlbumThunk: PropTypes.func,
   fetchMusicsThunk: PropTypes.func,
   inputSearchGlobal: PropTypes.func,
-  searchAlbumGlobal: PropTypes.func,
 }.isRequired;
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAlbumThunk: (artistName) => dispatch(fetchAlbum(artistName)),
+  fetchAlbumThunk: (artistName) => dispatch(fetchAlbumInRedux(artistName)),
   fetchMusicsThunk: (albumId) => dispatch(fetchMusics(albumId)),
 
   inputSearchGlobal: (inputValue) => dispatch(inputSearchAct(inputValue)),
-  searchAlbumGlobal: (inputValue) => dispatch(fetchAlbum(inputValue)),
   enableRender: (bool) => dispatch(enableRenderAlbumAct(bool)),
 });
 

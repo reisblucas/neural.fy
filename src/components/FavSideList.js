@@ -9,7 +9,7 @@ import {
   inputSearchAct,
   saveFavoriteMusicsAct, saveUrlAct, setSongPlayedAct } from '../actions';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
-import fetchAlbum from '../thunk/fetchAlbumInRedux';
+import fetchAlbumInRedux from '../thunk/fetchAlbumInRedux';
 import fetchMusics from '../thunk/fetchMusicsInRedux';
 
 class FavSideList extends Component {
@@ -90,7 +90,7 @@ FavSideList.propTypes = {
   favoriteSongs: PropTypes.oneOfType([
     PropTypes.array,
   ]),
-  fetchAlbum: PropTypes.func,
+  fetchAlbumInRedux: PropTypes.func,
 }.isRequired;
 
 const mapStateToProps = (state) => ({
@@ -100,7 +100,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAlbumThunk: (artistName) => dispatch(fetchAlbum(artistName)),
+  fetchAlbumThunk: (artistName) => dispatch(fetchAlbumInRedux(artistName)),
   fetchMusicsThunk: (albumId) => dispatch(fetchMusics(albumId)),
   inputSearchGlobal: (inputValue) => dispatch(inputSearchAct(inputValue)),
   saveFavoriteMusics: (favorites) => dispatch(saveFavoriteMusicsAct(favorites)),

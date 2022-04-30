@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import SpotifyLogoHeader from '../images/spotifyLogoHeader.png';
 import { getUser } from '../services/userAPI';
 import { inputSearchAct, saveAlbumNameAct } from '../actions';
-import fetchAlbum from '../thunk/fetchAlbumInRedux';
+import fetchAlbumInRedux from '../thunk/fetchAlbumInRedux';
 import magGlass from '../images/navLinks/magGlass.png';
 import userImg from '../images/navLinks/user.png';
 
@@ -102,7 +102,7 @@ TopsideHeader.propTypes = {
 const mapDispatchToProps = (dispatch) => ({
   userToFavorites: (albumFake) => dispatch(saveAlbumNameAct(albumFake)),
   inputSearchGlobal: (inputValue) => dispatch(inputSearchAct(inputValue)),
-  searchAlbumGlobal: (inputValue) => dispatch(fetchAlbum(inputValue)),
+  searchAlbumGlobal: (inputValue) => dispatch(fetchAlbumInRedux(inputValue)),
 });
 
 export default connect(null, mapDispatchToProps)(TopsideHeader);
