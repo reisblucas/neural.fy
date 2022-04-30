@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { IoVolumeMediumOutline } from 'react-icons/io5';
+import { GiPauseButton } from 'react-icons/gi';
 import { inputSearchAct, saveFavoriteMusicsAct, saveUrlAct } from '../actions';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 import fetchAlbum from '../thunk/fetchAlbumInRedux';
@@ -24,6 +26,7 @@ class FavSideList extends Component {
       fetchAlbumThunk,
       fetchMusicsThunk,
       inputSearchGlobal,
+      played,
     } = this.props;
 
     return (
@@ -43,6 +46,20 @@ class FavSideList extends Component {
                 } }
               >
                 <p className="side-fav-musics ellipsis">{trackName}</p>
+                <button
+                  className="fs-p"
+                  type="button"
+                >
+                  {
+                    (played.status && played?.trackId === trackId)
+                      && (
+                        <>
+                          <IoVolumeMediumOutline className="sb-vi" />
+                          <GiPauseButton className="sb-pi" />
+                        </>
+                      )
+                  }
+                </button>
               </Link>
             );
           })
@@ -61,6 +78,7 @@ FavSideList.propTypes = {
 
 const mapStateToProps = (state) => ({
   favoritesToSidebar: state.responseMusics.favoritesToSidebar,
+  played: state.musicsToPlayer.played,
 });
 
 const mapDispatchToProps = (dispatch) => ({

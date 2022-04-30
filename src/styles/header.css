@@ -210,12 +210,15 @@
 }
 
 .sideLinkStyle {
+  align-items: center;
   border-radius: 4px;
   color: #b3b3b3;
   cursor: default;
+  display: flex;
+  height: 25px;
   padding: 5px;
   text-decoration: none;
-  width: 30%;
+  width: 100%;
 }
 
 .sideLinkStyle:hover {
@@ -225,4 +228,32 @@
 .side-fav-musics {
   font-size: 13px;
   font-weight: 500;
+  width: 95%;
+}
+
+/* fav side icon playing */
+.fs-p {
+  background: none;
+  border: none;
+}
+
+/* sidebar volume icon */
+.sb-vi {
+  color: #00af59;
+  font-size: 17px;
+}
+
+.fs-p:hover .sb-vi {
+  display: none;
+}
+
+/* sidebar pause icon */
+.sb-pi {
+  color: white;
+  display: none;
+  font-size: 13px;
+}
+
+.fs-p:hover .sb-pi {
+  display: flex;
 }
