@@ -99,7 +99,7 @@
   display: flex;
   flex: 1;
   flex-direction: column;
-  height: 86vh;
+  height: calc(100vh - 90px);
   overflow-y: scroll;
   width: 100%;
 }
