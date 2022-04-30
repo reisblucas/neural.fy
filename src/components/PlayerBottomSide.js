@@ -14,6 +14,7 @@ import ShuffleAndRepeatButton from './player/ShuffleAndRepeat';
 
 const DEFAULT_PLAYER_VOLUME = 0.1;
 const DEFAULT_PREVIEW_DURATION = 30;
+const ONE_THOUSAND = 1000;
 
 export const PlayerBottomSide = () => {
   const state = useSelector((globalState) => ({
@@ -64,19 +65,6 @@ export const PlayerBottomSide = () => {
     if (!played.status && crrTime === '0') {
       setPlayedSongs({ ...played, status: true });
     }
-
-    // const whenSongEnd = async () => {
-    //   if (crrTime === `${DEFAULT_PREVIEW_DURATION}`) {
-    //     console.log('inside', played.status);
-    //     setPlayedSongs({ ...played, status: false });
-
-    //     // AND GO TO THE NEXT MUSIC
-    //     const dtbfwCrrTime = { songsGlobal, played, setPlayedSongs, crrTime };
-    //     await bckOrForwardSong(false, dtbfwCrrTime);
-    //     setRefresh(1);
-    //   }
-    // };
-    // whenSongEnd();
 
     // const seconds = convertMillsToSeconds(played.trackTimeMillis);
     // itunes api always return 30s in preview, so max seconds need to be 30s
@@ -195,7 +183,7 @@ export const PlayerBottomSide = () => {
             {
               crrTime === '0:00'
                 ? '0:00'
-                : `0:${convertMillsToSeconds(crrTime * 1000)}`
+                : `0:${convertMillsToSeconds(crrTime * ONE_THOUSAND)}`
             }
           </div>
 
@@ -213,7 +201,6 @@ export const PlayerBottomSide = () => {
               played.trackDuration === undefined
                 ? '0:00'
                 : `0:${DEFAULT_PREVIEW_DURATION}`
-                // : played.trackDuration
             }
           </div>
         </div>
