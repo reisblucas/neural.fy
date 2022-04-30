@@ -10,7 +10,7 @@ import fortSuperHero from '../../images/friendsActivityProfile/fortnite-superher
 import eiffelTower from '../../images/friendsActivityProfile/french-eiffel-tower.jpg';
 import frenchVisa from '../../images/friendsActivityProfile/french-visa-1920x1080.jpg';
 import girlPic from '../../images/friendsActivityProfile/girl-picture.jpg';
-import logitechLogo from '../../images/friendsActivityProfile/logitech-logo.png';
+import nftCigarette from '../../images/friendsActivityProfile/nft-cigarette.webp';
 import nftBieber from '../../images/friendsActivityProfile/nft-bieber.jpg';
 import personInACarTrip from '../../images/friendsActivityProfile/person-in-trip.jpeg';
 import personInACarTrip2 from '../../images/friendsActivityProfile/person-cartrip-2.jpg';
@@ -143,7 +143,7 @@ export const musicData = [
     playlist: electro,
   },
   {
-    image: logitechLogo,
+    image: nftCigarette,
     username: 'Tales Scott',
     musicName: 'Hit \'Em Up (feat. Outlawz)',
     artistName: 'Tupac Shakur',
