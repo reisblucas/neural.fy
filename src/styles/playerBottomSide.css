@@ -49,6 +49,8 @@
 
 .central-player-buttons {
   flex-direction: column;
+  min-width: 250px;
+  width: 38%;
 }
 
 .music-player-info {
@@ -70,9 +72,17 @@
   margin-left: 20px;
 }
 
-/* .heartIcon-player {
+.heartIcon-player {
+  color: #00b65c;
+}
 
-} */
+.hip-unfav {
+  color: #b3b3b3;
+}
+
+.hip-unfav:hover {
+  color: white;
+}
 
 .music-name-player {
   color: white;
@@ -82,11 +92,6 @@
 
 .artist-name-player {
   font-size: smaller;
-}
-
-.central-player-buttons {
-  min-width: 250px;
-  width: 38%;
 }
 
 /* Buttons Central Player */

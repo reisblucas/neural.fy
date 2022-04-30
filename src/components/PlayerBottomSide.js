@@ -2,6 +2,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { FaHeart } from 'react-icons/fa';
 import { GiPauseButton } from 'react-icons/gi';
 import { IoPlaySharp } from 'react-icons/io5';
 import { setSongPlayedAct, setVolumePlayerAct } from '../actions';
@@ -16,14 +17,18 @@ const DEFAULT_PREVIEW_DURATION = 30;
 const ONE_THOUSAND = 1000;
 
 export const PlayerBottomSide = () => {
-  const state = useSelector((globalState) => ({
+  const state = useSelector((globalState) => {
+    console.log('estado global', globalState);
+    return {
     musicsToPlayer: globalState.musicsToPlayer,
     played: globalState.musicsToPlayer.played,
     volume: globalState.musicsToPlayer.volume,
-  }));
+    responseMusics: globalState.responseMusics,
+  }});
 
   // Songs global to go to the next and previous song
-  const { musicsToPlayer: { songs: songsGlobal }, played, volume } = state;
+  const { musicsToPlayer: { songs: songsGlobal },
+    played, volume, responseMusics } = state;
 
   const dispatch = useDispatch();
   const setPlayedSongs = (objInsidePlayed) => dispatch(setSongPlayedAct(objInsidePlayed));
@@ -107,6 +112,11 @@ export const PlayerBottomSide = () => {
     // setPlayerVolume(2);
   };
 
+  const isFavoriteSong = () => {
+    const { favoritesToSidebar } = responseMusics;
+    return favoritesToSidebar.some((sng) => sng.trackId === played.trackId);
+  }
+
   const changeRange = () => {
     audioPlayer.current.currentTime = progressBar.current.value;
     changePlayerCurrentTime();
@@ -121,8 +131,12 @@ export const PlayerBottomSide = () => {
         </div>
         <div className="favorite-player-container">
           <label htmlFor="fbp">
-            <input type="checkbox" id="fbp" name="" />
-            <FontAwesomeIcon icon={ faHeart } className="heartIcon-player" />
+            <input type="checkbox" id="fbp" name="" hidden />
+            {
+              isFavoriteSong()
+                ? <FontAwesomeIcon icon={ faHeart } className="heartIcon-player" />
+                : <FaHeart className="hip-unfav" />
+            }
           </label>
         </div>
       </div>
