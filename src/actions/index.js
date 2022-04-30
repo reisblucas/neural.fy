@@ -10,6 +10,7 @@ export const SAVE_ALBUM_NAME = 'SAVE_ALBUM_NAME';
 export const FAVORITES_SAVE = 'FAVORITES_SAVE';
 export const SET_MUSIC_PLAYER = 'SET_MUSIC_PLAYER';
 export const PLAYED_SONG = 'PLAYED_SONG';
+export const SET_PLAYER_REFS = 'SET_PLAYER_REFS';
 
 export const inputSearchAct = (inputValue) => ({
   type: INPUT_SEARCH,
@@ -69,4 +70,9 @@ export const setMusicsToPlayerAct = (arrMusics) => ({
 export const setSongPlayedAct = (playedObj) => ({
   type: PLAYED_SONG,
   playedObj,
+});
+
+export const setReferenceAct = (reference) => ({
+  type: SET_PLAYER_REFS,
+  reference,
 });
