@@ -23,6 +23,17 @@ class FavSideList extends Component {
     saveFavoriteMusics(favorites);
   }
 
+  stopSong = () => {
+    const audio = document.querySelector('audio');
+    audio.pause();
+  }
+
+  pauseSongGlobal = () => {
+    const { played, setPlayedSong } = this.props;
+    setPlayedSong({ ...played, status: false });
+    this.stopSong();
+  }
+
   render() {
     const {
       favoritesToSidebar,
@@ -42,10 +53,9 @@ class FavSideList extends Component {
           favoritesToSidebar.map((song) => {
             const { artistName, collectionId, trackId, trackName } = song;
             return (
-              <>
+              <div key={ trackId } className="sfs-p">
                 <Link
                   to={ `/album/${collectionId}` }
-                  key={ trackId }
                   className="sideLinkStyle"
                   onClick={ async () => {
                     fetchAlbumThunk(artistName);
@@ -55,16 +65,14 @@ class FavSideList extends Component {
                 >
                   <p className="side-fav-musics ellipsis">{trackName}</p>
                 </Link>
-                <div className="fs-p">
+                <div className="fs-pattern">
                   {
                     (played.status && played?.trackId === trackId)
                     && (
                       <button
                         className="fs-p"
                         type="button"
-                        onClick={ () => setPlayedSong({
-                          ...played, status: false,
-                        }) }
+                        onClick={ this.pauseSongGlobal }
                       >
                         <IoVolumeMediumOutline className="sb-vi" />
                         <GiPauseButton className="sb-pi" />
@@ -72,7 +80,7 @@ class FavSideList extends Component {
                     )
                   }
                 </div>
-              </>
+              </div>
             );
           })
         }

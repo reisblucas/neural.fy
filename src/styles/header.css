@@ -182,7 +182,7 @@
 .sideBarHorizontalRow {
   margin: 0 auto;
   opacity: 0.2;
-  width: 80%;
+  width: 75%;
 }
 
 .sideFavSongsContainer {
@@ -190,7 +190,7 @@
   overflow-y: scroll;
 
   /* padding: 0 0 0 24px; */
-  padding: 0 12px 0 24px;
+  padding: 0 10px 0 24px;
 }
 
 .favList {
@@ -209,6 +209,19 @@
   background: #b3b3b3;
 }
 
+/* side favorite song - pattern */
+.sfs-p {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.sfs-p:first-child {
+  margin-top: 10px;
+}
+
 .sideLinkStyle {
   align-items: center;
   border-radius: 4px;
@@ -216,9 +229,9 @@
   cursor: default;
   display: flex;
   height: 25px;
-  padding: 5px;
+  /* padding: 5px; */
   text-decoration: none;
-  width: 100%;
+  width: 80%;
 }
 
 .sideLinkStyle:hover {
@@ -228,8 +241,12 @@
 .side-fav-musics {
   font-size: 13px;
   font-weight: 500;
-  width: 95%;
+  /* width: 80%; */
 }
+
+/* .fs-pattern {
+  width: %;
+} */
 
 /* fav side icon playing */
 .fs-p {
