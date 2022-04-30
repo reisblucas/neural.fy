@@ -39,6 +39,12 @@ class MusicMap extends Component {
     ));
   };
 
+  handleFavorites = () => {
+    const { responseMusics: { favoritesToSidebar } } = this.props;
+    const idsOnly = favoritesToSidebar.map((sng) => sng.trackId);
+    return idsOnly;
+  }
+
   handleArtistNameLink = () => {
     const { enableRender } = this.props;
     enableRender(true);
@@ -48,7 +54,7 @@ class MusicMap extends Component {
     const {
       handleCheck,
       handleReload,
-      checkedAndFavorite,
+      // checkedAndFavorite,
       match: { path },
       tracks,
     } = this.props;
@@ -170,45 +176,30 @@ class MusicMap extends Component {
                   }
 
                   <div className="filterRight">
-                    {
-                      checkedAndFavorite.includes(trackId)
-                        ? (
-                          <label htmlFor={ trackId } className="previewFavorite">
+                    <label htmlFor={ trackId } className="previewFavorite">
+                      {
+                        this.handleFavorites().includes(trackId)
+                          ? (
                             <FaHeart
                               className="focusable heartColor hi-fi"
                             />
-                            <input
-                              type="checkbox"
-                              name=""
-                              id={ trackId }
-                              data-testid={ `checkbox-music-${trackId}` }
-                              onChange={ () => {
-                                handleCheck(artist, trackId);
-                                handleReload();
-                              } }
-                              checked={ checkedAndFavorite.includes(trackId) }
-                              hidden
-                            />
-                          </label>
-                        )
-                        : (
-                          <label htmlFor={ trackId } className="previewFavorite">
-                            <FaRegHeart className="heartIcon hi-fi" />
-                            <input
-                              type="checkbox"
-                              name=""
-                              id={ trackId }
-                              data-testid={ `checkbox-music-${trackId}` }
-                              onChange={ () => {
-                                handleCheck(artist, trackId);
-                                handleReload();
-                              } }
-                              checked={ checkedAndFavorite.includes(trackId) }
-                              hidden
-                            />
-                          </label>
-                        )
-                    }
+                          )
+                          : <FaRegHeart className="heartIcon hi-fi" />
+                      }
+
+                      <input
+                        type="checkbox"
+                        name=""
+                        id={ trackId }
+                        data-testid={ `checkbox-music-${trackId}` }
+                        onChange={ () => {
+                          handleCheck(artist, trackId);
+                          handleReload();
+                        } }
+                        checked={ this.handleFavorites().includes(trackId) }
+                        hidden
+                      />
+                    </label>
                     <div className="musicDuration">
                       <p className="artistName font-link">{ `${minutes}:${seconds}` }</p>
                     </div>
