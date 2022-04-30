@@ -1,10 +1,9 @@
-import {
-  faBackwardStep, faForwardStep, faHeart,
-  faPause, faPlay, faRepeat, faShuffle,
-} from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { GiPauseButton } from 'react-icons/gi';
+import { IoPlaySharp } from 'react-icons/io5';
 import { setSongPlayedAct, setVolumePlayerAct } from '../actions';
 import bckOrForwardSong from '../helpers/backward-forward-player/bckOrForwardSong';
 import { convertMillsToSeconds } from '../helpers/songTime';
@@ -43,20 +42,14 @@ export const PlayerBottomSide = () => {
   const audioPlayerEnded = audioPlayer?.current?.ended;
 
   useEffect(() => {
-    // setPlayedSongs({ ...played, status: true });
     if (played.status) {
       audioPlayer.current.volume = DEFAULT_PLAYER_VOLUME;
       audioPlayer.current.play();
       animationRef.current = requestAnimationFrame(whilePlaying);
       console.log('entrei aqui no ultimo crrtime e resetei pra 30');
     }
-    console.log(crrTime);
-    console.log('out', played.status);
-
-    console.log('musica terminou', crrTime === '30' && !audioPlayer.current.ended);
 
     if (crrTime === '30' && !audioPlayer.current.ended && played.status) {
-      console.log('audio terminou');
       setPlayedSongs({ ...played, status: false });
       const dtbfwCrrTime = { songsGlobal, played, setPlayedSongs, crrTime };
       return bckOrForwardSong(false, dtbfwCrrTime);
@@ -127,12 +120,10 @@ export const PlayerBottomSide = () => {
           <p className="artist-name-player tdh tc ellipsis">{played.artistName}</p>
         </div>
         <div className="favorite-player-container">
-          {/* <label htmlFor="fav-button-player"> */}
           <label htmlFor="fbp">
             <input type="checkbox" id="fbp" name="" />
             <FontAwesomeIcon icon={ faHeart } className="heartIcon-player" />
           </label>
-          {/* </label> */}
         </div>
       </div>
 
@@ -160,9 +151,8 @@ export const PlayerBottomSide = () => {
             >
               {
                 played.status
-                // isPlaying
-                  ? <FontAwesomeIcon className="pbcs" icon={ faPause } />
-                  : <FontAwesomeIcon className="pbcs" icon={ faPlay } />
+                  ? <GiPauseButton className="pbcs" />
+                  : <IoPlaySharp className="pbcs" />
               }
             </button>
 
