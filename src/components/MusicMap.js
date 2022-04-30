@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -177,9 +176,8 @@ class MusicMap extends Component {
                       checkedAndFavorite.includes(trackId)
                         ? (
                           <label htmlFor={ trackId } className="previewFavorite">
-                            <FontAwesomeIcon
-                              icon={ faHeart }
-                              className="focusable heartColor"
+                            <FaHeart
+                              className="focusable heartColor hi-fi"
                             />
                             <input
                               type="checkbox"
@@ -197,7 +195,7 @@ class MusicMap extends Component {
                         )
                         : (
                           <label htmlFor={ trackId } className="previewFavorite">
-                            <FontAwesomeIcon icon={ faHeart } className="heartIcon" />
+                            <FaRegHeart className="heartIcon hi-fi" />
                             <input
                               type="checkbox"
                               name=""

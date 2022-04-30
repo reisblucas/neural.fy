@@ -20,15 +20,8 @@ class ButtonPlay extends Component {
 
     return (
       <div className="divTrackNumber">
-        {
-          path === favoritesPath
-            ? (
-              <p className="trackNumber font-link">{ i + 1 }</p>
-            )
-            : (
-              <p className="trackNumber font-link">{ i + 1 }</p>
-            )
-        }
+        <p className="trackNumber font-link">{ i + 1 }</p>
+
         <label htmlFor={ previewUrl }>
           {
             (name === previewUrl) && (songGlobStatus)
