@@ -2,9 +2,11 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { FaRegHeart } from 'react-icons/fa';
+import { FaRegHeart, FaLinkedin } from 'react-icons/fa';
 import { GiPauseButton } from 'react-icons/gi';
 import { IoPlaySharp } from 'react-icons/io5';
+import { BsVolumeMute } from 'react-icons/bs';
+import { VscGithub, VscLayers } from 'react-icons/vsc';
 import { saveFavoriteMusicsAct, setSongPlayedAct, setVolumePlayerAct } from '../actions';
 import bckOrForwardSong from '../helpers/backward-forward-player/bckOrForwardSong';
 import { convertMillsToSeconds } from '../helpers/songTime';
@@ -114,10 +116,6 @@ export const PlayerBottomSide = () => {
     // setPlayerVolume(2);
   };
 
-  // const isFavoriteSong = () => {
-  //   return favoritesToSidebar.some((sng) => sng.trackId === played.trackId);
-  // };
-
   const changeRange = () => {
     audioPlayer.current.currentTime = progressBar.current.value;
     changePlayerCurrentTime();
@@ -179,7 +177,7 @@ export const PlayerBottomSide = () => {
 
             <button
               type="button"
-              className="control-player-buttons pb"
+              className="cpb pb"
               onClick={ handlePlayButton }
             >
               {
@@ -230,9 +228,34 @@ export const PlayerBottomSide = () => {
       </div>
 
       <div className="right-player-buttons">
-        <button>?</button>
-        <button>?</button>
-        <button>?</button>
+        <button
+          className="cpb gh-in"
+          type="button"
+        >
+          <VscGithub />
+        </button>
+
+        <button
+          className="cpb gh-in"
+          type="button"
+        >
+          <FaLinkedin />
+        </button>
+
+        <button
+          className="cpb gh-in"
+          type="button"
+        >
+          <VscLayers />
+        </button>
+
+        <button
+          className="cpb vb"
+          type="button"
+        >
+          <BsVolumeMute />
+        </button>
+
         <input
           type="range"
           name="volume-player"

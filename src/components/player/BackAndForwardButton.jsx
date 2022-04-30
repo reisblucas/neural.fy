@@ -11,7 +11,7 @@ function BackAndForwardButton({
   const backward = (
     <button
       type="button"
-      className="control-player-buttons"
+      className="cpb"
       onClick={ () => bckOrForwardSong(true, dataToBackOrForward) }
     >
       <IoIosSkipBackward className="tsp-i" />
@@ -21,7 +21,7 @@ function BackAndForwardButton({
   const forward = (
     <button
       type="button"
-      className="control-player-buttons"
+      className="cpb"
       onClick={ () => bckOrForwardSong(false, dataToBackOrForward) }
     >
       <IoIosSkipForward className="tsp-i" />

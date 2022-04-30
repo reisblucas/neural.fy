@@ -174,7 +174,9 @@
 }
 
 /* Reset */
-.control-player-buttons {
+
+/* control player button */
+.cpb {
   background: none;
   border: none;
 }
@@ -216,4 +218,20 @@
 .pbcs {
   color: black;
   font-size: 18px;
+}
+
+/* volume button */
+.vb {
+  color: white;
+  font-size: 20px;
+}
+
+/* github button and linkedin button */
+.gh-in {
+  color: #b3b3b3;
+  font-size: 20px;
+}
+
+.gh-in:hover {
+  color: white;
 }

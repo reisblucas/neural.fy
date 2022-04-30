@@ -6,7 +6,7 @@ function ShuffleAndRepeatButton({ type }) {
   const shuffle = (
     <button
       type="button"
-      className="control-player-buttons"
+      className="cpb"
     >
       <BiShuffle className="tsp-rs tsp-s" />
     </button>
@@ -15,7 +15,7 @@ function ShuffleAndRepeatButton({ type }) {
   const repeat = (
     <button
       type="button"
-      className="control-player-buttons"
+      className="cpb"
     >
       <BiRepeat className="tsp-rs tsp-r" />
     </button>
