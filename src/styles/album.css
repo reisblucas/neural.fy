@@ -266,16 +266,9 @@
   pointer-events: auto;
 }
 
-/* .focusMusicRow {
-  cursor: pointer;
-} */
-
 .focusMusicRow:hover {
-  background-color: #282828;
-}
-
-.focusMusicRow:first-child:hover {
-  background-color: #2828284d;
+  background-color: #28282880;
+  border-radius: 5px;
 }
 
 

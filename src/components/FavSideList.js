@@ -41,7 +41,6 @@ class FavSideList extends Component {
       fetchMusicsThunk,
       inputSearchGlobal,
       played,
-      setPlayedSong,
       refs,
     } = this.props;
 
