@@ -1,4 +1,4 @@
-import { SET_MUSIC_PLAYER, PLAYED_SONG, VOLUME_SONG } from '../actions';
+import { SET_MUSIC_PLAYER, PLAYED_SONG } from '../actions';
 
 const initialState = {
   songs: [],
@@ -6,7 +6,6 @@ const initialState = {
     status: false,
     name: '',
   },
-  volume: 1.0,
 };
 
 const musicsToPlayer = (state = initialState, action) => {
@@ -21,12 +20,6 @@ const musicsToPlayer = (state = initialState, action) => {
     return {
       ...state,
       played: action.playedObj,
-    };
-
-  case VOLUME_SONG:
-    return {
-      ...state,
-      volume: action.volumeChanged,
     };
 
   default:

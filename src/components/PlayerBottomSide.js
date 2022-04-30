@@ -7,7 +7,7 @@ import { GiPauseButton } from 'react-icons/gi';
 import { IoPlaySharp } from 'react-icons/io5';
 import { BsVolumeMute } from 'react-icons/bs';
 import { VscGithub, VscLayers } from 'react-icons/vsc';
-import { saveFavoriteMusicsAct, setSongPlayedAct, setVolumePlayerAct } from '../actions';
+import { saveFavoriteMusicsAct, setSongPlayedAct  } from '../actions';
 import bckOrForwardSong from '../helpers/backward-forward-player/bckOrForwardSong';
 import { convertMillsToSeconds } from '../helpers/songTime';
 import '../styles/playerBottomSide.css';
@@ -26,21 +26,18 @@ export const PlayerBottomSide = () => {
     return {
     musicsToPlayer: globalState.musicsToPlayer,
     played: globalState.musicsToPlayer.played,
-    volume: globalState.musicsToPlayer.volume,
     favoritesToSidebar: globalState.responseMusics.favoritesToSidebar,
   }});
 
   // Songs global to go to the next and previous song
   const { musicsToPlayer: { songs: songsGlobal },
-    played, volume, favoritesToSidebar } = state;
+    played, favoritesToSidebar } = state;
 
   const dispatch = useDispatch();
   const setPlayedSongs = (objInsidePlayed) => dispatch(setSongPlayedAct(objInsidePlayed));
   const setFavorite = (favArray) => dispatch(saveFavoriteMusicsAct(favArray));
-  const setPlayerVolume = (volChanged) => dispatch(setVolumePlayerAct(volChanged));
 
   const [crrTime, setCrrTime] = useState('0:00');
-  const [crrVolume, setCrrVolume] = useState(volume);
 
   // references
   // https://www.youtube.com/watch?v=sqpg1qzJCGQ - building some parts of this player with Amy's help
@@ -108,6 +105,9 @@ export const PlayerBottomSide = () => {
     changePlayerCurrentTime();
     animationRef.current = requestAnimationFrame(whilePlaying);
   };
+
+  // the sound volume will be in the localStorage to remember the user preferences
+  const [crrVolume, setCrrVolume] = useState(1);
 
   const volumeChange = () => {
     // console.log(volume);
