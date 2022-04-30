@@ -15,6 +15,7 @@ import BackAndForwardButton from './player/BackAndForwardButton';
 import ShuffleAndRepeatButton from './player/ShuffleAndRepeat';
 import isFavoriteSong from '../helpers/favorites/isFavoriteSong';
 import toggleFavorite from '../helpers/favorites/toggleFavorite';
+import { Link } from 'react-router-dom';
 
 const DEFAULT_PLAYER_VOLUME = 0.1;
 const DEFAULT_PREVIEW_DURATION = 30;
@@ -128,7 +129,9 @@ export const PlayerBottomSide = () => {
     <div className="player-container">
       <div className="music-player-info">
         <div className="artist-infos">
-          <p className="music-name-player tdh tc ellipsis">{played.trackName}</p>
+          <Link to="/">
+            <p className="music-name-player tdh tc ellipsis">{played.trackName}</p>
+          </Link>
           <p className="artist-name-player tdh tc ellipsis">{played.artistName}</p>
         </div>
         <div className="favorite-player-container">

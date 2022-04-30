@@ -8,7 +8,7 @@ import { musicData } from '../data/friendsActivity/friendsData';
 import '../styles/friendsActivity.css';
 import fetchMusics from '../thunk/fetchMusicsInRedux';
 import FriendActivityDefault from './FriendActivityDefault';
-import LinkFriendActivity from './LinkFriendActivity';
+import LinkMusicName from './LinkMusicName';
 import LinkArtistName from './LinkArtistName';
 import fetchAlbumInRedux from '../thunk/fetchAlbumInRedux';
 
@@ -111,7 +111,7 @@ class FriendsActivitySidebar extends Component {
                             </div>
                             <div className="info-friend-music">
                               <div className="friend-music-ellipsis">
-                                <LinkFriendActivity
+                                <LinkMusicName
                                   collectionId={ collectionId }
                                   artistName={ artistName }
                                   paragraph={ musicName }
@@ -166,7 +166,7 @@ class FriendsActivitySidebar extends Component {
                           </div>
                           <div className="info-friend-music">
                             <div className="friend-music-ellipsis">
-                              <LinkFriendActivity
+                              <LinkMusicName
                                 collectionId={ collectionId }
                                 artistName={ artistName }
                                 paragraph={ musicName }

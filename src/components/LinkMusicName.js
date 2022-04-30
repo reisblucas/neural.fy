@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-class LinkFriendActivity extends Component {
+class LinkMusicName extends Component {
   render() {
     const { collectionId, artistName, paragraph, handleMusicNameClick } = this.props;
 
@@ -23,11 +23,11 @@ class LinkFriendActivity extends Component {
   }
 }
 
-LinkFriendActivity.propTypes = {
+LinkMusicName.propTypes = {
   artistName: PropTypes.string,
   collectionId: PropTypes.number,
   handleMusicNameClick: PropTypes.func,
   paragraph: PropTypes.string,
 }.isRequired;
 
-export default LinkFriendActivity;
+export default LinkMusicName;
