@@ -112,17 +112,21 @@
   padding: 24px 24px 0;
 }
 
-.header-content {
+/* .header-content {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin: 0 auto;
   text-align: center;
+} */
+
+.header-content {
+  margin-bottom: 15px;
 }
 
 .header-title img {
-  width: 150px;
+  width: 131px;
 }
 
 .header-collab {
