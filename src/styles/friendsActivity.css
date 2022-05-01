@@ -106,18 +106,13 @@
 
 .friend-pp-hover {
   border-radius: 100%;
-
-  /* height: 50px; */
   position: absolute;
-
-  /* width: 50px; */
 }
 
 
 .friend-pp:hover {
   background-color: black;
   opacity: 0.2;
-  transition: 500ms;
 }
 
 .friend-pp-icon-play {
@@ -138,13 +133,13 @@
 }
 
 .friend-pp-icon-father:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-  transition: 500ms;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: 300ms;
 }
 
 .friend-pp-icon-father:hover .friend-pp-icon-play {
   opacity: 1;
-  transition: 500ms;
+  transition: 600ms;
 }
 
 .friend-name {

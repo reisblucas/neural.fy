@@ -15,13 +15,14 @@ import fetchAlbumInRedux from '../thunk/fetchAlbumInRedux';
 class FriendsActivitySidebar extends Component {
   state = {
     hasFriendActivity: false,
-    renderFriends: 0,
+    renderFriends: 19,
     friendActivityAnimation: 'friend-activity friend-activity-opacity-start',
     friendsIntervalID: '',
   }
 
   componentDidMount() {
-    const TWO_MIN_IN_MS = 120000;
+    // const TWO_MIN_IN_MS = 120000;
+    const TWO_MIN_IN_MS = 1000;
 
     const friendsIntervalID = setInterval(() => {
       this.setState(({ renderFriends }) => ({
