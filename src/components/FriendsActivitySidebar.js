@@ -49,20 +49,6 @@ class FriendsActivitySidebar extends Component {
     clearInterval(friendsIntervalID);
   }
 
-  // handleMusicNameClick = async (artistName, collectionId) => {
-  //   const { fetchAlbumThunk, fetchMusicsThunk, inputSearchGlobal } = this.props;
-  //   fetchAlbumThunk(artistName);
-  //   fetchMusicsThunk(collectionId);
-  //   await inputSearchGlobal(artistName);
-  // }
-
-  // handleArtistNameClick = async ({ target: { innerText } }) => {
-  //   const { inputSearchGlobal, fetchAlbumThunk, enableRender } = this.props;
-  //   inputSearchGlobal(innerText);
-  //   await fetchAlbumThunk(innerText);
-  //   enableRender(true);
-  // }
-
   render() {
     const { hasFriendActivity, renderFriends, friendActivityAnimation } = this.state;
     const musicDataClone = [...musicData];

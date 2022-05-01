@@ -181,14 +181,30 @@
   border: none;
 }
 
+/* topside player - icon */
 .tsp-i {
   color: #b3b3b3;
   font-size: 24px;
 }
 
-.tsp-rs {
+/* topside player - repeat and shuffle */
+.tsp-rs, .tsp-sa {
   color: #b3b3b3;
   font-size: 20px;
+}
+
+/* scale */
+.tsp-s {
+  transform: scaleY(-1);
+}
+
+/* topside player - shuffle active */
+.tsp-sa {
+  color: #00b65bd0;
+}
+
+.tsp-sa:hover {
+  color: #00b65c;
 }
 
 .tsp-i:hover, .tsp-rs:hover {
@@ -197,10 +213,6 @@
 
 .tsp-r {
   transform: rotate(180deg);
-}
-
-.tsp-s {
-  transform: scaleY(-1);
 }
 
 /* Play and Pause button */

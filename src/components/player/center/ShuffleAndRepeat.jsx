@@ -1,14 +1,22 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useState } from 'react';
 import { BiRepeat, BiShuffle } from 'react-icons/bi';
 
 function ShuffleAndRepeatButton({ type }) {
+  const [isShfflClicked, setIsShfflClicked] = useState(false);
+  const [isRptClicked, setIsRptClicked] = useState(false);
+
   const shuffle = (
     <button
       type="button"
       className="cpb"
+      onClick={ () => setIsShfflClicked(!isShfflClicked) }
     >
-      <BiShuffle className="tsp-rs tsp-s" />
+      {
+        isShfflClicked
+          ? <BiShuffle className="tsp-sa tsp-s" />
+          : <BiShuffle className="tsp-rs tsp-s" />
+      }
     </button>
   );
 
@@ -16,8 +24,13 @@ function ShuffleAndRepeatButton({ type }) {
     <button
       type="button"
       className="cpb"
+      onClick={ () => setIsRptClicked(!isRptClicked) }
     >
-      <BiRepeat className="tsp-rs tsp-r" />
+      {
+        isRptClicked
+          ? <BiRepeat className="tsp-r tsp-sa" />
+          : <BiRepeat className="tsp-rs tsp-r" />
+      }
     </button>
   );
 
