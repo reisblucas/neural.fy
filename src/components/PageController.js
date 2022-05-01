@@ -3,16 +3,34 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { enableRender, resetSearch } from '../helpers/artist-music-global';
 
 class PageController extends Component {
+  albumOrFavPathVerifier = () => {
+    const { history: { location: { pathname } } } = this.props;
+
+    const albumPath = window.location.href.includes('/album');
+    const favoritesPath = window.location.href.includes('/favorites');
+    const albumCondition = pathname !== albumPath;
+    const favoritesCondition = pathname !== favoritesPath;
+    if (albumCondition && favoritesCondition) { return true; }
+    return false;
+  }
+
   previousPageButton = () => {
     const { history: { goBack } } = this.props;
     goBack();
+
+    const condition = this.albumOrFavPathVerifier();
+    if (condition) { enableRender(true); }
   }
 
   nextPageButton = () => {
     const { history: { goForward } } = this.props;
     goForward();
+
+    const condition = this.albumOrFavPathVerifier();
+    if (condition) { enableRender(true); }
   }
 
   render() {
