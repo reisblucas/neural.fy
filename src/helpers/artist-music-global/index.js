@@ -16,3 +16,8 @@ export const handleArtistNameClick = async (artistName) => {
   dispatch(inputSearchAct(artistName));
   dispatch(enableRenderAlbumAct(true));
 };
+
+export const resetSearch = () => {
+  dispatch(inputSearchAct(''));
+  dispatch(fetchAlbumInRedux([]));
+};
