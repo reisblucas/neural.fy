@@ -1,36 +1,28 @@
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { FaRegHeart, FaLinkedin } from 'react-icons/fa';
+import { FaLinkedin } from 'react-icons/fa';
 import { GiPauseButton } from 'react-icons/gi';
 import { IoPlaySharp } from 'react-icons/io5';
 import { BsVolumeMute } from 'react-icons/bs';
 import { VscGithub, VscLayers } from 'react-icons/vsc';
-import { saveFavoriteMusicsAct, setReferenceAct, setSongPlayedAct  } from '../actions';
+import { saveFavoriteMusicsAct, setSongPlayedAct } from '../actions';
 import bckOrForwardSong from '../helpers/backward-forward-player/bckOrForwardSong';
 import { convertMillsToSeconds } from '../helpers/songTime';
 import '../styles/playerBottomSide.css';
-import BackAndForwardButton from './player/BackAndForwardButton';
-import ShuffleAndRepeatButton from './player/ShuffleAndRepeat';
-import isFavoriteSong from '../helpers/favorites/isFavoriteSong';
-import toggleFavorite from '../helpers/favorites/toggleFavorite';
-import { Link } from 'react-router-dom';
-import LinkMusicName from './LinkMusicName';
-import LinkArtistName from './LinkArtistName';
+import BackAndForwardButton from './player/center/BackAndForwardButton';
+import ShuffleAndRepeatButton from './player/center/ShuffleAndRepeat';
+import PlayerArtistInfo from './player/leftside/PlayerArtistInfo';
 
 const DEFAULT_PLAYER_VOLUME = 0.1;
 const DEFAULT_PREVIEW_DURATION = 30;
 const ONE_THOUSAND = 1000;
 
 export const PlayerBottomSide = () => {
-  const state = useSelector((globalState) => {
-    // console.log('estado global', globalState);
-    return {
+  const state = useSelector((globalState) => ({
     musicsToPlayer: globalState.musicsToPlayer,
     played: globalState.musicsToPlayer.played,
     favoritesToSidebar: globalState.responseMusics.favoritesToSidebar,
-  }});
+  }));
 
   // Songs global to go to the next and previous song
   const { musicsToPlayer: { songs: songsGlobal },
@@ -125,52 +117,10 @@ export const PlayerBottomSide = () => {
   };
 
   const toToggle = { favoritesToSidebar, played, setFavorite };
-  console.log('no playerbottom', played.status);
 
   return (
     <div className="player-container">
-      <div className="music-player-info">
-        <div className="artist-infos">
-          <LinkMusicName
-            linkClassName="friend-music-name"
-            paragraphClassName="music-name-player tdh tc ellipsis"
-            collectionId={ played.collectionId }
-            artistName={ played.artistName }
-            paragraph={ played.trackName }
-          />
-
-          <LinkArtistName
-            linkClassName="friend-music-name"
-            paragraphClassName="artist-name-player tdh tc ellipsis"
-            paragraph={ played.artistName }
-          />
-        </div>
-        <div className="favorite-player-container">
-          {
-            played?.previewUrl && (
-              <label htmlFor="fbp">
-                <input type="checkbox" id="fbp" name="" hidden />
-                {
-                  isFavoriteSong(favoritesToSidebar, played)
-                    ? (
-                      <FontAwesomeIcon
-                        icon={ faHeart }
-                        className="heartIcon-player"
-                        onClick={ () => toggleFavorite(toToggle) }
-                      />
-                    )
-                    : (
-                      <FaRegHeart
-                        className="hip-unfav"
-                        onClick={ () => toggleFavorite(toToggle) }
-                      />
-                    )
-                }
-              </label>
-            )
-          }
-        </div>
-      </div>
+      <PlayerArtistInfo played={ played } toToggle={ toToggle } />
 
       <div className="central-player-buttons">
         <audio ref={ audioPlayer } src={ played.name } autoPlay>

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { IoIosSkipBackward, IoIosSkipForward } from 'react-icons/io';
-import bckOrForwardSong from '../../helpers/backward-forward-player/bckOrForwardSong';
+import bckOrForwardSong from '../../../helpers/backward-forward-player/bckOrForwardSong';
 
 function BackAndForwardButton({
   type, songsGlobal, played, setPlayedSongs,
