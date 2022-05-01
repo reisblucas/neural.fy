@@ -1,5 +1,9 @@
 @media only screen and ( max-width : 414px ) {
 
+  .controller-hero {
+    margin-top: unset ! important;
+  }
+
   .linkToProfileTopsideBar {
     display: none;
   }
@@ -19,6 +23,7 @@
   flex-direction: row;
   height: 50px;
   justify-content: space-between;
+  margin-top: 15px;
 }
 
 .page-control {
