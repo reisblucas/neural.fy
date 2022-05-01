@@ -7,7 +7,7 @@ import bckOrForwardSong from '../helpers/backward-forward-player/bckOrForwardSon
 import { convertMillsToSeconds } from '../helpers/songTime';
 import '../styles/playerBottomSide.css';
 import BackAndForwardButton from './player/center/BackAndForwardButton';
-import ShuffleAndRepeatButton from './player/center/ShuffleAndRepeat';
+import ShuffleAndRepeatButton from './player/center/ShuffleAndRepeatButton';
 import PlayerArtistInfo from './player/leftside/PlayerArtistInfo';
 import PlayerRightside from './player/rightside/PlayerRightside';
 import { getInStorage } from '../services/localStorage';
