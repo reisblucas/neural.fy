@@ -39,7 +39,6 @@ export const PlayerBottomSide = () => {
   const animationRef = useRef();
 
   const audioPlayerEnded = audioPlayer?.current?.ended;
-  const volume = getInStorage('volume');
 
   useEffect(() => {
     if (played.status) {
