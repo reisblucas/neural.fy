@@ -49,6 +49,7 @@
 
   .album {
     height: calc(100% - 90px) ! important;
+    overflow-x: hidden;
     overflow-y: scroll ! important;
   }
 
