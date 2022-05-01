@@ -1,18 +1,27 @@
-import React, { useRef, useState } from 'react';
+import PropTypes from 'prop-types';
+import React, { useEffect, useRef, useState } from 'react';
 import { BsVolumeMute } from 'react-icons/bs';
 import { FaLinkedin } from 'react-icons/fa';
 import { VscGithub, VscLayers } from 'react-icons/vsc';
+import '../../../styles/playerBottomSide.css';
 
 function PlayerRightside() {
   // the sound volume will be in the localStorage to remember the user preferences
   const [crrVolume, setCrrVolume] = useState(1);
-  const volumeBar = useRef(); // reference for volumeBar
+
+  const audio = document.querySelector('audio');
+  console.log(audio?.volume);
+
+  useEffect(() => {
+    // buscar o volume do localstorage
+    
+  }, []);
 
   const volumeChange = () => {
-    // console.log(volume);
-    // Need to create another ref to use dynamically input range?
-    // volumeBar.current.volume =
-    // setPlayerVolume(2);
+    audio.style
+      .setProperty('--seek-before-width', `${(audio.volume * 100)}%`);
+
+    setCrrVolume(audio.volume);
   };
 
   return (
@@ -52,11 +61,9 @@ function PlayerRightside() {
       <input
         type="range"
         name="volume-player"
-        id=""
         defaultValue="1"
+        className="progress-bar"
         onChange={ volumeChange }
-        max={ crrVolume }
-        ref={ volumeBar }
       />
     </div>
   );

@@ -1,10 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { FaLinkedin } from 'react-icons/fa';
 import { GiPauseButton } from 'react-icons/gi';
 import { IoPlaySharp } from 'react-icons/io5';
-import { BsVolumeMute } from 'react-icons/bs';
-import { VscGithub, VscLayers } from 'react-icons/vsc';
 import { saveFavoriteMusicsAct, setSongPlayedAct } from '../actions';
 import bckOrForwardSong from '../helpers/backward-forward-player/bckOrForwardSong';
 import { convertMillsToSeconds } from '../helpers/songTime';
@@ -45,6 +42,7 @@ export const PlayerBottomSide = () => {
 
   useEffect(() => {
     if (played.status) {
+      // get the value for volume in local storage
       audioPlayer.current.volume = DEFAULT_PLAYER_VOLUME;
       audioPlayer.current.play();
       animationRef.current = requestAnimationFrame(whilePlaying);
