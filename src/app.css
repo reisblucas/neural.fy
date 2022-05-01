@@ -17,12 +17,12 @@ body {
 @media only screen and ( max-width : 414px ) {
 
   .player-relative-to-header-fa {
-    margin-top: -170px;
+    margin-top: -85px;
     position: absolute;
     width: 100%;
   }
 
   .headerPattern {
-    margin-top: 170px;
+    margin-top: 80px;
   }
 }

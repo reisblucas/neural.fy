@@ -1,4 +1,4 @@
-@media only screen and ( max-width : 400px ) {
+@media only screen and ( max-width : 415px ) {
 
   .renderHeaderInAllPages {
     display: flex;
@@ -29,7 +29,7 @@
 
   .header-hero {
     float: none;
-    height: 170px ! important;
+    height: 81px ! important;
     max-width: 100% ! important;
     position: unset ! important;
     width: 100% ! important;
@@ -57,12 +57,8 @@
   }
 
   .navLinks-container {
-    flex-direction: column-reverse ! important;
+    flex-direction: row ! important;
   }
-
-  /* .navLinks-container span {
-    display: none;
-  } */
 
   div .sideFavSongsContainer {
     display: none;
@@ -112,17 +108,8 @@
   padding: 24px 24px 0;
 }
 
-/* .header-content {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 0 auto;
-  text-align: center;
-} */
-
 .header-content {
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
 .header-title img {
