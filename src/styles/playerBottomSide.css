@@ -64,12 +64,14 @@
   align-items: center;
 }
 
+/* and reset padding for music-player-info */
 .music-player-info {
   flex-direction: row;
+  padding: 20px 0 20px 15px;
 }
 
 .artist-infos {
-  width: 8vw;
+  width: 150px;
 }
 
 .artist-infos, .favorite-player-container {
@@ -79,7 +81,8 @@
 }
 
 .favorite-player-container {
-  margin-left: 20px;
+  margin-left: 15px;
+  width: 20px;
 }
 
 .heartIcon-player {
