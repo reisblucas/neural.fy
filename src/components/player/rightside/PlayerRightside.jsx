@@ -18,7 +18,7 @@ function PlayerRightside() {
     // buscar o volume do localstorage
     const volume = getInStorage('volume');
 
-    if (volume < 100) { volumeBar.current.value = volume * 100; }
+    if (volume < 1) { volumeBar.current.value = volume * 100; }
 
     volumeBar.current.max = 100;
     setVolumeStyle();
@@ -37,6 +37,13 @@ function PlayerRightside() {
     const volumeToSave = (volumeBar.current.value / 100);
     setCrrVolume(volumeToSave);
     saveInStorage('volume', volumeToSave);
+  };
+
+  const muteAndUnmute = () => {
+    setVolumeStyle();
+    setVolumeSong();
+    setCrrVolume(0);
+    saveInStorage('volume', 0);
   };
 
   const volumeVerifier = () => {
@@ -93,6 +100,7 @@ function PlayerRightside() {
       <button
         className="cpb vb pbr"
         type="button"
+        onClick={ muteAndUnmute }
       >
         {volumeVerifier()}
       </button>
