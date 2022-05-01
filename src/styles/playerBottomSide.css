@@ -5,6 +5,13 @@
   }
 }
 
+@media only screen and ( min-width : 415px ) and ( max-width : 950px ) {
+
+  .player-container {
+    position: fixed ! important;
+  }
+}
+
 /* Aliases */
 .tdh:hover {
   text-decoration: underline;

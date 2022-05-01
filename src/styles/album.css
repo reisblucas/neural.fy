@@ -3,10 +3,11 @@
   font-size: 15px;
 }
 
-@media only screen and ( max-width : 414px ) {
+@media only screen and ( max-width : 415px ) {
 
   .album {
     height: auto ! important;
+    overflow-y: scroll ! important;
   }
 
   .albumContent {
@@ -47,7 +48,8 @@
   }
 
   .album {
-    overflow-y: hidden ! important;
+    overflow-y: scroll ! important;
+    height: calc(100% - 90px) ! important;
   }
 
   .albumDetails {

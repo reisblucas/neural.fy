@@ -1,5 +1,11 @@
 @media only screen and ( max-width : 415px ) {
 
+  .headerPattern {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
   .renderHeaderInAllPages {
     display: flex;
     flex-direction: column;
@@ -15,10 +21,6 @@
 
   .headerPattern {
     display: flex;
-    flex-direction: column;
-
-    /* fazer uma config para quando estiver carregando e no cel, o height ficar auto */
-    height: auto;
   }
 
   .renderHeaderInAllPages {
