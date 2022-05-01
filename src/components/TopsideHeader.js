@@ -52,7 +52,7 @@ class TopsideHeader extends Component {
               className="navLinks"
               to="/search"
               data-testid="link-to-search"
-              // onClick={ () => this.resetSearch() }
+              onClick={ () => this.resetSearch() }
             >
               <img src={ magGlass } alt="" width="25" className="iconSet" />
               <span className="nav-side-text">Search</span>
