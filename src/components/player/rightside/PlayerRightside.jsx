@@ -9,6 +9,7 @@ import '../../../styles/playerBottomSide.css';
 function PlayerRightside() {
   // the sound volume will be in the localStorage to remember the user preferences
   const [crrVolume, setCrrVolume] = useState(1);
+  const [volBeforeMute, setVolBeforeMute] = useState(0.1);
   const volumeBar = useRef(); // vol bar reference
 
   const setVolumeStyle = () => volumeBar.current.style
@@ -25,26 +26,38 @@ function PlayerRightside() {
     setCrrVolume(volume);
   }, [crrVolume]);
 
-  const setVolumeSong = () => {
+  const setVolumeSong = (volState) => {
     const audio = document.querySelector('audio');
-    audio.volume = crrVolume;
+    audio.volume = volState;
   };
 
   const volumeChange = () => {
     setVolumeStyle();
-    setVolumeSong();
+    setVolumeSong(crrVolume);
 
     const volumeToSave = (volumeBar.current.value / 100);
     setCrrVolume(volumeToSave);
     saveInStorage('volume', volumeToSave);
   };
 
-  const muteAndUnmute = () => {
+  const mute = () => {
     setVolumeStyle();
-    setVolumeSong();
+    setVolBeforeMute(crrVolume);
+    setVolumeSong(0);
+
     setCrrVolume(0);
     saveInStorage('volume', 0);
   };
+
+  const unmute = () => {
+    setVolumeStyle();
+    setVolumeSong(volBeforeMute);
+
+    setCrrVolume(volBeforeMute);
+    saveInStorage('volume', volBeforeMute);
+  };
+
+  const muteAndUnmute = () => (crrVolume === 0 ? unmute() : mute());
 
   const volumeVerifier = () => {
     const ZERO = 0;
