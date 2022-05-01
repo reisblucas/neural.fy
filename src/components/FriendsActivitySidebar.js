@@ -107,7 +107,7 @@ class FriendsActivitySidebar extends Component {
                                 />
 
                               </div>
-                              <p> • </p>
+                              <p className="fa-bp"> • </p>
                               <div className="friend-music-ellipsis">
                                 <LinkArtistName
                                   linkClassName="friend-artist-name"
@@ -162,7 +162,7 @@ class FriendsActivitySidebar extends Component {
                                 paragraph={ musicName }
                               />
                             </div>
-                            <p> • </p>
+                            <p className="fa-bp"> • </p>
                             <div className="friend-music-ellipsis">
                               <LinkArtistName
                                 linkClassName="friend-artist-name"
