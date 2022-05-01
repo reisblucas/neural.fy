@@ -25,15 +25,13 @@ function PlayerRightside() {
 
     volumeBar.current.max = 100;
     setVolumeStyle();
-    setCrrVolume(volumeBar.current.value);
+    setCrrVolume(volume);
   }, []);
 
-  const volumeChange = (e) => {
-    const { target: { value } } = e;
-
+  const volumeChange = () => {
     setVolumeStyle();
     setCrrVolume(volumeBar.current.value);
-    console.log(value);
+
     const volumeToSave = crrVolume / 100;
     saveInStorage('volume', volumeToSave);
   };
