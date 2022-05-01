@@ -19,22 +19,26 @@
 }
 
 .formContainer {
+  display: flex;
+  justify-content: center;
   margin: 0 auto;
-  width: 500px;
+  width: 80%;
 }
 
 .formEdit {
-  align-items: flex-start;
+  align-items: center;
   display: flex;
   flex-direction: column;
+  width: 80%;
 }
 
 .formEdit label {
   margin: 15px 0;
+  width: 80%;
 }
 
 .formEdit label > input {
-  width: 500px;
+  width: 98%;
 }
 
 .buttonEditProfile {
