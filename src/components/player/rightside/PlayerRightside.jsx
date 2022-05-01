@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FaLinkedin } from 'react-icons/fa';
-import { IoVolumeHighOutline, IoVolumeLowOutline,
-  IoVolumeMediumOutline, IoVolumeOffOutline } from 'react-icons/io5';
+import { IoVolumeLowOutline, IoVolumeMediumOutline,
+  IoVolumeOffOutline } from 'react-icons/io5';
 import { VscGithub, VscLayers } from 'react-icons/vsc';
 import { getInStorage, saveInStorage } from '../../../services/localStorage';
 import '../../../styles/playerBottomSide.css';
@@ -45,7 +45,12 @@ function PlayerRightside() {
 
     switch (true) {
     case (crrVolume === ZERO):
-      return <IoVolumeOffOutline />;
+      return (
+        <>
+          <IoVolumeOffOutline />
+          <div className="vol-mute">x</div>
+        </>
+      );
 
     case (crrVolume > ZERO && crrVolume <= FIFTHY_PERCENT):
       return <IoVolumeLowOutline />;
@@ -64,7 +69,7 @@ function PlayerRightside() {
         href="https://github.com/byneur4l"
         target="_blank"
         rel="noopener noreferrer"
-        className="cpb gh-in"
+        className="cpb gh-in pbr"
       >
         <VscGithub />
       </a>
@@ -73,20 +78,20 @@ function PlayerRightside() {
         href="https://www.linkedin.com/in/reisblucas/"
         target="_blank"
         rel="noopener noreferrer"
-        className="cpb gh-in"
+        className="cpb gh-in pbr"
       >
         <FaLinkedin />
       </a>
 
       <button
-        className="cpb gh-in"
+        className="cpb gh-in pbr"
         type="button"
       >
         <VscLayers />
       </button>
 
       <button
-        className="cpb vb"
+        className="cpb vb pbr"
         type="button"
       >
         {volumeVerifier()}

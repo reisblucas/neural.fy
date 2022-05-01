@@ -195,7 +195,7 @@
 .cpb {
   background: none;
   border: none;
-  padding: 1px 6px;
+  padding: 0 6px;
 }
 
 /* topside player - icon */
@@ -249,10 +249,23 @@
   font-size: 18px;
 }
 
+/* player button right */
+.pbr {
+  padding: 5px 6px 0;
+}
+
 /* volume button */
 .vb {
   color: white;
   font-size: 20px;
+}
+
+.vol-mute {
+  bottom: 40px;
+  font-size: x-small;
+  font-weight: 800;
+  position: absolute;
+  right: 155px;
 }
 
 /* github button and linkedin button */
