@@ -1,4 +1,4 @@
-@media only screen and ( max-width : 415px ) {
+@media only screen and ( max-width : 414px ) {
 
   .headerPattern {
     display: flex;
@@ -14,6 +14,14 @@
 
   .navLinks-container span {
     display: none;
+  }
+}
+
+@media only screen and ( min-width : 415px ) and ( max-width : 950px ) {
+
+  .header-hero {
+    position: fixed ! important;
+    z-index: 1 ! important;
   }
 }
 
@@ -33,7 +41,6 @@
     float: none ! important;
     height: 81px ! important;
     max-width: 100% ! important;
-    position: unset ! important;
     width: 100% ! important;
   }
 

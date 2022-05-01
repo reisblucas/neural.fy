@@ -3,10 +3,13 @@
   .linkToProfileTopsideBar {
     display: none;
   }
+}
 
-  /* .controller-hero {
-    margin-top: 35px ! important;
-  } */
+@media only screen and ( min-width : 415px ) and ( max-width : 950px ) {
+
+  .controller-hero {
+    margin-top: 90px ! important;
+  }
 }
 
 /* Page controller */
@@ -16,9 +19,6 @@
   flex-direction: row;
   height: 50px;
   justify-content: space-between;
-
-  /* padding: 10px; */
-  margin-top: 5px;
 }
 
 .page-control {
@@ -35,8 +35,6 @@
   font-size: x-large;
   height: 30px;
   justify-content: center;
-
-  /* text-align: center; */
   width: 30px;
 }
 
