@@ -41,24 +41,20 @@ function PlayerRightside() {
 
   const volumeVerifier = () => {
     const ZERO = 0;
-    const TWENTY_PERCENT = 0.2;
     const FIFTHY_PERCENT = 0.5;
 
     switch (true) {
     case (crrVolume === ZERO):
       return <IoVolumeOffOutline />;
 
-    case (crrVolume > ZERO && crrVolume <= TWENTY_PERCENT):
+    case (crrVolume > ZERO && crrVolume <= FIFTHY_PERCENT):
       return <IoVolumeLowOutline />;
 
-    case (crrVolume > TWENTY_PERCENT && crrVolume <= FIFTHY_PERCENT):
+    case (crrVolume > FIFTHY_PERCENT):
       return <IoVolumeMediumOutline />;
 
-    case (crrVolume > FIFTHY_PERCENT):
-      return <IoVolumeHighOutline />;
-
     default:
-      return <IoVolumeHighOutline />;
+      return <IoVolumeMediumOutline />;
     }
   };
 
