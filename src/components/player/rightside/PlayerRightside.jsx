@@ -12,21 +12,30 @@ function PlayerRightside() {
 
   const volumeBar = useRef();
 
-  const audio = document.querySelector('audio');
-  console.log(audio?.volume);
+  const setVolumeStyle = () => volumeBar.current.style
+    .setProperty('--seek-vol-before-width', `${(volumeBar.current.value)}%`);
 
   useEffect(() => {
     // buscar o volume do localstorage
+    const volume = getInStorage('volume');
+
+    if (volume < 100) {
+      volumeBar.current.value = volume * 100;
+    }
+
     volumeBar.current.max = 100;
-    volumeBar.current.value = audio?.volume * 100;
-  }, [audio?.volume]);
+    setVolumeStyle();
+    setCrrVolume(volumeBar.current.value);
+  }, []);
 
-  const volumeChange = () => {
-    volumeBar.current.style
-      .setProperty('--seek-vol-before-width', `${(volumeBar.current.value)}%`);
+  const volumeChange = (e) => {
+    const { target: { value } } = e;
 
-    setCrrVolume(audio.volume);
-    saveInStorage('volume', crrVolume);
+    setVolumeStyle();
+    setCrrVolume(volumeBar.current.value);
+    console.log(value);
+    const volumeToSave = crrVolume / 100;
+    saveInStorage('volume', volumeToSave);
   };
 
   return (
@@ -66,9 +75,10 @@ function PlayerRightside() {
       <input
         type="range"
         name="volume-player"
-        defaultValue="100"
+        defaultValue="1"
         className="progress-bar volume-bar"
         ref={ volumeBar }
+        onClick={ volumeChange }
         onChange={ volumeChange }
       />
     </div>

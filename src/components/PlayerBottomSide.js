@@ -39,11 +39,10 @@ export const PlayerBottomSide = () => {
   const animationRef = useRef();
 
   const audioPlayerEnded = audioPlayer?.current?.ended;
+  const volume = getInStorage('volume');
 
   useEffect(() => {
     if (played.status) {
-      // get the value for volume in local storage
-      const volume = getInStorage('volume');
       audioPlayer.current.volume = volume;
       audioPlayer.current.play();
       animationRef.current = requestAnimationFrame(whilePlaying);
@@ -64,7 +63,9 @@ export const PlayerBottomSide = () => {
     const seconds = 30;
     progressBar.current.max = seconds;
   }, [played, played.name, played.status,
-    played.trackTimeMillis, crrTime, audioPlayerEnded, favoritesToSidebar]);
+    played.trackTimeMillis, crrTime, audioPlayerEnded, favoritesToSidebar,
+    volume,
+  ]);
 
   const play = () => {
     audioPlayer.current.play();
