@@ -53,6 +53,10 @@
   width: 38%;
 }
 
+.right-player-buttons {
+  align-items: center;
+}
+
 .music-player-info {
   flex-direction: row;
 }
@@ -246,4 +250,8 @@
 
 .gh-in:hover {
   color: white;
+}
+
+.gh-in:first-child {
+  margin-right: 8px;
 }

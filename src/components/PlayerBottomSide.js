@@ -12,6 +12,7 @@ import '../styles/playerBottomSide.css';
 import BackAndForwardButton from './player/center/BackAndForwardButton';
 import ShuffleAndRepeatButton from './player/center/ShuffleAndRepeat';
 import PlayerArtistInfo from './player/leftside/PlayerArtistInfo';
+import PlayerRightside from './player/rightside/PlayerRightside';
 
 const DEFAULT_PLAYER_VOLUME = 0.1;
 const DEFAULT_PREVIEW_DURATION = 30;
@@ -39,7 +40,6 @@ export const PlayerBottomSide = () => {
   const audioPlayer = useRef(); // reference for audio component
   const progressBar = useRef(); // reference for progress bar
   const animationRef = useRef();
-  const volumeBar = useRef(); // reference for volumeBar
 
   const audioPlayerEnded = audioPlayer?.current?.ended;
 
@@ -99,16 +99,6 @@ export const PlayerBottomSide = () => {
     progressBar.current.value = audioPlayer.current.currentTime;
     changePlayerCurrentTime();
     animationRef.current = requestAnimationFrame(whilePlaying);
-  };
-
-  // the sound volume will be in the localStorage to remember the user preferences
-  const [crrVolume, setCrrVolume] = useState(1);
-
-  const volumeChange = () => {
-    // console.log(volume);
-    // Need to create another ref to use dynamically input range?
-    // volumeBar.current.volume =
-    // setPlayerVolume(2);
   };
 
   const changeRange = () => {
@@ -191,45 +181,7 @@ export const PlayerBottomSide = () => {
         </div>
       </div>
 
-      <div className="right-player-buttons">
-        <button
-          className="cpb gh-in"
-          type="button"
-        >
-          <VscGithub />
-        </button>
-
-        <button
-          className="cpb gh-in"
-          type="button"
-        >
-          <FaLinkedin />
-        </button>
-
-        <button
-          className="cpb gh-in"
-          type="button"
-        >
-          <VscLayers />
-        </button>
-
-        <button
-          className="cpb vb"
-          type="button"
-        >
-          <BsVolumeMute />
-        </button>
-
-        <input
-          type="range"
-          name="volume-player"
-          id=""
-          defaultValue="1"
-          onChange={ volumeChange }
-          max={ crrVolume }
-          ref={ volumeBar }
-        />
-      </div>
+      <PlayerRightside />
     </div>
   );
 };
