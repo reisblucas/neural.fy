@@ -6,10 +6,9 @@ import store from '../../store/index';
 const { dispatch } = store;
 
 export const handleMusicNameClick = async (artistName, collectionId) => {
-  const { inputSearchGlobal } = this.props;
-  dispatch(fetchAlbumInRedux(artistName));
+  await dispatch(fetchAlbumInRedux(artistName));
   dispatch(fetchMusics(collectionId));
-  await dispatch(inputSearchGlobal(artistName));
+  dispatch(inputSearchAct(artistName));
 };
 
 export const handleArtistNameClick = async (artistName) => {

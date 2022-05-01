@@ -1,11 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { handleMusicNameClick } from '../helpers/artist-music-global';
 
 class LinkMusicName extends Component {
   render() {
     const { linkClassName, paragraphClassName, collectionId, artistName,
-      paragraph, handleMusicNameClick } = this.props;
+      paragraph: musicName } = this.props;
 
     return (
       <Link
@@ -16,7 +17,7 @@ class LinkMusicName extends Component {
         <p
           className={ paragraphClassName }
         >
-          {paragraph}
+          {musicName}
 
         </p>
       </Link>

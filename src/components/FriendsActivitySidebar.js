@@ -49,12 +49,12 @@ class FriendsActivitySidebar extends Component {
     clearInterval(friendsIntervalID);
   }
 
-  handleMusicNameClick = async (artistName, collectionId) => {
-    const { fetchAlbumThunk, fetchMusicsThunk, inputSearchGlobal } = this.props;
-    fetchAlbumThunk(artistName);
-    fetchMusicsThunk(collectionId);
-    await inputSearchGlobal(artistName);
-  }
+  // handleMusicNameClick = async (artistName, collectionId) => {
+  //   const { fetchAlbumThunk, fetchMusicsThunk, inputSearchGlobal } = this.props;
+  //   fetchAlbumThunk(artistName);
+  //   fetchMusicsThunk(collectionId);
+  //   await inputSearchGlobal(artistName);
+  // }
 
   // handleArtistNameClick = async ({ target: { innerText } }) => {
   //   const { inputSearchGlobal, fetchAlbumThunk, enableRender } = this.props;
@@ -117,7 +117,6 @@ class FriendsActivitySidebar extends Component {
                                   collectionId={ collectionId }
                                   artistName={ artistName }
                                   paragraph={ musicName }
-                                  handleMusicNameClick={ this.handleMusicNameClick }
                                 />
 
                               </div>
@@ -174,7 +173,6 @@ class FriendsActivitySidebar extends Component {
                                 collectionId={ collectionId }
                                 artistName={ artistName }
                                 paragraph={ musicName }
-                                handleMusicNameClick={ this.handleMusicNameClick }
                               />
                             </div>
                             <p> • </p>
