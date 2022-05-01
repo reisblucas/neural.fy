@@ -217,6 +217,20 @@
   font-size: 20px;
 }
 
+.dot-father {
+  position: relative;
+}
+
+.green-dot {
+  border-radius: 10px;
+  background-color: #00b65c;
+  height: 4px;
+  width: 4px;
+  position: absolute;
+  right: 14px;
+  bottom: -2px;
+}
+
 /* scale */
 .tsp-s {
   transform: scaleY(-1);
