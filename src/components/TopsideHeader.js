@@ -7,7 +7,7 @@ import { getUser } from '../services/userAPI';
 import { saveAlbumNameAct } from '../actions';
 import magGlass from '../images/navLinks/magGlass.png';
 import userImg from '../images/navLinks/user.png';
-import { resetSearch } from '../helpers/artist-music-global';
+import { enableRender } from '../helpers/artist-music-global';
 
 class TopsideHeader extends Component {
   favoriteHeader = async () => {
@@ -31,7 +31,11 @@ class TopsideHeader extends Component {
     return (
       <div className="headerTopside">
         <div className="header-content">
-          <Link to="/search" className="header-link-style">
+          <Link
+            to="/search"
+            className="header-link-style"
+            onClick={ enableRender }
+          >
             <div className="header-title">
               <img src={ SpotifyLogoHeader } alt="Spotify Logo" />
             </div>
@@ -44,7 +48,7 @@ class TopsideHeader extends Component {
               className="navLinks"
               to="/search"
               data-testid="link-to-search"
-              onClick={ resetSearch }
+              onClick={ enableRender }
             >
               <img src={ magGlass } alt="" width="25" className="iconSet" />
               <span className="nav-side-text">Search</span>
