@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { enableRender, resetSearch } from '../helpers/artist-music-global';
+import { enableRender } from '../helpers/artist-music-global';
 
 class PageController extends Component {
   albumOrFavPathVerifier = () => {
