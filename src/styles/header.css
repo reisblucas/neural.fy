@@ -23,6 +23,10 @@
     position: fixed ! important;
     z-index: 1 ! important;
   }
+
+  .navLinks-container span {
+    display: none;
+  }
 }
 
 @media only screen and ( max-width : 950px ) {
