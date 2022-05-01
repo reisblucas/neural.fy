@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
-import { faPlay, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { IoPlaySharp } from 'react-icons/io5';
 import { enableRenderAlbumAct, inputSearchAct } from '../actions';
 import { musicData } from '../data/friendsActivity/friendsData';
 import '../styles/friendsActivity.css';
@@ -84,10 +85,7 @@ class FriendsActivitySidebar extends Component {
                               alt=""
                             />
                             <div className="friend-pp-icon-father">
-                              <FontAwesomeIcon
-                                icon={ faPlay }
-                                className="friend-pp-icon-play"
-                              />
+                              <IoPlaySharp className="friend-pp-icon-play" />
                             </div>
 
                           </div>
@@ -140,10 +138,7 @@ class FriendsActivitySidebar extends Component {
                             alt=""
                           />
                           <div className="friend-pp-icon-father">
-                            <FontAwesomeIcon
-                              icon={ faPlay }
-                              className="friend-pp-icon-play"
-                            />
+                            <IoPlaySharp className="friend-pp-icon-play" />
                           </div>
 
                         </div>
