@@ -13,7 +13,7 @@ import playedSongsStruct from '../helpers/dataStructure/playedSongsStruct';
 class MusicMap extends Component {
   state = { played: { status: false, name: '' } }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(_prevProps, prevState) {
     const { played: { trackId } } = prevState;
     const { musicsToPlayer: { played: playedGlobal } } = this.props;
 
@@ -41,8 +41,7 @@ class MusicMap extends Component {
 
   handleFavorites = () => {
     const { responseMusics: { favoritesToSidebar } } = this.props;
-    const idsOnly = favoritesToSidebar.map((sng) => sng.trackId);
-    return idsOnly;
+    return favoritesToSidebar.map((sng) => sng.trackId);
   }
 
   handleArtistNameLink = () => {
@@ -54,7 +53,6 @@ class MusicMap extends Component {
     const {
       handleCheck,
       handleReload,
-      // checkedAndFavorite,
       match: { path },
       tracks,
     } = this.props;
