@@ -260,3 +260,14 @@
 .fa-bp {
   margin: 0 2px 0 0;
 }
+
+/* friend profile pictue icon button reset */
+.fpi-reset {
+  background: none;
+  border: none;
+}
+
+/* friend profile icon pause */
+.fpi-p {
+  font-size: 16px;
+}

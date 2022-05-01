@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { IoPlaySharp } from 'react-icons/io5';
+import { GiPauseButton } from 'react-icons/gi';
 import { enableRenderAlbumAct, inputSearchAct } from '../actions';
 import { musicData } from '../data/friendsActivity/friendsData';
 import '../styles/friendsActivity.css';
@@ -40,7 +41,7 @@ class FriendsActivitySidebar extends Component {
     this.setState({ friendsIntervalID });
   }
 
-  shouldComponentUpdate(nextProps, { renderFriends, friendsIntervalID }) {
+  shouldComponentUpdate(_nextProps, { renderFriends, friendsIntervalID }) {
     const TWENTY = 20;
     if (renderFriends === TWENTY) { clearInterval(friendsIntervalID); }
     return true;
@@ -55,6 +56,8 @@ class FriendsActivitySidebar extends Component {
     const { hasFriendActivity, renderFriends, friendActivityAnimation } = this.state;
     const musicDataClone = [...musicData];
     const musicDataSliced = musicDataClone.slice(0, renderFriends); // usar esse no map
+    const { played } = this.props;
+    console.log(played);
 
     return (
       <div className="friends-container-hero">
@@ -75,6 +78,12 @@ class FriendsActivitySidebar extends Component {
                     const { image, username, musicName,
                       artistName, collectionId, playlist } = friend;
 
+                    const conditionForPlayAndPause = played
+                      && played?.collectionId === collectionId
+                      && played?.trackName === musicName;
+
+                    console.log(conditionForPlayAndPause);
+
                     if (i === (renderFriends - 1)) {
                       return (
                         <div key={ i } className={ friendActivityAnimation }>
@@ -84,9 +93,20 @@ class FriendsActivitySidebar extends Component {
                               src={ image }
                               alt=""
                             />
-                            <div className="friend-pp-icon-father">
-                              <IoPlaySharp className="friend-pp-icon-play" />
-                            </div>
+                            <button
+                              type="button"
+                              className="friend-pp-icon-father fpi-reset"
+                            >
+                              {
+                                conditionForPlayAndPause
+                                  ? (
+                                    <GiPauseButton
+                                      className="friend-pp-icon-play fpi-p"
+                                    />
+                                  )
+                                  : <IoPlaySharp className="friend-pp-icon-play" />
+                              }
+                            </button>
 
                           </div>
                           <div className="friend-detail-info">
@@ -137,9 +157,17 @@ class FriendsActivitySidebar extends Component {
                             src={ image }
                             alt=""
                           />
-                          <div className="friend-pp-icon-father">
-                            <IoPlaySharp className="friend-pp-icon-play" />
-                          </div>
+                          <button
+                            type="button"
+                            className="friend-pp-icon-father fpi-reset"
+                          >
+                            {
+                              conditionForPlayAndPause
+                                ? <GiPauseButton className="friend-pp-icon-play fpi-p" />
+                                : <IoPlaySharp className="friend-pp-icon-play" />
+                            }
+
+                          </button>
 
                         </div>
                         <div className="friend-detail-info">
@@ -197,6 +225,10 @@ FriendsActivitySidebar.propTypes = {
   inputSearchGlobal: PropTypes.func,
 }.isRequired;
 
+const mapStateToProps = (state) => ({
+  played: state.musicsToPlayer.played,
+});
+
 const mapDispatchToProps = (dispatch) => ({
   fetchAlbumThunk: (artistName) => dispatch(fetchAlbumInRedux(artistName)),
   fetchMusicsThunk: (albumId) => dispatch(fetchMusics(albumId)),
@@ -205,4 +237,4 @@ const mapDispatchToProps = (dispatch) => ({
   enableRender: (bool) => dispatch(enableRenderAlbumAct(bool)),
 });
 
-export default connect(null, mapDispatchToProps)(FriendsActivitySidebar);
+export default connect(mapStateToProps, mapDispatchToProps)(FriendsActivitySidebar);
