@@ -1,8 +1,7 @@
-import PropTypes from 'prop-types';
-import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { BsVolumeMute } from 'react-icons/bs';
+import React, { useEffect, useRef, useState } from 'react';
 import { FaLinkedin } from 'react-icons/fa';
-import { IoVolumeHighOutline, IoVolumeLowOutline, IoVolumeMediumOutline, IoVolumeOffOutline } from 'react-icons/io5';
+import { IoVolumeHighOutline, IoVolumeLowOutline,
+  IoVolumeMediumOutline, IoVolumeOffOutline } from 'react-icons/io5';
 import { VscGithub, VscLayers } from 'react-icons/vsc';
 import { getInStorage, saveInStorage } from '../../../services/localStorage';
 import '../../../styles/playerBottomSide.css';
@@ -15,7 +14,7 @@ function PlayerRightside() {
   const setVolumeStyle = () => volumeBar.current.style
     .setProperty('--seek-vol-before-width', `${(volumeBar.current.value)}%`);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     // buscar o volume do localstorage
     const volume = getInStorage('volume');
 
@@ -29,7 +28,7 @@ function PlayerRightside() {
   const setVolumeSong = () => {
     const audio = document.querySelector('audio');
     audio.volume = crrVolume;
-  }
+  };
 
   const volumeChange = () => {
     setVolumeStyle();
