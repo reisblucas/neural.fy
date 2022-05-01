@@ -6,10 +6,12 @@ import { VscGithub, VscLayers } from 'react-icons/vsc';
 import { getInStorage, saveInStorage } from '../../../services/localStorage';
 import '../../../styles/playerBottomSide.css';
 
+const ZERO_DOT_ONE = 0.1;
+
 function PlayerRightside() {
   // the sound volume will be in the localStorage to remember the user preferences
   const [crrVolume, setCrrVolume] = useState(1);
-  const [volBeforeMute, setVolBeforeMute] = useState(0.1);
+  const [volBeforeMute, setVolBeforeMute] = useState(ZERO_DOT_ONE);
   const volumeBar = useRef(); // vol bar reference
 
   const setVolumeStyle = () => volumeBar.current.style
@@ -61,7 +63,7 @@ function PlayerRightside() {
 
   const volumeVerifier = () => {
     const ZERO = 0;
-    const FIFTHY_PERCENT = 0.5;
+    const ZERO_DOT_FIVE = 0.5;
 
     switch (true) {
     case (crrVolume === ZERO):
@@ -72,10 +74,10 @@ function PlayerRightside() {
         </>
       );
 
-    case (crrVolume > ZERO && crrVolume <= FIFTHY_PERCENT):
+    case (crrVolume > ZERO && crrVolume <= ZERO_DOT_FIVE):
       return <IoVolumeLowOutline />;
 
-    case (crrVolume > FIFTHY_PERCENT):
+    case (crrVolume > ZERO_DOT_FIVE):
       return <IoVolumeMediumOutline />;
 
     default:
