@@ -222,13 +222,13 @@
 }
 
 .green-dot {
-  border-radius: 10px;
   background-color: #00b65c;
+  border-radius: 10px;
+  bottom: -2px;
   height: 4px;
-  width: 4px;
   position: absolute;
   right: 14px;
-  bottom: -2px;
+  width: 4px;
 }
 
 /* scale */
