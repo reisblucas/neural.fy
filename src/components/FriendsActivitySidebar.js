@@ -57,7 +57,6 @@ class FriendsActivitySidebar extends Component {
     const musicDataClone = [...musicData];
     const musicDataSliced = musicDataClone.slice(0, renderFriends); // usar esse no map
     const { played } = this.props;
-    console.log(played);
 
     return (
       <div className="friends-container-hero">
@@ -78,11 +77,9 @@ class FriendsActivitySidebar extends Component {
                     const { image, username, musicName,
                       artistName, collectionId, playlist } = friend;
 
-                    const conditionForPlayAndPause = played
+                    const conditionForPlayAndPause = played.status
                       && played?.collectionId === collectionId
                       && played?.trackName === musicName;
-
-                    console.log(conditionForPlayAndPause);
 
                     if (i === (renderFriends - 1)) {
                       return (
