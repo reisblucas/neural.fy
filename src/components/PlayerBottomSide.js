@@ -136,8 +136,8 @@ export const PlayerBottomSide = () => {
             >
               {
                 played.status
-                  ? <GiPauseButton className="pbcs" />
-                  : <IoPlaySharp className="pbcs" />
+                  ? <GiPauseButton className="pbcs pause-inset" />
+                  : <IoPlaySharp className="pbcs play-inset" />
               }
             </button>
 

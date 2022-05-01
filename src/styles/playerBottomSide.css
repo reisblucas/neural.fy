@@ -237,6 +237,7 @@
   background-color: white;
   border-radius: 100%;
   height: 35px;
+  position: relative;
   width: 35px;
 }
 
@@ -244,9 +245,24 @@
   transform: scale(1.05);
 }
 
+/* playerbutton color and size */
 .pbcs {
   color: black;
   font-size: 18px;
+}
+
+.pause-inset {
+  inset: 8px;
+  position: absolute;
+}
+
+.play-inset {
+  bottom: 6px;
+  font-size: 23px;
+  left: 7px;
+  position: absolute;
+  right: 6px;
+  top: 6px;
 }
 
 /* player button right */
