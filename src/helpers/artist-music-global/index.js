@@ -1,13 +1,19 @@
+import { enableRenderAlbumAct, inputSearchAct } from '../../actions';
+import fetchAlbumInRedux from '../../thunk/fetchAlbumInRedux';
+import fetchMusics from '../../thunk/fetchMusicsInRedux';
+import store from '../../store/index';
+
+const { dispatch } = store;
+
 export const handleMusicNameClick = async (artistName, collectionId) => {
-  const { fetchAlbumThunk, fetchMusicsThunk, inputSearchGlobal } = this.props;
-  fetchAlbumThunk(artistName);
-  fetchMusicsThunk(collectionId);
-  await inputSearchGlobal(artistName);
+  const { inputSearchGlobal } = this.props;
+  dispatch(fetchAlbumInRedux(artistName));
+  dispatch(fetchMusics(collectionId));
+  await dispatch(inputSearchGlobal(artistName));
 };
 
-export const handleArtistNameClick = async ({ target: { innerText } }) => {
-  const { inputSearchGlobal, searchAlbumGlobal, enableRender } = this.props;
-  inputSearchGlobal(innerText);
-  await searchAlbumGlobal(innerText);
-  enableRender(true);
+export const handleArtistNameClick = async (artistName) => {
+  await dispatch(fetchAlbumInRedux(artistName));
+  dispatch(inputSearchAct(artistName));
+  dispatch(enableRenderAlbumAct(true));
 };

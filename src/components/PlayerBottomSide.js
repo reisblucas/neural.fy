@@ -17,6 +17,7 @@ import isFavoriteSong from '../helpers/favorites/isFavoriteSong';
 import toggleFavorite from '../helpers/favorites/toggleFavorite';
 import { Link } from 'react-router-dom';
 import LinkMusicName from './LinkMusicName';
+import LinkArtistName from './LinkArtistName';
 
 const DEFAULT_PLAYER_VOLUME = 0.1;
 const DEFAULT_PREVIEW_DURATION = 30;
@@ -139,7 +140,12 @@ export const PlayerBottomSide = () => {
             handleMusicNameClick={ () => console.log('o pai clicou') }
           />
 
-          <p className="artist-name-player tdh tc ellipsis">{played.artistName}</p>
+          <LinkArtistName
+            linkClassName="friend-music-name"
+            paragraphClassName="artist-name-player tdh tc ellipsis"
+            handleArtistNameClick={ () => console.log('cliquei no artista') }
+            paragraph={ played.artistName }
+          />
         </div>
         <div className="favorite-player-container">
           {

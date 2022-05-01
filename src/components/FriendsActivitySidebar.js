@@ -56,12 +56,12 @@ class FriendsActivitySidebar extends Component {
     await inputSearchGlobal(artistName);
   }
 
-  handleArtistNameClick = async ({ target: { innerText } }) => {
-    const { inputSearchGlobal, fetchAlbumThunk, enableRender } = this.props;
-    inputSearchGlobal(innerText);
-    await fetchAlbumThunk(innerText);
-    enableRender(true);
-  }
+  // handleArtistNameClick = async ({ target: { innerText } }) => {
+  //   const { inputSearchGlobal, fetchAlbumThunk, enableRender } = this.props;
+  //   inputSearchGlobal(innerText);
+  //   await fetchAlbumThunk(innerText);
+  //   enableRender(true);
+  // }
 
   render() {
     const { hasFriendActivity, renderFriends, friendActivityAnimation } = this.state;
@@ -124,7 +124,8 @@ class FriendsActivitySidebar extends Component {
                               <p> • </p>
                               <div className="friend-music-ellipsis">
                                 <LinkArtistName
-                                  handleArtistNameClick={ this.handleArtistNameClick }
+                                  linkClassName="friend-artist-name"
+                                  paragraphClassName="friend-artist-name ellipsis"
                                   paragraph={ artistName }
                                 />
                               </div>
@@ -173,14 +174,14 @@ class FriendsActivitySidebar extends Component {
                                 collectionId={ collectionId }
                                 artistName={ artistName }
                                 paragraph={ musicName }
-                                handleMusicNameClick={ () => this
-                                  .handleMusicNameClick(artistName, collectionId) }
+                                handleMusicNameClick={ this.handleMusicNameClick }
                               />
                             </div>
                             <p> • </p>
                             <div className="friend-music-ellipsis">
                               <LinkArtistName
-                                handleArtistNameClick={ this.handleArtistNameClick }
+                                linkClassName="friend-artist-name"
+                                paragraphClassName="friend-artist-name ellipsis"
                                 paragraph={ artistName }
                               />
                             </div>
