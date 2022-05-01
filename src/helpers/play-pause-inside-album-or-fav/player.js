@@ -4,7 +4,6 @@ export const playAudio = ({ currentTarget }) => {
 
   players.forEach((player) => {
     const { id, paused } = player;
-    // player.volume = 0.1;
     if (paused === false) return player.pause();
 
     const targetPlayer = id === url;
