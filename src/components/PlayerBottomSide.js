@@ -137,13 +137,11 @@ export const PlayerBottomSide = () => {
             collectionId={ played.collectionId }
             artistName={ played.artistName }
             paragraph={ played.trackName }
-            handleMusicNameClick={ () => console.log('o pai clicou') }
           />
 
           <LinkArtistName
             linkClassName="friend-music-name"
             paragraphClassName="artist-name-player tdh tc ellipsis"
-            handleArtistNameClick={ () => console.log('cliquei no artista') }
             paragraph={ played.artistName }
           />
         </div>

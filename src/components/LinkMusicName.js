@@ -6,7 +6,7 @@ import { handleMusicNameClick } from '../helpers/artist-music-global';
 class LinkMusicName extends Component {
   render() {
     const { linkClassName, paragraphClassName, collectionId, artistName,
-      paragraph: musicName } = this.props;
+      paragraph: trackName } = this.props;
 
     return (
       <Link
@@ -17,7 +17,7 @@ class LinkMusicName extends Component {
         <p
           className={ paragraphClassName }
         >
-          {musicName}
+          {trackName}
 
         </p>
       </Link>
