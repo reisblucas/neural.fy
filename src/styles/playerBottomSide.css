@@ -171,6 +171,18 @@
   background-color: white;
 }
 
+/* volume bar */
+.volume-bar {
+
+  --seek-vol-before-width: 100%;
+  width: 100%;
+}
+
+.volume-bar:before {
+  width: var(--seek-vol-before-width);
+}
+
+
 /* duration font-size */
 .dfs {
   color: #b3b3b3;

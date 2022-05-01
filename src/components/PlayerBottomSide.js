@@ -10,8 +10,8 @@ import BackAndForwardButton from './player/center/BackAndForwardButton';
 import ShuffleAndRepeatButton from './player/center/ShuffleAndRepeat';
 import PlayerArtistInfo from './player/leftside/PlayerArtistInfo';
 import PlayerRightside from './player/rightside/PlayerRightside';
+import { getInStorage } from '../services/localStorage';
 
-const DEFAULT_PLAYER_VOLUME = 0.1;
 const DEFAULT_PREVIEW_DURATION = 30;
 const ONE_THOUSAND = 1000;
 
@@ -43,7 +43,8 @@ export const PlayerBottomSide = () => {
   useEffect(() => {
     if (played.status) {
       // get the value for volume in local storage
-      audioPlayer.current.volume = DEFAULT_PLAYER_VOLUME;
+      const volume = getInStorage('volume');
+      audioPlayer.current.volume = volume;
       audioPlayer.current.play();
       animationRef.current = requestAnimationFrame(whilePlaying);
     }

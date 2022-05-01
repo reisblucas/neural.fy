@@ -3,25 +3,30 @@ import React, { useEffect, useRef, useState } from 'react';
 import { BsVolumeMute } from 'react-icons/bs';
 import { FaLinkedin } from 'react-icons/fa';
 import { VscGithub, VscLayers } from 'react-icons/vsc';
+import { getInStorage, saveInStorage } from '../../../services/localStorage';
 import '../../../styles/playerBottomSide.css';
 
 function PlayerRightside() {
   // the sound volume will be in the localStorage to remember the user preferences
   const [crrVolume, setCrrVolume] = useState(1);
 
+  const volumeBar = useRef();
+
   const audio = document.querySelector('audio');
   console.log(audio?.volume);
 
   useEffect(() => {
     // buscar o volume do localstorage
-    
-  }, []);
+    volumeBar.current.max = 100;
+    volumeBar.current.value = audio?.volume * 100;
+  }, [audio?.volume]);
 
   const volumeChange = () => {
-    audio.style
-      .setProperty('--seek-before-width', `${(audio.volume * 100)}%`);
+    volumeBar.current.style
+      .setProperty('--seek-vol-before-width', `${(volumeBar.current.value)}%`);
 
     setCrrVolume(audio.volume);
+    saveInStorage('volume', crrVolume);
   };
 
   return (
@@ -61,8 +66,9 @@ function PlayerRightside() {
       <input
         type="range"
         name="volume-player"
-        defaultValue="1"
-        className="progress-bar"
+        defaultValue="100"
+        className="progress-bar volume-bar"
+        ref={ volumeBar }
         onChange={ volumeChange }
       />
     </div>
