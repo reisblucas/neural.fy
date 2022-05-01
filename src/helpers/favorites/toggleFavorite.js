@@ -8,7 +8,6 @@ const toggleFavorite = (toToggle) => {
 
   if (isFavorite) {
     const rmvFav = favoritesToSidebar.filter((sng) => sng.trackId !== played.trackId);
-    console.log(rmvFav);
     removeSong(played); // rmv from localStorage
     return setFavorite(rmvFav); // redux, att the globalState
   }
