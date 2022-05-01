@@ -48,8 +48,8 @@
   }
 
   .album {
-    overflow-y: scroll ! important;
     height: calc(100% - 90px) ! important;
+    overflow-y: scroll ! important;
   }
 
   .albumDetails {

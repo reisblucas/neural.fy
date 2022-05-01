@@ -73,10 +73,6 @@
   width: 240px;
 }
 
-.friend-activity:first-child {
-  margin-bottom: 0;
-}
-
 .friend-activity-opacity-start {
   opacity: 0;
 }
