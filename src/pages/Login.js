@@ -8,6 +8,7 @@ import SpotifyLogo from '../images/spotify-logo-login-color.svg';
 import LoadingLogin from '../components/LoadingLogin';
 import GithubButton from '../components/buttons/GithubButton';
 import LinkedinButton from '../components/buttons/LinkedinButton';
+import DocButton from '../components/buttons/DocButton';
 
 class Login extends Component {
   constructor() {
@@ -154,6 +155,7 @@ class Login extends Component {
 
             <footer className="copyright-f">
               <div>
+                <DocButton />
                 <GithubButton />
                 <LinkedinButton />
               </div>
@@ -161,10 +163,9 @@ class Login extends Component {
               <p
                 className="copyright-p"
               >
-                &copy; 2022 Spotify AB Design and neur4l Code.
+                &copy; 2022 Spotify AB and neur4l.
               </p>
               <p className="copyright-p">All rights reserved.</p>
-              {/* <p className="copyright-p">&copy; 2022 neur4l. All rights reserved.</p> */}
             </footer>
           </div>
         )
