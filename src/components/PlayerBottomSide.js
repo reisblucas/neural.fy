@@ -2,7 +2,8 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { GiPauseButton } from 'react-icons/gi';
 import { IoPlaySharp } from 'react-icons/io5';
-import { saveFavoriteMusicsAct, setSongPlayedAct } from '../actions';
+import { saveFavoriteMusicsAct, setMusicsToPlayerAct,
+  setSongPlayedAct } from '../actions';
 import bckOrForwardSong from '../helpers/backward-forward-player/bckOrForwardSong';
 import { convertMillsToSeconds } from '../helpers/songTime';
 import '../styles/playerBottomSide.css';
@@ -29,6 +30,10 @@ export const PlayerBottomSide = () => {
   const dispatch = useDispatch();
   const setPlayedSongs = useCallback((objInsidePlayed) => dispatch(
     setSongPlayedAct(objInsidePlayed),
+  ), [dispatch]);
+
+  const setPlaylistSong = useCallback((playlistToSongs) => dispatch(
+    setMusicsToPlayerAct(playlistToSongs),
   ), [dispatch]);
 
   const setFavorite = (favArray) => dispatch(saveFavoriteMusicsAct(favArray));
@@ -87,10 +92,12 @@ export const PlayerBottomSide = () => {
 
   useEffect(() => {
     const lastSong = getInStorage('lastSong');
+    const lastPlaylist = getInStorage('lastPlaylist');
     // get in storage the last playlist song
 
     setPlayedSongs({ ...lastSong, status: false });
-  }, [setPlayedSongs]);
+    setPlaylistSong(lastPlaylist);
+  }, [setPlayedSongs, setPlaylistSong]);
 
   const play = () => {
     audioPlayer.current.play();
