@@ -155,9 +155,9 @@ class Login extends Component {
 
             <footer className="copyright-f">
               <div>
-                <DocButton />
                 <GithubButton />
                 <LinkedinButton />
+                <DocButton />
               </div>
 
               <p
