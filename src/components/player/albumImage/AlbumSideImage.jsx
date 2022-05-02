@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { handleMusicNameClick } from '../../../helpers/artist-music-global';
+import { getInStorage, saveInStorage } from '../../../services/localStorage';
 
 function AlbumSideImage() {
   const store = useSelector((globalState) => ({
@@ -9,6 +10,11 @@ function AlbumSideImage() {
   }));
 
   const { played } = store;
+  const lastSong = getInStorage('lastSong'); // {} initial empty object
+
+  if (played?.trackId && played?.trackId !== lastSong.trackId) {
+    saveInStorage('lastSong', played);
+  }
 
   return played?.trackId ? (
     <div className="pcsi">

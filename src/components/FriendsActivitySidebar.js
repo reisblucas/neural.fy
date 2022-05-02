@@ -15,14 +15,14 @@ import { handlePauseInFriend, handlePlayInFriend } from '../helpers/artist-music
 class FriendsActivitySidebar extends Component {
   state = {
     hasFriendActivity: false,
-    renderFriends: 19,
+    renderFriends: 0,
     friendActivityAnimation: 'friend-activity friend-activity-opacity-start',
     friendsIntervalID: '',
   }
 
   componentDidMount() {
     // const TWO_MIN_IN_MS = 120000;
-    const TWO_MIN_IN_MS = 1000;
+    const TWO_MIN_IN_MS = 12000;
 
     const friendsIntervalID = setInterval(() => {
       this.setState(({ renderFriends }) => ({
