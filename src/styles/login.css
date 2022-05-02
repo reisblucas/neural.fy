@@ -1,3 +1,19 @@
+@media only screen and ( max-width : 414px ) {
+  
+  .login-logo-title {
+    width: 210px ! important;
+  }
+
+  .llt-i {
+    width: 250px !important;
+  }
+
+  .login-name {
+    align-self: flex-end;
+    font-size: 25px ! important;
+  }
+}
+
 .page-login {
   align-items: center;
   display: flex;
@@ -34,7 +50,7 @@
   margin-top: 100px;
 }
 
-.login-logo-title img {
+.llt-i {
   width: 350px;
 }
 
