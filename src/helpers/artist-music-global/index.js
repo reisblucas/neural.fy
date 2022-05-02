@@ -1,7 +1,8 @@
-import { enableRenderAlbumAct, inputSearchAct } from '../../actions';
+import { enableRenderAlbumAct, inputSearchAct, setSongPlayedAct } from '../../actions';
 import fetchAlbumInRedux from '../../thunk/fetchAlbumInRedux';
 import fetchMusicsInRedux from '../../thunk/fetchMusicsInRedux';
 import store from '../../store/index';
+import fetchSongWithoutRedirect from '../../thunk/fetchSongWithoutRedirect';
 
 const { dispatch } = store;
 
@@ -24,4 +25,19 @@ export const resetSearch = async () => {
 
 export const enableRender = async (bool) => {
   await dispatch(enableRenderAlbumAct(bool));
+};
+
+export const handlePlayInFriend = async (collectionId, musicName) => {
+  const response = await fetchSongWithoutRedirect(collectionId); // is an array of objects
+
+  const findFriendSong = response.find((sng) => sng.trackName === musicName); // need to refactor my friends data to catch trackId...
+  console.log(findFriendSong);
+
+  if (findFriendSong) {
+    const dataToSet = {
+      ...findFriendSong,
+      status: true,
+      name: findFriendSong.previewUrl };
+    dispatch(setSongPlayedAct(dataToSet));
+  }
 };
