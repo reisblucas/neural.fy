@@ -74,3 +74,20 @@
 .loginSubmitButton:hover {
   cursor: pointer;
 }
+
+.copyright-f {
+  color: #b3b3b3;
+  bottom: 10px;
+  position: fixed;
+  width: 100%;
+}
+
+.copyright-p {
+  font-size: 14px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.copyright-p:hover {
+  color: #b3b3b3;
+}
