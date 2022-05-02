@@ -69,6 +69,7 @@ class Login extends Component {
     } = this.state;
 
     const defaultImg = 'https://i.pinimg.com/474x/86/0d/cd/860dcdf5cd536bfd86d8fc86efdbdd18.jpg';
+    const neuralLogo = '<n4/>';
 
     return (
       isLoading
@@ -82,8 +83,11 @@ class Login extends Component {
             <div className="page-login" data-testid="page-login">
               <div className="login-logo-title">
                 <img src={ SpotifyLogo } alt="Spotify Logo" />
-                <h2 className="header-collab">X</h2>
-                <h1 className="login-name">neur4l</h1>
+                {/* <h2 className="header-collab">by</h2> */}
+                <h1 className="login-name">
+                  <span className="span-ln">by</span>
+                  {neuralLogo}
+                </h1>
               </div>
               <br />
               <form action="" className="login-inputs">

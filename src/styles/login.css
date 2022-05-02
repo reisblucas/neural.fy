@@ -39,7 +39,16 @@
 }
 
 .login-name {
-  margin: 0;
+  color: #00d96c;
+  font-family: 'Press Start 2P' , cursive;
+  font-size: 38px;
+  /* margin-top: 20px; */
+}
+
+.span-ln {
+  font-size: 20px;
+  margin-right: 5px;
+  vertical-align: top;
 }
 
 .loginSubmitButton {
