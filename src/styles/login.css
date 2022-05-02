@@ -1,11 +1,11 @@
 @media only screen and ( max-width : 414px ) {
-  
+
   .login-logo-title {
     width: 210px ! important;
   }
 
   .llt-i {
-    width: 250px !important;
+    width: 250px ! important;
   }
 
   .login-name {
