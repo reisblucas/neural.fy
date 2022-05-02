@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { getUser } from '../services/userAPI';
 
-export default class ProfileHeader extends Component {
+class ProfileHeader extends Component {
   state = {
     name: '',
     image: 'https://i.pinimg.com/474x/86/0d/cd/860dcdf5cd536bfd86d8fc86efdbdd18.jpg',
@@ -32,18 +33,47 @@ export default class ProfileHeader extends Component {
 
   render() {
     const { name, image } = this.state;
+    const { location: { pathname } } = this.props;
 
-    return (
-      <Link to="/profile" className="linkStyle linkToProfileTopsideBar">
-        <div className="showUserBar">
-          <img
-            src={ image }
-            alt="profile icon"
-            className="image-icon"
-          />
-          <p data-testid="header-user-name" className="ellipsis">{ name }</p>
-        </div>
-      </Link>
-    );
+    switch (true) {
+    case pathname === '/favorites':
+      return (
+        <Link
+          to="/profile"
+          className="linkStyle linkToProfileTopsideBar reset-showuser"
+        >
+          <div className="showUserBar">
+            <img
+              src={ image }
+              alt="profile icon"
+              className="image-icon"
+            />
+            <p data-testid="header-user-name" className="ellipsis">{ name }</p>
+          </div>
+        </Link>
+      );
+    default:
+      return (
+        <Link
+          to="/profile"
+          className="linkStyle linkToProfileTopsideBar"
+        >
+          <div className="showUserBar">
+            <img
+              src={ image }
+              alt="profile icon"
+              className="image-icon"
+            />
+            <p data-testid="header-user-name" className="ellipsis">{ name }</p>
+          </div>
+        </Link>
+      );
+    }
   }
 }
+
+ProfileHeader.propTypes = {
+  location: PropTypes.string,
+}.isRequired;
+
+export default withRouter(ProfileHeader);
