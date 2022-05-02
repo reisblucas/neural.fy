@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import '../styles/header.css';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 import TopsideHeader from './TopsideHeader';
 import FavSideList from './FavSideList';
 import LoadingHeader from './LoadingHeader';
-import { handleMusicNameClick } from '../helpers/artist-music-global';
+import AlbumSideImage from './player/albumImage/AlbumSideImage';
 
 class Header extends Component {
   constructor() {
@@ -64,7 +62,6 @@ class Header extends Component {
 
   render() {
     const { isLoading } = this.state;
-    const { played } = this.props;
 
     this.forceReloadVerifier();
 
@@ -88,27 +85,7 @@ class Header extends Component {
           }
         </div>
 
-        {
-          played?.trackId
-            && (
-              <div className="pcsi">
-                <Link
-                  to={ `/album/${played?.collectionId}` }
-                  onClick={ async () => {
-                    handleMusicNameClick(played?.artistName, played?.collectionId);
-                  } }
-                >
-                  <img
-                    src={ played?.artworkUrl100
-                      .replace('100x100bb.jpg', '500x500bb.jpg') }
-                    alt="Current song album"
-                    className="pcsi-im"
-                  />
-                </Link>
-              </div>
-            )
-        }
-
+        <AlbumSideImage />
       </header>
     );
   }
@@ -118,10 +95,4 @@ Header.propTypes = {
   url: PropTypes.string,
 }.isRequired;
 
-const mapStateToProps = (state) => ({
-  played: state.musicsToPlayer.played,
-});
-
-// const mapDispatchToProps = {}
-
-export default connect(mapStateToProps)(Header);
+export default Header;
