@@ -61,6 +61,11 @@ export const PlayerBottomSide = () => {
   }, []);
 
   useEffect(() => {
+    const lastSong = getInStorage('lastSong');
+    setPlayedSongs({ ...lastSong, status: false });
+  }, [setPlayedSongs]);
+
+  useEffect(() => {
     if (played.status) {
       const volume = getInStorage('volume');
       audioPlayer.current.volume = volume;
