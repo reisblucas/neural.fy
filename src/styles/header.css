@@ -96,6 +96,10 @@
     margin: 0 auto;
     width: 90% ! important;
   }
+
+  .pcsi-im {
+    display: none;
+  }
 }
 
 .header-hero {
@@ -203,7 +207,7 @@
   height: 100%;
   overflow-y: scroll;
   padding: 0 10px 0 24px;
-  height: calc(100% - 450px);
+  /* height: calc(100% - 450px); */
 }
 
 .favList {
