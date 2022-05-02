@@ -63,22 +63,44 @@ function PlayerRightside() {
 
   const volumeVerifier = () => {
     const ZERO = 0;
-    const ZERO_DOT_FIVE = 0.5;
+    const ZERO_DOT_THREE = 0.3;
+    const ZERO_DOT_SEVEN = 0.7;
+
+    const SOUNDWAVE = ')';
 
     switch (true) {
     case (crrVolume === ZERO):
       return (
         <>
           <IoVolumeOffOutline />
-          <div className="vol-mute">x</div>
+          <div className="vol mute">x</div>
         </>
       );
 
-    case (crrVolume > ZERO && crrVolume <= ZERO_DOT_FIVE):
-      return <IoVolumeLowOutline />;
+    case (crrVolume > ZERO && crrVolume <= ZERO_DOT_THREE):
+      return (
+        <>
+          <IoVolumeOffOutline />
+          <div className="vol low-sound">{SOUNDWAVE}</div>
+        </>
+      );
 
-    case (crrVolume > ZERO_DOT_FIVE):
-      return <IoVolumeMediumOutline />;
+    case (crrVolume > ZERO_DOT_THREE && crrVolume <= ZERO_DOT_SEVEN):
+      return (
+        <>
+          <IoVolumeOffOutline />
+          <div className="vol med-sound">{SOUNDWAVE}</div>
+        </>
+      );
+
+    case (crrVolume > ZERO_DOT_SEVEN):
+      return (
+        <>
+          <IoVolumeOffOutline />
+          <div className="vol low-sound">{SOUNDWAVE}</div>
+          <div className="vol high-sound">{SOUNDWAVE}</div>
+        </>
+      );
 
     default:
       return <IoVolumeMediumOutline />;

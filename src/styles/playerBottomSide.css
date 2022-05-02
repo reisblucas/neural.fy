@@ -300,12 +300,33 @@
   font-size: 20px;
 }
 
-.vol-mute {
-  bottom: 40px;
-  font-size: x-small;
+.vol {
   font-weight: 800;
   position: absolute;
+}
+
+.mute {
+  bottom: 40px;
+  font-size: x-small;
   right: 155px;
+}
+
+.low-sound {
+  bottom: 42px;
+  font-size: 5px;
+  right: 155px;
+}
+
+.med-sound {
+  bottom: 40px;
+  font-size: 9px;
+  right: 155px;
+}
+
+.high-sound {
+  bottom: 40px;
+  font-size: 10px;
+  right: 152px;
 }
 
 /* github button and linkedin button */
