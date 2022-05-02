@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/header.css';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { getUser } from '../services/userAPI';
 import TopsideHeader from './TopsideHeader';
 import FavSideList from './FavSideList';
@@ -61,6 +62,8 @@ class Header extends Component {
 
   render() {
     const { isLoading } = this.state;
+    const { played } = this.props;
+    console.log(played);
 
     this.forceReloadVerifier();
 
@@ -71,7 +74,6 @@ class Header extends Component {
         <hr className="sideBarHorizontalRow" />
 
         <div className="sideFavSongsContainer">
-
           {
             isLoading
               ? (
@@ -84,6 +86,22 @@ class Header extends Component {
               )
           }
         </div>
+
+        {/* "https://is4-ssl.mzstatic.com/image/thumb/Music115/v4/60/6a/87/606a8773-eb97-b24c-afb9-bad16e6780cf/source/100x100bb.jpg" */}
+        {
+          played?.trackId
+            && (
+              <div className="pcsi">
+                <img
+                  src={ played?.artworkUrl100
+                    .replace('100x100bb.jpg', '500x500bb.jpg') }
+                  alt="Current song album"
+                  className="pcsi-im"
+                />
+              </div>
+            )
+        }
+
       </header>
     );
   }
@@ -93,4 +111,10 @@ Header.propTypes = {
   url: PropTypes.string,
 }.isRequired;
 
-export default Header;
+const mapStateToProps = (state) => ({
+  played: state.musicsToPlayer.played,
+});
+
+// const mapDispatchToProps = {}
+
+export default connect(mapStateToProps)(Header);

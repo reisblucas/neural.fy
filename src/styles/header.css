@@ -112,6 +112,11 @@
   width: 100%;
 }
 
+/* header hero for when music player status are true */
+.hh-mp {
+  height: calc(100vh - 60px);
+}
+
 .header-link-style {
   color: white;
   text-decoration: none;
@@ -198,6 +203,7 @@
   height: 100%;
   overflow-y: scroll;
   padding: 0 10px 0 24px;
+  height: calc(100% - 450px);
 }
 
 .favList {
@@ -274,4 +280,16 @@
 
 .fs-p:hover .sb-pi {
   display: flex;
+}
+
+/* player current song image - div*/
+.pcsi-d {
+  height: 200px;
+  width: 200px;
+}
+
+/* ... - image */
+.pcsi-im {
+  height: 100%;
+  width: 100%;
 }
