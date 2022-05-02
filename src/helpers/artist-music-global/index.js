@@ -33,12 +33,11 @@ export const handlePlayInFriend = async (collectionId, musicName) => {
 
   const findFriendSong = response.find((sng) => sng.trackName === musicName); // need to refactor my friends data to catch trackId...
   if (findFriendSong) {
-    console.log('pausei no play');
-
     const dataToSet = {
       ...findFriendSong,
       status: true,
       name: findFriendSong.previewUrl };
+
     dispatch(setSongPlayedAct(dataToSet));
   }
 

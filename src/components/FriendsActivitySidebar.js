@@ -163,7 +163,6 @@ class FriendsActivitySidebar extends Component {
                             className="friend-pp-icon-father fpi-reset"
                             onClick={ () => {
                               if (played?.status && played?.trackName === musicName) {
-                                console.log('pausei no clique');
                                 return handlePauseInFriend();
                               }
                               handlePlayInFriend(collectionId, musicName);
