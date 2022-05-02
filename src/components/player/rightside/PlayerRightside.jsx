@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { FaLinkedin } from 'react-icons/fa';
-import { IoVolumeLowOutline, IoVolumeMediumOutline,
-  IoVolumeOffOutline } from 'react-icons/io5';
+import { IoVolumeMediumOutline, IoVolumeOffOutline } from 'react-icons/io5';
 import { VscGithub, VscLayers } from 'react-icons/vsc';
 import { getInStorage, saveInStorage } from '../../../services/localStorage';
 import '../../../styles/playerBottomSide.css';
