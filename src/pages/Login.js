@@ -83,7 +83,6 @@ class Login extends Component {
             <div className="page-login" data-testid="page-login">
               <div className="login-logo-title">
                 <img src={ SpotifyLogo } alt="Spotify Logo" />
-                {/* <h2 className="header-collab">by</h2> */}
                 <h1 className="login-name">
                   <span className="span-ln">by</span>
                   {neuralLogo}
