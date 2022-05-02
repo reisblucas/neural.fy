@@ -37,7 +37,7 @@ class FavSideList extends Component {
     return (
       <div className="favList">
         {
-          favoritesToSidebar.map((song) => {
+          favoritesToSidebar && favoritesToSidebar.map((song) => {
             const { artistName, collectionId, trackId, trackName } = song;
             return (
               <div key={ trackId } className="sfs-p">
