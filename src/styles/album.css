@@ -3,6 +3,37 @@
   font-size: 15px;
 }
 
+@media only screen and ( max-width : 950px ) {
+
+  .albumTitle {
+    max-height: 1000px ! important;
+  }
+
+  .album {
+    height: calc(100% - 90px) ! important;
+    overflow-x: hidden;
+    overflow-y: scroll ! important;
+  }
+
+  .albumDetails {
+    padding-left: 0 ! important;
+    text-align: center;
+    width: auto ! important;
+  }
+
+  .artistDetails {
+    justify-content: center ! important;
+  }
+
+  .musicAndArtist {
+    width: 40% ! important;
+  }
+
+  .titleFilter {
+    width: 50% ! important;
+  }
+}
+
 @media only screen and ( max-width : 415px ) {
 
   .album {
@@ -38,33 +69,6 @@
 
   ::-webkit-scrollbar {
     width: 0 ! important;
-  }
-}
-
-@media only screen and ( max-width : 950px ) {
-
-  .albumTitle {
-    max-height: 1000px ! important;
-  }
-
-  .album {
-    height: calc(100% - 90px) ! important;
-    overflow-x: hidden;
-    overflow-y: scroll ! important;
-  }
-
-  .albumDetails {
-    padding-left: 0 ! important;
-    text-align: center;
-    width: auto ! important;
-  }
-
-  .artistDetails {
-    justify-content: center ! important;
-  }
-
-  .musicAndArtist {
-    width: 40% ! important;
   }
 
   .titleFilter {
