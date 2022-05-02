@@ -6,7 +6,7 @@ import chonkyGreyCat from '../../images/friendsActivityProfile/chonky-grey-cat.p
 import couplePhoto from '../../images/friendsActivityProfile/couple-photo.jpeg';
 import cryptopunkBlue from '../../images/friendsActivityProfile/cryptopunk-blue.jpg';
 import chonkyOrangeCat from '../../images/friendsActivityProfile/fat-cat.webp';
-import fortSuperHero from '../../images/friendsActivityProfile/fortnite-superhero.webp';
+import neurxl from '../../images/friendsActivityProfile/neurxl.jpg';
 import eiffelTower from '../../images/friendsActivityProfile/french-eiffel-tower.jpg';
 import frenchVisa from '../../images/friendsActivityProfile/french-visa-1920x1080.jpg';
 import girlPic from '../../images/friendsActivityProfile/girl-picture.jpg';
@@ -47,7 +47,7 @@ const electro = 'how to feel better';
 
 export const musicData = [
   {
-    image: fortSuperHero,
+    image: neurxl,
     username: 'Lucca Baker',
     musicName: 'Over My Dead Body',
     artistName: 'Drake',

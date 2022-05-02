@@ -207,7 +207,6 @@
   height: 100%;
   overflow-y: scroll;
   padding: 0 10px 0 24px;
-  /* height: calc(100% - 450px); */
 }
 
 .favList {
@@ -286,7 +285,7 @@
   display: flex;
 }
 
-/* player current song image - div*/
+/* player current song image - div */
 .pcsi-d {
   height: 200px;
   width: 200px;
