@@ -121,7 +121,7 @@ export const musicData = [
   {
     image: frenchVisa,
     username: 'Matthew Baker',
-    musicName: 'SICK MODE',
+    musicName: 'SICKO MODE',
     artistName: 'Travis Scott',
     collectionId: 1421241217,
     playlist: 'ASTROWORLD',
@@ -129,7 +129,7 @@ export const musicData = [
   {
     image: eiffelTower,
     username: 'Anthony',
-    musicName: 'Wild Kidz',
+    musicName: 'My Girl',
     artistName: 'Vintage Culture & Ricci',
     collectionId: 1462912754,
     playlist: electro,
@@ -137,7 +137,7 @@ export const musicData = [
   {
     image: chonkyOrangeCat,
     username: 'Giorgia Campbell',
-    musicName: 'My Girl',
+    musicName: 'Wild Kidz',
     artistName: 'Vintage Culture & Fancy Inc',
     collectionId: 1346689058,
     playlist: electro,
