@@ -5,6 +5,7 @@ import '../../../styles/playerBottomSide.css';
 import DocButton from '../../buttons/DocButton';
 import GithubButton from '../../buttons/GithubButton';
 import LinkedinButton from '../../buttons/LinkedinButton';
+import FooterText from '../../FooterText';
 
 const ZERO_DOT_ONE = 0.1;
 
@@ -130,6 +131,8 @@ function PlayerRightside() {
         onClick={ volumeChange }
         onChange={ volumeChange }
       />
+
+      <FooterText classNameFoot="copyright-player" />
     </div>
   );
 }
