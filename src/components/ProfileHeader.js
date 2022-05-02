@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter, Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 
 class ProfileHeader extends Component {
@@ -33,47 +32,23 @@ class ProfileHeader extends Component {
 
   render() {
     const { name, image } = this.state;
-    const { location: { pathname } } = this.props;
 
-    switch (true) {
-    case pathname === '/favorites':
-      return (
-        <Link
-          to="/profile"
-          className="linkStyle linkToProfileTopsideBar reset-showuser"
-        >
-          <div className="showUserBar">
-            <img
-              src={ image }
-              alt="profile icon"
-              className="image-icon"
-            />
-            <p data-testid="header-user-name" className="ellipsis">{ name }</p>
-          </div>
-        </Link>
-      );
-    default:
-      return (
-        <Link
-          to="/profile"
-          className="linkStyle linkToProfileTopsideBar"
-        >
-          <div className="showUserBar">
-            <img
-              src={ image }
-              alt="profile icon"
-              className="image-icon"
-            />
-            <p data-testid="header-user-name" className="ellipsis">{ name }</p>
-          </div>
-        </Link>
-      );
-    }
+    return (
+      <Link
+        to="/profile"
+        className="linkStyle linkToProfileTopsideBar"
+      >
+        <div className="showUserBar">
+          <img
+            src={ image }
+            alt="profile icon"
+            className="image-icon"
+          />
+          <p data-testid="header-user-name" className="ellipsis">{ name }</p>
+        </div>
+      </Link>
+    );
   }
 }
 
-ProfileHeader.propTypes = {
-  location: PropTypes.string,
-}.isRequired;
-
-export default withRouter(ProfileHeader);
+export default ProfileHeader;

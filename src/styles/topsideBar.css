@@ -23,7 +23,10 @@
   flex-direction: row;
   height: 50px;
   justify-content: space-between;
-  margin-top: 15px;
+}
+
+.padding-search {
+  padding: 20px 40px 0;
 }
 
 .page-control {
