@@ -5,12 +5,9 @@ import { Link } from 'react-router-dom';
 import { IoVolumeMediumOutline } from 'react-icons/io5';
 import { GiPauseButton } from 'react-icons/gi';
 
-import {
-  inputSearchAct,
-  saveFavoriteMusicsAct, saveUrlAct, setSongPlayedAct } from '../actions';
+import { saveFavoriteMusicsAct, saveUrlAct, setSongPlayedAct } from '../actions';
 import { getFavoriteSongs } from '../services/favoriteSongsAPI';
-import fetchAlbumInRedux from '../thunk/fetchAlbumInRedux';
-import fetchMusics from '../thunk/fetchMusicsInRedux';
+import { handleMusicNameClick } from '../helpers/artist-music-global';
 
 class FavSideList extends Component {
   componentDidMount() {
@@ -35,13 +32,7 @@ class FavSideList extends Component {
   }
 
   render() {
-    const {
-      favoritesToSidebar,
-      fetchAlbumThunk,
-      fetchMusicsThunk,
-      inputSearchGlobal,
-      played,
-    } = this.props;
+    const { favoritesToSidebar, played } = this.props;
 
     return (
       <div className="favList">
@@ -53,11 +44,7 @@ class FavSideList extends Component {
                 <Link
                   to={ `/album/${collectionId}` }
                   className="sideLinkStyle"
-                  onClick={ async () => {
-                    fetchAlbumThunk(artistName);
-                    fetchMusicsThunk(collectionId);
-                    await inputSearchGlobal(artistName);
-                  } }
+                  onClick={ () => { handleMusicNameClick(artistName, collectionId); } }
                 >
                   <p className="side-fav-musics ellipsis">{trackName}</p>
                 </Link>
@@ -96,9 +83,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAlbumThunk: (artistName) => dispatch(fetchAlbumInRedux(artistName)),
-  fetchMusicsThunk: (albumId) => dispatch(fetchMusics(albumId)),
-  inputSearchGlobal: (inputValue) => dispatch(inputSearchAct(inputValue)),
   saveFavoriteMusics: (favorites) => dispatch(saveFavoriteMusicsAct(favorites)),
   saveUrl: (url) => dispatch(saveUrlAct(url)),
   setPlayedSong: (obj) => dispatch(setSongPlayedAct(obj)),
