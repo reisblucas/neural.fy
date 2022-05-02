@@ -6,6 +6,8 @@ import '../styles/loadingLogin.css';
 import { createUser } from '../services/userAPI';
 import SpotifyLogo from '../images/spotify-logo-login-color.svg';
 import LoadingLogin from '../components/LoadingLogin';
+import GithubButton from '../components/buttons/GithubButton';
+import LinkedinButton from '../components/buttons/LinkedinButton';
 
 class Login extends Component {
   constructor() {
@@ -151,6 +153,11 @@ class Login extends Component {
             </div>
 
             <footer className="copyright-f">
+              <div>
+                <GithubButton />
+                <LinkedinButton />
+              </div>
+
               <p
                 className="copyright-p"
               >
