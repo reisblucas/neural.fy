@@ -61,11 +61,6 @@ export const PlayerBottomSide = () => {
   }, []);
 
   useEffect(() => {
-    const lastSong = getInStorage('lastSong');
-    setPlayedSongs({ ...lastSong, status: false });
-  }, [setPlayedSongs]);
-
-  useEffect(() => {
     if (played.status) {
       const volume = getInStorage('volume');
       audioPlayer.current.volume = volume;
@@ -89,6 +84,13 @@ export const PlayerBottomSide = () => {
     progressBar.current.max = seconds;
   }, [played, played.name, played.status, played.trackTimeMillis, crrTime,
     audioPlayerEnded, favoritesToSidebar, setPlayedSongs, songsGlobal, whilePlaying]);
+
+  useEffect(() => {
+    const lastSong = getInStorage('lastSong');
+    // get in storage the last playlist song
+
+    setPlayedSongs({ ...lastSong, status: false });
+  }, [setPlayedSongs]);
 
   const play = () => {
     audioPlayer.current.play();
@@ -119,7 +121,11 @@ export const PlayerBottomSide = () => {
       <PlayerArtistInfo played={ played } toToggle={ toToggle } />
 
       <div className="central-player-buttons">
-        <audio ref={ audioPlayer } src={ played.name } autoPlay>
+        <audio
+          ref={ audioPlayer }
+          src={ played.name }
+          // autoPlay
+        >
           <track kind="captions" />
           Your browser does not support this player.
           <code>audio</code>
