@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { FaLinkedin } from 'react-icons/fa';
 import { IoVolumeMediumOutline, IoVolumeOffOutline } from 'react-icons/io5';
-import { VscGithub, VscLayers } from 'react-icons/vsc';
 import { getInStorage, saveInStorage } from '../../../services/localStorage';
 import '../../../styles/playerBottomSide.css';
+import GithubButton from '../../buttons/GithubButton';
+import LinkedinButton from '../../buttons/LinkedinButton';
+import QueueButton from '../../buttons/QueueButton';
 
 const ZERO_DOT_ONE = 0.1;
 
@@ -108,30 +109,9 @@ function PlayerRightside() {
 
   return (
     <div className="right-player-buttons">
-      <a
-        href="https://github.com/byneur4l"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="cpb gh-in pbr"
-      >
-        <VscGithub />
-      </a>
-
-      <a
-        href="https://www.linkedin.com/in/reisblucas/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="cpb gh-in pbr"
-      >
-        <FaLinkedin />
-      </a>
-
-      <button
-        className="cpb gh-in pbr"
-        type="button"
-      >
-        <VscLayers />
-      </button>
+      <GithubButton />
+      <LinkedinButton />
+      <QueueButton />
 
       <button
         className="cpb vb pbr"
