@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { IoVolumeMediumOutline, IoVolumeOffOutline } from 'react-icons/io5';
 import { getInStorage, saveInStorage } from '../../../services/localStorage';
 import '../../../styles/playerBottomSide.css';
+import DocButton from '../../buttons/DocButton';
 import GithubButton from '../../buttons/GithubButton';
 import LinkedinButton from '../../buttons/LinkedinButton';
-import QueueButton from '../../buttons/QueueButton';
 
 const ZERO_DOT_ONE = 0.1;
 
@@ -111,7 +111,7 @@ function PlayerRightside() {
     <div className="right-player-buttons">
       <GithubButton />
       <LinkedinButton />
-      <QueueButton />
+      <DocButton />
 
       <button
         className="cpb vb pbr"
