@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { GiPauseButton } from 'react-icons/gi';
 import { IoPlaySharp } from 'react-icons/io5';
@@ -27,7 +27,10 @@ export const PlayerBottomSide = () => {
     played, favoritesToSidebar } = state;
 
   const dispatch = useDispatch();
-  const setPlayedSongs = (objInsidePlayed) => dispatch(setSongPlayedAct(objInsidePlayed));
+  const setPlayedSongs = useCallback((objInsidePlayed) => dispatch(
+    setSongPlayedAct(objInsidePlayed),
+  ), [dispatch]);
+
   const setFavorite = (favArray) => dispatch(saveFavoriteMusicsAct(favArray));
 
   const [crrTime, setCrrTime] = useState('0:00');
@@ -39,6 +42,23 @@ export const PlayerBottomSide = () => {
   const animationRef = useRef();
 
   const audioPlayerEnded = audioPlayer?.current?.ended;
+
+  const changePlayerCurrentTime = () => {
+    // performatic bug?
+    // console.log(Math.floor((progressBar.current.value / DEFAULT_PREVIEW_DURATION) * 100));
+    progressBar.current
+      .style.setProperty(
+        '--seek-before-width',
+        `${(progressBar.current.value / DEFAULT_PREVIEW_DURATION) * 100}%`,
+      );
+    setCrrTime(progressBar.current.value);
+  };
+
+  const whilePlaying = useCallback(() => {
+    progressBar.current.value = audioPlayer.current.currentTime;
+    changePlayerCurrentTime();
+    animationRef.current = requestAnimationFrame(whilePlaying);
+  }, []);
 
   useEffect(() => {
     if (played.status) {
@@ -62,10 +82,8 @@ export const PlayerBottomSide = () => {
     // itunes api always return 30s in preview, so max seconds need to be 30s
     const seconds = 30;
     progressBar.current.max = seconds;
-  }, [
-    played, played.name, played.status, played.trackTimeMillis,
-    crrTime, audioPlayerEnded, favoritesToSidebar,
-  ]);
+  }, [played, played.name, played.status, played.trackTimeMillis, crrTime,
+    audioPlayerEnded, favoritesToSidebar, setPlayedSongs, songsGlobal, whilePlaying]);
 
   const play = () => {
     audioPlayer.current.play();
@@ -82,23 +100,6 @@ export const PlayerBottomSide = () => {
   const handlePlayButton = () => {
     if (played.name === '') { return null; } // same as do nothing...
     return played.status ? pause() : play();
-  };
-
-  const changePlayerCurrentTime = () => {
-    // performatic bug?
-    // console.log(Math.floor((progressBar.current.value / DEFAULT_PREVIEW_DURATION) * 100));
-    progressBar.current
-      .style.setProperty(
-        '--seek-before-width',
-        `${(progressBar.current.value / DEFAULT_PREVIEW_DURATION) * 100}%`,
-      );
-    setCrrTime(progressBar.current.value);
-  };
-
-  const whilePlaying = () => {
-    progressBar.current.value = audioPlayer.current.currentTime;
-    changePlayerCurrentTime();
-    animationRef.current = requestAnimationFrame(whilePlaying);
   };
 
   const changeRange = () => {
