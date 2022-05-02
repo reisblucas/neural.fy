@@ -5,14 +5,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { IoPlaySharp } from 'react-icons/io5';
 import { GiPauseButton } from 'react-icons/gi';
-import { enableRenderAlbumAct, inputSearchAct } from '../actions';
 import { musicData } from '../data/friendsActivity/friendsData';
 import '../styles/friendsActivity.css';
-import fetchMusics from '../thunk/fetchMusicsInRedux';
 import FriendActivityDefault from './FriendActivityDefault';
 import LinkMusicName from './LinkMusicName';
 import LinkArtistName from './LinkArtistName';
-import fetchAlbumInRedux from '../thunk/fetchAlbumInRedux';
 
 class FriendsActivitySidebar extends Component {
   state = {
@@ -93,6 +90,7 @@ class FriendsActivitySidebar extends Component {
                             <button
                               type="button"
                               className="friend-pp-icon-father fpi-reset"
+                              onClick={ () => console.log('o pai ta clicando muito') }
                             >
                               {
                                 conditionForPlayAndPause
@@ -216,22 +214,15 @@ class FriendsActivitySidebar extends Component {
 }
 
 FriendsActivitySidebar.propTypes = {
-  enableRender: PropTypes.func,
-  fetchAlbumThunk: PropTypes.func,
-  fetchMusicsThunk: PropTypes.func,
-  inputSearchGlobal: PropTypes.func,
+  played: PropTypes.shape({
+    collectionId: PropTypes.number,
+    status: PropTypes.bool,
+    trackName: PropTypes.string,
+  }),
 }.isRequired;
 
 const mapStateToProps = (state) => ({
   played: state.musicsToPlayer.played,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchAlbumThunk: (artistName) => dispatch(fetchAlbumInRedux(artistName)),
-  fetchMusicsThunk: (albumId) => dispatch(fetchMusics(albumId)),
-
-  inputSearchGlobal: (inputValue) => dispatch(inputSearchAct(inputValue)),
-  enableRender: (bool) => dispatch(enableRenderAlbumAct(bool)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(FriendsActivitySidebar);
+export default connect(mapStateToProps, null)(FriendsActivitySidebar);

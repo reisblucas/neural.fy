@@ -1,6 +1,6 @@
 import { responseMusicsAct, saveAlbumNameAct } from '../actions';
 
-const fetchMusics = (id) => async (dispatch) => {
+const fetchMusicsInRedux = (id) => async (dispatch) => {
   const url = `https://itunes.apple.com/lookup?id=${id}&entity=song`;
 
   try {
@@ -13,4 +13,4 @@ const fetchMusics = (id) => async (dispatch) => {
   }
 };
 
-export default fetchMusics;
+export default fetchMusicsInRedux;
