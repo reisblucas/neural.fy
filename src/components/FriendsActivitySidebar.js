@@ -10,7 +10,7 @@ import '../styles/friendsActivity.css';
 import FriendActivityDefault from './FriendActivityDefault';
 import LinkMusicName from './LinkMusicName';
 import LinkArtistName from './LinkArtistName';
-import { handlePlayInFriend } from '../helpers/artist-music-global';
+import { handlePauseInFriend, handlePlayInFriend } from '../helpers/artist-music-global';
 
 class FriendsActivitySidebar extends Component {
   state = {
@@ -55,7 +55,6 @@ class FriendsActivitySidebar extends Component {
     const musicDataClone = [...musicData];
     const musicDataSliced = musicDataClone.slice(0, renderFriends); // usar esse no map
     const { played } = this.props;
-    console.log(played.status);
 
     return (
       <div className="friends-container-hero">
@@ -80,11 +79,6 @@ class FriendsActivitySidebar extends Component {
                       && played?.collectionId === collectionId
                       && played?.trackName === musicName;
 
-                    // console.log(conditionForPlayAndPause);
-                    // console.log(played.status);
-                    // console.log(played?.collectionId);
-                    console.log(played?.trackName);
-
                     if (i === (renderFriends - 1)) {
                       return (
                         <div key={ i } className={ friendActivityAnimation }>
@@ -98,7 +92,9 @@ class FriendsActivitySidebar extends Component {
                               type="button"
                               className="friend-pp-icon-father fpi-reset"
                               onClick={ () => {
-                                console.log('o pai ta clicando muito');
+                                if (played.status) {
+                                  return handlePauseInFriend();
+                                }
                                 handlePlayInFriend(collectionId, musicName);
                               } }
                             >
@@ -166,7 +162,10 @@ class FriendsActivitySidebar extends Component {
                             type="button"
                             className="friend-pp-icon-father fpi-reset"
                             onClick={ () => {
-                              console.log('o pai ta clicando muito');
+                              if (played?.status && played?.trackName === musicName) {
+                                console.log('pausei no clique');
+                                return handlePauseInFriend();
+                              }
                               handlePlayInFriend(collectionId, musicName);
                             } }
                           >
