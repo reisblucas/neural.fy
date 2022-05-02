@@ -6,14 +6,20 @@ import { getInStorage, saveInStorage } from '../../../services/localStorage';
 
 function AlbumSideImage() {
   const store = useSelector((globalState) => ({
+    songs: globalState.musicsToPlayer.songs,
     played: globalState.musicsToPlayer.played,
   }));
 
-  const { played } = store;
+  const { played, songs } = store;
   const lastSong = getInStorage('lastSong'); // {} initial empty object
+  const lastPlaylist = getInStorage('lastPlaylist');
 
   if (played?.trackId && played?.trackId !== lastSong.trackId) {
     saveInStorage('lastSong', played);
+  }
+
+  if (played?.trackId && played?.collectionId !== lastPlaylist[0]?.collectionId) {
+    saveInStorage('lastPlaylist', songs);
   }
 
   return played?.trackId ? (
