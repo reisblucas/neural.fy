@@ -5,6 +5,20 @@
   }
 }
 
+@media only screen and ( min-width : 950px ) and ( max-width : 975px ) {
+
+  .inputSearch {
+    width: 12vw ! important;
+  }
+}
+
+@media only screen and ( min-width : 976px ) and ( max-width : 1105px ) {
+
+  .inputSearch {
+    width: 15vw ! important;
+  }
+}
+
 .headerPattern {
   display: flex;
 }
