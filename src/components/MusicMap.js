@@ -49,10 +49,17 @@ class MusicMap extends Component {
     enableRender(true);
   }
 
+  classNameConditionForPlayedSong = (trackId) => {
+    const { played } = this.state;
+    const { musicsToPlayer: { played: playedGlobal } } = this.props;
+
+    return playedGlobal?.status && played?.trackId === trackId
+      ? 'musicName ellipsis songplayed-in-album'
+      : 'musicName ellipsis';
+  }
+
   render() {
-    const { handleCheck, handleReload, match: { path }, tracks,
-      musicsToPlayer: { played: playedGlobal },
-    } = this.props;
+    const { handleCheck, handleReload, match: { path }, tracks } = this.props;
     const { played } = this.state;
     const favoritesPath = '/favorites';
 
@@ -112,11 +119,7 @@ class MusicMap extends Component {
                         <div className="musicAndArtist">
                           <div className="divToEllipsis">
                             <p
-                              className={
-                                playedGlobal?.status && played?.trackId === trackId
-                                  ? 'musicName ellipsis songplayed-in-album'
-                                  : 'musicName ellipsis'
-                              }
+                              className={ this.classNameConditionForPlayedSong(trackId) }
                             >
                               { trackName }
                             </p>
@@ -140,11 +143,7 @@ class MusicMap extends Component {
                         <div className="musicAndArtistAlbum">
                           <div className="">
                             <p
-                              className={
-                                playedGlobal?.status && played?.trackId === trackId
-                                  ? 'musicName ellipsis songplayed-in-album'
-                                  : 'musicName ellipsis'
-                              }
+                              className={ this.classNameConditionForPlayedSong(trackId) }
                             >
                               { trackName }
                             </p>
