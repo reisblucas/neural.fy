@@ -19,7 +19,7 @@ class FriendsActivitySidebar extends Component {
     renderFriends: 19,
     friendActivityAnimation: 'friend-activity friend-activity-opacity-start',
     friendsIntervalID: '',
-    orderToShowFriends: [],
+    dataShuffled: [],
   }
 
   componentDidMount() {
@@ -38,10 +38,8 @@ class FriendsActivitySidebar extends Component {
     },
     TWO_MIN_IN_MS);
 
-    const musicDataClone = [...musicData];
-    const orderToShowFriends = shuffler(musicDataClone);
-
-    this.setState({ friendsIntervalID, orderToShowFriends });
+    const dataShuffled = this.friendDataNewOrder();
+    this.setState({ friendsIntervalID, dataShuffled });
   }
 
   shouldComponentUpdate(_nextProps, { renderFriends, friendsIntervalID }) {
@@ -55,12 +53,20 @@ class FriendsActivitySidebar extends Component {
     clearInterval(friendsIntervalID);
   }
 
+  friendDataNewOrder = () => {
+    const musicDataClone = [...musicData];
+    const orderToShowFriends = shuffler(musicDataClone);
+
+    const dataNewOrder = musicDataClone
+      .map((_frnd, i) => musicDataClone[orderToShowFriends[i]]);
+
+    return dataNewOrder;
+  }
+
   render() {
     const { hasFriendActivity, renderFriends, friendActivityAnimation,
-      orderToShowFriends,
+      dataShuffled,
     } = this.state;
-    const musicDataClone = [...musicData];
-    const musicDataSliced = musicDataClone.slice(0, renderFriends); // usar esse no map
     const { played } = this.props;
 
     return (
@@ -78,7 +84,7 @@ class FriendsActivitySidebar extends Component {
             : (
               <div className="father-activity">
                 {
-                  musicDataSliced.map((friend, i) => {
+                  dataShuffled.map((friend, i) => {
                     const { image, username, musicName,
                       artistName, collectionId, playlist } = friend;
 
