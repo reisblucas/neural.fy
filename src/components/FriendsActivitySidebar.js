@@ -23,7 +23,7 @@ class FriendsActivitySidebar extends Component {
   }
 
   componentDidMount() {
-    const TWO_MIN_IN_MS = 120000;
+    const TWO_MIN_IN_MS = 60000;
 
     const friendsIntervalID = setInterval(() => {
       this.setState(({ renderFriends }) => ({
@@ -38,7 +38,7 @@ class FriendsActivitySidebar extends Component {
     TWO_MIN_IN_MS);
 
     const dataShuffled = this.friendDataNewOrder();
-    this.setState({ friendsIntervalID, dataShuffled });
+    this.setState((prevState) => ({ ...prevState, friendsIntervalID, dataShuffled }));
   }
 
   shouldComponentUpdate(_nextProps, { renderFriends, friendsIntervalID }) {
@@ -65,6 +65,8 @@ class FriendsActivitySidebar extends Component {
     } = this.state;
     const { played } = this.props;
 
+    const friendsToShow = dataShuffled.slice(0, renderFriends);
+
     return (
       <div className="friends-container-hero">
         <div className="headerActFrnd">
@@ -80,7 +82,7 @@ class FriendsActivitySidebar extends Component {
             : (
               <div className="father-activity">
                 {
-                  dataShuffled.map((friend, i) => {
+                  friendsToShow.map((friend, i) => {
                     const { image, username, musicName,
                       artistName, collectionId, playlist } = friend;
 
