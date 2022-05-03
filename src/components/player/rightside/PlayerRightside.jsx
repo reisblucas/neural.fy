@@ -18,21 +18,22 @@ function PlayerRightside() {
   const setVolumeStyle = () => volumeBar.current.style
     .setProperty('--seek-vol-before-width', `${(volumeBar.current.value)}%`);
 
-  useEffect(() => {
-    // buscar o volume do localstorage
-    const volume = getInStorage('volume');
-
-    if (volume < 1) { volumeBar.current.value = volume * 100; }
-
-    volumeBar.current.max = 100;
-    setVolumeStyle();
-    setCrrVolume(volume);
-  }, [crrVolume]);
-
   const setVolumeSong = (volState) => {
     const audio = document.querySelector('audio');
     audio.volume = volState;
   };
+
+  const volume = getInStorage('volume');
+  useEffect(() => {
+    // buscar o volume do localstorage
+
+    if (volume <= 1) { volumeBar.current.value = volume * 100; }
+
+    volumeBar.current.max = 100;
+    setVolumeStyle();
+    setCrrVolume(volume);
+    setVolumeSong(volume);
+  }, [crrVolume, volume]);
 
   const volumeChange = () => {
     setVolumeStyle();
