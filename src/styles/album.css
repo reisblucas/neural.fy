@@ -309,10 +309,6 @@
   margin: 0 auto;
 }
 
-.trackPauseIcon {
-  color: #00af59;
-}
-
 .focusMusicRow:hover .tp-icon {
   display: none;
 }

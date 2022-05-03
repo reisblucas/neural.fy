@@ -33,7 +33,7 @@ class ButtonPlay extends Component {
               ? (
                 <GiPauseButton
                   name={ previewUrl }
-                  className="focusable trackPlayIcon trackPauseIcon fs-15"
+                  className="focusable trackPlayIcon fs-15"
                   onClick={ (e) => {
                     handlePauseIcon(e);
                     playAudio(e);
