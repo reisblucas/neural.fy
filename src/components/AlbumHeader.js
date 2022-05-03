@@ -31,11 +31,9 @@ class AlbumHeader extends Component {
       { albumCollection:
         { artistName, collectionName, artworkUrl100 },
       },
-      // gradientColorHandler,
     } = this.props;
 
     const { colors } = this.state;
-    // gradientColorHandler(colors);
 
     return (
       <section
