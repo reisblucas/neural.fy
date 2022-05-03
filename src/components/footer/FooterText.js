@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import '../styles/footerText.css';
+import '../../styles/footerText.css';
 
 function FooterText({ classNameFoot }) {
   return (

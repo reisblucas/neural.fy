@@ -5,7 +5,7 @@ import '../../../styles/playerBottomSide.css';
 import DocButton from '../../buttons/DocButton';
 import GithubButton from '../../buttons/GithubButton';
 import LinkedinButton from '../../buttons/LinkedinButton';
-import FooterText from '../../FooterText';
+import FooterText from '../../footer/FooterText';
 
 const ZERO_DOT_ONE = 0.1;
 
