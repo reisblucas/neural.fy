@@ -23,7 +23,7 @@ class FriendsActivitySidebar extends Component {
   }
 
   componentDidMount() {
-    const TWO_MIN_IN_MS = 1000;
+    const TWO_MIN_IN_MS = 60000;
 
     const friendsIntervalID = setInterval(() => {
       this.setState(({ renderFriends }) => ({
