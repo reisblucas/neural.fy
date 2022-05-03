@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://byneur4l.github.io/neur4l.fy",
   "engines": {
-    "node": "14.x"
+    "node": "16"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.3.0",
