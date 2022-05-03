@@ -267,3 +267,10 @@
 .fpi-p {
   font-size: 16px;
 }
+
+/* friend activity on */
+.fa-on {
+  position: absolute;
+  right: 0;
+  top: 0;
+}

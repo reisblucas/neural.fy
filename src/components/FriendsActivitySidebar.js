@@ -23,7 +23,7 @@ class FriendsActivitySidebar extends Component {
   }
 
   componentDidMount() {
-    const TWO_MIN_IN_MS = 60000;
+    const TWO_MIN_IN_MS = 1000;
 
     const friendsIntervalID = setInterval(() => {
       this.setState(({ renderFriends }) => ({
@@ -128,7 +128,14 @@ class FriendsActivitySidebar extends Component {
                         <div className="friend-detail-info">
                           <div className="friend-name-ellipsis">
                             <p className="friend-name">{username}</p>
-                            {/* FONT ICON // MUSIC TIMER */}
+                            {
+                              (i === (renderFriends - 1))
+                              && <img
+                                src="https://open.scdn.co/cdn/images/equaliser-green.1184ed87.svg"
+                                className="fa-on"
+                                alt=""
+                              />
+                            }
                           </div>
                           <div className="info-friend-music">
                             <div className="friend-music-ellipsis">
