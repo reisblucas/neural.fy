@@ -11,6 +11,7 @@ import FriendActivityDefault from './FriendActivityDefault';
 import LinkMusicName from './LinkMusicName';
 import LinkArtistName from './LinkArtistName';
 import { handlePauseInFriend, handlePlayInFriend } from '../helpers/artist-music-global';
+import shuffler from '../helpers/shuffle/shuffler';
 
 class FriendsActivitySidebar extends Component {
   state = {
@@ -18,6 +19,7 @@ class FriendsActivitySidebar extends Component {
     renderFriends: 19,
     friendActivityAnimation: 'friend-activity friend-activity-opacity-start',
     friendsIntervalID: '',
+    orderToShowFriends: [],
   }
 
   componentDidMount() {
@@ -36,7 +38,10 @@ class FriendsActivitySidebar extends Component {
     },
     TWO_MIN_IN_MS);
 
-    this.setState({ friendsIntervalID });
+    const musicDataClone = [...musicData];
+    const orderToShowFriends = shuffler(musicDataClone);
+
+    this.setState({ friendsIntervalID, orderToShowFriends });
   }
 
   shouldComponentUpdate(_nextProps, { renderFriends, friendsIntervalID }) {
@@ -51,7 +56,9 @@ class FriendsActivitySidebar extends Component {
   }
 
   render() {
-    const { hasFriendActivity, renderFriends, friendActivityAnimation } = this.state;
+    const { hasFriendActivity, renderFriends, friendActivityAnimation,
+      orderToShowFriends,
+    } = this.state;
     const musicDataClone = [...musicData];
     const musicDataSliced = musicDataClone.slice(0, renderFriends); // usar esse no map
     const { played } = this.props;
