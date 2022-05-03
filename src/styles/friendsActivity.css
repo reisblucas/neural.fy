@@ -91,7 +91,20 @@
   height: 40px;
   justify-content: center;
   margin-right: 10px;
+  position: relative;
   width: 40px;
+}
+
+/* friend activity marker */
+.fa-m {
+  background-color: #1573cb;
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 8px;
+  position: absolute;
+  right: 0;
+  top: 2px;
+  width: 8px;
 }
 
 .friend-pp {

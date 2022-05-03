@@ -90,14 +90,20 @@ class FriendsActivitySidebar extends Component {
                       && played?.collectionId === collectionId
                       && played?.trackName === musicName;
 
+                    const conditionForFirstFriend = (i === (renderFriends - 1));
+
                     return (
                       <div
                         key={ i }
-                        className={ (i === (renderFriends - 1))
+                        className={ conditionForFirstFriend
                           ? friendActivityAnimation
                           : 'friend-activity' }
                       >
                         <div className="friend-profile-picture">
+                          {
+                            conditionForFirstFriend
+                            && <div className="fa-m" />
+                          }
                           <img
                             className="friend-pp"
                             src={ image }
@@ -129,7 +135,7 @@ class FriendsActivitySidebar extends Component {
                           <div className="friend-name-ellipsis">
                             <p className="friend-name">{username}</p>
                             {
-                              (i === (renderFriends - 1))
+                              conditionForFirstFriend
                               && <img
                                 src="https://open.scdn.co/cdn/images/equaliser-green.1184ed87.svg"
                                 className="fa-on"
