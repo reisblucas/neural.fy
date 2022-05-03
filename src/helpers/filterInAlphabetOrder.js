@@ -1,7 +1,6 @@
 const filterInAlphabetOrder = (tracks) => {
   const tracksClone = [...tracks];
-  tracksClone.sort((a, b) => (a).localeCompare(b));
-  return tracksClone;
+  return tracksClone.sort((a, b) => (a).localeCompare(b));
 };
 
 export default filterInAlphabetOrder;
