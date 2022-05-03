@@ -1,12 +1,19 @@
 @media only screen and ( max-width : 414px ) {
 
+  .controller-hero {
+    margin-top: unset ! important;
+  }
+
   .linkToProfileTopsideBar {
     display: none;
   }
+}
 
-  /* .controller-hero {
-    margin-top: 35px ! important;
-  } */
+@media only screen and ( min-width : 415px ) and ( max-width : 950px ) {
+
+  .controller-hero {
+    margin-top: 90px ! important;
+  }
 }
 
 /* Page controller */
@@ -16,9 +23,10 @@
   flex-direction: row;
   height: 50px;
   justify-content: space-between;
+}
 
-  /* padding: 10px; */
-  margin-top: 5px;
+.padding-search {
+  padding: 20px 40px 0;
 }
 
 .page-control {
@@ -35,8 +43,6 @@
   font-size: x-large;
   height: 30px;
   justify-content: center;
-
-  /* text-align: center; */
   width: 30px;
 }
 
@@ -61,6 +67,10 @@
   margin: 10px;
 }
 
+.reset-showuser {
+  margin: auto 0 auto auto ! important;
+}
+
 .image-icon {
   border-radius: 100%;
   height: 30px;
@@ -74,4 +84,5 @@
 
 .linkToProfileTopsideBar {
   color: white;
+  margin: auto 20px auto auto;
 }

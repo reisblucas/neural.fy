@@ -1,41 +1,39 @@
 import PropTypes from 'prop-types';
-import { faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
-import { playAudio } from '../helpers/player';
+import { connect } from 'react-redux';
+import { GiPauseButton } from 'react-icons/gi';
+import { IoPlaySharp } from 'react-icons/io5';
+import { playAudio } from '../helpers/play-pause-inside-album-or-fav/player';
 
-export default class ButtonPlay extends Component {
+class ButtonPlay extends Component {
   render() {
     const {
-      path,
-      favoritesPath,
-      // trackNumber,
       previewUrl,
       i,
       handlePlayIcon,
       handlePauseIcon,
-      played: { name, status },
+      played: { name },
+      musicsToPlayer: { played: { status: songGlobStatus } },
     } = this.props;
 
     return (
       <div className="divTrackNumber">
+
         {
-          path === favoritesPath
+          name === previewUrl && songGlobStatus
             ? (
-              <p className="trackNumber font-link">{ i + 1 }</p>
+              <img className="tp-icon" src="https://open.scdn.co/cdn/images/equaliser-green.1184ed87.svg" alt="Actual music played icon" />
             )
-            : (
-              <p className="trackNumber font-link">{ i + 1 }</p>
-            )
+            : <p className="trackNumber font-link">{ i + 1 }</p>
         }
+
         <label htmlFor={ previewUrl }>
           {
-            (name === previewUrl) && (status)
+            (name === previewUrl) && (songGlobStatus)
               ? (
-                <FontAwesomeIcon
+                <GiPauseButton
                   name={ previewUrl }
-                  icon={ faPause }
-                  className="focusable trackPlayIcon trackPauseIcon"
+                  className="focusable trackPlayIcon trackPauseIcon fs-15"
                   onClick={ (e) => {
                     handlePauseIcon(e);
                     playAudio(e);
@@ -43,9 +41,8 @@ export default class ButtonPlay extends Component {
                 />
               )
               : (
-                <FontAwesomeIcon
+                <IoPlaySharp
                   name={ previewUrl }
-                  icon={ faPlay }
                   className="focusable trackPlayIcon"
                   onClick={ (e) => {
                     handlePlayIcon(e);
@@ -54,22 +51,6 @@ export default class ButtonPlay extends Component {
                 />
               )
           }
-
-          <div className="previewMusic">
-            <audio
-              id={ previewUrl }
-              data-testid="audio-component"
-              src={ previewUrl }
-              controls
-              hidden
-            >
-              <track kind="captions" />
-              O seu navegador não suporta o elemento
-              {' '}
-              <code>audio</code>
-              .
-            </audio>
-          </div>
         </label>
       </div>
     );
@@ -84,3 +65,7 @@ ButtonPlay.propTypes = {
   trackNumber: PropTypes.string,
   playAudio: PropTypes.func,
 }.isRequired;
+
+const mapStateToProps = (state) => ({ musicsToPlayer: state.musicsToPlayer });
+
+export default connect(mapStateToProps)(ButtonPlay);

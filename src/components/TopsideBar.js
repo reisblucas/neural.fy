@@ -1,17 +1,38 @@
 import '../styles/topsideBar.css';
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import PageController from './PageController';
 import ProfileHeader from './ProfileHeader';
 import InputSearch from './InputSearch';
 
-export default class TopsideBar extends Component {
+class TopsideBar extends Component {
   render() {
-    return (
-      <div className="controller-hero">
-        <PageController />
-        <InputSearch { ...this.props } />
-        <ProfileHeader />
-      </div>
-    );
+    const { location: { pathname } } = this.props;
+
+    switch (true) {
+    case pathname === '/search':
+      return (
+        <div className="controller-hero padding-search">
+          <PageController />
+          <InputSearch { ...this.props } />
+          <ProfileHeader />
+        </div>
+      );
+    default:
+      return (
+        <div className="controller-hero">
+          <PageController />
+          <InputSearch { ...this.props } />
+          <ProfileHeader />
+        </div>
+      );
+    }
   }
 }
+
+TopsideBar.propTypes = {
+  location: PropTypes.string,
+}.isRequired;
+
+export default withRouter(TopsideBar);

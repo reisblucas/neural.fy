@@ -1,0 +1,16 @@
+.copyright-player {
+  bottom: 6px;
+  color: #b3b3b3;
+  position: fixed;
+}
+
+/* copyright player text */
+.copyright-t {
+  color: #b3b3b3;
+  font-size: x-small;
+  text-align: center;
+}
+
+.copyright-t:hover {
+  color: #b3b3b3;
+}

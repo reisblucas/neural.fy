@@ -3,9 +3,19 @@
   .inputSearch {
     width: auto ! important;
   }
+}
 
-  .glassInputSearch {
-    margin-left: 10px;
+@media only screen and ( min-width : 950px ) and ( max-width : 975px ) {
+
+  .inputSearch {
+    width: 12vw ! important;
+  }
+}
+
+@media only screen and ( min-width : 976px ) and ( max-width : 1105px ) {
+
+  .inputSearch {
+    width: 15vw ! important;
   }
 }
 
@@ -17,7 +27,6 @@
   align-items: center;
   display: flex;
   justify-content: center;
-  margin: 30px auto;
 }
 
 .search-hero label {
@@ -34,6 +43,7 @@
 
 .glassInputSearch {
   color: black;
+  font-size: 2rem;
   height: 24px;
   vertical-align: middle;
 }
@@ -42,7 +52,7 @@
   border: 1px solid white;
   border-bottom-right-radius: 50px;
   border-top-right-radius: 50px;
-  text-align: center;
+  text-align: left;
   width: 25vw;
 }
 

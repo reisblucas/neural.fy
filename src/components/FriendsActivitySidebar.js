@@ -1,27 +1,30 @@
 import PropTypes from 'prop-types';
-import { faPlay, faUserPlus } from '@fortawesome/free-solid-svg-icons';
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { enableRenderAlbumAct, inputSearchAct } from '../actions';
+import { IoPlaySharp } from 'react-icons/io5';
+import { GiPauseButton } from 'react-icons/gi';
 import { musicData } from '../data/friendsActivity/friendsData';
 import '../styles/friendsActivity.css';
-import fetchAlbum from '../thunk/fetchAlbumInRedux';
-import fetchMusics from '../thunk/fetchMusicsInRedux';
 import FriendActivityDefault from './FriendActivityDefault';
-import LinkFriendActivity from './LinkFriendActivity';
+import LinkMusicName from './LinkMusicName';
 import LinkArtistName from './LinkArtistName';
+import { handlePauseInFriend, handlePlayInFriend } from '../helpers/artist-music-global';
+import shuffler from '../helpers/shuffle/shuffler';
 
 class FriendsActivitySidebar extends Component {
   state = {
     hasFriendActivity: false,
-    renderFriends: 0,
+    renderFriends: 19,
     friendActivityAnimation: 'friend-activity friend-activity-opacity-start',
     friendsIntervalID: '',
+    dataShuffled: [],
   }
 
   componentDidMount() {
-    const TWO_MIN_IN_MS = 120000;
+    // const TWO_MIN_IN_MS = 120000;
+    const TWO_MIN_IN_MS = 1000;
 
     const friendsIntervalID = setInterval(() => {
       this.setState(({ renderFriends }) => ({
@@ -35,10 +38,11 @@ class FriendsActivitySidebar extends Component {
     },
     TWO_MIN_IN_MS);
 
-    this.setState({ friendsIntervalID });
+    const dataShuffled = this.friendDataNewOrder();
+    this.setState({ friendsIntervalID, dataShuffled });
   }
 
-  shouldComponentUpdate(nextProps, { renderFriends, friendsIntervalID }) {
+  shouldComponentUpdate(_nextProps, { renderFriends, friendsIntervalID }) {
     const TWENTY = 20;
     if (renderFriends === TWENTY) { clearInterval(friendsIntervalID); }
     return true;
@@ -49,24 +53,21 @@ class FriendsActivitySidebar extends Component {
     clearInterval(friendsIntervalID);
   }
 
-  handleMusicNameClick = async (artistName, collectionId) => {
-    const { fetchAlbumThunk, fetchMusicsThunk, inputSearchGlobal } = this.props;
-    fetchAlbumThunk(artistName);
-    fetchMusicsThunk(collectionId);
-    await inputSearchGlobal(artistName);
-  }
+  friendDataNewOrder = () => {
+    const musicDataClone = [...musicData];
+    const orderToShowFriends = shuffler(musicDataClone);
 
-  handleArtistNameClick = async ({ target: { innerText } }) => {
-    const { inputSearchGlobal, searchAlbumGlobal, enableRender } = this.props;
-    inputSearchGlobal(innerText);
-    await searchAlbumGlobal(innerText);
-    enableRender(true);
+    const dataNewOrder = musicDataClone
+      .map((_frnd, i) => musicDataClone[orderToShowFriends[i]]);
+
+    return dataNewOrder;
   }
 
   render() {
-    const { hasFriendActivity, renderFriends, friendActivityAnimation } = this.state;
-    const musicDataClone = [...musicData];
-    const musicDataSliced = musicDataClone.slice(0, renderFriends); // usar esse no map
+    const { hasFriendActivity, renderFriends, friendActivityAnimation,
+      dataShuffled,
+    } = this.state;
+    const { played } = this.props;
 
     return (
       <div className="friends-container-hero">
@@ -83,80 +84,47 @@ class FriendsActivitySidebar extends Component {
             : (
               <div className="father-activity">
                 {
-                  musicDataSliced.map((friend, i) => {
+                  dataShuffled.map((friend, i) => {
                     const { image, username, musicName,
                       artistName, collectionId, playlist } = friend;
 
-                    if (i === (renderFriends - 1)) {
-                      return (
-                        <div key={ i } className={ friendActivityAnimation }>
-                          <div className="friend-profile-picture">
-                            <img
-                              className="friend-pp"
-                              src={ image }
-                              alt=""
-                            />
-                            <div className="friend-pp-icon-father">
-                              <FontAwesomeIcon
-                                icon={ faPlay }
-                                className="friend-pp-icon-play"
-                              />
-                            </div>
-
-                          </div>
-                          <div className="friend-detail-info">
-                            <div className="friend-name-ellipsis">
-                              <p className="friend-name">{username}</p>
-                              {/* FONT ICON // MUSIC TIMER */}
-                            </div>
-                            <div className="info-friend-music">
-                              <div className="friend-music-ellipsis">
-                                <LinkFriendActivity
-                                  collectionId={ collectionId }
-                                  artistName={ artistName }
-                                  paragraph={ musicName }
-                                  handleMusicNameClick={ () => this
-                                    .handleMusicNameClick(artistName, collectionId) }
-                                />
-
-                              </div>
-                              <p> • </p>
-                              <div className="friend-music-ellipsis">
-                                <LinkArtistName
-                                  handleArtistNameClick={ this.handleArtistNameClick }
-                                  paragraph={ artistName }
-                                />
-                              </div>
-                            </div>
-                            <div className="friend-playlist-ellipsis">
-                              <p className="friend-icon-style">
-                                ♬
-                                <span
-                                  className="friend-playlist-name ellipsis"
-                                >
-                                  {playlist}
-                                </span>
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    }
+                    const conditionForPlayAndPause = played?.status
+                      && played?.collectionId === collectionId
+                      && played?.trackName === musicName;
 
                     return (
-                      <div key={ i } className="friend-activity">
+                      <div
+                        key={ i }
+                        className={ (i === (renderFriends - 1))
+                          ? friendActivityAnimation
+                          : 'friend-activity' }
+                      >
                         <div className="friend-profile-picture">
                           <img
                             className="friend-pp"
                             src={ image }
                             alt=""
                           />
-                          <div className="friend-pp-icon-father">
-                            <FontAwesomeIcon
-                              icon={ faPlay }
-                              className="friend-pp-icon-play"
-                            />
-                          </div>
+                          <button
+                            type="button"
+                            className="friend-pp-icon-father fpi-reset"
+                            onClick={ () => {
+                              if (played.status) {
+                                return handlePauseInFriend();
+                              }
+                              handlePlayInFriend(collectionId, musicName);
+                            } }
+                          >
+                            {
+                              conditionForPlayAndPause
+                                ? (
+                                  <GiPauseButton
+                                    className="friend-pp-icon-play fpi-p"
+                                  />
+                                )
+                                : <IoPlaySharp className="friend-pp-icon-play" />
+                            }
+                          </button>
 
                         </div>
                         <div className="friend-detail-info">
@@ -166,24 +134,26 @@ class FriendsActivitySidebar extends Component {
                           </div>
                           <div className="info-friend-music">
                             <div className="friend-music-ellipsis">
-                              <LinkFriendActivity
+                              <LinkMusicName
+                                linkClassName="friend-music-name"
+                                paragraphClassName="friend-music-name ellipsis"
                                 collectionId={ collectionId }
                                 artistName={ artistName }
                                 paragraph={ musicName }
-                                handleMusicNameClick={ () => this
-                                  .handleMusicNameClick(artistName, collectionId) }
                               />
+
                             </div>
-                            <p> • </p>
+                            <p className="fa-bp"> • </p>
                             <div className="friend-music-ellipsis">
                               <LinkArtistName
-                                handleArtistNameClick={ this.handleArtistNameClick }
+                                linkClassName="friend-artist-name"
+                                paragraphClassName="friend-artist-name ellipsis"
                                 paragraph={ artistName }
                               />
                             </div>
                           </div>
-                          <div className="friend-playlist-ellipsis">
-                            <p className="friend-icon-style">
+                          <div className="fpe ellipsis">
+                            <p className="friend-icon-style ellipsis">
                               ♬
                               <span
                                 className="friend-playlist-name ellipsis"
@@ -207,22 +177,15 @@ class FriendsActivitySidebar extends Component {
 }
 
 FriendsActivitySidebar.propTypes = {
-  enableRender: PropTypes.func,
-  fetchAlbumThunk: PropTypes.func,
-  fetchMusicsThunk: PropTypes.func,
-  inputSearchGlobal: PropTypes.func,
-  searchAlbumGlobal: PropTypes.func,
+  played: PropTypes.shape({
+    collectionId: PropTypes.number,
+    status: PropTypes.bool,
+    trackName: PropTypes.string,
+  }),
 }.isRequired;
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchAlbumThunk: (artistName) => dispatch(fetchAlbum(artistName)),
-  fetchMusicsThunk: (albumId) => dispatch(fetchMusics(albumId)),
-
-  inputSearchGlobal: (inputValue) => dispatch(inputSearchAct(inputValue)),
-  searchAlbumGlobal: (inputValue) => dispatch(fetchAlbum(inputValue)),
-  enableRender: (bool) => dispatch(enableRenderAlbumAct(bool)),
+const mapStateToProps = (state) => ({
+  played: state.musicsToPlayer.played,
 });
 
-export default connect(null, mapDispatchToProps)(FriendsActivitySidebar);
-
-// Tryna debug gh-pages
+export default connect(mapStateToProps, null)(FriendsActivitySidebar);

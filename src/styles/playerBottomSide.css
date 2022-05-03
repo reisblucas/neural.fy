@@ -1,0 +1,352 @@
+@media only screen and ( max-width : 414px ) {
+
+  .player-container {
+    display: none ! important;
+  }
+}
+
+@media only screen and ( min-width : 415px ) and ( max-width : 950px ) {
+
+  .player-container {
+    position: fixed ! important;
+  }
+}
+
+/* Aliases */
+.tdh:hover {
+  text-decoration: underline;
+}
+
+.tc {
+  cursor: pointer;
+}
+
+/* margin bottom */
+.mb-5 {
+  margin-bottom: 5px;
+}
+
+.mr-5 {
+  margin-right: 5px;
+}
+
+.ml-5 {
+  margin-left: 5px;
+}
+
+/* Content */
+.player-container {
+  background-color: #181818;
+  border-top: 1px solid #282828;
+  bottom: 0;
+  display: flex;
+  height: 90px;
+  justify-content: space-between;
+  position: absolute;
+  width: 100%;
+  z-index: 1;
+}
+
+.music-player-info, .central-player-buttons, .right-player-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px 15px;
+}
+
+.central-player-buttons {
+  flex-direction: column;
+  min-width: 250px;
+  width: 38%;
+}
+
+.right-player-buttons {
+  align-items: center;
+}
+
+/* and reset padding for music-player-info */
+.music-player-info {
+  align-items: center;
+  flex-direction: row;
+  padding: 20px 0 20px 15px;
+}
+
+.artist-infos {
+  height: fit-content;
+  position: relative;
+  width: 150px;
+}
+
+.blur-artistname {
+  background: linear-gradient(90deg, rgba(63, 94, 251, 0) 86%, rgba(24, 24, 24, 0.465) 97%);
+  height: 35px;
+  position: absolute;
+  right: 0;
+  width: 150px;
+  z-index: 1;
+}
+
+.artist-infos, .favorite-player-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.favorite-player-container {
+  margin-left: 15px;
+  width: 20px;
+}
+
+.heartIcon-player {
+  color: #00b65c;
+}
+
+.hip-unfav {
+  color: #b3b3b3;
+}
+
+.hip-unfav:hover {
+  color: white;
+}
+
+.music-name-player {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.artist-name-player {
+  font-size: smaller;
+}
+
+/* Buttons Central Player */
+
+/* top side player wrapper */
+.tsp-w {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* top side player */
+.tsp {
+  align-items: center;
+  display: flex;
+  justify-content: space-evenly;
+  width: 250px;
+}
+
+/* Progress bar section */
+
+/* bottom side player */
+.bsp {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.progress-bar {
+
+  --seek-before-width: 0;
+
+  --seek-after-bgc: #00b65c;
+  appearance: none;
+  background: #535353;
+  border-radius: 10px;
+  height: 5px;
+  outline: none;
+  position: relative;
+  width: 100%;
+}
+
+
+/* progressive bar - chrome and safari */
+.progress-bar:before {
+  background-color: white;
+  border-radius: 10px;
+  content: '';
+  height: 5px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: var(--seek-before-width);
+  z-index: 1;
+}
+
+.progress-bar:hover:before {
+  background-color: var(--seek-after-bgc);
+}
+
+.progress-bar::-webkit-slider-thumb {
+  appearance: none;
+  border: none;
+  border-radius: 100%;
+  box-sizing: border-box;
+  cursor: default;
+  height: 12px;
+  position: relative;
+  width: 12px;
+  z-index: 3;
+}
+
+.progress-bar:hover::-webkit-slider-thumb {
+  background-color: white;
+}
+
+/* volume bar */
+.volume-bar {
+
+  --seek-vol-before-width: 100%;
+  width: 100%;
+}
+
+.volume-bar:before {
+  width: var(--seek-vol-before-width);
+}
+
+
+/* duration font-size */
+.dfs {
+  color: #b3b3b3;
+  font-size: smaller;
+}
+
+/* Reset */
+
+/* control player button */
+.cpb {
+  background: none;
+  border: none;
+  padding: 0 6px;
+}
+
+/* topside player - icon */
+.tsp-i {
+  color: #b3b3b3;
+  font-size: 24px;
+}
+
+/* topside player - repeat and shuffle */
+.tsp-rs, .tsp-sa {
+  color: #b3b3b3;
+  font-size: 20px;
+}
+
+.dot-father {
+  position: relative;
+}
+
+.green-dot {
+  background-color: #00b65c;
+  border-radius: 10px;
+  bottom: -2px;
+  height: 4px;
+  position: absolute;
+  right: 14px;
+  width: 4px;
+}
+
+/* scale */
+.tsp-s {
+  transform: scaleY(-1);
+}
+
+/* topside player - shuffle active */
+.tsp-sa {
+  color: #00b65bd0;
+}
+
+.tsp-sa:hover {
+  color: #00b65c;
+}
+
+.tsp-i:hover, .tsp-rs:hover {
+  color: white;
+}
+
+.tsp-r {
+  transform: rotate(180deg);
+}
+
+/* Play and Pause button */
+.pb {
+  background-color: white;
+  border-radius: 100%;
+  height: 35px;
+  position: relative;
+  width: 35px;
+}
+
+.pb:hover {
+  transform: scale(1.05);
+}
+
+/* playerbutton color and size */
+.pbcs {
+  color: black;
+  font-size: 18px;
+}
+
+.pause-inset {
+  inset: 8px;
+  position: absolute;
+}
+
+.play-inset {
+  bottom: 6px;
+  font-size: 21px;
+  left: 8px;
+  position: absolute;
+  right: 6px;
+  top: 7px;
+}
+
+/* player button right */
+.pbr {
+  padding: 5px 6px 0;
+}
+
+/* volume button */
+.vb {
+  color: white;
+  font-size: 20px;
+}
+
+.vol {
+  font-weight: 800;
+  position: absolute;
+}
+
+.mute {
+  bottom: 40px;
+  font-size: x-small;
+  right: 155px;
+}
+
+.low-sound {
+  bottom: 42px;
+  font-size: 5px;
+  right: 155px;
+}
+
+.med-sound {
+  bottom: 40px;
+  font-size: 9px;
+  right: 155px;
+}
+
+.high-sound {
+  bottom: 40px;
+  font-size: 10px;
+  right: 152px;
+}
+
+/* github button and linkedin button */
+.gh-in {
+  color: #b3b3b3;
+  font-size: 20px;
+}
+
+.gh-in:hover {
+  color: white;
+}

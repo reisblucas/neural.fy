@@ -5,6 +5,7 @@ import { getUser } from '../services/userAPI';
 import TopsideHeader from './TopsideHeader';
 import FavSideList from './FavSideList';
 import LoadingHeader from './LoadingHeader';
+import AlbumSideImage from './player/albumImage/AlbumSideImage';
 
 class Header extends Component {
   constructor() {
@@ -71,7 +72,6 @@ class Header extends Component {
         <hr className="sideBarHorizontalRow" />
 
         <div className="sideFavSongsContainer">
-
           {
             isLoading
               ? (
@@ -84,6 +84,8 @@ class Header extends Component {
               )
           }
         </div>
+
+        <AlbumSideImage />
       </header>
     );
   }

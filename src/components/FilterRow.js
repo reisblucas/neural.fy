@@ -146,7 +146,7 @@ class FilterRow extends Component {
 
   render() {
     const { path } = this.props;
-    const { filterTitle, filterTime } = this.state;
+    const { filterTitle, filterTime, filterAlbum } = this.state;
 
     return (
       <div className="musicRow filterRow">
@@ -204,7 +204,7 @@ class FilterRow extends Component {
                     aria-hidden
                   >
                     ALBUM
-
+                    <ConditionFilterTitle filterTitle={ filterAlbum } />
                   </p>
                 </div>
               )

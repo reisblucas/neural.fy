@@ -6,7 +6,7 @@ import Loading from '../components/Loading';
 import '../styles/search.css';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import ContentResult from '../components/ContentResult';
-import fetchAlbum from '../thunk/fetchAlbumInRedux';
+import fetchAlbumInRedux from '../thunk/fetchAlbumInRedux';
 import { inputSearchAct } from '../actions';
 import TopsideBar from '../components/TopsideBar';
 
@@ -113,7 +113,7 @@ Search.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   inputSearchGlobal: (inputValue) => dispatch(inputSearchAct(inputValue)),
-  searchAlbumGlobal: (inputValue) => dispatch(fetchAlbum(inputValue)),
+  searchAlbumGlobal: (inputValue) => dispatch(fetchAlbumInRedux(inputValue)),
 });
 
 export default connect(null, mapDispatchToProps)(withRouter(Search));

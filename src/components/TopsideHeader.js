@@ -4,10 +4,10 @@ import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import SpotifyLogoHeader from '../images/spotifyLogoHeader.png';
 import { getUser } from '../services/userAPI';
-import { inputSearchAct, saveAlbumNameAct } from '../actions';
-import fetchAlbum from '../thunk/fetchAlbumInRedux';
+import { saveAlbumNameAct } from '../actions';
 import magGlass from '../images/navLinks/magGlass.png';
 import userImg from '../images/navLinks/user.png';
+import { enableRender } from '../helpers/artist-music-global';
 
 class TopsideHeader extends Component {
   favoriteHeader = async () => {
@@ -27,21 +27,17 @@ class TopsideHeader extends Component {
     await userToFavorites(albumFake);
   } // fazer isso no login
 
-  resetSearch = () => {
-    const { inputSearchGlobal, searchAlbumGlobal } = this.props;
-    inputSearchGlobal('');
-    searchAlbumGlobal([]);
-  }
-
   render() {
     return (
       <div className="headerTopside">
         <div className="header-content">
-          <Link to="/search" className="header-link-style">
+          <Link
+            to="/search"
+            className="header-link-style"
+            onClick={ enableRender }
+          >
             <div className="header-title">
               <img src={ SpotifyLogoHeader } alt="Spotify Logo" />
-              <h4 className="header-collab">X</h4>
-              <h2>neur4l</h2>
             </div>
           </Link>
         </div>
@@ -52,7 +48,7 @@ class TopsideHeader extends Component {
               className="navLinks"
               to="/search"
               data-testid="link-to-search"
-              // onClick={ () => this.resetSearch() }
+              onClick={ enableRender }
             >
               <img src={ magGlass } alt="" width="25" className="iconSet" />
               <span className="nav-side-text">Search</span>
@@ -101,8 +97,6 @@ TopsideHeader.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   userToFavorites: (albumFake) => dispatch(saveAlbumNameAct(albumFake)),
-  inputSearchGlobal: (inputValue) => dispatch(inputSearchAct(inputValue)),
-  searchAlbumGlobal: (inputValue) => dispatch(fetchAlbum(inputValue)),
 });
 
 export default connect(null, mapDispatchToProps)(TopsideHeader);

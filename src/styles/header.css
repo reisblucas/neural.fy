@@ -1,4 +1,10 @@
-@media only screen and ( max-width : 400px ) {
+@media only screen and ( max-width : 414px ) {
+
+  .headerPattern {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
 
   .renderHeaderInAllPages {
     display: flex;
@@ -11,14 +17,22 @@
   }
 }
 
+@media only screen and ( min-width : 415px ) and ( max-width : 950px ) {
+
+  .header-hero {
+    position: fixed ! important;
+    z-index: 1 ! important;
+  }
+
+  .navLinks-container span {
+    display: none;
+  }
+}
+
 @media only screen and ( max-width : 950px ) {
 
   .headerPattern {
     display: flex;
-    flex-direction: column;
-
-    /* fazer uma config para quando estiver carregando e no cel, o height ficar auto */
-    height: auto;
   }
 
   .renderHeaderInAllPages {
@@ -28,10 +42,9 @@
   }
 
   .header-hero {
-    float: none;
-    height: 170px ! important;
+    float: none ! important;
+    height: 81px ! important;
     max-width: 100% ! important;
-    position: unset ! important;
     width: 100% ! important;
   }
 
@@ -57,12 +70,8 @@
   }
 
   .navLinks-container {
-    flex-direction: column-reverse ! important;
+    flex-direction: row ! important;
   }
-
-  /* .navLinks-container span {
-    display: none;
-  } */
 
   div .sideFavSongsContainer {
     display: none;
@@ -87,6 +96,10 @@
     margin: 0 auto;
     width: 90% ! important;
   }
+
+  .pcsi-im {
+    display: none;
+  }
 }
 
 .header-hero {
@@ -95,12 +108,17 @@
   display: flex;
   flex-direction: column;
   float: left;
-  height: 100vh;
+  height: calc(100vh - 90px);
   margin: 0;
   max-width: 200px;
   position: sticky;
   top: 0;
   width: 100%;
+}
+
+/* header hero for when music player status are true */
+.hh-mp {
+  height: calc(100vh - 60px);
 }
 
 .header-link-style {
@@ -109,20 +127,15 @@
 }
 
 .headerTopside {
-  padding: 24px 12px 0;
+  padding: 24px 24px 0;
 }
 
 .header-content {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 0 auto;
-  text-align: center;
+  margin-bottom: 18px;
 }
 
 .header-title img {
-  width: 150px;
+  width: 131px;
 }
 
 .header-collab {
@@ -158,7 +171,7 @@
   border-radius: 4px;
   color: #b3b3b3;
   display: flex;
-  padding: 10px;
+  margin: 8px 0;
   text-decoration: none;
   width: 30%;
 }
@@ -169,8 +182,13 @@
 }
 
 .iconSet {
+  border-radius: 2px;
   margin-right: 15px;
   opacity: 0.5;
+}
+
+.alignNavSideBar:last-child .iconSet {
+  border-radius: 5px;
 }
 
 .alignNavSideBar:hover .iconSet, .alignNavSideBar:hover .nav-side-text {
@@ -182,15 +200,13 @@
 .sideBarHorizontalRow {
   margin: 0 auto;
   opacity: 0.2;
-  width: 80%;
+  width: 75%;
 }
 
 .sideFavSongsContainer {
   height: 100%;
   overflow-y: scroll;
-
-  /* padding: 0 0 0 24px; */
-  padding: 0 12px 0 24px;
+  padding: 0 10px 0 24px;
 }
 
 .favList {
@@ -209,13 +225,28 @@
   background: #b3b3b3;
 }
 
+/* side favorite song - pattern */
+.sfs-p {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 5px 0;
+}
+
+.sfs-p:first-child {
+  margin-top: 10px;
+}
+
 .sideLinkStyle {
+  align-items: center;
   border-radius: 4px;
   color: #b3b3b3;
   cursor: default;
-  padding: 5px;
+  display: flex;
+  height: 25px;
   text-decoration: none;
-  width: 30%;
+  width: 80%;
 }
 
 .sideLinkStyle:hover {
@@ -225,4 +256,43 @@
 .side-fav-musics {
   font-size: 13px;
   font-weight: 500;
+}
+
+/* fav side icon playing */
+.fs-p {
+  background: none;
+  border: none;
+}
+
+/* sidebar volume icon */
+.sb-vi {
+  color: #00af59;
+  font-size: 17px;
+}
+
+.fs-p:hover .sb-vi {
+  display: none;
+}
+
+/* sidebar pause icon */
+.sb-pi {
+  color: white;
+  display: none;
+  font-size: 13px;
+}
+
+.fs-p:hover .sb-pi {
+  display: flex;
+}
+
+/* player current song image - div */
+.pcsi-d {
+  height: 200px;
+  width: 200px;
+}
+
+/* ... - image */
+.pcsi-im {
+  height: 100%;
+  width: 100%;
 }

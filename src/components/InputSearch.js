@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import fetchAlbum from '../thunk/fetchAlbumInRedux';
+import { RiSearchLine } from 'react-icons/ri';
+import fetchAlbumInRedux from '../thunk/fetchAlbumInRedux';
 import { inputSearchAct } from '../actions';
 
 class InputSearch extends Component {
@@ -43,7 +42,7 @@ class InputSearch extends Component {
             (path !== pathAlbum && path !== pathFavorites)
           && (
             <label htmlFor="buttonSearch" className="labelInputSearch">
-              <FontAwesomeIcon icon={ faMagnifyingGlass } className="glassInputSearch" />
+              <RiSearchLine className="glassInputSearch" />
               <input
                 type="text"
                 id="buttonSearch"
@@ -73,7 +72,7 @@ InputSearch.propTypes = {
 
 const mapDispatchToProps = (dispatch) => ({
   inputSearchGlobal: (inputValue) => dispatch(inputSearchAct(inputValue)),
-  searchAlbumGlobal: (inputValue) => dispatch(fetchAlbum(inputValue)),
+  searchAlbumGlobal: (inputValue) => dispatch(fetchAlbumInRedux(inputValue)),
 });
 
 export default connect(null, mapDispatchToProps)(withRouter(InputSearch));

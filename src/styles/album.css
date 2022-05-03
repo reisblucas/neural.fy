@@ -1,7 +1,44 @@
-@media only screen and ( max-width : 414px ) {
+/* aliases */
+.fs-15 {
+  font-size: 15px;
+}
+
+@media only screen and ( max-width : 950px ) {
+
+  .albumTitle {
+    max-height: 1000px ! important;
+  }
+
+  .album {
+    height: calc(100% - 90px) ! important;
+    overflow-x: hidden;
+    overflow-y: scroll ! important;
+  }
+
+  .albumDetails {
+    padding-left: 0 ! important;
+    text-align: center;
+    width: auto ! important;
+  }
+
+  .artistDetails {
+    justify-content: center ! important;
+  }
+
+  .musicAndArtist {
+    width: 40% ! important;
+  }
+
+  .titleFilter {
+    width: 50% ! important;
+  }
+}
+
+@media only screen and ( max-width : 415px ) {
 
   .album {
     height: auto ! important;
+    overflow-y: scroll ! important;
   }
 
   .albumContent {
@@ -11,6 +48,10 @@
   }
 
   .fitLinkContent {
+    width: auto ! important;
+  }
+
+  .artistName {
     width: auto ! important;
   }
 
@@ -29,42 +70,43 @@
   ::-webkit-scrollbar {
     width: 0 ! important;
   }
-}
-
-@media only screen and ( max-width : 950px ) {
-
-  .albumTitle {
-    max-height: 1000px ! important;
-  }
-
-  .album {
-    overflow-y: hidden ! important;
-  }
-
-  .albumDetails {
-    padding-left: 0 ! important;
-    text-align: center;
-    width: auto ! important;
-  }
-
-  .artistDetails {
-    justify-content: center ! important;
-  }
-
-  .musicAndArtist {
-    width: 40% ! important;
-  }
 
   .titleFilter {
     width: 55% ! important;
   }
 }
 
+@media only screen and ( min-width : 950px ) and ( max-width : 1100px ) {
+
+  .titleFilter {
+    width: 63% ! important;
+  }
+
+  .musicAndArtistAlbum {
+    width: 70% ! important;
+  }
+}
+
+@media only screen and ( min-width : 1100px ) and ( max-width : 1350px ) {
+
+  .titleFilter {
+    width: 60% ! important;
+  }
+}
+
+@media only screen and ( min-width : 1350px ) and ( max-width : 1550px ) {
+
+  .titleFilter {
+    width: 58% ! important;
+  }
+}
+
+
 .album {
   display: flex;
   flex: 1;
   flex-direction: column;
-  height: 100vh;
+  height: calc(100vh - 90px);
   overflow-y: scroll;
   width: 100%;
 }
@@ -231,23 +273,16 @@
   pointer-events: auto;
 }
 
-/* .focusMusicRow {
-  cursor: pointer;
-} */
-
 .focusMusicRow:hover {
-  background-color: #282828;
-}
-
-.focusMusicRow:first-child:hover {
-  background-color: #2828284d;
+  background-color: #28282880;
+  border-radius: 5px;
 }
 
 
 .divTrackNumber {
   padding: 15px;
   text-align: center;
-  width: 2%;
+  width: 4%;
 }
 
 .selectedMusic .trackNumber {
@@ -261,7 +296,6 @@
 .trackPlayIcon {
   display: none;
 }
-
 
 .selectedMusic .trackPlayIcon {
   display: block;
@@ -279,13 +313,26 @@
   color: #00af59;
 }
 
+.focusMusicRow:hover .tp-icon {
+  display: none;
+}
+
 .heartIcon {
   visibility: hidden;
+}
+
+.hi-fi {
+  font-size: 17px;
+  vertical-align: middle;
 }
 
 .artistName {
   font-size: smaller;
   margin-top: 5px;
+}
+
+.widthRestriction {
+  width: min-content;
 }
 
 .focusableLink {
@@ -343,6 +390,14 @@
 
 .musicName {
   color: white;
+}
+
+.songplayed-in-album {
+  color: #00af59;
+}
+
+.focusMusicRow:hover .songplayed-in-album {
+  color: #00ba5e;
 }
 
 .albumFilter {

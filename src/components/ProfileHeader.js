@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
 
-export default class ProfileHeader extends Component {
+class ProfileHeader extends Component {
   state = {
     name: '',
     image: 'https://i.pinimg.com/474x/86/0d/cd/860dcdf5cd536bfd86d8fc86efdbdd18.jpg',
@@ -34,7 +34,10 @@ export default class ProfileHeader extends Component {
     const { name, image } = this.state;
 
     return (
-      <Link to="/profile" className="linkStyle linkToProfileTopsideBar">
+      <Link
+        to="/profile"
+        className="linkStyle linkToProfileTopsideBar"
+      >
         <div className="showUserBar">
           <img
             src={ image }
@@ -47,3 +50,5 @@ export default class ProfileHeader extends Component {
     );
   }
 }
+
+export default ProfileHeader;

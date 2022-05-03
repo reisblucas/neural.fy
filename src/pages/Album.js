@@ -14,7 +14,7 @@ import {
   saveAlbumNameAct,
   saveFavoriteMusicsAct,
 } from '../actions';
-import fetchAlbum from '../thunk/fetchAlbumInRedux';
+import fetchAlbumInRedux from '../thunk/fetchAlbumInRedux';
 
 class Album extends Component {
   constructor() {
@@ -191,7 +191,7 @@ const mapDispatchToProps = (dispatch) => ({
   saveFavoriteMusics: (favorites) => dispatch(saveFavoriteMusicsAct(favorites)),
   saveAlbumName: (albumName) => dispatch(saveAlbumNameAct(albumName)),
   inputSearchGlobal: (inputValue) => dispatch(inputSearchAct(inputValue)),
-  searchAlbumGlobal: (inputValue) => dispatch(fetchAlbum(inputValue)),
+  searchAlbumGlobal: (inputValue) => dispatch(fetchAlbumInRedux(inputValue)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Album));

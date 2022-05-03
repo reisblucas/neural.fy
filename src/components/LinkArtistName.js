@@ -1,22 +1,22 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { handleArtistNameClick } from '../helpers/artist-music-global';
 
 class LinkArtistName extends Component {
   render() {
-    const { paragraph, handleArtistNameClick } = this.props;
+    const { linkClassName, paragraphClassName, paragraph: artistName } = this.props;
 
     return (
       <Link
         to="/search"
-        onClick={ handleArtistNameClick }
-        className="friend-artist-name"
+        onClick={ () => handleArtistNameClick(artistName) }
+        className={ linkClassName }
       >
         <p
-          className="friend-artist-name ellipsis"
+          className={ paragraphClassName }
         >
-          {paragraph}
-
+          {artistName}
         </p>
       </Link>
     );

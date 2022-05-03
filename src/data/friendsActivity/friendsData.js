@@ -6,11 +6,11 @@ import chonkyGreyCat from '../../images/friendsActivityProfile/chonky-grey-cat.p
 import couplePhoto from '../../images/friendsActivityProfile/couple-photo.jpeg';
 import cryptopunkBlue from '../../images/friendsActivityProfile/cryptopunk-blue.jpg';
 import chonkyOrangeCat from '../../images/friendsActivityProfile/fat-cat.webp';
-import fortSuperHero from '../../images/friendsActivityProfile/fortnite-superhero.webp';
+import neurxl from '../../images/friendsActivityProfile/neurxl.jpg';
 import eiffelTower from '../../images/friendsActivityProfile/french-eiffel-tower.jpg';
 import frenchVisa from '../../images/friendsActivityProfile/french-visa-1920x1080.jpg';
 import girlPic from '../../images/friendsActivityProfile/girl-picture.jpg';
-import logitechLogo from '../../images/friendsActivityProfile/logitech-logo.png';
+import nftCigarette from '../../images/friendsActivityProfile/nft-cigarette.webp';
 import nftBieber from '../../images/friendsActivityProfile/nft-bieber.jpg';
 import personInACarTrip from '../../images/friendsActivityProfile/person-in-trip.jpeg';
 import personInACarTrip2 from '../../images/friendsActivityProfile/person-cartrip-2.jpg';
@@ -47,7 +47,7 @@ const electro = 'how to feel better';
 
 export const musicData = [
   {
-    image: fortSuperHero,
+    image: neurxl,
     username: 'Lucca Baker',
     musicName: 'Over My Dead Body',
     artistName: 'Drake',
@@ -121,7 +121,7 @@ export const musicData = [
   {
     image: frenchVisa,
     username: 'Matthew Baker',
-    musicName: 'SICK MODE',
+    musicName: 'SICKO MODE',
     artistName: 'Travis Scott',
     collectionId: 1421241217,
     playlist: 'ASTROWORLD',
@@ -129,7 +129,7 @@ export const musicData = [
   {
     image: eiffelTower,
     username: 'Anthony',
-    musicName: 'Wild Kidz',
+    musicName: 'My Girl',
     artistName: 'Vintage Culture & Ricci',
     collectionId: 1462912754,
     playlist: electro,
@@ -137,13 +137,13 @@ export const musicData = [
   {
     image: chonkyOrangeCat,
     username: 'Giorgia Campbell',
-    musicName: 'My Girl',
+    musicName: 'Wild Kidz',
     artistName: 'Vintage Culture & Fancy Inc',
     collectionId: 1346689058,
     playlist: electro,
   },
   {
-    image: logitechLogo,
+    image: nftCigarette,
     username: 'Tales Scott',
     musicName: 'Hit \'Em Up (feat. Outlawz)',
     artistName: 'Tupac Shakur',

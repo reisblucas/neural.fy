@@ -1,6 +1,6 @@
 import { searchAlbumAct } from '../actions';
 
-const fetchAlbum = (artistNameURL) => async (dispatch) => {
+const fetchAlbumInRedux = (artistNameURL) => async (dispatch) => {
   const url = `https://itunes.apple.com/search?entity=album&term=${artistNameURL}&attribute=allArtistTerm`;
 
   try {
@@ -12,4 +12,4 @@ const fetchAlbum = (artistNameURL) => async (dispatch) => {
   }
 };
 
-export default fetchAlbum;
+export default fetchAlbumInRedux;

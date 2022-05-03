@@ -1,34 +1,47 @@
 import PropTypes from 'prop-types';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { placeSelectedClass } from '../helpers/player';
+import { placeSelectedClass } from '../helpers/play-pause-inside-album-or-fav/player';
 import { convertMillsToMin, convertMillsToSeconds } from '../helpers/songTime';
 import ButtonPlay from './ButtonPlay';
-import { enableRenderAlbumAct } from '../actions';
+import { enableRenderAlbumAct, setMusicsToPlayerAct, setSongPlayedAct } from '../actions';
+import newTrackStructure from '../helpers/dataStructure/newTrackStructure';
+import playedSongsStruct from '../helpers/dataStructure/playedSongsStruct';
 
 class MusicMap extends Component {
-  state = {
-    played: false,
+  state = { played: { status: false, name: '' } }
+
+  componentDidUpdate(_prevProps, prevState) {
+    const { played: { trackId } } = prevState;
+    const { musicsToPlayer: { played: playedGlobal } } = this.props;
+
+    if (trackId !== playedGlobal.trackId) { this.setState({ played: playedGlobal }); }
   }
 
   handlePlayIcon = ({ currentTarget }) => {
-    this.setState(({
-      played: {
-        status: true,
-        name: currentTarget.attributes.name.value,
-      },
-    }));
+    const { tracks, setMusicPlayer,
+      musicsToPlayer: { songs }, setPlayedSongs } = this.props;
+    const songUrl = currentTarget.attributes.name.value;
+    const trackData = newTrackStructure(tracks, songs, setMusicPlayer);
+    const played = playedSongsStruct(trackData, songs, songUrl, setPlayedSongs);
+    this.setState(({ played }));
   }
 
   handlePauseIcon = () => {
-    this.setState({
-      played: {
-        status: false,
-      },
-    });
+    const { setPlayedSongs } = this.props;
+    const { played } = this.state;
+
+    setPlayedSongs({ ...played, status: false });
+    this.setState(({ played: prevPlayed }) => (
+      { played: { ...prevPlayed, status: false } }
+    ));
+  };
+
+  handleFavorites = () => {
+    const { responseMusics: { favoritesToSidebar } } = this.props;
+    return favoritesToSidebar.map((sng) => sng.trackId);
   }
 
   handleArtistNameLink = () => {
@@ -37,19 +50,10 @@ class MusicMap extends Component {
   }
 
   render() {
-    const {
-      // albumTracks,
-      handleCheck,
-      handleReload,
-      checkedAndFavorite,
-      match: { path },
-      // responseMusics: { tracks },
-      // tracks,
-      tracks,
+    const { handleCheck, handleReload, match: { path }, tracks,
+      musicsToPlayer: { played: playedGlobal },
     } = this.props;
-
     const { played } = this.state;
-
     const favoritesPath = '/favorites';
 
     return (
@@ -77,13 +81,10 @@ class MusicMap extends Component {
                 key={ trackId }
                 tabIndex="-1"
                 onClick={ (e) => placeSelectedClass(e) }
-                onKeyPress={ () => {} }
-                aria-hidden="true"
+                aria-hidden
               >
                 <div className="musicRow notFocusable">
                   <ButtonPlay
-                    path={ path }
-                    favoritesPath={ favoritesPath }
                     trackNumber={ trackNumber }
                     previewUrl={ previewUrl }
                     i={ i }
@@ -110,7 +111,15 @@ class MusicMap extends Component {
                       ? (
                         <div className="musicAndArtist">
                           <div className="divToEllipsis">
-                            <p className="musicName ellipsis">{ trackName }</p>
+                            <p
+                              className={
+                                playedGlobal?.status && played?.trackId === trackId
+                                  ? 'musicName ellipsis songplayed-in-album'
+                                  : 'musicName ellipsis'
+                              }
+                            >
+                              { trackName }
+                            </p>
                             <Link
                               className="linkStyle focusableLink ellipsis"
                               key={ collectionId }
@@ -121,7 +130,6 @@ class MusicMap extends Component {
                                 className="artistName ellipsis fitLinkContent"
                               >
                                 { artistName }
-
                               </p>
                               {' '}
                             </Link>
@@ -130,9 +138,16 @@ class MusicMap extends Component {
                       )
                       : (
                         <div className="musicAndArtistAlbum">
-                          {/* Ellipsis fix in Album */}
                           <div className="">
-                            <p className="musicName ellipsis">{ trackName }</p>
+                            <p
+                              className={
+                                playedGlobal?.status && played?.trackId === trackId
+                                  ? 'musicName ellipsis songplayed-in-album'
+                                  : 'musicName ellipsis'
+                              }
+                            >
+                              { trackName }
+                            </p>
                             <Link
                               className="linkStyle focusableLink"
                               key={ collectionId }
@@ -140,10 +155,9 @@ class MusicMap extends Component {
                               onClick={ this.handleArtistNameLink }
                             >
                               <p
-                                className="artistName ellipsis"
+                                className="artistName ellipsis widthRestriction"
                               >
                                 { artistName }
-
                               </p>
                             </Link>
                           </div>
@@ -161,7 +175,11 @@ class MusicMap extends Component {
                             key={ collectionId }
                             to={ `/album/${collectionId}` }
                           >
-                            <p className="artistName ellipsis">{collectionName}</p>
+                            <p
+                              className="artistName ellipsis"
+                            >
+                              {collectionName}
+                            </p>
                           </Link>
                         </div>
                       </div>
@@ -169,51 +187,33 @@ class MusicMap extends Component {
                   }
 
                   <div className="filterRight">
-                    {
-                      checkedAndFavorite.includes(trackId)
-                        ? (
-                          <label htmlFor={ trackId } className="previewFavorite">
-                            <FontAwesomeIcon
-                              icon={ faHeart }
-                              className="focusable heartColor"
+                    <label htmlFor={ trackId } className="previewFavorite">
+                      {
+                        this.handleFavorites().includes(trackId)
+                          ? (
+                            <FaHeart
+                              className="focusable heartColor hi-fi"
                             />
-                            <input
-                              type="checkbox"
-                              name=""
-                              id={ trackId }
-                              data-testid={ `checkbox-music-${trackId}` }
-                              onChange={ () => {
-                                handleCheck(artist, trackId);
-                                handleReload();
-                              } }
-                              checked={ checkedAndFavorite.includes(trackId) }
-                              hidden
-                            />
-                          </label>
-                        )
-                        : (
-                          <label htmlFor={ trackId } className="previewFavorite">
-                            <FontAwesomeIcon icon={ faHeart } className="heartIcon" />
-                            <input
-                              type="checkbox"
-                              name=""
-                              id={ trackId }
-                              data-testid={ `checkbox-music-${trackId}` }
-                              onChange={ () => {
-                                handleCheck(artist, trackId);
-                                handleReload();
-                              } }
-                              checked={ checkedAndFavorite.includes(trackId) }
-                              hidden
-                            />
-                          </label>
-                        )
-                    }
+                          )
+                          : <FaRegHeart className="heartIcon hi-fi" />
+                      }
+                      <input
+                        type="checkbox"
+                        name=""
+                        id={ trackId }
+                        data-testid={ `checkbox-music-${trackId}` }
+                        onChange={ () => {
+                          handleCheck(artist, trackId);
+                          handleReload();
+                        } }
+                        checked={ this.handleFavorites().includes(trackId) }
+                        hidden
+                      />
+                    </label>
                     <div className="musicDuration">
                       <p className="artistName font-link">{ `${minutes}:${seconds}` }</p>
                     </div>
                   </div>
-
                 </div>
               </div>
             );
@@ -236,10 +236,12 @@ MusicMap.propTypes = {
 const mapStateToProps = (state) => ({
   searchAlbum: state.searchAlbum,
   responseMusics: state.responseMusics,
+  musicsToPlayer: state.musicsToPlayer,
 });
-
 const mapDispatchToProps = (dispatch) => ({
   enableRender: (bool) => dispatch(enableRenderAlbumAct(bool)),
+  setMusicPlayer: (arr) => dispatch(setMusicsToPlayerAct(arr)),
+  setPlayedSongs: (objInsidePlayed) => dispatch(setSongPlayedAct(objInsidePlayed)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(MusicMap));

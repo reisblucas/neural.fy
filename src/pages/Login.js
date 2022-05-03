@@ -6,6 +6,9 @@ import '../styles/loadingLogin.css';
 import { createUser } from '../services/userAPI';
 import SpotifyLogo from '../images/spotify-logo-login-color.svg';
 import LoadingLogin from '../components/LoadingLogin';
+import GithubButton from '../components/buttons/GithubButton';
+import LinkedinButton from '../components/buttons/LinkedinButton';
+import DocButton from '../components/buttons/DocButton';
 
 class Login extends Component {
   constructor() {
@@ -69,6 +72,7 @@ class Login extends Component {
     } = this.state;
 
     const defaultImg = 'https://i.pinimg.com/474x/86/0d/cd/860dcdf5cd536bfd86d8fc86efdbdd18.jpg';
+    const neuralLogo = '<n4/>';
 
     return (
       isLoading
@@ -81,9 +85,11 @@ class Login extends Component {
           <div>
             <div className="page-login" data-testid="page-login">
               <div className="login-logo-title">
-                <img src={ SpotifyLogo } alt="Spotify Logo" />
-                <h2 className="header-collab">X</h2>
-                <h1 className="login-name">neur4l</h1>
+                <img src={ SpotifyLogo } alt="Spotify Logo" className="llt-i" />
+                <h1 className="login-name">
+                  <span className="span-ln">by</span>
+                  {neuralLogo}
+                </h1>
               </div>
               <br />
               <form action="" className="login-inputs">
@@ -146,6 +152,21 @@ class Login extends Component {
                 }
               </form>
             </div>
+
+            <footer className="copyright-f">
+              <div>
+                <GithubButton />
+                <LinkedinButton />
+                <DocButton />
+              </div>
+
+              <p
+                className="copyright-p"
+              >
+                &copy; 2022 Spotify AB Design and Code from neur4l.
+              </p>
+              <p className="copyright-p">All rights reserved.</p>
+            </footer>
           </div>
         )
     );

@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './app.css';
 import FriendsActivity from './components/FriendsActivitySidebar';
 import Header from './components/Header';
+import { PlayerBottomSide } from './components/PlayerBottomSide';
 import Album from './pages/Album';
 import Favorites from './pages/Favorites';
 import Login from './pages/Login';
@@ -33,9 +34,10 @@ class App extends React.Component {
             path={ ['/search', '/album/:id', '/favorites',
               '/profile/edit', '/profile'] }
             component={ (props) => (
-              <div className="renderHeaderInAllPages">
+              <div className="player-relative-to-header-fa">
                 <Header { ...props } />
                 <FriendsActivity />
+                <PlayerBottomSide />
               </div>
             ) }
           />

@@ -1,21 +1,23 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { handleMusicNameClick } from '../helpers/artist-music-global';
 
-class LinkFriendActivity extends Component {
+class LinkMusicName extends Component {
   render() {
-    const { collectionId, artistName, paragraph, handleMusicNameClick } = this.props;
+    const { linkClassName, paragraphClassName, collectionId, artistName,
+      paragraph: trackName } = this.props;
 
     return (
       <Link
         to={ `/album/${collectionId}` }
-        className="friend-music-name"
+        className={ linkClassName }
         onClick={ () => handleMusicNameClick(artistName, collectionId) }
       >
         <p
-          className="friend-music-name ellipsis"
+          className={ paragraphClassName }
         >
-          {paragraph}
+          {trackName}
 
         </p>
       </Link>
@@ -23,11 +25,11 @@ class LinkFriendActivity extends Component {
   }
 }
 
-LinkFriendActivity.propTypes = {
+LinkMusicName.propTypes = {
   artistName: PropTypes.string,
   collectionId: PropTypes.number,
   handleMusicNameClick: PropTypes.func,
   paragraph: PropTypes.string,
 }.isRequired;
 
-export default LinkFriendActivity;
+export default LinkMusicName;
