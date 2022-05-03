@@ -16,15 +16,14 @@ import shuffler from '../helpers/shuffle/shuffler';
 class FriendsActivitySidebar extends Component {
   state = {
     hasFriendActivity: false,
-    renderFriends: 19,
+    renderFriends: 0,
     friendActivityAnimation: 'friend-activity friend-activity-opacity-start',
     friendsIntervalID: '',
     dataShuffled: [],
   }
 
   componentDidMount() {
-    // const TWO_MIN_IN_MS = 120000;
-    const TWO_MIN_IN_MS = 1000;
+    const TWO_MIN_IN_MS = 120000;
 
     const friendsIntervalID = setInterval(() => {
       this.setState(({ renderFriends }) => ({
