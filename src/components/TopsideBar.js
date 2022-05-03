@@ -10,8 +10,7 @@ class TopsideBar extends Component {
   render() {
     const { location: { pathname } } = this.props;
 
-    switch (true) {
-    case pathname === '/search':
+    if (pathname === '/search') {
       return (
         <div className="controller-hero padding-search">
           <PageController />
@@ -19,15 +18,15 @@ class TopsideBar extends Component {
           <ProfileHeader />
         </div>
       );
-    default:
-      return (
-        <div className="controller-hero">
-          <PageController />
-          <InputSearch { ...this.props } />
-          <ProfileHeader />
-        </div>
-      );
     }
+
+    return (
+      <div className="controller-hero">
+        <PageController />
+        <InputSearch { ...this.props } />
+        <ProfileHeader />
+      </div>
+    );
   }
 }
 
