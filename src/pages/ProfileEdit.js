@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
+import FooterComplete from '../components/footer/FooterComplete';
 import Loading from '../components/Loading';
+import iphoneMaxWidth from '../helpers/screen/iphone';
+import vw from '../helpers/screen/vw';
 import { getUser, updateUser } from '../services/userAPI';
 import '../styles/profileEdit.css';
 
@@ -176,6 +179,10 @@ class ProfileEdit extends Component {
             )
         }
 
+        {
+          vw <= iphoneMaxWidth
+          && <FooterComplete />
+        }
       </div>
     );
   }

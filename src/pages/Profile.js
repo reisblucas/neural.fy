@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import FooterComplete from '../components/footer/FooterComplete';
 import Loading from '../components/Loading';
+import iphoneMaxWidth from '../helpers/screen/iphone';
+import vw from '../helpers/screen/vw';
 import { getUser } from '../services/userAPI';
 import '../styles/profile.css';
 
@@ -102,9 +105,12 @@ class Profile extends Component {
                 </button>
               </section>
             )
-
         }
 
+        {
+          vw <= iphoneMaxWidth
+          && <FooterComplete />
+        }
       </div>
     );
   }
