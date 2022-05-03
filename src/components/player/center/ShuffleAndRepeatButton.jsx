@@ -39,6 +39,15 @@ function ShuffleAndRepeatButton({ type, setPlaylistSong }) {
     setPlaylistSong(songsShuffledToGlobal);
   };
 
+  // const setRepeatSongs = () => {
+  //   const audio = document.querySelector('audio');
+  //   if (isRptClicked) {
+  //     audio.loop = true;
+  //     return audio;
+  //   }
+  //   audio.loop = false;
+  // };
+
   const shuffle = (
     <button
       type="button"
@@ -65,7 +74,10 @@ function ShuffleAndRepeatButton({ type, setPlaylistSong }) {
     <button
       type="button"
       className="cpb dot-father"
-      onClick={ () => setIsRptClicked(!isRptClicked) }
+      onClick={ () => {
+        setIsRptClicked(!isRptClicked);
+        // setRepeatSongs();
+      } }
     >
       {
         isRptClicked
