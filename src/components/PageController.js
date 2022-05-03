@@ -13,7 +13,8 @@ class PageController extends Component {
     const favoritesPath = window.location.href.includes('/favorites');
     const albumCondition = pathname !== albumPath;
     const favoritesCondition = pathname !== favoritesPath;
-    if (albumCondition && favoritesCondition) { return true; } return false;
+    if (albumCondition && favoritesCondition) { return favoritesCondition; } // for true
+    return favoritesCondition; // for false
   }
 
   previousPageButton = () => {
