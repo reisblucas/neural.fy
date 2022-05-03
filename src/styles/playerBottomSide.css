@@ -77,15 +77,6 @@
   width: 150px;
 }
 
-.blur-artistname {
-  background: linear-gradient(90deg, rgba(63, 94, 251, 0) 86%, rgba(24, 24, 24, 0.465) 97%);
-  height: 35px;
-  position: absolute;
-  right: 0;
-  width: 150px;
-  z-index: 1;
-}
-
 .artist-infos, .favorite-player-container {
   display: flex;
   flex-direction: column;

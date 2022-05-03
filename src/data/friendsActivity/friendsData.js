@@ -1,24 +1,24 @@
 // Images imports
-import capuchinMonkey1 from '../../images/friendsActivityProfile/capuchin-monkey-1.webp';
-import capuchinMonkey2 from '../../images/friendsActivityProfile/capuchin-monkey-2.webp';
-import cattoFisherhat from '../../images/friendsActivityProfile/catto-fisherhat.jpg';
-import chonkyGreyCat from '../../images/friendsActivityProfile/chonky-grey-cat.png';
-import couplePhoto from '../../images/friendsActivityProfile/couple-photo.jpeg';
-import cryptopunkBlue from '../../images/friendsActivityProfile/cryptopunk-blue.jpg';
-import chonkyOrangeCat from '../../images/friendsActivityProfile/fat-cat.webp';
-import neurxl from '../../images/friendsActivityProfile/neurxl.jpg';
-import eiffelTower from '../../images/friendsActivityProfile/french-eiffel-tower.jpg';
-import frenchVisa from '../../images/friendsActivityProfile/french-visa-1920x1080.jpg';
-import girlPic from '../../images/friendsActivityProfile/girl-picture.jpg';
-import nftCigarette from '../../images/friendsActivityProfile/nft-cigarette.webp';
-import nftBieber from '../../images/friendsActivityProfile/nft-bieber.jpg';
-import personInACarTrip from '../../images/friendsActivityProfile/person-in-trip.jpeg';
-import personInACarTrip2 from '../../images/friendsActivityProfile/person-cartrip-2.jpg';
-import pugHappy from '../../images/friendsActivityProfile/pug-happy-3.webp';
-import pugLyingDownHappy from '../../images/friendsActivityProfile/pug-happy.jpg';
-import pugSeatedHappy from '../../images/friendsActivityProfile/pug-profile-happy.jpg';
-import sunshine from '../../images/friendsActivityProfile/sunshie.jpeg';
-import vacation from '../../images/friendsActivityProfile/vacation.png';
+import capuchinMonkey1 from '../../images/friendsActivityProfile/capuchin-monkey-1.avif';
+import capuchinMonkey2 from '../../images/friendsActivityProfile/capuchin-monkey-2.avif';
+import cattoFisherhat from '../../images/friendsActivityProfile/catto-fisherhat.avif';
+import chonkyGreyCat from '../../images/friendsActivityProfile/chonky-grey-cat.avif';
+import couplePhoto from '../../images/friendsActivityProfile/couple-photo.avif';
+import cryptopunkBlue from '../../images/friendsActivityProfile/cryptopunk-blue.avif';
+import chonkyOrangeCat from '../../images/friendsActivityProfile/fat-cat.avif';
+import neurxl from '../../images/friendsActivityProfile/neurxl.avif';
+import eiffelTower from '../../images/friendsActivityProfile/french-eiffel-tower.avif';
+import frenchVisa from '../../images/friendsActivityProfile/french-visa-1920x1080.avif';
+import girlPic from '../../images/friendsActivityProfile/girl-picture.avif';
+import nftCigarette from '../../images/friendsActivityProfile/nft-cigarette.avif';
+import nftBieber from '../../images/friendsActivityProfile/nft-bieber.avif';
+import personInACarTrip from '../../images/friendsActivityProfile/person-in-trip.avif';
+import personInACarTrip2 from '../../images/friendsActivityProfile/person-cartrip-2.avif';
+import pugHappy from '../../images/friendsActivityProfile/pug-happy-3.avif';
+import pugLyingDownHappy from '../../images/friendsActivityProfile/pug-happy.avif';
+import pugSeatedHappy from '../../images/friendsActivityProfile/pug-profile-happy.avif';
+import sunshine from '../../images/friendsActivityProfile/sunshie.avif';
+import vacation from '../../images/friendsActivityProfile/vacation.avif';
 
 export const idAlbumData = [
   { 1440642493: 'Take Care (Deluxe Version)' },

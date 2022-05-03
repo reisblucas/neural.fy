@@ -28,8 +28,6 @@ function PlayerArtistInfo({ played, toToggle }) {
           paragraphClassName="artist-name-player tdh tc ellipsis widthRestriction"
           paragraph={ artistName }
         />
-
-        <div className="blur-artistname" />
       </div>
       <div className="favorite-player-container">
         {
