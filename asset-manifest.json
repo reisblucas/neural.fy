@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/neur4l.fy/static/css/main.8dd45c51.chunk.css",
-    "main.js": "/neur4l.fy/static/js/main.c61641bd.chunk.js",
-    "main.js.map": "/neur4l.fy/static/js/main.c61641bd.chunk.js.map",
+    "main.css": "/neur4l.fy/static/css/main.9a17c46c.chunk.css",
+    "main.js": "/neur4l.fy/static/js/main.407b40e5.chunk.js",
+    "main.js.map": "/neur4l.fy/static/js/main.407b40e5.chunk.js.map",
     "runtime-main.js": "/neur4l.fy/static/js/runtime-main.787f4135.js",
     "runtime-main.js.map": "/neur4l.fy/static/js/runtime-main.787f4135.js.map",
-    "static/js/2.7d9d08a1.chunk.js": "/neur4l.fy/static/js/2.7d9d08a1.chunk.js",
-    "static/js/2.7d9d08a1.chunk.js.map": "/neur4l.fy/static/js/2.7d9d08a1.chunk.js.map",
+    "static/js/2.912c109b.chunk.js": "/neur4l.fy/static/js/2.912c109b.chunk.js",
+    "static/js/2.912c109b.chunk.js.map": "/neur4l.fy/static/js/2.912c109b.chunk.js.map",
     "index.html": "/neur4l.fy/index.html",
-    "static/css/main.8dd45c51.chunk.css.map": "/neur4l.fy/static/css/main.8dd45c51.chunk.css.map",
-    "static/js/2.7d9d08a1.chunk.js.LICENSE.txt": "/neur4l.fy/static/js/2.7d9d08a1.chunk.js.LICENSE.txt",
+    "static/css/main.9a17c46c.chunk.css.map": "/neur4l.fy/static/css/main.9a17c46c.chunk.css.map",
+    "static/js/2.912c109b.chunk.js.LICENSE.txt": "/neur4l.fy/static/js/2.912c109b.chunk.js.LICENSE.txt",
     "static/media/capuchin-monkey-1.e5e9c9f6.webp": "/neur4l.fy/static/media/capuchin-monkey-1.e5e9c9f6.webp",
     "static/media/capuchin-monkey-2.cc86a2b1.webp": "/neur4l.fy/static/media/capuchin-monkey-2.cc86a2b1.webp",
     "static/media/catto-fisherhat.a1f39509.jpg": "/neur4l.fy/static/media/catto-fisherhat.a1f39509.jpg",
@@ -17,13 +17,13 @@
     "static/media/couple-photo.7a1f1594.jpeg": "/neur4l.fy/static/media/couple-photo.7a1f1594.jpeg",
     "static/media/cryptopunk-blue.0ff578bf.jpg": "/neur4l.fy/static/media/cryptopunk-blue.0ff578bf.jpg",
     "static/media/fat-cat.8fa38937.webp": "/neur4l.fy/static/media/fat-cat.8fa38937.webp",
-    "static/media/fortnite-superhero.d336a290.webp": "/neur4l.fy/static/media/fortnite-superhero.d336a290.webp",
     "static/media/french-eiffel-tower.a3cb1783.jpg": "/neur4l.fy/static/media/french-eiffel-tower.a3cb1783.jpg",
     "static/media/french-visa-1920x1080.4875525e.jpg": "/neur4l.fy/static/media/french-visa-1920x1080.4875525e.jpg",
     "static/media/girl-picture.f0075871.jpg": "/neur4l.fy/static/media/girl-picture.f0075871.jpg",
-    "static/media/logitech-logo.7e626391.png": "/neur4l.fy/static/media/logitech-logo.7e626391.png",
     "static/media/magGlass.b11d82bc.png": "/neur4l.fy/static/media/magGlass.b11d82bc.png",
+    "static/media/neurxl.8d13ce06.jpg": "/neur4l.fy/static/media/neurxl.8d13ce06.jpg",
     "static/media/nft-bieber.368f2935.jpg": "/neur4l.fy/static/media/nft-bieber.368f2935.jpg",
+    "static/media/nft-cigarette.4af0ba25.webp": "/neur4l.fy/static/media/nft-cigarette.4af0ba25.webp",
     "static/media/person-cartrip-2.7c143163.jpg": "/neur4l.fy/static/media/person-cartrip-2.7c143163.jpg",
     "static/media/person-in-trip.ee7a9c2a.jpeg": "/neur4l.fy/static/media/person-in-trip.ee7a9c2a.jpeg",
     "static/media/pug-happy-3.8d913bdf.webp": "/neur4l.fy/static/media/pug-happy-3.8d913bdf.webp",
@@ -37,8 +37,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.787f4135.js",
-    "static/js/2.7d9d08a1.chunk.js",
-    "static/css/main.8dd45c51.chunk.css",
-    "static/js/main.c61641bd.chunk.js"
+    "static/js/2.912c109b.chunk.js",
+    "static/css/main.9a17c46c.chunk.css",
+    "static/js/main.407b40e5.chunk.js"
   ]
 }
