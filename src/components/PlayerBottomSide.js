@@ -73,6 +73,11 @@ export const PlayerBottomSide = () => {
       animationRef.current = requestAnimationFrame(whilePlaying);
     }
 
+    if (crrTime === '30' && audioPlayer?.current?.loop) {
+      setPlayedSongs({ ...played, status: true });
+      return audioPlayer.current.play();
+    }
+
     if (crrTime === '30' && !audioPlayer.current.ended && played.status) {
       setPlayedSongs({ ...played, status: false });
       const dtbfwCrrTime = { songsGlobal, played, setPlayedSongs, crrTime };
