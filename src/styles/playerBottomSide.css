@@ -72,10 +72,6 @@
 }
 
 .artist-infos {
-
-  /* -webkit-box-shadow:inset 50px 20px rgba(4,4,4,0); */
-
-  /* box-shadow: -40px 0px 35px -5px rgba(24, 24, 24, 0.24); */
   height: fit-content;
   position: relative;
   width: 150px;
