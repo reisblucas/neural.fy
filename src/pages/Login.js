@@ -163,7 +163,7 @@ class Login extends Component {
               <p
                 className="copyright-p"
               >
-                &copy; 2022 Spotify AB Design and Code from neur4l.
+                &copy; 2022 Spotify AB and neur4l.
               </p>
               <p className="copyright-p">All rights reserved.</p>
             </footer>
