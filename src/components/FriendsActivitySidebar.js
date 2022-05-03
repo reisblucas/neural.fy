@@ -56,10 +56,7 @@ class FriendsActivitySidebar extends Component {
     const musicDataClone = [...musicData];
     const orderToShowFriends = shuffler(musicDataClone);
 
-    const dataNewOrder = musicDataClone
-      .map((_frnd, i) => musicDataClone[orderToShowFriends[i]]);
-
-    return dataNewOrder;
+    return musicDataClone.map((_frnd, i) => musicDataClone[orderToShowFriends[i]]);
   }
 
   render() {
