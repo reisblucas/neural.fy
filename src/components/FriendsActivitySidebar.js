@@ -92,79 +92,13 @@ class FriendsActivitySidebar extends Component {
                       && played?.collectionId === collectionId
                       && played?.trackName === musicName;
 
-                    if (i === (renderFriends - 1)) {
-                      return (
-                        <div key={ i } className={ friendActivityAnimation }>
-                          <div className="friend-profile-picture">
-                            <img
-                              className="friend-pp"
-                              src={ image }
-                              alt=""
-                            />
-                            <button
-                              type="button"
-                              className="friend-pp-icon-father fpi-reset"
-                              onClick={ () => {
-                                if (played.status) {
-                                  return handlePauseInFriend();
-                                }
-                                handlePlayInFriend(collectionId, musicName);
-                              } }
-                            >
-                              {
-                                conditionForPlayAndPause
-                                  ? (
-                                    <GiPauseButton
-                                      className="friend-pp-icon-play fpi-p"
-                                    />
-                                  )
-                                  : <IoPlaySharp className="friend-pp-icon-play" />
-                              }
-                            </button>
-
-                          </div>
-                          <div className="friend-detail-info">
-                            <div className="friend-name-ellipsis">
-                              <p className="friend-name">{username}</p>
-                              {/* FONT ICON // MUSIC TIMER */}
-                            </div>
-                            <div className="info-friend-music">
-                              <div className="friend-music-ellipsis">
-                                <LinkMusicName
-                                  linkClassName="friend-music-name"
-                                  paragraphClassName="friend-music-name ellipsis"
-                                  collectionId={ collectionId }
-                                  artistName={ artistName }
-                                  paragraph={ musicName }
-                                />
-
-                              </div>
-                              <p className="fa-bp"> • </p>
-                              <div className="friend-music-ellipsis">
-                                <LinkArtistName
-                                  linkClassName="friend-artist-name"
-                                  paragraphClassName="friend-artist-name ellipsis"
-                                  paragraph={ artistName }
-                                />
-                              </div>
-                            </div>
-                            <div className="fpe ellipsis">
-                              <p className="friend-icon-style ellipsis">
-                                ♬
-                                <span
-                                  className="friend-playlist-name ellipsis"
-                                >
-                                  {playlist}
-                                </span>
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    }
-
                     return (
-                      <div key={ i } className="friend-activity">
+                      <div
+                        key={ i }
+                        className={ (i === (renderFriends - 1))
+                          ? friendActivityAnimation
+                          : 'friend-activity' }
+                      >
                         <div className="friend-profile-picture">
                           <img
                             className="friend-pp"
@@ -175,7 +109,7 @@ class FriendsActivitySidebar extends Component {
                             type="button"
                             className="friend-pp-icon-father fpi-reset"
                             onClick={ () => {
-                              if (played?.status && played?.trackName === musicName) {
+                              if (played.status) {
                                 return handlePauseInFriend();
                               }
                               handlePlayInFriend(collectionId, musicName);
@@ -183,10 +117,13 @@ class FriendsActivitySidebar extends Component {
                           >
                             {
                               conditionForPlayAndPause
-                                ? <GiPauseButton className="friend-pp-icon-play fpi-p" />
+                                ? (
+                                  <GiPauseButton
+                                    className="friend-pp-icon-play fpi-p"
+                                  />
+                                )
                                 : <IoPlaySharp className="friend-pp-icon-play" />
                             }
-
                           </button>
 
                         </div>
@@ -204,6 +141,7 @@ class FriendsActivitySidebar extends Component {
                                 artistName={ artistName }
                                 paragraph={ musicName }
                               />
+
                             </div>
                             <p className="fa-bp"> • </p>
                             <div className="friend-music-ellipsis">
