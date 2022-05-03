@@ -140,7 +140,7 @@ export const PlayerBottomSide = () => {
 
         <div className="tsp-w mb-5">
           <div className="tsp">
-            <ShuffleAndRepeatButton type="shuffle" />
+            <ShuffleAndRepeatButton setPlaylistSong={ setPlaylistSong } type="shuffle" />
             <BackAndForwardButton
               type="backward"
               songsGlobal={ songsGlobal }
