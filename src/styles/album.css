@@ -313,6 +313,10 @@
   color: #00af59;
 }
 
+.focusMusicRow:hover .tp-icon {
+  display: none;
+}
+
 .heartIcon {
   visibility: hidden;
 }

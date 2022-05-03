@@ -22,9 +22,7 @@ class ButtonPlay extends Component {
         {
           name === previewUrl && songGlobStatus
             ? (
-              <GiPauseButton
-                className="trackNumber trackPauseIcon fs-15"
-              />
+              <img className="tp-icon" src="https://open.scdn.co/cdn/images/equaliser-green.1184ed87.svg" alt="Actual music played icon" />
             )
             : <p className="trackNumber font-link">{ i + 1 }</p>
         }
