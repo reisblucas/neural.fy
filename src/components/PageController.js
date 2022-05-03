@@ -36,26 +36,20 @@ class PageController extends Component {
   render() {
     return (
       <div className="page-control">
-        <div
-          role="button"
-          className="control"
+        <button
+          type="button"
+          className="control cpb"
           onClick={ this.previousPageButton }
-          tabIndex="-1"
-          onKeyUp={ () => {} }
-          aria-label="controller-button-page-back"
         >
           <FontAwesomeIcon icon={ faAngleLeft } className="faCentralizer" />
-        </div>
-        <div
-          role="button"
-          className="control"
+        </button>
+        <button
+          type="button"
+          className="control cpb"
           onClick={ this.nextPageButton }
-          tabIndex="-1"
-          onKeyUp={ () => {} }
-          aria-label="controller-button-page-forward"
         >
           <FontAwesomeIcon icon={ faAngleRight } className="faCentralizer" />
-        </div>
+        </button>
       </div>
     );
   }
