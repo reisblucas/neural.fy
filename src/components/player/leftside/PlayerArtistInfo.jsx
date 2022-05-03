@@ -14,20 +14,22 @@ function PlayerArtistInfo({ played, toToggle }) {
 
   return (
     <div className="music-player-info">
-      <div className="artist-infos">
+      <div className="artist-infos ellipsis">
         <LinkMusicName
-          linkClassName="friend-music-name"
-          paragraphClassName="music-name-player tdh tc ellipsis"
+          linkClassName="friend-music-name widthRestriction"
+          paragraphClassName="music-name-player tdh tc ellipsis widthRestriction"
           collectionId={ collectionId }
           artistName={ artistName }
           paragraph={ trackName }
         />
 
         <LinkArtistName
-          linkClassName="friend-music-name"
-          paragraphClassName="artist-name-player tdh tc ellipsis"
+          linkClassName="friend-music-name widthRestriction"
+          paragraphClassName="artist-name-player tdh tc ellipsis widthRestriction"
           paragraph={ artistName }
         />
+
+        <div className="blur-artistname" />
       </div>
       <div className="favorite-player-container">
         {

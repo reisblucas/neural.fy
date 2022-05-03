@@ -66,12 +66,28 @@
 
 /* and reset padding for music-player-info */
 .music-player-info {
+  align-items: center;
   flex-direction: row;
   padding: 20px 0 20px 15px;
 }
 
 .artist-infos {
+
+  /* -webkit-box-shadow:inset 50px 20px rgba(4,4,4,0); */
+
+  /* box-shadow: -40px 0px 35px -5px rgba(24, 24, 24, 0.24); */
+  height: fit-content;
+  position: relative;
   width: 150px;
+}
+
+.blur-artistname {
+  background: linear-gradient(90deg, rgba(63, 94, 251, 0) 86%, rgba(24, 24, 24, 0.465) 97%);
+  height: 35px;
+  position: absolute;
+  right: 0;
+  width: 150px;
+  z-index: 1;
 }
 
 .artist-infos, .favorite-player-container {
