@@ -19,17 +19,12 @@ function ShuffleAndRepeatButton({ type, setPlaylistSong }) {
 
   useEffect(() => {
     if (songsDefault.length === 0) {
-      console.log('quando a length é 0');
       setSongsDefault(songs);
     }
 
     if (songsDefault.length > 0 && songsDefault[0].trackId !== songs[0].trackId) {
-      console.log('id diferente', songs);
       setSongsShuffledLocal(songs);
     }
-
-    console.log('final do useeffect');
-    console.log('prev state', songsDefault);
   }, [songs, songsDefault, songsShuffledLocal]);
 
   const shuffleSongs = () => {
@@ -41,8 +36,6 @@ function ShuffleAndRepeatButton({ type, setPlaylistSong }) {
     }
 
     const songsShuffledToGlobal = songs.map((_, i) => songs[myShuffleOrder[i]]);
-    console.log('withou shuffle', songsDefault);
-    console.log('global shuffled', songsShuffledToGlobal);
     setPlaylistSong(songsShuffledToGlobal);
   };
 
