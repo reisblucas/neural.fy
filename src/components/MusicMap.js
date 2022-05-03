@@ -50,11 +50,8 @@ class MusicMap extends Component {
   }
 
   render() {
-    const {
-      handleCheck,
-      handleReload,
-      match: { path },
-      tracks,
+    const { handleCheck, handleReload, match: { path }, tracks,
+      musicsToPlayer: { played: playedGlobal },
     } = this.props;
     const { played } = this.state;
     const favoritesPath = '/favorites';
@@ -114,7 +111,15 @@ class MusicMap extends Component {
                       ? (
                         <div className="musicAndArtist">
                           <div className="divToEllipsis">
-                            <p className="musicName ellipsis">{ trackName }</p>
+                            <p
+                              className={
+                                playedGlobal?.status && played?.trackId === trackId
+                                  ? 'musicName ellipsis songplayed-in-album'
+                                  : 'musicName ellipsis'
+                              }
+                            >
+                              { trackName }
+                            </p>
                             <Link
                               className="linkStyle focusableLink ellipsis"
                               key={ collectionId }
@@ -134,7 +139,15 @@ class MusicMap extends Component {
                       : (
                         <div className="musicAndArtistAlbum">
                           <div className="">
-                            <p className="musicName ellipsis">{ trackName }</p>
+                            <p
+                              className={
+                                playedGlobal?.status && played?.trackId === trackId
+                                  ? 'musicName ellipsis songplayed-in-album'
+                                  : 'musicName ellipsis'
+                              }
+                            >
+                              { trackName }
+                            </p>
                             <Link
                               className="linkStyle focusableLink"
                               key={ collectionId }
@@ -184,7 +197,6 @@ class MusicMap extends Component {
                           )
                           : <FaRegHeart className="heartIcon hi-fi" />
                       }
-
                       <input
                         type="checkbox"
                         name=""

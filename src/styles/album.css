@@ -388,6 +388,14 @@
   color: white;
 }
 
+.songplayed-in-album {
+  color: #00af59;
+}
+
+.focusMusicRow:hover .songplayed-in-album {
+  color: #00ba5e;
+}
+
 .albumFilter {
   width: 20%;
 }
