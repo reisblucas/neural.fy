@@ -299,8 +299,12 @@
 
 /* volume button */
 .vb {
-  color: white;
+  color: #b3b3b3;
   font-size: 20px;
+}
+
+.vb:hover {
+  color: white;
 }
 
 .vol {
