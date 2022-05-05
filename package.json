@@ -2,6 +2,7 @@
   "name": "neur4l.fy",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "engines": {
     "node": "16"
   },
