@@ -113,7 +113,10 @@ class FriendsActivitySidebar extends Component {
                             type="button"
                             className="friend-pp-icon-father fpi-reset"
                             onClick={ () => {
-                              if (played.status) {
+                              const conditionToPauseInFriends = played.status
+                              && played?.trackName === musicName;
+
+                              if (conditionToPauseInFriends) { // to pause the same music and play another
                                 return handlePauseInFriend();
                               }
                               handlePlayInFriend(collectionId, musicName);
