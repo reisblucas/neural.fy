@@ -75,7 +75,6 @@ function ShuffleAndRepeatButton({ type, setPlaylistSong }) {
           audio.loop = false;
           return audio.loop;
         });
-        // setRepeatSongs();
       } }
     >
       {
