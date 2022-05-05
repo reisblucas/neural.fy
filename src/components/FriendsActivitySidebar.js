@@ -181,7 +181,6 @@ class FriendsActivitySidebar extends Component {
               </div>
             )
         }
-
       </div>
     );
   }
