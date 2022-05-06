@@ -15,6 +15,9 @@ class InputSearch extends Component {
     const enter = (keyCode === THIRTHEEN || key === 'Enter');
 
     if (enter) {
+      const body = document.querySelector('body');
+      body.style.setProperty('zoom', 1.0); // fix input after trigger input
+
       e.target.blur();
       e.target.value = '';
       return e.target.value;
