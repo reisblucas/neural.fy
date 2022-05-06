@@ -12,6 +12,10 @@
     align-self: flex-end;
     font-size: 25px ! important;
   }
+
+  .copyright-p {
+    font-size: 10px ! important;
+  }
 }
 
 .page-login {
@@ -90,6 +94,7 @@
   cursor: pointer;
 }
 
+/* copyrights */
 .copyright-f {
   bottom: 10px;
   color: #b3b3b3;

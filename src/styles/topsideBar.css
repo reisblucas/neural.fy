@@ -7,6 +7,10 @@
   .linkToProfileTopsideBar {
     display: none;
   }
+
+  .padding-search {
+    padding: 6px 32px 0 ! important;
+  }
 }
 
 @media only screen and ( min-width : 415px ) and ( max-width : 950px ) {
