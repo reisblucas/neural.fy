@@ -16,7 +16,7 @@ class InputSearch extends Component {
 
     if (enter) {
       const body = document.querySelector('body');
-      body.style.setProperty('zoom', 1.0); // fix input after trigger input
+      body.style.setProperty('zoom', '100%'); // fix input after trigger input
 
       e.target.blur();
       e.target.value = '';
