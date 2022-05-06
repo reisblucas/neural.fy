@@ -27,7 +27,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <BrowserRouter basename="/neur4l.fy">
+      <BrowserRouter>
         <Switch>
           <Route
             exact
