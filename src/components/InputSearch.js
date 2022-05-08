@@ -31,9 +31,7 @@ class InputSearch extends Component {
     const pathAlbum = '/album/:id';
     const pathFavorites = '/favorites';
 
-    const { handleClick, handleChange, inputSearch,
-      // isButtonDisabled,
-    } = this.props;
+    const { handleClick, handleChange, inputSearch } = this.props;
 
     return (
       <div className="search-hero">
@@ -53,7 +51,6 @@ class InputSearch extends Component {
                 data-testid="search-artist-input"
                 value={ inputSearch }
                 onChange={ handleChange }
-                // onBlur={ (e) => this.activateBlur(e) }
                 onKeyUp={ (e) => this.activateBlur(e) }
                 autoComplete="off"
               />
