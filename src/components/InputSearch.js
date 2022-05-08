@@ -15,9 +15,6 @@ class InputSearch extends Component {
     const enter = (keyCode === THIRTHEEN || key === 'Enter');
 
     if (enter) {
-      const body = document.querySelector('body');
-      body.style.setProperty('zoom', '100%'); // fix input after trigger input
-
       e.target.blur();
       e.target.value = '';
       return e.target.value;
@@ -51,7 +48,7 @@ class InputSearch extends Component {
                 data-testid="search-artist-input"
                 value={ inputSearch }
                 onChange={ handleChange }
-                // onKeyUp={ (e) => this.activateBlur(e) }
+                onKeyUp={ (e) => this.activateBlur(e) }
                 autoComplete="off"
               />
             </label>
