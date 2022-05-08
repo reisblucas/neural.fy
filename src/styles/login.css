@@ -1,6 +1,7 @@
 @media only screen and ( max-width : 414px ) {
 
   .login-logo-title {
+    height: auto ! important;
     width: 210px ! important;
   }
 
@@ -10,8 +11,11 @@
 
   .login-name {
     align-self: flex-end;
-    font-size: 25px ! important;
-    position: unset ! important;
+    font-size: 18px ! important;
+  }
+
+  .span-ln {
+    font-size: 9px ! important;
   }
 }
 
@@ -62,13 +66,11 @@
   bottom: 0;
   color: #00d96c;
   font-family: 'Press Start 2P' , cursive;
-  font-size: 18px;
-  position: absolute;
-  right: 70px;
+  font-size: 36px;
 }
 
 .span-ln {
-  font-size: 20px;
+  font-size: 9px;
   margin-right: 5px;
   vertical-align: top;
 }
