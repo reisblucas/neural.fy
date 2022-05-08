@@ -51,7 +51,7 @@ class InputSearch extends Component {
                 data-testid="search-artist-input"
                 value={ inputSearch }
                 onChange={ handleChange }
-                onKeyUp={ (e) => this.activateBlur(e) }
+                // onKeyUp={ (e) => this.activateBlur(e) }
                 autoComplete="off"
               />
             </label>

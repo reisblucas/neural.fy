@@ -52,6 +52,7 @@
   border: 1px solid white;
   border-bottom-right-radius: 50px;
   border-top-right-radius: 50px;
+  font-size: 16px;
   text-align: left;
   width: 25vw;
 }
@@ -66,7 +67,6 @@
   border: 2px #00d96c solid;
   border-radius: 0 10px 10px 0;
   color: black;
-  font-size: 16px;
   height: 35px;
 }
 
