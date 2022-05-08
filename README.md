@@ -22,7 +22,6 @@ O projeto era apenas para reproduzir as funcionalidades e trabalhar com o React 
 src/services/\
 &nbsp;&nbsp;&nbsp; ↳ favoriteSongsAPI.js\
 &nbsp;&nbsp;&nbsp; ↳ musicsAPI.js\
-&nbsp;&nbsp;&nbsp; ↳ searchAlbumsAPI.js\
 &nbsp;&nbsp;&nbsp; ↳ userAPI.js\
 
 ## Principais funcionalidades de acordo com as rotas:

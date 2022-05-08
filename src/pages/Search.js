@@ -4,11 +4,11 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Loading from '../components/Loading';
 import '../styles/search.css';
-import searchAlbumsAPI from '../services/searchAlbumsAPI';
 import ContentResult from '../components/ContentResult';
 import fetchAlbumInRedux from '../thunk/fetchAlbumInRedux';
 import { inputSearchAct } from '../actions';
 import TopsideBar from '../components/TopsideBar';
+import fetchAlbums from '../services/fetchAlbums';
 
 class Search extends Component {
   constructor() {
@@ -54,7 +54,7 @@ class Search extends Component {
       searchedMain: `Resultados de ${inputSearch}`,
     });
 
-    const artist = await searchAlbumsAPI(inputSearch);
+    const artist = await fetchAlbums(inputSearch);
 
     if (artist.length === 0) {
       inputSearchGlobal(`No results found for "${inputSearch}".`);
