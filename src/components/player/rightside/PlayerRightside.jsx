@@ -115,15 +115,18 @@ function PlayerRightside() {
       <LinkedinButton />
       <DocButton />
 
-      <button
-        className="cpb vb pbr"
-        type="button"
-        onClick={ muteAndUnmute }
-      >
-        {volumeVerifier()}
-      </button>
+      <label htmlFor="connect-button-progress">
+        <button
+          className="cpb vb pbr"
+          type="button"
+          onClick={ muteAndUnmute }
+        >
+          {volumeVerifier()}
+        </button>
+      </label>
 
       <input
+        id="connect-button-progress"
         type="range"
         name="volume-player"
         defaultValue="1"
