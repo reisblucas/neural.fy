@@ -1,6 +1,7 @@
 @media only screen and ( max-width : 414px ) {
 
   .inputSearch {
+    font-size: 16px ! important;
     width: auto ! important;
   }
 }
@@ -52,7 +53,7 @@
   border: 1px solid white;
   border-bottom-right-radius: 50px;
   border-top-right-radius: 50px;
-  font-size: 16px;
+  /* font-size: 16px; */
   text-align: left;
   width: 25vw;
 }

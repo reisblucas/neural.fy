@@ -17,6 +17,10 @@
   .span-ln {
     font-size: 9px ! important;
   }
+
+  .inputLogin {
+    font-size: 16px ! important;
+  }
 }
 
 .page-login {
@@ -37,7 +41,7 @@
 
 .inputLogin {
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 13px;
   height: 25px;
   margin: 0;
   margin-top: 20px;
