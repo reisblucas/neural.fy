@@ -5,10 +5,11 @@
 ## Getting started:
 ### Before start:
 1. Install [Moesif Origin & CORS Changer](https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc/related) extension on Chrome to avoid 404 status error from API;
-2. Access [neur4l.fy](https://neuralfy.vercel.app/);
-3. Type your name or at least three characters in Login and Password;
-4. Type the artist name in Search field;
-5. Discover my application.
+2. Activate Moesif extension plugin in Extensions icon located in topside(:jigsaw:) | **AFTER HAVING USED THE APPLICATION, TURN MOESIF OFF!**;
+3. Access [neur4l.fy](https://neuralfy.vercel.app/);
+4. Type your name or at least three characters in Login and Password;
+5. Type the artist name in Search field;
+6. Discover my application.
 
 ### If you want to clone and execut in your machine:
 1. Clone the repository using SSH;
