@@ -2,53 +2,96 @@
   <h1>neur4l.fy</h1>
 </div>
 
+## Getting started:
+### Before start:
+1. Install [Moesif Origin & CORS Changer](https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc/related) extension on Chrome to avoid 404 status error from API;
+2. Activate Moesif extension plugin in Extensions icon located in topside(:jigsaw:) | **AFTER HAVING USED THE APPLICATION, TURN MOESIF OFF!**;
+3. Access [neur4l.fy](https://neuralfy.vercel.app/);
+4. Type your name or at least three characters in Login and Password;
+5. Type the artist name in Search field;
+6. Discover my application.
 
-## Habilidades:
+### If you want to clone and execut in your machine:
+1. Clone the repository using SSH;
+2. Via CLI Terminal, Access the folder where you cloned the repository and type __**npm i**__ in the terminal;
+3. __**npm start**__.
 
-> Fazer requisições e consumir dados vindos de uma API;\
-> Utilizar os ciclos de vida de um componente React;\
-> Utilizar a função setState de forma a garantir que um determinado código só é executado após o estado ser atualizado;\
-> Utilizar o componente BrowserRouter corretamente;\
-> Criar rotas, mapeando o caminho da URL com o componente correspondente, via Route;\
-> Utilizar o Switch do React Router;\
-> Usar o componente Redirect pra redirecionar para uma rota específica;\
-> Criar links de navegação na aplicação com o componente Link.
+## About:
+The project is a React based, mostly made with Class Components and implemented Redux in middle of the project when I earned knowledge to apply the concept of global storage in my application and avoid prop drilling. In the beginning of the project, I want to make a Spotify clone and the required project was to make only some functionalities like favorite/unfavorite, with some restrictions about apresentation to the client, consume data from api and show in the page using React Life-Cycle.
+So talking about the aesthetic side, it's a free choice and I want to go beyond and recreate the same design and functionalities of the Spotify app with Friends Activity and Player.
 
-##### Projeto realizado enquanto aluno da Trybe em que foi utilizado a API do iTunes para busca das músicas e artistas.
+## Skills:
+> Make requisitions and consume data provided by iTunes API;\
+> Use React Component Life-Cycle;\
+> Control states;\
+> Use route control with BrowserRouter;\
+> Create routes and map the correct path;\
+> Make persistent components to be showed in screen with Switch;\
+> React-Redux to store in global storage;\
+> Integration between app without Redux and implement Redux.
 
-O projeto era apenas para reproduzir as funcionalidades e trabalhar com o React Lifecycle. A questão estética do projeto era totalmente livre para o aluno escolher e estilizar da maneira que preferisse.Dessa forma, decidi reproduzir o spotify para testar e aprimorar os meus conhecimentos com o CSS.
+## Versions:
+#### First version(branch: not connected + master):
+- Leftside bar with favorite songs similar to playlists in Spotify;
+- Searched musics in the 80% of the screen.
+- Without Redux.
 
-## Arquivos os quais foram disponibilizados pela Trybe:
+#### Second version(branch: master + canvas-v2):
+- Redux integration;
+- Friends activity bar;
+&nbsp;&nbsp; - Artist name + Song name interactive;
+
+#### Latest version(branch: player):
+- Introduce player in bottomside;
+- Implement connection between song played, album/favorites route, Favorites Sidebar and Friends Activity Sidebar;
+- Introduce Play/pause in Friends Activity Sidebar;
+- Introduce Pause in Favorite Sidebar when playing favorite song;
+- Introduce randomized friends in Friends Activity Sidebar;
+- Friend last activity friend marker(blue sign ahead friend picture);
+- Solved (#) bug that not reset to default album order in Album routes;
+- Fix UI alignments in Album and some of code smells;
+- Player music now is based in your last music played in the last time you visited; 
+
+## Challenges:
+- Make persistent components in Desktop, optimize for Mobile and Tablet Screens;
+- Begin integration with Redux, because when I started the project I hadn't the knowledge about Redux or Context API;
+- UI Alignment in Album filters with listed songs in Album and Favorite routes, because they use the same component;
+- Progress bar/volume bar, very difficult and it's not 100% optmized(CSS Optimization for Chrome only);
+- Remove keyboard from screen;
+- I didn't found a way to make a function to Zoom Out after trigger Input in mobile screens, so I used minimum requirements for some Browsers to not trigger;
+- CORS errors.
+
+## Files provided by Trybe:
 src/services/\
 &nbsp;&nbsp;&nbsp; ↳ favoriteSongsAPI.js\
 &nbsp;&nbsp;&nbsp; ↳ musicsAPI.js\
 &nbsp;&nbsp;&nbsp; ↳ userAPI.js\
 
-## Principais funcionalidades de acordo com as rotas:
+## Main features according to routes:
 
 <div align="center">
-  <h4>Spotify® logo in Header:</h4>
+  <h4>(Any route) | Spotify® logo or Search button in leftside bar:</h4>
 </div>
 
-1. Ao clicar na logo, será redirecionado a Home(/search).
+1. By clicking in logo, you'll be redirected to the homepage(/) with the last search.
 
 <div align="center">
-  <h4>Search:</h4>
+  <h4>(/) | Search bar:</h4>
 </div>
 
-1. Buscar álbuns baseado no nome do artista;
-2. Renderizar resultados na tela;
-3. Play & Stop músicas;
-4. Favoritar & desfavoritar músicas.
-
+1. Search albums based in artist name;
+2. Render results in page;
+3. Search results will be showed in the screen.
 ___
 
 <div align="center">
-  <h4>Favorites:</h4>
+  <h4>(/favorites) | Favorites:</h4>
 </div>
 
-1. Play & Stop músicas;
-2. Favoritar & desfavoritar músicas.
+1. Play and stop songs;
+2. Favorite and disfavor songs;
+3. Filter by title name, album name, duration time and reset filter(#);
+4. User profile picture beside of Album picture. 
 
 ___
 
@@ -56,97 +99,91 @@ ___
   <h4>Profile:</h4>
 </div>
 
-1. Editar:\
-&nbsp;&nbsp; - Nome;\
+1. Edit:\
+&nbsp;&nbsp; - Name;\
 &nbsp;&nbsp; - E-mail;\
-&nbsp;&nbsp; - Imagem(baseado na URL da imagem);\
-&nbsp;&nbsp; - Descrição.
-2. Ao editar a foto de perfil será atualizado em todo o projeto;
-3. Após editar a foto, ao acessar a rota "/favorites", será possível visualizar a foto de perfil do usuário. 
+&nbsp;&nbsp; - Picture(based in picture URL);\
+&nbsp;&nbsp; - Description.
+2. After changing the profile picture, it will be modified globally; 
 
 ___
 
+### 03/14/2022 - 03/17/2022:
+
 <div align="center">
-  <h4>Easter egg:</h4>
+  <h4>Visual implementation:</h4>
 </div>
 
-1. Por enquanto, não está disponível no Github Pages.
+- Album total duration;
+- Visual implementation for Desktop, Mobile and Tablet;\
+&nbsp;&nbsp; - Conditional Header for Mobile/Tablet;\
+&nbsp;&nbsp; - Conditional Navigation Links for Mobile;\
+&nbsp;&nbsp; - Search field changed;\
+&nbsp;&nbsp; - Profile Pattern in search, album and favorites.
+
+<div align="center">
+  <h4>Functional implementations:</h4>
+</div>
+
+- Redux implementation to handle Global State;
+- Links to search albums for the selected artist;
+- Links to go to the selected artist album; / Links para ir para o álbum de determinado artista;
+- Links to favorites page(/favorites);\ / Link para ir ao perfil na página de músicas favoritas (/favorites);
+- Added Page Control buttons;
+
+<div align="center">
+  <h4>Filters:</h4>
+</div>
+
+- Now it's possible to filter by ascendent and decrescent order, according to:\
+&nbsp;&nbsp; - Title;\
+&nbsp;&nbsp; - Album;\
+&nbsp;&nbsp; - Duration;\
+&nbsp;&nbsp; - Reset filter(#).
 
 ___
 
-### 02/03/2022:
+### 03/18/2022 - 03/23/2022:
 
-- Pode ser que ocorra alguns erros de CORS, atualizarei assim que possível.
-
-___
-
-### 14/03/2022 - 17/03/2022:
-
-<div align="center">
-  <h5>Fixed Bugs:</h5>
-</div>
-
-- CORS bug, resolvido;
-- Input Search agora ativa corretamente quando clica no enter pelo celular.
-
-<div align="center">
-  <h5>Implementações visuais:</h5>
-</div>
-
-- Tempo total do álbum;
-- Implementações visuais para Desktop, Mobile e Tablet:\
-&nbsp;&nbsp; - Header condicional para Mobile/Tablet;\
-&nbsp;&nbsp; - Navigation Links condicionais para Mobile;\
-&nbsp;&nbsp; - Campo de busca dos álbuns do artista procurado;\
-&nbsp;&nbsp; - Profile Pattern na pesquisa, album e favoritos.
-
-<div align="center">
-  <h5>Implementações funcionais:</h5>
-</div>
-
-- Implementação do Redux para manipulação do Estado Global;
-- Links para buscar álbuns daquele artista;
-- Links para ir para o álbum de determinado artista;
-- Link para ir ao perfil na página de músicas favoritas (/favorites);
-- Adicionado um botão para Page Control, tanto para voltar a página anterior ou quanto para avançar à uma página;
-- Campo de busca dos álbuns do artista procurado;
-
-<div align="center">
-  <h5>Filtros:</h5>
-</div>
-
-- Agora é possível filtrar, em ordem crescente e decrescente, baseado no:\
-&nbsp;&nbsp; - Título;\
-&nbsp;&nbsp; - Álbum;\
-&nbsp;&nbsp; - Tempo de música;\
-&nbsp;&nbsp; - Filter reset(#).
+- Friends Activity bar;
+- Song name and artist name interactive, both redirect to the respectively aspects, like Spotify;
 
 ___
 
-### 18/03/2022 - 23/03/2022:
+### 03/25/2022:
 
-- Barra lateral de atividades de amigos;
-- Possível clicar na música e no álbum, ambos redirecionam respectivamente para a página dos respectivos com os retornos desejados, assim como no Spotify.
+<div align="center">
+  <h4>Fixed Bugs:</h4>
+</div>
+
+- Now after hit enter in smartphone keyboard, specifically in iOS, the keyboard fade away;
+
+<div align="center">
+  <h4>Features:</h4>
+</div>
+
+- Now, in album page, the colors are rendered dinamically based in the most relevant color in Album picture.
+
 ___
 
-### 25/03/2022:
+### 04/07/2022 - 05/09/2022
+
+- All the player developed and implemented;
+- Major fixed bugs;
+- Connection between favorites sidebar, album, friends sidebar and player;
+- The last song played is the song showed in your next visit and can be played, like next music, previous;
+- Fixed (#) filter bug, that it is not reseting to the current album;
+- Play/stop in friend picture;
+- Last activity marker ahead friend picture;
+
+
+#### Known bugs:
+- After unshuffle the last previous song is enabled after hit Next button;
+- Delay when favorite button is clicked inside Album;
+___
 
 <div align="center">
-  <h5>Fixed Bugs:</h5>
-</div>
-
-- Ao clicar no botão enter em smarthphones, especificamente no iOS, o keyboard desaparece.
-
-<div align="center">
-  <h5>Features:</h5>
-</div>
-
-- Agora na página do álbum as cores são renderizadas dinamicamente.
-
----
-
-<div align="center">
-  <p>Projeto realizado no dia 14/02/2022 enquanto aluno da Trybe</p>
-  <p>:rocket:</p>
+  <p>Project started on the day 14/02/2022 while student at Trybe and optimized in my spare time!</p>
+  <p>:rocket::green_heart:</p>
   <p>neur4l ®</p>
 </div>
