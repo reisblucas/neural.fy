@@ -5,7 +5,7 @@
 ## Getting started:
 ### Before start:
 1. Install [Moesif Origin & CORS Changer](https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc/related) extension on Chrome to avoid 404 status error from API;
-2. Activate Moesif extension plugin in Extensions icon located in topside(:jigsaw:) | **AFTER HAVING USED THE APPLICATION, TURN MOESIF OFF!**;
+2. Activate Moesif extension plugin in Extensions icon located in topside(:jigsaw:) | **AFTER HAVING USED THE APPLICATION, TURN OFF MOESIF!**;
 3. Access [neur4l.fy](https://neuralfy.vercel.app/);
 4. Type your name or at least three characters in Login and Password;
 5. Type the artist name in Search field;
@@ -178,7 +178,7 @@ ___
 
 
 #### Known bugs:
-- After unshuffle the last previous song is enabled after hit Next button;
+- After unshuffle the last previous song is enabled after hit Next button -> (05/11 Only need to do a global state with default - Next fix);
 - Delay when favorite button is clicked inside Album;
 ___
 
