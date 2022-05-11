@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
-import { faUserPlus } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { IoPlaySharp } from 'react-icons/io5';
 import { GiPauseButton } from 'react-icons/gi';
+import { BsPerson } from 'react-icons/bs';
+
 import { musicData } from '../data/friendsActivity/friendsData';
 import '../styles/friendsActivity.css';
 import FriendActivityDefault from './FriendActivityDefault';
@@ -71,7 +71,9 @@ class FriendsActivitySidebar extends Component {
       <div className="friends-container-hero">
         <div className="headerActFrnd">
           <h4 className="title-hero">Friends Activity</h4>
-          <FontAwesomeIcon icon={ faUserPlus } />
+          <BsPerson className="af-i" />
+          <div className="af-p">+</div>
+          <div className="af-b" />
         </div>
 
         {

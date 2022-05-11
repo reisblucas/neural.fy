@@ -23,13 +23,42 @@
   align-items: center;
   color: #b3b3b3;
   display: flex;
+  height: 25px;
   justify-content: space-between;
   margin-bottom: 30px;
   margin-top: 10px;
+  position: relative;
 }
 
 .title-hero {
   margin: 0;
+}
+
+/* add friend - icon */
+.af-i {
+  font-size: 20px;
+}
+
+/* ... - plus */
+.af-p {
+  bottom: 0;
+  display: flex;
+  font-size: 11px;
+  position: absolute;
+  right: 11px;
+  z-index: 2;
+}
+
+/* ... - background */
+.af-b {
+  background-color: black;
+  border-radius: 10px;
+  bottom: 3px;
+  height: 8px;
+  position: absolute;
+  right: 10px;
+  width: 8px;
+  z-index: 1;
 }
 
 .subtitle {
