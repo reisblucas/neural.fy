@@ -9,23 +9,23 @@ function ShuffleAndRepeatButton({ type, setPlaylistSong }) {
   const [isRptClicked, setIsRptClicked] = useState(false);
 
   const [songsDefault, setSongsDefault] = useState([]);
-  const [songsShuffledLocal, setSongsShuffledLocal] = useState([]);
 
   const store = useSelector((globalState) => ({
     songs: globalState.musicsToPlayer.songs,
+    tracks: globalState.responseMusics.tracks, // onload album page
   }));
 
-  const { songs } = store;
+  const { songs, tracks } = store;
 
   useEffect(() => {
-    if (songsDefault.length === 0) {
-      setSongsDefault(songs);
+    if (songsDefault.length === 0 && tracks.length !== 0) {
+      setSongsDefault(tracks);
     }
 
     if (songsDefault.length > 0 && songsDefault[0].trackId !== songs[0].trackId) {
-      setSongsShuffledLocal(songs);
+      setSongsDefault(tracks);
     }
-  }, [songs, songsDefault, songsShuffledLocal]);
+  }, [songs, songsDefault, tracks]);
 
   const shuffleSongs = () => {
     const songsClone = [...songs];

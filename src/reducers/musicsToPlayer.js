@@ -1,4 +1,4 @@
-import { SET_MUSIC_PLAYER, PLAYED_SONG } from '../actions';
+import { SET_MUSIC_PLAYER, PLAYED_SONG, SET_SONGS_DEFAULT } from '../actions';
 
 const initialState = {
   songs: [],
