@@ -31,7 +31,12 @@
 }
 
 .title-hero {
+  font-weight: 800;
   margin: 0;
+}
+
+.title-hero:hover {
+  color: #b3b3b3;
 }
 
 /* add friend - icon */

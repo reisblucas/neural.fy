@@ -70,7 +70,7 @@ class FriendsActivitySidebar extends Component {
     return (
       <div className="friends-container-hero">
         <div className="headerActFrnd">
-          <h4 className="title-hero">Friends Activity</h4>
+          <p className="title-hero">Friends Activity</p>
           <BsPerson className="af-i" />
           <div className="af-p">+</div>
           <div className="af-b" />
