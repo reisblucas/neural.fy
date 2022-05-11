@@ -22,7 +22,7 @@ function ShuffleAndRepeatButton({ type, setPlaylistSong }) {
       setSongsDefault(tracks);
     }
 
-    if (songsDefault.length > 0 && songsDefault[0].trackId !== songs[0].trackId) {
+    if (songsDefault.length > 0 && songsDefault[0]?.trackId !== songs[0]?.trackId) {
       setSongsDefault(tracks);
     }
   }, [songs, songsDefault, tracks]);
