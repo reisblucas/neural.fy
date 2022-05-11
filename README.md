@@ -182,6 +182,12 @@ ___
 - Delay when favorite button is clicked inside Album;
 ___
 
+05/11/2022
+### Fixed bugs:
+- Shuffler working as it be, not persistent between songs yet.
+
+___
+
 <div align="center">
   <p>Project started on the day 14/02/2022 while student at Trybe and optimized in my spare time!</p>
   <p>:rocket::green_heart:</p>
