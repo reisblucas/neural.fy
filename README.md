@@ -175,22 +175,18 @@ ___
 - Fixed (#) filter bug, that it is not reseting to the current album;
 - Play/stop in friend picture;
 - Last activity marker ahead friend picture;
-
-
-#### Known bugs:
-- After unshuffle the last previous song is enabled after hit Next button -> (05/11 Only need to do a global state with default - Next fix);
-- Delay when favorite button is clicked inside Album(promise in usersAPI is a main cause);
 ___
 
-05/11/2022
-### Fixed bugs:
+### 05/11/2022
+#### Fixed bugs:
 - Shuffler working as it be, not persistent between songs yet.
 
-### Critical Hotfix:
+#### Critical Hotfix:
 - Shuffle now is persistent between albums.
 ___
 
-### Known Bugs:
+#### Known Bugs:
+- Delay when favorite button is clicked inside Album(promise in usersAPI is a main cause);
 - Shuffle not working correctly in favorites page.
 
 <div align="center">
