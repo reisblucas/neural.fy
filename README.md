@@ -184,7 +184,9 @@ ___
 
 05/11/2022
 ### Fixed bugs:
-- Shuffler working as it be, not persistent between songs yet;
+- Shuffler working as it be, not persistent between songs yet.
+
+### Critical Hotfix:
 - Shuffle now is persistent between albums.
 ___
 
