@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { BiRepeat, BiShuffle } from 'react-icons/bi';
 import { useSelector } from 'react-redux';
 import shuffler from '../../../helpers/shuffle/shuffler';
@@ -17,6 +17,23 @@ function ShuffleAndRepeatButton({ type, setPlaylistSong }) {
 
   const { songs, tracks } = store;
 
+  const songsShuffledToGlobal = useCallback((sngClone) => {
+    const myShuffleOrder = shuffler(sngClone);
+    return songs.map((_, i) => songs[myShuffleOrder[i]]);
+  }, [songs]);
+
+  const shuffleSongs = () => {
+    const songsClone = [...songs];
+
+    if (isShfflClicked) {
+      return setPlaylistSong(songsDefault);
+    }
+
+    // const songsShuffledToGlobal = songs.map((_, i) => songs[myShuffleOrder[i]]);
+    const sngToSentGlobal = songsShuffledToGlobal(songsClone);
+    setPlaylistSong(sngToSentGlobal);
+  };
+
   useEffect(() => {
     if (songsDefault.length === 0 && tracks.length !== 0) {
       setSongsDefault(tracks);
@@ -25,19 +42,13 @@ function ShuffleAndRepeatButton({ type, setPlaylistSong }) {
     if (songsDefault.length > 0 && songsDefault[0]?.trackId !== songs[0]?.trackId) {
       setSongsDefault(tracks);
     }
-  }, [songs, songsDefault, tracks]);
 
-  const shuffleSongs = () => {
-    const songsClone = [...songs];
-    const myShuffleOrder = shuffler(songsClone);
-
-    if (isShfflClicked) {
-      return setPlaylistSong(songsDefault);
+    if (isShfflClicked && songsDefault[0]?.trackId !== songs[0]?.trackId) {
+      const sngclone = [...songs];
+      const shuffledOrder = songsShuffledToGlobal(sngclone);
+      setPlaylistSong(shuffledOrder);
     }
-
-    const songsShuffledToGlobal = songs.map((_, i) => songs[myShuffleOrder[i]]);
-    setPlaylistSong(songsShuffledToGlobal);
-  };
+  }, [songs, songsDefault, tracks, isShfflClicked, songsShuffledToGlobal]);
 
   const shuffle = (
     <button
