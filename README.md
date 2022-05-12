@@ -183,11 +183,12 @@ ___
 
 #### Critical Hotfix:
 - Shuffle now is persistent between albums.
-___
 
 #### Known Bugs:
 - Delay when favorite button is clicked inside Album(promise in usersAPI is a main cause);
 - Shuffle not working correctly in favorites page.
+
+___
 
 <div align="center">
   <p>Project started on the day 14/02/2022 while student at Trybe and optimized in my spare time!</p>
