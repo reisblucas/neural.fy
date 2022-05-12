@@ -11,7 +11,7 @@
 5. Type the artist name in Search field;
 6. Discover my application.
 
-### If you want to clone and execut in your machine:
+### If you want to clone and test locally:
 1. Clone the repository using SSH;
 2. Via CLI Terminal, Access the folder where you cloned the repository and type __**npm i**__ in the terminal;
 3. __**npm start**__.
