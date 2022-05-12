@@ -178,13 +178,23 @@ ___
 ___
 
 ### 05/11/2022
-#### Fixed bugs:
+
+<div align="center">
+  <h4>Fixed bugs:</h4>
+</div>
+
 - Shuffler working as it be, not persistent between songs yet.
 
-#### Critical Hotfix:
+<div align="center">
+  <h4>Critical Hotfix:</h4>
+</div>
+
 - Shuffle now is persistent between albums.
 
-#### Known Bugs:
+<div align="center">
+  <h4>Known Bugs:</h4>
+</div>
+
 - Delay when favorite button is clicked inside Album(promise in usersAPI is a main cause);
 - Shuffle not working correctly in favorites page.
 
