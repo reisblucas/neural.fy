@@ -2,6 +2,14 @@
   <h1>neur4l.fy</h1>
 </div>
 
+## Project Overview:
+- [SonarCloud](https://sonarcloud.io/project/overview?id=byneur4l_neur4l.fy);
+- [ ] [0/20] - Remove the max of code smells until date 05/18.
+
+## About:
+The project is a React based, mostly made with Class Components and implemented Redux in middle of the project when I earned knowledge to apply the concept of global storage in my application and avoid prop drilling. In the beginning of the project, I want to make a Spotify clone and the required project was to make only some functionalities like favorite/unfavorite, with some restrictions about apresentation to the client, consume data from api and show in the page using React Life-Cycle.
+So talking about the aesthetic side, it's a free choice and I want to go beyond and recreate the same design and functionalities of the Spotify app with Friends Activity and Player.
+
 ## Getting started:
 ### Before start:
 1. Install [Moesif Origin & CORS Changer](https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc/related) extension on Chrome to avoid 404 status error from API;
@@ -15,10 +23,6 @@
 1. Clone the repository using SSH;
 2. Via CLI Terminal, access the folder where you cloned the repository and type __**npm i**__ in the terminal;
 3. __**npm start**__.
-
-## About:
-The project is a React based, mostly made with Class Components and implemented Redux in middle of the project when I earned knowledge to apply the concept of global storage in my application and avoid prop drilling. In the beginning of the project, I want to make a Spotify clone and the required project was to make only some functionalities like favorite/unfavorite, with some restrictions about apresentation to the client, consume data from api and show in the page using React Life-Cycle.
-So talking about the aesthetic side, it's a free choice and I want to go beyond and recreate the same design and functionalities of the Spotify app with Friends Activity and Player.
 
 ## Skills:
 > Make requisitions and consume data provided by iTunes API;\
