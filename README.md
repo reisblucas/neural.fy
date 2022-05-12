@@ -179,14 +179,17 @@ ___
 
 #### Known bugs:
 - After unshuffle the last previous song is enabled after hit Next button -> (05/11 Only need to do a global state with default - Next fix);
-- Delay when favorite button is clicked inside Album;
+- Delay when favorite button is clicked inside Album(promise in usersAPI is a main cause);
 ___
 
 05/11/2022
 ### Fixed bugs:
-- Shuffler working as it be, not persistent between songs yet.
-
+- Shuffler working as it be, not persistent between songs yet;
+- Shuffle now is persistent between albums.
 ___
+
+### Known Bugs:
+- Shuffle not working correctly in favorites page.
 
 <div align="center">
   <p>Project started on the day 14/02/2022 while student at Trybe and optimized in my spare time!</p>
