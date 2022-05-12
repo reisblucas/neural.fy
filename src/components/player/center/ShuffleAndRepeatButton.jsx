@@ -110,3 +110,5 @@ ShuffleAndRepeatButton.propTypes = {
 }.isRequired;
 
 export default ShuffleAndRepeatButton;
+
+// Fix deploy
