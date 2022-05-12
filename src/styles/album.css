@@ -303,6 +303,10 @@
   margin: 0 auto;
 }
 
+.selectedMusic .tp-icon {
+  display: none;
+}
+
 .focusMusicRow:hover .trackPlayIcon {
   display: block;
   font-size: 15px;
