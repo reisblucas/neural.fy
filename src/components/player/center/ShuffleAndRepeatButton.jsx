@@ -48,7 +48,8 @@ function ShuffleAndRepeatButton({ type, setPlaylistSong }) {
       const shuffledOrder = songsShuffledToGlobal(sngclone);
       setPlaylistSong(shuffledOrder);
     }
-  }, [songs, songsDefault, tracks, isShfflClicked, songsShuffledToGlobal]);
+  }, [songs, songsDefault, tracks, isShfflClicked,
+    songsShuffledToGlobal]);
 
   const shuffle = (
     <button
