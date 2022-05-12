@@ -168,7 +168,7 @@ ___
 
 ### 04/07/2022 - 05/09/2022
 
-- All the player developed and implemented;
+- All the player was developed and implemented;
 - Major fixed bugs;
 - Connection between favorites sidebar, album, friends sidebar and player;
 - The last song played is the song showed in your next visit and can be played, like next music, previous;
