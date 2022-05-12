@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useState } from 'react';
-import { BiRepeat, BiShuffle } from 'react-icons/bi';
 import { useSelector } from 'react-redux';
 import shuffler from '../../../helpers/shuffle/shuffler';
+import Repeat from './Repeat';
+import Shuffle from './Shuffle';
 
 function ShuffleAndRepeatButton({ type, setPlaylistSong }) {
   const [isShfflClicked, setIsShfflClicked] = useState(false);
@@ -29,7 +30,6 @@ function ShuffleAndRepeatButton({ type, setPlaylistSong }) {
       return setPlaylistSong(songsDefault);
     }
 
-    // const songsShuffledToGlobal = songs.map((_, i) => songs[myShuffleOrder[i]]);
     const sngToSentGlobal = songsShuffledToGlobal(songsClone);
     setPlaylistSong(sngToSentGlobal);
   };
@@ -49,60 +49,22 @@ function ShuffleAndRepeatButton({ type, setPlaylistSong }) {
       setPlaylistSong(shuffledOrder);
     }
   }, [songs, songsDefault, tracks, isShfflClicked,
-    songsShuffledToGlobal]);
+    songsShuffledToGlobal, setPlaylistSong]);
 
-  const shuffle = (
-    <button
-      type="button"
-      className="cpb dot-father"
-      onClick={ () => {
-        setIsShfflClicked(!isShfflClicked);
-        shuffleSongs();
-      } }
-    >
-      {
-        isShfflClicked
-          ? (
-            <>
-              <BiShuffle className="tsp-sa tsp-s" />
-              <div className="green-dot" />
-            </>
-          )
-          : <BiShuffle className="tsp-rs tsp-s" />
-      }
-    </button>
-  );
+  const shuffleFuncs = {
+    isShfflClicked,
+    setIsShfflClicked,
+    shuffleSongs,
+  };
 
-  const repeat = (
-    <button
-      type="button"
-      className="cpb dot-father"
-      onClick={ () => {
-        setIsRptClicked((prev) => {
-          const audio = document.querySelector('audio');
-          if (!prev) {
-            audio.loop = true;
-            return audio.loop;
-          }
-          audio.loop = false;
-          return audio.loop;
-        });
-      } }
-    >
-      {
-        isRptClicked
-          ? (
-            <>
-              <BiRepeat className="tsp-r tsp-sa" />
-              <div className="green-dot" />
-            </>
-          )
-          : <BiRepeat className="tsp-rs tsp-r" />
-      }
-    </button>
-  );
+  const repeatFuncs = {
+    isRptClicked,
+    setIsRptClicked,
+  };
 
-  return type === 'shuffle' ? shuffle : repeat;
+  return type === 'shuffle'
+    ? <Shuffle { ...shuffleFuncs } />
+    : <Repeat { ...repeatFuncs } />;
 }
 
 ShuffleAndRepeatButton.propTypes = {
