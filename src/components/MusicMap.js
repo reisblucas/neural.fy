@@ -53,7 +53,7 @@ class MusicMap extends Component {
     const { played } = this.state;
     const { musicsToPlayer: { played: playedGlobal } } = this.props;
 
-    return playedGlobal?.status && played?.trackId === trackId
+    return playedGlobal?.trackId === played?.trackId && played?.trackId === trackId
       ? 'musicName ellipsis songplayed-in-album'
       : 'musicName ellipsis';
   }
