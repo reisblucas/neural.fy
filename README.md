@@ -42,7 +42,7 @@ So talking about the aesthetic side, it's a free choice and I want to go beyond 
 
 #### Second version(branch: master + canvas-v2):
 - Redux integration;
-- Friends activity bar;
+- Friends activity bar;\
 &nbsp;&nbsp; - Artist name + Song name interactive;
 
 #### Latest version(branch: player):
