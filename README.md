@@ -5,9 +5,6 @@
 ## Project Overview:
 - [SonarCloud](https://sonarcloud.io/project/overview?id=byneur4l_neur4l.fy);
 
-## About:
-The project is a React based, mostly made with Class Components and implemented Redux in middle of the project when I earned knowledge to apply the concept of global storage in my application and avoid prop drilling.
-
 ## Getting started:
 1. Access [neur4l.fy](https://neuralfy.vercel.app/);
 2. Type your name or at least three characters in Login and Password;
@@ -18,6 +15,13 @@ The project is a React based, mostly made with Class Components and implemented 
 1. Clone the repository using SSH;
 2. Via CLI Terminal, access the folder where you cloned the repository and type __**npm i**__ in the terminal;
 3. __**npm start**__.
+
+## Built with:
+&nbsp;- [ReactJS](https://reactjs.org/);
+&nbsp;- [React Redux](https://react-redux.js.org/);
+&nbsp;- [react-icons](https://react-icons.github.io/react-icons/);
+&nbsp;- Pure CSS and Globally.
+
 
 ## Main features:
 
