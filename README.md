@@ -4,7 +4,6 @@
 
 ## Project Overview:
 - [SonarCloud](https://sonarcloud.io/project/overview?id=byneur4l_neur4l.fy);
-- [ ] [0/20] - Remove the max of code smells until date 05/18.
 
 ## About:
 The project is a React based, mostly made with Class Components and implemented Redux in middle of the project when I earned knowledge to apply the concept of global storage in my application and avoid prop drilling. In the beginning of the project, I want to make a Spotify clone and the required project was to make only some functionalities like favorite/unfavorite, with some restrictions about apresentation to the client, consume data from api and show in the page using React Life-Cycle.
@@ -12,8 +11,6 @@ So talking about the aesthetic side, it's a free choice and I want to go beyond 
 
 ## Getting started:
 ### Before start:
-1. Install [Moesif Origin & CORS Changer](https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc/related) extension on Chrome to avoid 404 status error from API;
-2. Activate Moesif extension plugin in Extensions icon located in topside(:jigsaw:) | **AFTER HAVING USED THE APPLICATION, TURN OFF MOESIF!**;
 3. Access [neur4l.fy](https://neuralfy.vercel.app/);
 4. Type your name or at least three characters in Login and Password;
 5. Type the artist name in Search field;
@@ -23,16 +20,6 @@ So talking about the aesthetic side, it's a free choice and I want to go beyond 
 1. Clone the repository using SSH;
 2. Via CLI Terminal, access the folder where you cloned the repository and type __**npm i**__ in the terminal;
 3. __**npm start**__.
-
-## Skills:
-> Make requisitions and consume data provided by iTunes API;\
-> Use React Component Life-Cycle;\
-> Control states;\
-> Use route control with BrowserRouter;\
-> Create routes and map the correct path;\
-> Make persistent components to be showed in screen with Switch;\
-> React-Redux to store in global storage;\
-> Integration between app without Redux and implement Redux.
 
 ## Versions:
 #### First version(branch: not connected + master):
@@ -209,3 +196,8 @@ ___
   <p>:rocket::green_heart:</p>
   <p>neur4l ®</p>
 </div>
+
+<details>
+  <summary>Goals</summary>
+  <p>- [ ] [0/20] - Remove the max of code smells until date 05/18.</p>
+</details>
