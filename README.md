@@ -144,7 +144,7 @@ ___
 ___
 
 <details>
-  <summary>Goals:</summary>
+  <summary><h4>Goals:</h4></summary>
   <p>[ ] [0/20] - Remove the max of code smells until date 05/18.</p>
 </details>
 
@@ -181,7 +181,7 @@ ___
 
 <details>
   <summary>Change logs:</summary>
-  <a href="https://github.com/byneur4l/neur4l.fy/changelogs" target="_blank" rel="noopener noreferrer">Click here to be redirected to changelogs.</a>
+  <a href="https://github.com/byneur4l/neur4l.fy/tree/master/changelogs" target="_blank" rel="noopener noreferrer">- Click here to be redirected to changelogs.</a>
 </details>
 
 ___
