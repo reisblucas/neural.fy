@@ -149,38 +149,38 @@ ___
 </details>
 
 <details>
-  <summary>Skills:</summary>
-  <p>- Make requisitions and consume data provided by iTunes API;\</p>
-  <p>- Use React Component Life-Cycle;\</p>
-  <p>- Control states;\</p>
-  <p>- Use route control with BrowserRouter;\</p>
-  <p>- Create routes and map the correct path;\</p>
-  <p>- Make persistent components to be showed in screen with Switch;\</p>
-  <p>- React-Redux to store in global storage;\</p>
+  <summary><h4>Skills:</h4></summary>
+  <p>- Make requisitions and consume data provided by iTunes API;</p>
+  <p>- Use React Component Life-Cycle;</p>
+  <p>- Control states;</p>
+  <p>- Use route control with BrowserRouter;</p>
+  <p>- Create routes and map the correct path;</p>
+  <p>- Make persistent components to be showed in screen with Switch;</p>
+  <p>- React-Redux to store in global storage;</p>
   <p>- Integration between app without Redux and implement Redux.</p>
 </details>
 
 <details>
-  <summary>Challenges:</summary>
-  - Make persistent components in Desktop, optimize for Mobile and Tablet Screens;
-  - Begin integration with Redux, because when I started the project I hadn't the knowledge about Redux or Context API;
-  - UI Alignment in Album filters with listed songs in Album and Favorite routes, because they use the same component;
-  - Progress bar/volume bar, very difficult and it's not 100% optmized(CSS Optimization for Chrome only);
-  - Remove keyboard from screen;
-  - I didn't found a way to make a function to Zoom Out after trigger Input in mobile screens, so I used minimum requirements for some Browsers to not trigger;
-  - CORS errors.
+  <summary><h4>Challenges:</h4></summary>
+  <p>- Make persistent components in Desktop, optimize for Mobile and Tablet Screens;</p>
+  <p>- Begin integration with Redux, because when I started the project I hadn't the knowledge about Redux or Context API;</p>
+  <p>- UI Alignment in Album filters with listed songs in Album and Favorite routes, because they use the same component;</p>
+  <p>- Progress bar/volume bar, very difficult and it's not 100% optmized(CSS Optimization for Chrome only);</p>
+  <p>- Remove keyboard from screen;</p>
+  <p>- I didn't found a way to make a function to Zoom Out after trigger Input in mobile screens, so I used minimum requirements for some Browsers to not trigger;</p>
+  <p>- CORS errors and was the last thing I solved.</p>
 </details>
 
 <details>
-  <summary>Files provided by Trybe:</summary>
-  src/services/\
-  &nbsp;&nbsp;&nbsp; ↳ favoriteSongsAPI.js\
-  &nbsp;&nbsp;&nbsp; ↳ musicsAPI.js\
-  &nbsp;&nbsp;&nbsp; ↳ userAPI.js\
+  <summary><h4>Files provided by Trybe:</h4></summary>
+  <p>src/services/</p>
+  <p>&nbsp;&nbsp;&nbsp; ↳ favoriteSongsAPI.js</p>
+  <p>&nbsp;&nbsp;&nbsp; ↳ musicsAPI.js</p>
+  <p>&nbsp;&nbsp;&nbsp; ↳ userAPI.js</p>
 </details>
 
 <details>
-  <summary>Change logs:</summary>
+  <summary><h4>Change logs:</h4></summary>
   <a href="https://github.com/byneur4l/neur4l.fy/tree/master/changelogs" target="_blank" rel="noopener noreferrer">- Click here to be redirected to changelogs.</a>
 </details>
 
@@ -189,5 +189,5 @@ ___
 <div align="center">
   <p>Project started on the day 14/02/2022 while student at Trybe and optimized in my spare time!</p>
   <p>:rocket::green_heart:</p>
-  <p>neur4l ®</p>
+  <p>neur4l ©</p>
 </div>
