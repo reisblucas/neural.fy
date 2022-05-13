@@ -17,9 +17,9 @@
 3. __**npm start**__.
 
 ## Built with:
-&nbsp;- [ReactJS](https://reactjs.org/);
-&nbsp;- [React Redux](https://react-redux.js.org/);
-&nbsp;- [react-icons](https://react-icons.github.io/react-icons/);
+&nbsp;- [ReactJS](https://reactjs.org/);\
+&nbsp;- [React Redux](https://react-redux.js.org/);\
+&nbsp;- [react-icons](https://react-icons.github.io/react-icons/);\
 &nbsp;- Pure CSS and Globally.
 
 
@@ -132,7 +132,7 @@ ___
 
 <details>
   <summary><h4>Goals:</h4></summary>
-  <p>[ ] [0/20] - Remove the max of code smells until date 05/18.</p>
+  <p>[0/20] - Remove the max of code smells until date 05/18.</p>
 </details>
 
 <details>
