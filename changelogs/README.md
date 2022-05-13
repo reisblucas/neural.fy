@@ -1,3 +1,25 @@
+## Versions:
+#### First version(branch: not connected + master):
+- Leftside bar with favorite songs similar to playlists in Spotify;
+- Searched musics in the 80% of the screen.
+- Without Redux.
+
+#### Second version(branch: master + canvas-v2):
+- Redux integration;
+- Friends activity bar;\
+&nbsp;&nbsp; - Artist name + Song name interactive;
+
+#### Latest version(branch: player):
+- Introduce player in bottomside;
+- Implement connection between song played, album/favorites route, Favorites Sidebar and Friends Activity Sidebar;
+- Introduce Play/pause in Friends Activity Sidebar;
+- Introduce Pause in Favorite Sidebar when playing favorite song;
+- Introduce randomized friends in Friends Activity Sidebar;
+- Friend last activity friend marker(blue sign ahead friend picture);
+- Solved (#) bug that not reset to default album order in Album routes;
+- Fix UI alignments in Album and some of code smells;
+- Player music now is based in your last music played in the last time you visited;
+
 ### Change Logs:
 
 ### 03/14/2022 - 03/17/2022:

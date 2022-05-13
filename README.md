@@ -6,42 +6,19 @@
 - [SonarCloud](https://sonarcloud.io/project/overview?id=byneur4l_neur4l.fy);
 
 ## About:
-The project is a React based, mostly made with Class Components and implemented Redux in middle of the project when I earned knowledge to apply the concept of global storage in my application and avoid prop drilling. In the beginning of the project, I want to make a Spotify clone and the required project was to make only some functionalities like favorite/unfavorite, with some restrictions about apresentation to the client, consume data from api and show in the page using React Life-Cycle.
-So talking about the aesthetic side, it's a free choice and I want to go beyond and recreate the same design and functionalities of the Spotify app with Friends Activity and Player.
+The project is a React based, mostly made with Class Components and implemented Redux in middle of the project when I earned knowledge to apply the concept of global storage in my application and avoid prop drilling.
 
 ## Getting started:
-### Before start:
-3. Access [neur4l.fy](https://neuralfy.vercel.app/);
-4. Type your name or at least three characters in Login and Password;
-5. Type the artist name in Search field;
-6. Discover my application.
+1. Access [neur4l.fy](https://neuralfy.vercel.app/);
+2. Type your name or at least three characters in Login and Password;
+3. Type the artist name in Search field;
+4. Discover my application.
 
 ### If you want to clone and test locally:
 1. Clone the repository using SSH;
 2. Via CLI Terminal, access the folder where you cloned the repository and type __**npm i**__ in the terminal;
 3. __**npm start**__.
 
-## Versions:
-#### First version(branch: not connected + master):
-- Leftside bar with favorite songs similar to playlists in Spotify;
-- Searched musics in the 80% of the screen.
-- Without Redux.
-
-#### Second version(branch: master + canvas-v2):
-- Redux integration;
-- Friends activity bar;\
-&nbsp;&nbsp; - Artist name + Song name interactive;
-
-#### Latest version(branch: player):
-- Introduce player in bottomside;
-- Implement connection between song played, album/favorites route, Favorites Sidebar and Friends Activity Sidebar;
-- Introduce Play/pause in Friends Activity Sidebar;
-- Introduce Pause in Favorite Sidebar when playing favorite song;
-- Introduce randomized friends in Friends Activity Sidebar;
-- Friend last activity friend marker(blue sign ahead friend picture);
-- Solved (#) bug that not reset to default album order in Album routes;
-- Fix UI alignments in Album and some of code smells;
-- Player music now is based in your last music played in the last time you visited; 
 ## Main features:
 
 <div align="center">
@@ -142,6 +119,12 @@ ___
 - Shuffle not working correctly in favorites page.
 
 ___
+
+<details>
+  <summary><h4>Project story:</h4></summary>
+  <p>In the beginning of the project, I want to make a Spotify clone and the required project was to make only some functionalities like favorite/unfavorite, with some restrictions about apresentation to the client, consume data from api and show in the page using React Life-Cycle.
+  So talking about the aesthetic side, it's a free choice and I want to go beyond and recreate the same design and functionalities of the Spotify app with Friends Activity and Player.</p>
+</details>
 
 <details>
   <summary><h4>Goals:</h4></summary>
