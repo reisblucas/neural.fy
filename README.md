@@ -42,22 +42,6 @@ So talking about the aesthetic side, it's a free choice and I want to go beyond 
 - Solved (#) bug that not reset to default album order in Album routes;
 - Fix UI alignments in Album and some of code smells;
 - Player music now is based in your last music played in the last time you visited; 
-
-## Challenges:
-- Make persistent components in Desktop, optimize for Mobile and Tablet Screens;
-- Begin integration with Redux, because when I started the project I hadn't the knowledge about Redux or Context API;
-- UI Alignment in Album filters with listed songs in Album and Favorite routes, because they use the same component;
-- Progress bar/volume bar, very difficult and it's not 100% optmized(CSS Optimization for Chrome only);
-- Remove keyboard from screen;
-- I didn't found a way to make a function to Zoom Out after trigger Input in mobile screens, so I used minimum requirements for some Browsers to not trigger;
-- CORS errors.
-
-## Files provided by Trybe:
-src/services/\
-&nbsp;&nbsp;&nbsp; ↳ favoriteSongsAPI.js\
-&nbsp;&nbsp;&nbsp; ↳ musicsAPI.js\
-&nbsp;&nbsp;&nbsp; ↳ userAPI.js\
-
 ## Main features:
 
 <div align="center">
@@ -177,9 +161,29 @@ ___
 </details>
 
 <details>
+  <summary>Challenges:</summary>
+  - Make persistent components in Desktop, optimize for Mobile and Tablet Screens;
+  - Begin integration with Redux, because when I started the project I hadn't the knowledge about Redux or Context API;
+  - UI Alignment in Album filters with listed songs in Album and Favorite routes, because they use the same component;
+  - Progress bar/volume bar, very difficult and it's not 100% optmized(CSS Optimization for Chrome only);
+  - Remove keyboard from screen;
+  - I didn't found a way to make a function to Zoom Out after trigger Input in mobile screens, so I used minimum requirements for some Browsers to not trigger;
+  - CORS errors.
+</details>
+
+<details>
+  <summary>Files provided by Trybe:</summary>
+  src/services/\
+  &nbsp;&nbsp;&nbsp; ↳ favoriteSongsAPI.js\
+  &nbsp;&nbsp;&nbsp; ↳ musicsAPI.js\
+  &nbsp;&nbsp;&nbsp; ↳ userAPI.js\
+</details>
+
+<details>
   <summary>Change logs:</summary>
   <a href="https://github.com/byneur4l/neur4l.fy/changelogs" target="_blank" rel="noopener noreferrer">Click here to be redirected to changelogs.</a>
 </details>
+
 ___
 
 <div align="center">
