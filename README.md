@@ -2,6 +2,10 @@
   <h1>neur4l.fy</h1>
 </div>
 
+<div align="center">
+  <img src="/app-demonstration/spotify-last-session.gif" alt="Demonstration of my application working!">
+</div>
+
 ## Project Overview:
 - [SonarCloud](https://sonarcloud.io/project/overview?id=byneur4l_neur4l.fy);
 
