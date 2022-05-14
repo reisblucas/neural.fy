@@ -118,15 +118,19 @@ ___
 2. After changing the profile info, it will be modified globally.
 
 <div align="center">
-  <h4>Screenshots</h4>
-  <h5>iPhone:</h5>
-  <img src="/app-demonstration/screenshots/iphone/acdc-album.png">
+  <h4>App demonstration</h4>
+  
+  <div>
+     <h5>iPhone:</h5>
+     <img src="/app-demonstration/screenshots/iphone/acdc-album.png" height="500">
+     <img src="/app-demonstration/gifs/spotify-cl-mobile-login-to-album.gif">
+  </div>
 
-  <h5>iPad Air:</h5>
-  <img src="/app-demonstration/screenshots/ipad/album-ipadair.png">
-
-  <h5>iPad Pro:</h5>
-  <img src="/app-demonstration/screenshots/ipad/album-ipadpro.png">
+  <div width="200">
+    <h5>iPhone | iPad Air | iPad Pro:</h5>
+    <img src="/app-demonstration/screenshots/ipad/album-ipadair.png" height="500">
+    <img src="/app-demonstration/screenshots/ipad/album-ipadpro.png" height="500">
+  </div>
 </div>
 
 ___
