@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-  <img src="/app-demonstration/spotify-last-session.gif" alt="Demonstration of my application working!">
+  <img src="/app-demonstration/gifs/spotify-last-session.gif" alt="Demonstration of my application working!">
 </div>
 
 ## Project Overview:
@@ -117,6 +117,18 @@ ___
 &nbsp;&nbsp; - Description.
 2. After changing the profile info, it will be modified globally.
 
+<div align="center">
+  <h4>Screenshots</h4>
+  <h5>iPhone:</h5>
+  <img src="/app-demonstration/screenshots/iphone/acdc-album.png">
+
+  <h5>iPad Air:</h5>
+  <img src="/app-demonstration/screenshots/ipad/album-ipadair.png">
+
+  <h5>iPad Pro:</h5>
+  <img src="/app-demonstration/screenshots/ipad/album-ipadpro.png">
+</div>
+
 ___
 
 <div align="center">
@@ -124,7 +136,8 @@ ___
 </div>
 
 - Delay when favorite button is clicked inside Album(promise in usersAPI is a main cause);
-- Shuffle not working correctly in favorites page.
+- Shuffle not working correctly in favorites page locally.
+- When is on the last song in that collection and 30s is fullfiled, next song is the second in that collection.
 
 ___
 
