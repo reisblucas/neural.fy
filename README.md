@@ -123,11 +123,11 @@ ___
   <div>
      <h5>iPhone:</h5>
      <img src="/app-demonstration/screenshots/iphone/acdc-album.png" height="500">
-     <img src="/app-demonstration/gifs/spotify-cl-mobile-login-to-album.gif">
+     <img src="/app-demonstration/gifs/spotify-cl-mobile-login-to-album.gif" height="500">
   </div>
 
   <div width="200">
-    <h5>iPhone | iPad Air | iPad Pro:</h5>
+    <h5>iPad Air and Pro:</h5>
     <img src="/app-demonstration/screenshots/ipad/album-ipadair.png" height="500">
     <img src="/app-demonstration/screenshots/ipad/album-ipadpro.png" height="500">
   </div>
