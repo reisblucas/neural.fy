@@ -117,6 +117,8 @@ ___
 &nbsp;&nbsp; - Description.
 2. After changing the profile info, it will be modified globally.
 
+___
+
 <div align="center">
   <h4>App demonstration</h4>
   
