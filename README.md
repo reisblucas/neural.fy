@@ -8,6 +8,9 @@
 
 ## Project Overview:
 - [SonarCloud](https://sonarcloud.io/project/overview?id=byneur4l_neur4l.fy);
+<div align="center">
+  <img src="app-demonstration/screenshots/sonarcloud/analysis-05-19-2022.png" width="300">
+</div>
 
 ## Getting started:
 1. Access [neur4l.fy](https://neuralfy.vercel.app/);
