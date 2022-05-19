@@ -152,49 +152,62 @@ ___
 
 <details>
   <summary><strong>Project story:</strong></summary>
-  <p>In the beginning of the project, I want to make a Spotify clone and the required project was to make only some functionalities like favorite/unfavorite, with some restrictions about apresentation to the client, consume data from api and show in the page using React Life-Cycle.
-  So talking about the aesthetic side, it's a free choice and I want to go beyond and recreate the same design and functionalities of the Spotify app with Friends Activity and Player.</p>
+
+  <br/>
+  In the beginning of the project, I want to make a Spotify clone and the required project was to make only some functionalities like favorite/unfavorite, with some restrictions about apresentation to the client, consume data from api and show in the page using React Life-Cycle.
+  So talking about the aesthetic side, it's a free choice and I want to go beyond and recreate the same design and functionalities of the Spotify app with Friends Activity and Player.
+
 </details>
 
 <details>
   <summary><strong>Goals:</strong></summary>
-  <p>[0/20] - Remove the max of code smells until date 05/18.</p>
+
+  &nbsp; - [ ] [0/20] - Remove the max of code smells until date 05/18.
+
 </details>
 
 <details>
   <summary><strong>Skills:</strong></summary>
-  <p>- Make requisitions and consume data provided by iTunes API;</p>
-  <p>- Use React Component Life-Cycle;</p>
-  <p>- Control states;</p>
-  <p>- Use route control with BrowserRouter;</p>
-  <p>- Create routes and map the correct path;</p>
-  <p>- Make persistent components to be showed in screen with Switch;</p>
-  <p>- React-Redux to store in global storage;</p>
-  <p>- Integration between app without Redux and implement Redux.</p>
+
+  &nbsp; - Make requisitions and consume data provided by iTunes API;\
+  &nbsp; - Use React Component Life-Cycle;\
+  &nbsp; - Control states;\
+  &nbsp; - Use route control with BrowserRouter;\
+  &nbsp; - Create routes and map the correct path;\
+  &nbsp; - Make persistent components to be showed in screen with Switch;\
+  &nbsp; - React-Redux to store in global storage;\
+  &nbsp; - Integration between app without Redux and implement Redux.
+
 </details>
 
 <details>
   <summary><strong>Challenges:</strong></summary>
-  <p>- Make persistent components in Desktop, optimize for Mobile and Tablet Screens;</p>
-  <p>- Begin integration with Redux, because when I started the project I hadn't the knowledge about Redux or Context API;</p>
-  <p>- UI Alignment in Album filters with listed songs in Album and Favorite routes, because they use the same component;</p>
-  <p>- Progress bar/volume bar, very difficult and it's not 100% optmized(CSS Optimization for Chrome only);</p>
-  <p>- Remove keyboard from screen;</p>
-  <p>- I didn't found a way to make a function to Zoom Out after trigger Input in mobile screens, so I used minimum requirements for some Browsers to not trigger;</p>
-  <p>- CORS errors and was the last thing I solved.</p>
+
+  &nbsp; - Make persistent components in Desktop, optimize for Mobile and Tablet Screens;\
+  &nbsp; - Begin integration with Redux, because when I started the project I hadn't the knowledge about Redux or Context API;\
+  &nbsp; - UI Alignment in Album filters with listed songs in Album and Favorite routes, because they use the same component;\
+  &nbsp; - Progress bar/volume bar, very difficult and it's not 100% optmized(CSS Optimization for Chrome only);\
+  &nbsp; - Remove keyboard from screen;\
+  &nbsp; - I didn't found a way to make a function to Zoom Out after trigger Input in mobile screens, so I used minimum requirements for some Browsers to not trigger;\
+  &nbsp; - CORS errors and was the last thing I solved.
+
 </details>
 
 <details>
   <summary><strong>Files provided by Trybe:</strong></summary>
-  <p>src/services/</p>
-  <p>&nbsp;&nbsp;&nbsp; ↳ favoriteSongsAPI.js</p>
-  <p>&nbsp;&nbsp;&nbsp; ↳ musicsAPI.js</p>
-  <p>&nbsp;&nbsp;&nbsp; ↳ userAPI.js</p>
+
+  &nbsp; src/services/\
+  &nbsp; &nbsp;&nbsp;&nbsp; ↳ favoriteSongsAPI.js\
+  &nbsp; &nbsp;&nbsp;&nbsp; ↳ musicsAPI.js\
+  &nbsp; &nbsp;&nbsp;&nbsp; ↳ userAPI.js
+
 </details>
 
 <details>
   <summary><strong>Change logs:</strong></summary>
-  <a href="https://github.com/byneur4l/neur4l.fy/tree/master/changelogs" target="_blank" rel="noopener noreferrer">- Click here to be redirected to changelogs.</a>
+
+  [&nbsp; - Click here to be redirected to changelogs.](https://github.com/byneur4l/neur4l.fy/tree/master/changelogs)
+
 </details>
 
 ___
