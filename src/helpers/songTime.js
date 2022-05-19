@@ -3,8 +3,7 @@ const SIXTY = 60;
 
 export const convertMillsToMin = (ms) => {
   const minutes = ((ms / THOUSAND) / SIXTY);
-  const minutesHouse = Math.trunc(minutes);
-  return minutesHouse;
+  return Math.trunc(minutes);
 };
 
 export const convertMillsToSeconds = (ms) => {
