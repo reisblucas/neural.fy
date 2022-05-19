@@ -117,14 +117,10 @@ class Album extends Component {
 
   async fetchFavoriteSongs() {
     const favorites = await getFavoriteSongs();
-    const idFavoriteSongs = favorites.map(({ trackId }) => trackId);
-    return idFavoriteSongs;
+    return favorites.map(({ trackId }) => trackId);
   }
 
-  filterChecked(arr, id2) {
-    const filtered = arr.filter((musicId) => musicId !== id2);
-    return filtered;
-  }
+  filterChecked(arr, id2) { return arr.filter((musicId) => musicId !== id2); }
 
   render() {
     const { album: { artistName }, isLoading, colors } = this.state;
