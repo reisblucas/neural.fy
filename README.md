@@ -7,7 +7,7 @@
 </div>
 
 ## Project Overview:
-- [SonarCloud](https://sonarcloud.io/project/overview?id=byneur4l_neur4l.fy);
+- [SonarCloud](https://sonarcloud.io/project/overview?id=byneur4l_neur4l.fy)
 
 ## Getting started:
 1. Access [neur4l.fy](https://neuralfy.vercel.app/);
