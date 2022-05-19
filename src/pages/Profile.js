@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import FooterComplete from '../components/footer/FooterComplete';
 import Loading from '../components/Loading';
+import ProfilePicture from '../components/profile/ProfilePicture';
 import iphoneMaxWidth from '../helpers/screen/iphoneMaxWidth';
 import vw from '../helpers/screen/vw';
 import { getUser } from '../services/userAPI';
@@ -19,10 +20,6 @@ class Profile extends Component {
 
   componentDidMount() {
     this.fetchUser();
-  }
-
-  componentWillUnmount() {
-    this.setState = () => {};
   }
 
   handleLoad = (user) => {
@@ -49,28 +46,7 @@ class Profile extends Component {
               <section data-testid="page-profile" className="pageProfile  patternPages">
                 <h1 className="titlePage">Profile page</h1>
 
-                <div className="divProfilePicture">
-
-                  {
-                    image.length > 1
-                      ? (
-                        <img
-                          src={ image }
-                          alt="Profile"
-                          className="profilePicture"
-                          data-testid="profile-image"
-                        />
-                      )
-                      : (
-                        <img
-                          src="https://i.pinimg.com/474x/86/0d/cd/860dcdf5cd536bfd86d8fc86efdbdd18.jpg"
-                          alt="Profile"
-                          className="profilePicture"
-                          data-testid="profile-image"
-                        />
-                      )
-                  }
-                </div>
+                <ProfilePicture image={ image } />
 
                 <div className="cardProfile">
 
