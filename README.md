@@ -205,7 +205,7 @@ ___
 <details>
   <summary><strong>Change logs:</strong></summary>
 
-  [&nbsp; - Click here to be redirected to changelogs.](https://github.com/byneur4l/neur4l.fy/tree/master/changelogs)
+  [&nbsp; - Changelogs(folder ./changelogs).](https://github.com/byneur4l/neur4l.fy/tree/master/changelogs)
 
 </details>
 
