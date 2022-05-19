@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Loading from '../components/Loading';
 import MusicCard from '../components/MusicCard';
-import getSongs from '../services/getSongs';
+import getSongsAPI from '../services/getSongsAPI';
 import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import '../styles/album.css';
 import AlbumHeader from '../components/AlbumHeader';
@@ -112,7 +112,7 @@ class Album extends Component {
 
   async fetchMusic() {
     const { match: { params: { id } } } = this.props;
-    return getSongs(id);
+    return getSongsAPI(id);
   }
 
   async fetchFavoriteSongs() {

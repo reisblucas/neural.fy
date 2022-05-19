@@ -197,7 +197,7 @@ ___
 
   &nbsp; src/services/\
   &nbsp; &nbsp;&nbsp;&nbsp; ↳ favoriteSongsAPI.js\
-  &nbsp; &nbsp;&nbsp;&nbsp; ↳ musicsAPI.js\
+  &nbsp; &nbsp;&nbsp;&nbsp; ↳ getSongsAPI.js\
   &nbsp; &nbsp;&nbsp;&nbsp; ↳ userAPI.js
 
 </details>
