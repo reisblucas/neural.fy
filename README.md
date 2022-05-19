@@ -11,14 +11,15 @@
 
 ## Getting started:
 1. Access [neur4l.fy](https://neuralfy.vercel.app/);
-2. Type your name or at least three characters in Login and Password;
+2. Type your name or at least *__three characters__* in Login and Password;
 3. Type the artist name in Search field;
 4. Discover my application.
 
 ### If you want to clone and test locally:
 1. Clone the repository using SSH;
-2. Via CLI Terminal, access the folder where you cloned the repository and type __**npm i**__ in the terminal;
-3. __**npm start**__.
+2. Via CLI Terminal, access the folder where you cloned the repository and type `npm i` in the terminal;
+3. `npm start`.
+4. Open your browser with localhost:3000 as URL!
 
 ## Built with:
 &nbsp;- [ReactJS](https://reactjs.org/);\
