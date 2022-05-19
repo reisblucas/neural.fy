@@ -13,9 +13,9 @@ export const convertMillsToSeconds = (ms) => {
   const TEN = 10;
   if (secondsHouse < TEN) {
     const verifier = [0, secondsHouse];
-    return +verifier.join('');
+    return verifier.join('');
   }
-  return secondsHouse;
+  return `${secondsHouse}`;
 };
 
 export const totalAlbumTime = (tracks) => {
