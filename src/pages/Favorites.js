@@ -49,7 +49,6 @@ class Favorites extends Component {
   async handleCheck(artist, id) {
     const { checkedAndFavorite } = this.state;
     if (checkedAndFavorite.includes(id)) {
-      // this.handleLoad();
       await removeSong(artist);
 
       await this.getFavoriteAndRemoveFromList();
@@ -74,10 +73,7 @@ class Favorites extends Component {
     this.setState({ colors: arr });
   }
 
-  filterChecked(arr, id2) {
-    const filtered = arr.filter((musicId) => musicId !== id2);
-    return filtered;
-  }
+  filterChecked(arr, id2) { return arr.filter((musicId) => musicId !== id2); }
 
   async favoriteHeader() {
     const { saveAlbumName } = this.props;
