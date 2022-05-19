@@ -41,8 +41,10 @@
 </div>
 
 1. Search albums using the artist name;
-2. Artist exists? -> Return results in page  | Else -> Return 'No results found for "your input search".';
-3. Results will be rendered in the screen.
+2. Artist exists?\
+&nbsp;&nbsp; Yes → Return results in page.\
+&nbsp;&nbsp; No → Return 'No results found for "your input search".'
+3. Result will be rendered in the screen.
 
 ___
 
