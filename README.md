@@ -151,18 +151,18 @@ ___
 ___
 
 <details>
-  <summary><h4>Project story:</h4></summary>
+  <summary><strong>Project story:</strong></summary>
   <p>In the beginning of the project, I want to make a Spotify clone and the required project was to make only some functionalities like favorite/unfavorite, with some restrictions about apresentation to the client, consume data from api and show in the page using React Life-Cycle.
   So talking about the aesthetic side, it's a free choice and I want to go beyond and recreate the same design and functionalities of the Spotify app with Friends Activity and Player.</p>
 </details>
 
 <details>
-  <summary><h4>Goals:</h4></summary>
+  <summary><strong>Goals:</strong></summary>
   <p>[0/20] - Remove the max of code smells until date 05/18.</p>
 </details>
 
 <details>
-  <summary><h4>Skills:</h4></summary>
+  <summary><strong>Skills:</strong></summary>
   <p>- Make requisitions and consume data provided by iTunes API;</p>
   <p>- Use React Component Life-Cycle;</p>
   <p>- Control states;</p>
@@ -174,7 +174,7 @@ ___
 </details>
 
 <details>
-  <summary><h4>Challenges:</h4></summary>
+  <summary><strong>Challenges:</strong></summary>
   <p>- Make persistent components in Desktop, optimize for Mobile and Tablet Screens;</p>
   <p>- Begin integration with Redux, because when I started the project I hadn't the knowledge about Redux or Context API;</p>
   <p>- UI Alignment in Album filters with listed songs in Album and Favorite routes, because they use the same component;</p>
@@ -185,7 +185,7 @@ ___
 </details>
 
 <details>
-  <summary><h4>Files provided by Trybe:</h4></summary>
+  <summary><strong>Files provided by Trybe:</strong></summary>
   <p>src/services/</p>
   <p>&nbsp;&nbsp;&nbsp; ↳ favoriteSongsAPI.js</p>
   <p>&nbsp;&nbsp;&nbsp; ↳ musicsAPI.js</p>
@@ -193,7 +193,7 @@ ___
 </details>
 
 <details>
-  <summary><h4>Change logs:</h4></summary>
+  <summary><strong>Change logs:</strong></summary>
   <a href="https://github.com/byneur4l/neur4l.fy/tree/master/changelogs" target="_blank" rel="noopener noreferrer">- Click here to be redirected to changelogs.</a>
 </details>
 
