@@ -161,7 +161,7 @@ ___
 <details>
   <summary><strong>Goals:</strong></summary>
 
-  - [ ] [0/20] - Remove the max of code smells until date 05/18.
+  - [X] [20/20] - Remove the max of code smells until date 05/18. (Fullfilled 05/19)
 
 </details>
 
