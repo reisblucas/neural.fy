@@ -7,6 +7,7 @@ import { createUser } from '../services/userAPI';
 import SpotifyLogo from '../images/spotify-logo-login-color.svg';
 import LoadingLogin from '../components/LoadingLogin';
 import FooterComplete from '../components/footer/FooterComplete';
+import LoginButton from '../components/login/LoginButton';
 
 class Login extends Component {
   constructor() {
@@ -60,6 +61,15 @@ class Login extends Component {
     });
   }
 
+  async loginUser(e) {
+    e.preventDefault();
+    const defaultImg = 'https://i.pinimg.com/474x/86/0d/cd/860dcdf5cd536bfd86d8fc86efdbdd18.jpg';
+
+    this.setState({ isLoading: true });
+    await createUser({ name: inputLogin, image: defaultImg });
+    this.setState({ isLoading: false, authorized: true });
+  }
+
   render() {
     const {
       inputLogin,
@@ -69,7 +79,6 @@ class Login extends Component {
       authorized,
     } = this.state;
 
-    const defaultImg = 'https://i.pinimg.com/474x/86/0d/cd/860dcdf5cd536bfd86d8fc86efdbdd18.jpg';
     const neuralLogo = '<n4/>';
 
     return (
@@ -113,37 +122,10 @@ class Login extends Component {
                   value={ inputPassword }
                 />
 
-                {
-                  isSubmitBttIsDisabled
-                    ? (
-                      <Input
-                        id="loginSubmitButton"
-                        className="loginSubmitButton loginSubmitButtonDisabled"
-                        data-testid="login-submit-button"
-                        disabled={ isSubmitBttIsDisabled }
-                        name="loginSubmitButton"
-                        type="submit"
-                        value="Sign in"
-                      />
-                    )
-                    : (
-                      <Input
-                        id="loginSubmitButton"
-                        className="loginSubmitButton loginSubmitButtonEnabled"
-                        data-testid="login-submit-button"
-                        disabled={ isSubmitBttIsDisabled }
-                        name="loginSubmitButton"
-                        type="submit"
-                        value="Sign in"
-                        onClick={ async (e) => {
-                          e.preventDefault();
-                          this.setState({ isLoading: true });
-                          await createUser({ name: inputLogin, image: defaultImg });
-                          this.setState({ isLoading: false, authorized: true });
-                        } }
-                      />
-                    )
-                }
+                <LoginButton
+                  isSubmitBttIsDisabled={ isSubmitBttIsDisabled }
+                  loginUser={ this.loginUser }
+                />
 
                 {
                   authorized && <Redirect to="/search" />
