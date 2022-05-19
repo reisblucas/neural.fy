@@ -153,7 +153,6 @@ ___
 <details>
   <summary><strong>Project story:</strong></summary>
 
-  <br/>
   In the beginning of the project, I want to make a Spotify clone and the required project was to make only some functionalities like favorite/unfavorite, with some restrictions about apresentation to the client, consume data from api and show in the page using React Life-Cycle.
   So talking about the aesthetic side, it's a free choice and I want to go beyond and recreate the same design and functionalities of the Spotify app with Friends Activity and Player.
 
@@ -162,7 +161,7 @@ ___
 <details>
   <summary><strong>Goals:</strong></summary>
 
-  &nbsp; - [ ] [0/20] - Remove the max of code smells until date 05/18.
+  - [ ] [0/20] - Remove the max of code smells until date 05/18.
 
 </details>
 
