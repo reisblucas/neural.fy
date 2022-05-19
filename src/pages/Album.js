@@ -86,9 +86,7 @@ class Album extends Component {
       // bool
       const filter = this.filterChecked(checkedAndFavorite, id); // dentro do setState novo
 
-      // this.handleLoad();
       await removeSong(artist);
-      // this.handleLoad(); // poderei tirar esse loading daqui
 
       this.setState({
         checkedAndFavorite: filter,
@@ -97,9 +95,7 @@ class Album extends Component {
       const favorites = await getFavoriteSongs();
       saveFavoriteMusics(favorites);
     } else {
-      // this.handleLoad();
       await addSong(artist);
-      // this.handleLoad();
 
       this.setState((prevState) => ({
         checkedAndFavorite: [...prevState.checkedAndFavorite, id],
@@ -116,8 +112,7 @@ class Album extends Component {
 
   async fetchMusic() {
     const { match: { params: { id } } } = this.props;
-    const search = await getMusics(id);
-    return search;
+    return getMusics(id);
   }
 
   async fetchFavoriteSongs() {
