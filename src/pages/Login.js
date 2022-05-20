@@ -15,6 +15,7 @@ class Login extends Component {
 
     this.handleChanges = this.handleChanges.bind(this);
     this.handleEffects = this.handleEffects.bind(this);
+    this.loginUser = this.loginUser.bind(this);
 
     this.state = {
       inputLogin: '',
@@ -61,12 +62,13 @@ class Login extends Component {
     });
   }
 
-  async loginUser(e) {
+  loginUser(e) {
     e.preventDefault();
+    const { inputLogin } = this.state;
     const defaultImg = 'https://i.pinimg.com/474x/86/0d/cd/860dcdf5cd536bfd86d8fc86efdbdd18.jpg';
 
     this.setState({ isLoading: true });
-    await createUser({ name: inputLogin, image: defaultImg });
+    createUser({ name: inputLogin, image: defaultImg });
     this.setState({ isLoading: false, authorized: true });
   }
 
