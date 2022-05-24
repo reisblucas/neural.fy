@@ -4,6 +4,10 @@
     font-size: 16px ! important;
     width: auto ! important;
   }
+
+  .labelInputSearch {
+    padding: 8px ! important;
+  }
 }
 
 @media only screen and ( min-width : 950px ) and ( max-width : 975px ) {
