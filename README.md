@@ -145,7 +145,6 @@ ___
 </div>
 
 - Delay when favorite button is clicked inside Album(promise in usersAPI is a main cause);
-- Shuffle not working correctly in favorites page locally.
 - When is on the last song in that collection and 30s is fullfiled, next song is the second in that collection.
 
 ___
