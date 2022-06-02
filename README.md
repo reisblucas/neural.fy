@@ -15,6 +15,9 @@
 3. Type the artist name in Search field;
 4. Discover my application.
 
+### VS Code environment in your browser:
+&nbsp;- Press ` . ` in your keyboard.
+
 ### If you want to clone and test locally:
 1. Clone the repository using SSH;
 2. Via CLI Terminal, access the folder where you cloned the repository and type `npm i` in the terminal;
@@ -204,7 +207,7 @@ ___
 <details>
   <summary><strong>Change logs:</strong></summary>
 
-  [&nbsp; - Changelogs(folder ./changelogs).](https://github.com/byneur4l/neur4l.fy/tree/master/changelogs)
+  [&nbsp; - Redirects to folder: `./changelogs` in this repo.](https://github.com/byneur4l/neur4l.fy/tree/master/changelogs)
 
 </details>
 
