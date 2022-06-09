@@ -7,6 +7,7 @@
 </div>
 
 ## Project Overview:
+- **_Use Chrome browser to open the project!_**
 - [SonarCloud](https://sonarcloud.io/project/overview?id=byneur4l_neur4l.fy)
 
 ## Getting started:
