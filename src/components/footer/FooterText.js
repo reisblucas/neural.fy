@@ -8,7 +8,7 @@ function FooterText({ classNameFoot }) {
       <p
         className="copyright-t"
       >
-        &copy; 2022 Spotify AB and neur4l.
+        &copy; 2022 Spotify AB and reisblucas.
       </p>
       <p className="copyright-t">All rights reserved.</p>
     </footer>

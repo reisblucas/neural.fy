@@ -16,7 +16,7 @@ function FooterComplete() {
       <p
         className="copyright-p"
       >
-        &copy; 2022 Spotify AB and neur4l.
+        &copy; 2022 Spotify AB and reisblucas.
       </p>
       <p className="copyright-p">All rights reserved.</p>
     </footer>
