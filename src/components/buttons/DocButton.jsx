@@ -4,7 +4,7 @@ import { IoDocumentTextSharp } from 'react-icons/io5';
 function DocButton() {
   return (
     <a
-      href="https://github.com/byneur4l/neur4l.fy"
+      href="https://github.com/reisblucas/neural.fy"
       target="_blank"
       rel="noopener noreferrer"
       className="cpb gh-in pbr"
