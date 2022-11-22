@@ -103,7 +103,7 @@ ___
 5. Set the time on progress bar.
 
 #### Rightside:
-1. Github icon: redirects to my [Github](https://github.com/byneur4l);
+1. Github icon: redirects to my [Github](https://github.com/reisblucas);
 2. Linkedin icon: redirects to my [Linkedin](https://www.linkedin.com/in/reisblucas/);
 3. Paper icon: redirects to this current documentation.
 
@@ -208,7 +208,7 @@ ___
 <details>
   <summary><strong>Change logs:</strong></summary>
 
-  [&nbsp; - Redirects to folder: `./changelogs` in this repo.](https://github.com/byneur4l/neur4l.fy/tree/master/changelogs)
+  [&nbsp; - Redirects to folder: `./changelogs` in this repo.](https://github.com/reisblucas/neural.fy/tree/master/changelogs)
 
 </details>
 
