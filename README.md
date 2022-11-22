@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>n4.fy</h1>
+  <h1>neural.fy</h1>
 </div>
 
 <div align="center">
@@ -11,7 +11,7 @@
 - [SonarCloud](https://sonarcloud.io/project/overview?id=byneur4l_neur4l.fy)
 
 ## Getting started:
-1. Access [n4.fy](https://neuralfy.vercel.app/);
+1. Access [neural.fy](https://neuralfy.vercel.app/);
 2. Type your name or at least *__three characters__* in Login and Password;
 3. Type the artist name in Search field;
 4. Discover my application.
