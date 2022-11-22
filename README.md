@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>neur4l.fy</h1>
+  <h1>n4.fy</h1>
 </div>
 
 <div align="center">
@@ -11,7 +11,7 @@
 - [SonarCloud](https://sonarcloud.io/project/overview?id=byneur4l_neur4l.fy)
 
 ## Getting started:
-1. Access [neur4l.fy](https://neuralfy.vercel.app/);
+1. Access [n4.fy](https://neuralfy.vercel.app/);
 2. Type your name or at least *__three characters__* in Login and Password;
 3. Type the artist name in Search field;
 4. Discover my application.
@@ -217,5 +217,5 @@ ___
 <div align="center">
   <p>Project started on the day 14/02/2022 while student at Trybe and optimized in my spare time!</p>
   <p>:rocket::green_heart:</p>
-  <p>neur4l ©</p>
+  <p>reisblucas ©</p>
 </div>
