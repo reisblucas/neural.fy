@@ -13,44 +13,43 @@ class ButtonPlay extends Component {
       handlePlayIcon,
       handlePauseIcon,
       played: { name },
-      musicsToPlayer: { played: { status: songGlobStatus } },
+      musicsToPlayer: {
+        played: { status: songGlobStatus },
+      },
     } = this.props;
 
     return (
       <div className="divTrackNumber">
+        {name === previewUrl && songGlobStatus ? (
+          <img
+            className="tp-icon"
+            src="/musicPlayed.svg"
+            alt="Actual music played icon"
+          />
+        ) : (
+          <p className="trackNumber font-link">{i + 1}</p>
+        )}
 
-        {
-          name === previewUrl && songGlobStatus
-            ? (
-              <img className="tp-icon" src="https://open.scdn.co/cdn/images/equaliser-green.1184ed87.svg" alt="Actual music played icon" />
-            )
-            : <p className="trackNumber font-link">{ i + 1 }</p>
-        }
-
-        <label htmlFor={ previewUrl }>
-          {
-            (name === previewUrl) && (songGlobStatus)
-              ? (
-                <GiPauseButton
-                  name={ previewUrl }
-                  className="focusable trackPlayIcon fs-15"
-                  onClick={ (e) => {
-                    handlePauseIcon(e);
-                    playAudio(e);
-                  } }
-                />
-              )
-              : (
-                <IoPlaySharp
-                  name={ previewUrl }
-                  className="focusable trackPlayIcon"
-                  onClick={ (e) => {
-                    handlePlayIcon(e);
-                    playAudio(e);
-                  } }
-                />
-              )
-          }
+        <label htmlFor={previewUrl}>
+          {name === previewUrl && songGlobStatus ? (
+            <GiPauseButton
+              name={previewUrl}
+              className="focusable trackPlayIcon fs-15"
+              onClick={(e) => {
+                handlePauseIcon(e);
+                playAudio(e);
+              }}
+            />
+          ) : (
+            <IoPlaySharp
+              name={previewUrl}
+              className="focusable trackPlayIcon"
+              onClick={(e) => {
+                handlePlayIcon(e);
+                playAudio(e);
+              }}
+            />
+          )}
         </label>
       </div>
     );
