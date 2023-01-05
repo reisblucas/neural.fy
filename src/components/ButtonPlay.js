@@ -30,24 +30,24 @@ class ButtonPlay extends Component {
           <p className="trackNumber font-link">{i + 1}</p>
         )}
 
-        <label htmlFor={previewUrl}>
+        <label htmlFor={ previewUrl }>
           {name === previewUrl && songGlobStatus ? (
             <GiPauseButton
-              name={previewUrl}
+              name={ previewUrl }
               className="focusable trackPlayIcon fs-15"
-              onClick={(e) => {
+              onClick={ (e) => {
                 handlePauseIcon(e);
                 playAudio(e);
-              }}
+              } }
             />
           ) : (
             <IoPlaySharp
-              name={previewUrl}
+              name={ previewUrl }
               className="focusable trackPlayIcon"
-              onClick={(e) => {
+              onClick={ (e) => {
                 handlePlayIcon(e);
                 playAudio(e);
-              }}
+              } }
             />
           )}
         </label>
